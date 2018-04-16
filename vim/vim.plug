@@ -1,0 +1,36 @@
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+
+call plug#begin('~/.vim/plugged')
+"
+" airline
+Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+  " airline git 显示
+ Plug 'tpope/vim-fugitive'
+
+let g:airline_powerline_fonts = 1 
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#disable_rtp_load = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c' ],
+      \ [ 'x', 'y', 'z', 'error', ]
+      \ ]
+let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
+
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#branch#vcs_priority = ["git",]
+let g:airline#extensions#branch#format = 1
+
+
+
+
+" Initialize plugin system
+call plug#end()
