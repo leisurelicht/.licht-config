@@ -59,6 +59,8 @@ au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
+" Vim内操作Git
+Plug 'tpope/vim-fugitive'
 
 " Initialize plugin system
 call plug#end()
