@@ -94,5 +94,11 @@ let g:NERDSpaceDelims=1
 " markdown
 Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 
+" fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+let g:fzf_command_prefix = 'Fzf'
+
 " Initialize plugin system
 call plug#end()

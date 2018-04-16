@@ -4,22 +4,22 @@
 
 ## 基础配置
 
-    1. 安装brew和brew cask
+1. 安装brew和brew cask
     
-    2. 安装iterm2
+2. 安装iterm2
 
         brew cask install iterm2
 
-    3. 安装zsh并设置默认shell为zsh
+3. 安装zsh并设置默认shell为zsh
 	
         brew install zsh
         chsh -s /bin/zsh
 
 	重启iterm
 
-    4. 安装oh-my-zsh主题
+4. 安装oh-my-zsh主题
 
-    5. 安装Powerline fonts
+5. 安装Powerline fonts
 	
 	iterm2 设置字体和符号都为Hack
     
@@ -33,6 +33,9 @@
     vim
     git
     tig
+    ctags
+    fzf
+    ag
 
 ## brew cask 安装的软件
 
@@ -45,16 +48,36 @@
 
 ## vim配置
 
+* vimrc 
+
+        ln -s ~/.config_file/vim/vimrc ~/.vimrc
+
+* plug.vim
+
+        第三方插件配置文件
+
+* conf.vim
+
+        vim配置文件
+
+* func.vim
+
+        自定义的vim函数
+
 ## zsh配置
 
-    1. oh-my-zsh 插件
+* zshrc
+
+        ln -s ~/.config_file/zsh/zshrc ~/.zshrc
+
+* oh-my-zsh 插件
 
         autojump
         zsh-syntax-highlighting
 
-    2. aliasrc文件
+* aliasrc文件
 
-	填写所有的alias配置
+	    填写所有的alias配置
 
 ## tmux配置
 
