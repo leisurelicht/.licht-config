@@ -1,9 +1,9 @@
     
 " vim 插件配置文件
-source ~/.config_file/vim/vim.plug
+source ~/.config_file/vim/plug.vim
 
 " vim 参数配置文件
-source ~/.config_file/vim/vim.conf
+source ~/.config_file/vim/conf.vim
 
 " vim 函数
 source ~/.config_file/vim/func.vim
