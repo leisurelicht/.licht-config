@@ -111,3 +111,8 @@ alias fzf='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a 
 export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+#Go
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$GOROOT/go
+export PATH=$PATH:$GOPATH/bin

@@ -133,6 +133,8 @@ let g:autopep8_max_line_length=79
 Plug 'maralla/completor.vim'
 
 let g:completor_python_binary = '/usr/local/bin/python3'
+let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
@@ -141,7 +143,6 @@ inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<C
 " 参数提示
 Plug 'tenfyzhong/CompleteParameter.vim'
 
-"Completeparameter
 inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
@@ -156,6 +157,9 @@ let g:jedi#goto_assignments_command = "<leader>d"
 let g:jedi#goto_definitions_command = ""
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#use_splits_not_buffers = "bottom"
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 " Initialize plugin system
 call plug#end()

@@ -36,6 +36,7 @@
     ctags
     fzf
     ag
+    go
 
 ## brew cask 安装的软件
 
