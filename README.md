@@ -43,6 +43,10 @@
         autojump
         zsh-syntax-highlighting
 
+    2. aliasrc文件
+
+	填写所有的alias配置
+
 ## tmux配置
 
 
