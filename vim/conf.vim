@@ -81,7 +81,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.go,*.html,*.js match BadWhitespace /\
 " 空格配置
 au FileType python
       \ set fileformat=unix |
-      \ set colorcolumn=128
+      \ set colorcolumn=79
 au FileType javascript,html,css,vim
       \ set fileformat=unix |
       \ set tabstop=2 |
