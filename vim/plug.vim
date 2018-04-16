@@ -87,6 +87,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 
 " 注释
 Plug 'scrooloose/nerdcommenter'
+
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDSpaceDelims=1
@@ -99,6 +100,11 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
+
+" Python语法高亮
+Plug 'vim-python/python-syntax' , {'for': 'python'}
+
+let g:python_highlight_all = 1
 
 " Initialize plugin system
 call plug#end()
