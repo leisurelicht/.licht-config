@@ -35,6 +35,30 @@ Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go']}
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
 
+" NerdTree
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+ Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
+ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+
+" NerdTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:NERDTreeShowLineNumbers = 1
+let NERDTreeShowBookmarks=1
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+au StdinReadPre * let s:std_in=1
+au vimenter * if !argc() | NERDTree |
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+
 
 " Initialize plugin system
 call plug#end()
