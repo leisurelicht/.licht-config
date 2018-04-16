@@ -8,5 +8,49 @@ source ~/.config_file/vim/conf.vim
 " vim 函数
 source ~/.config_file/vim/func.vim
 
+" ----- 快捷键配置 -----
+"
+" 强制保存
+cmap w!! w !sudo tee > /dev/null %
+
+" 代码折叠快捷键
+nnoremap <SPACE> za
+
+" 一键大写
+:imap <C-U> <ESC>viwUea
+
+" 用双引号包裹单词
+nnoremap <LEADER>" viw<ESC>a"<ESC>hbi"<ESC>lel
+nnoremap <LEADER>' viw<ESC>a'<ESC>hbi'<ESC>lel
+
+" 窗口切换组合快捷键
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" 创建新的标签页
+nnoremap <C-T>     :tabnew<CR>
+inoremap <C-T> <Esc>:tabnew<CR>
+
+" FZF
+nnoremap <C-p> :FzfGFiles<CR>
+nnoremap <leader><TAB> :FzfCommands<CR>
+nnoremap <leader>t :FzfTags<CR>
+nnoremap <leader>ff :FzfBuffers<CR>
+command! -bang -nargs=? -complete=dir FzfGFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+"nnoremap <F2> :Dash<CR>
+nnoremap <F3> :set nu!<CR>
+nnoremap <F4> :NERDTreeToggle<CR>
+nnoremap <F5> :TagbarToggle<CR>
+nnoremap <F6> :UndotreeToggle<CR>
+au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
+au FileType python noremap <buffer> <F10> :PymodeLintAuto<CR>
+cmap w!! w !sudo tee > /dev/null %
+
+
+
 " 自动生效
 autocmd! BufWritePost .vimrc source %
