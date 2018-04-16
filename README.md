@@ -30,6 +30,13 @@
     zsh
     wget
     autojump
+    vim
+
+## brew cask 安装的软件
+
+    iterm2
+    java
+    shadowsockesx
 
 
 
