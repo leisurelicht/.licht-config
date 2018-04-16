@@ -29,7 +29,11 @@ let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#vcs_priority = ["git",]
 let g:airline#extensions#branch#format = 1
 
+" 缩进指示线
+Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go']}
 
+let g:indentLine_color_term = 239
+let g:indentLine_char = '│'
 
 
 " Initialize plugin system
