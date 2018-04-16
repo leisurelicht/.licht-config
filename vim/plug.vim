@@ -129,5 +129,33 @@ let g:ale_linter = {
 let g:autopep8_disable_show_diff=1
 let g:autopep8_max_line_length=79
 
+" 代码补全
+Plug 'maralla/completor.vim'
+
+let g:completor_python_binary = '/usr/local/bin/python3'
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+
+" 参数提示
+Plug 'tenfyzhong/CompleteParameter.vim'
+
+"Completeparameter
+inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-k> <Plug>(complete_parameter#goto_previous_parameter))
+
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" jedi-vim
+let g:jedi#completions_enabled = 0
+let g:jedi#goto_command = "<leader>g"
+let g:jedi#goto_assignments_command = "<leader>d"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#use_splits_not_buffers = "bottom"
+
 " Initialize plugin system
 call plug#end()
