@@ -47,7 +47,7 @@ nnoremap <F4> :NERDTreeToggle<CR>
 nnoremap <F5> :TagbarToggle<CR>
 nnoremap <F6> :UndotreeToggle<CR>
 au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
-au FileType python noremap <buffer> <F10> :PymodeLintAuto<CR>
+au FileType python noremap <buffer> <F10> :Autopep8 <CR>
 cmap w!! w !sudo tee > /dev/null %
 
 

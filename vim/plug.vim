@@ -106,5 +106,28 @@ Plug 'vim-python/python-syntax' , {'for': 'python'}
 
 let g:python_highlight_all = 1
 
+" ale
+Plug 'w0rp/ale'
+ Plug 'tell-k/vim-autopep8', {'for': 'python'}
+
+" ale
+let g:ale_lint_on_enter = 1
+let g:ale_sign_column_always = 0
+let g:ale_sign_error = '😡'
+let g:ale_sign_warning = '😢'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
+let g:ale_linter = { 
+      \ 'python': ['autopep8', 'pylint',], 
+      \ 'Dockerfile':['hadolint'],
+      \ 'go': ['gofmt']
+      \ }
+
+" pep8
+let g:autopep8_disable_show_diff=1
+let g:autopep8_max_line_length=79
+
 " Initialize plugin system
 call plug#end()
