@@ -116,3 +116,16 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$GOROOT/go
 export PATH=$PATH:$GOPATH/bin
+
+# 快速恢复后台任务
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
