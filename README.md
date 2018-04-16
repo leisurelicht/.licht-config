@@ -22,15 +22,26 @@
     5. 安装Powerline fonts
 	
 	iterm2 设置字体和符号都为Hack
-        
-	
+    
 
 	
-### brew 安装的软件
+## brew 安装的软件
+
+    zsh
+    wget
+    autojump
+
+
+
 
 ## vim配置
 
 ## zsh配置
+
+    1. oh-my-zsh 插件
+
+        autojump
+        zsh-syntax-highlighting
 
 ## tmux配置
 

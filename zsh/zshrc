@@ -60,7 +60,12 @@ ZSH_THEME="amuse"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  autojump
+  zsh-syntax-highlighting
 )
+
+# autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 source $ZSH/oh-my-zsh.sh
 
