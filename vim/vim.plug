@@ -62,5 +62,14 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType 
 " Vim内操作Git
 Plug 'tpope/vim-fugitive'
 
+" 时光机
+Plug 'mbbill/undotree'
+
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+
 " Initialize plugin system
 call plug#end()
