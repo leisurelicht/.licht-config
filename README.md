@@ -31,6 +31,8 @@
     wget
     autojump
     vim
+    git
+    tig
 
 ## brew cask 安装的软件
 
