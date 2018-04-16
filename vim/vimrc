@@ -1,0 +1,12 @@
+    
+" vim 插件配置文件
+source ~/.config_file/vim/vim.plug
+
+" vim 参数配置文件
+source ~/.config_file/vim/vim.conf
+
+" vim 函数
+source ~/.config_file/vim/func.vim
+
+" 自动生效
+autocmd! BufWritePost .vimrc source %
