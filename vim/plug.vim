@@ -66,12 +66,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'mbbill/undotree'
 
 if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
+  set undodir=~/.undodir/
+  set undofile
 endif
 
 " 文件结构
-"Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
+
+" 多光标
+Plug 'terryma/vim-multiple-cursors'
 
 " 文件变动
 Plug 'mhinz/vim-signify'
@@ -88,6 +91,8 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDSpaceDelims=1
 
+" markdown
+Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
 
 " Initialize plugin system
 call plug#end()
