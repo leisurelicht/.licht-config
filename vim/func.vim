@@ -23,12 +23,12 @@ func! CompileRun()
         exec "!g++ % -o %<"
         exec "! ./%<"
     elseif &filetype == 'go'
-        exec "!time go run %"
+        exec "!go run %"
     elseif &filetype == 'java' 
         exec "!javac %" 
         exec "!java %<"
     elseif &filetype == 'python'
-        exec "!time python3 %"
+        exec "!python %"
     elseif &filetype == 'sh'
         :!./%
     endif
