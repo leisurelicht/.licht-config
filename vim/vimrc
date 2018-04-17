@@ -37,7 +37,7 @@ inoremap <C-T> <Esc>:tabnew<CR>
 nnoremap <C-p> :FzfGFiles<CR>
 nnoremap <leader><TAB> :FzfCommands<CR>
 nnoremap <leader>t :FzfTags<CR>
-nnoremap <leader>ff :FzfBuffers<CR>
+nnoremap <leader>b :FzfBuffers<CR>
 command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
