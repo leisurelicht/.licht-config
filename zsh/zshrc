@@ -112,7 +112,7 @@ export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-#Go
+# Go
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$GOROOT/go
 export PATH=$PATH:$GOPATH/bin
@@ -129,3 +129,6 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+# pyenv 初始化 
+eval "$(pyenv init -)"
