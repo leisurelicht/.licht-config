@@ -162,6 +162,9 @@ let g:jedi#use_splits_not_buffers = "bottom"
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" Python代码缩进
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+
 
 " Initialize plugin system
 call plug#end()
