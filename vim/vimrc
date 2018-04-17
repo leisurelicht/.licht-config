@@ -49,6 +49,7 @@ nnoremap <F3> :set nu!<CR>
 nnoremap <F4> :NERDTreeToggle<CR>
 nnoremap <F5> :TagbarToggle<CR>
 nnoremap <F6> :UndotreeToggle<CR>
+map <F12> :call CompileRun()<CR>
 au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
 au FileType python noremap <buffer> <F10> :Autopep8 <CR>
 
@@ -57,6 +58,26 @@ au FileType python noremap <buffer> <F10> :Autopep8 <CR>
 " python代码重命名 <leader>r
 
 " 多光标 <C-N>
+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 " 自动生效
 autocmd! BufWritePost .vimrc source %

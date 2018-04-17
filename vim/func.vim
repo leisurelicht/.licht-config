@@ -12,3 +12,24 @@ function func#AutoSetFileHead()
     normal G
     normal o
 endfunc
+
+" C，C++,python,java,shell编译运行
+func! CompileRun()
+    exec "w"
+    if &filetype == 'c'
+        exec "!gcc % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "! ./%<"
+    elseif &filetype == 'go'
+        exec "!time go run %"
+    elseif &filetype == 'java' 
+        exec "!javac %" 
+        exec "!java %<"
+    elseif &filetype == 'python'
+        exec "!time python3 %"
+    elseif &filetype == 'sh'
+        :!./%
+    endif
+endfunc
