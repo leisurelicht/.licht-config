@@ -17,6 +17,7 @@ cmap w!! w !sudo tee > /dev/null %
 nnoremap <SPACE> za
 " 全部打开 zi
 " 全部折叠 zm
+" 折叠全部及其嵌套折叠 zM
 
 " 一键大写
 inoremap <C-U> <ESC>viwUea
