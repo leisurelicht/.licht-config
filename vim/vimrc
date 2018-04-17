@@ -15,9 +15,11 @@ cmap w!! w !sudo tee > /dev/null %
 
 " 代码折叠快捷键
 nnoremap <SPACE> za
+" 全部打开 zi
+" 全部折叠 zm
 
 " 一键大写
-:imap <C-U> <ESC>viwUea
+inoremap <C-U> <ESC>viwUea
 
 " 用双引号包裹单词
 nnoremap <LEADER>" viw<ESC>a"<ESC>hbi"<ESC>lel
@@ -32,25 +34,29 @@ nnoremap <C-H> <C-W><C-H>
 " 创建新的标签页
 nnoremap <C-T>     :tabnew<CR>
 inoremap <C-T> <Esc>:tabnew<CR>
+" 下一个标签页 gt
+" 前一个标签页 gT
 
 " FZF
-nnoremap <C-p> :FzfGFiles<CR>
+nnoremap <C-P> :FzfGFiles<CR>
 nnoremap <leader><TAB> :FzfCommands<CR>
 nnoremap <leader>t :FzfTags<CR>
 nnoremap <leader>b :FzfBuffers<CR>
 command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-"nnoremap <F2> :Dash<CR>
 nnoremap <F3> :set nu!<CR>
 nnoremap <F4> :NERDTreeToggle<CR>
 nnoremap <F5> :TagbarToggle<CR>
 nnoremap <F6> :UndotreeToggle<CR>
 au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
 au FileType python noremap <buffer> <F10> :Autopep8 <CR>
-cmap w!! w !sudo tee > /dev/null %
 
+" python代码跳转 <leader>g
+" python代码跳转到声明 <leader>d
+" python代码重命名 <leader>r
 
+" 多光标 <C-N>
 
 " 自动生效
 autocmd! BufWritePost .vimrc source %
