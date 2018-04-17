@@ -27,23 +27,23 @@
 	
 ## brew 安装的软件
 
+    vim --with-lua --with-override-vi
     zsh
     wget
     autojump
-    vim
     git
     tig
     ctags
     fzf
     ag
     go
+    reattach-to-user-namespace
 
 ## brew cask 安装的软件
 
     iterm2
     java
     shadowsockesx
-
 
 
 
