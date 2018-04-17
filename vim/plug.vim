@@ -101,6 +101,8 @@ Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
 
+Plug 'tpope/vim-fugitive'
+
 " Python语法高亮
 Plug 'vim-python/python-syntax' , {'for': 'python'}
 
