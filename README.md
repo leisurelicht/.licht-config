@@ -37,6 +37,9 @@
     fzf
     ag
     go
+    tmux
+    tmate
+    redis
     reattach-to-user-namespace
 
 ## brew cask 安装的软件
