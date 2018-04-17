@@ -46,13 +46,17 @@ nnoremap <leader>b :FzfBuffers<CR>
 command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-nnoremap <F3> :set nu!<CR>
-nnoremap <F4> :NERDTreeToggle<CR>
-nnoremap <F5> :TagbarToggle<CR>
-nnoremap <F6> :UndotreeToggle<CR>
-map <F12> :call CompileRun()<CR>
+" map <F2>
+map <F3> :set nu!<CR>
+map <F4> :NERDTreeToggle<CR>
+map <F5> :TagbarToggle<CR>
+map <F6> :UndotreeToggle<CR>
+" map <F7>
+" map <F8>
+" map <F9>
 au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
 au FileType python noremap <buffer> <F10> :Autopep8 <CR>
+map <F12> :call CompileRun()<CR>
 
 " python代码跳转 <leader>g
 " python代码跳转到声明 <leader>d
