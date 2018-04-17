@@ -137,10 +137,11 @@ Plug 'maralla/completor.vim'
 let g:completor_python_binary = '/usr/local/bin/python3'
 let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
-inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
+" inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+
 
 " 参数提示
 Plug 'tenfyzhong/CompleteParameter.vim'
