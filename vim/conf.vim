@@ -65,7 +65,11 @@ set expandtab
   set tabstop=4
   set softtabstop=4
   set shiftwidth=4
-
+" 代码自动缩进
+set autoindent
+set smartindent
+" 折叠方式
+set foldmethod=indent
 " ----自动动作配置----
 "
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
