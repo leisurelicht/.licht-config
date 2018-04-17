@@ -160,7 +160,7 @@ let g:jedi#goto_definitions_command = ""
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#use_splits_not_buffers = "bottom"
 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 
 " Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
