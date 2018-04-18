@@ -166,6 +166,13 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 " Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
+" 代码格式化框架
+Plug 'Chiel92/vim-autoformat'
+
+" 文件保存时自动调用
+" 需要单独安装格式化工具
+au BufWrite * :Autoformat
+
 
 " Initialize plugin system
 call plug#end()
