@@ -27,29 +27,12 @@
 	
 ## brew 安装的软件
 
-    vim --with-lua --with-override-vi
-    zsh
-    wget
-    autojump
-    git
-    tig
-    ctags
-    fzf
-    ag
-    go
-    tmux
-    tmate
-    redis
-    reattach-to-user-namespace
+    ./install/b_install.json
 
 ## brew cask 安装的软件
-
-    iterm2
-    java
-    shadowsockesx
-
-
-
+    
+    ./install/bc_install.json
+   
 ## vim配置
 
 * vimrc 
@@ -85,6 +68,9 @@
 
 ## tmux配置
 
+* tmux.conf
+
+    ln -s ~/.config_file/zsh/zshrc ~/.zshrc
 
 
 

@@ -1,0 +1,16 @@
+ vim --with-override-vi
+ zsh
+ wget
+ autojump
+ git
+ tig
+ ctags
+ fzf
+ ag
+ go
+ tmux
+ tmate
+ redis
+ reattach-to-user-namespace
+ nmap
+ sqlmap
