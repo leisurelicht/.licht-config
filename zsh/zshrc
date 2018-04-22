@@ -59,9 +59,9 @@ ZSH_THEME="amuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  autojump
-  zsh-syntax-highlighting
+git
+autojump
+zsh-syntax-highlighting
 )
 
 # autojump
@@ -99,7 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [ -e ~/.config_file/zsh/.aliasrc ]; then
-    source ~/.config_file/zsh/.aliasrc
+  source ~/.config_file/zsh/.aliasrc
 fi
 
 # SoftWare Config
@@ -119,16 +119,16 @@ export PATH=$PATH:$GOPATH/bin
 
 # 快速恢复后台任务
 fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
+if [[ $#BUFFER -eq 0 ]]; then
+  BUFFER="fg"
+  zle accept-line
+else
+  zle push-input
+  zle clear-screen
+fi
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-# pyenv 初始化 
+# pyenv 初始化
 eval "$(pyenv init -)"
