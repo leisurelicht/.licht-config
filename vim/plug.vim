@@ -5,11 +5,11 @@ call plug#begin('~/.vim/plugged')
 "
 " airline
 Plug 'vim-airline/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
-  " airline git 显示
- Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline-themes'
+" airline git 显示
+Plug 'tpope/vim-fugitive'
 
-let g:airline_powerline_fonts = 1 
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#disable_rtp_load = 1
 let g:airline#extensions#whitespace#enabled = 0
@@ -37,24 +37,24 @@ let g:indentLine_char = '│'
 
 " NerdTree
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
- Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
- Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " NerdTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDTreeShowLineNumbers = 1
 let NERDTreeShowBookmarks=1
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+      \ "Modified"  : "✹",
+      \ "Staged"    : "✚",
+      \ "Untracked" : "✭",
+      \ "Renamed"   : "➜",
+      \ "Unmerged"  : "═",
+      \ "Deleted"   : "✖",
+      \ "Dirty"     : "✗",
+      \ "Clean"     : "✔︎",
+      \ "Unknown"   : "?"
+      \ }
 au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
@@ -110,19 +110,21 @@ let g:python_highlight_all = 1
 
 " ale
 Plug 'w0rp/ale'
- Plug 'tell-k/vim-autopep8', {'for': 'python'}
+Plug 'tell-k/vim-autopep8', {'for': 'python'}
 
 " ale
-let g:ale_lint_on_enter = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 0
-let g:ale_sign_error = '😡'
-let g:ale_sign_warning = '😢'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '~~'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
-let g:ale_linter = { 
-      \ 'python': ['autopep8', 'pylint',], 
+let g:ale_linter = {
+      \ 'python': ['autopep8', 'pylint',],
       \ 'Dockerfile':['hadolint'],
       \ 'go': ['gofmt']
       \ }
