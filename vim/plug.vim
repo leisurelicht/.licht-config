@@ -175,6 +175,9 @@ Plug 'Chiel92/vim-autoformat'
 " 需要单独安装格式化工具
 au BufWrite * :Autoformat
 
+" 单词高亮
+Plug 'lfv89/vim-interestingwords'
+
 
 " Initialize plugin system
 call plug#end()
