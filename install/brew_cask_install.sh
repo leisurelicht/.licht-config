@@ -6,4 +6,4 @@ brew cask install google-chrome
 brew cask install docker
 brew cask install vmware-fusion
 brew cask install cheatsheet
-
+brew cask install launchrocket
