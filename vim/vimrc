@@ -63,9 +63,10 @@ map <F12> :call CompileRun()<CR>
 " python代码重命名 <leader>r
 
 " 多光标 <C-N>
-"
 
-
+" 单词高亮 <leader>k
+" 取消单词高亮 <leader>K
+" 高亮单词间移动 n\N
 
 
 
