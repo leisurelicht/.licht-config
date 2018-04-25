@@ -2,6 +2,9 @@
 
 " ---- Vim 配置 ----
 "
+" colorscheme
+colorscheme inkpot
+
 " 设置leader键
 let mapleader=','
 " 开启语法高亮
