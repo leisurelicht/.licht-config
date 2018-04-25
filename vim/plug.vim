@@ -6,28 +6,29 @@ call plug#begin('~/.vim/plugged')
 " airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" airline git 显示
+" Vim内操作Git
 Plug 'tpope/vim-fugitive'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#disable_rtp_load = 1
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#default#layout = [
-      \ [ 'a', 'b', 'c' ],
-      \ [ 'x', 'y', 'z', 'error', ]
-      \ ]
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tagbar#flags = 'f'
-
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#vcs_priority = ["git",]
 let g:airline#extensions#branch#format = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c' ],
+      \ [ 'x', 'y', 'z', 'error', ]
+      \ ]
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
 
 " 缩进指示线
 Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go']}
@@ -59,11 +60,8 @@ au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-" Vim内操作Git
-Plug 'tpope/vim-fugitive'
-
 " 时光机
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 
 if has("persistent_undo")
   set undodir=~/.undodir/
@@ -71,7 +69,7 @@ if has("persistent_undo")
 endif
 
 " 文件结构
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
 " 多光标
 Plug 'terryma/vim-multiple-cursors'
@@ -101,19 +99,20 @@ Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
 
-Plug 'tpope/vim-fugitive'
 
-" Python语法高亮
+" 通用语法高亮
+" Plug 'sheerun/vim-polyglot'
+" Python 语法高亮
 Plug 'vim-python/python-syntax' , {'for': 'python'}
 
-let g:python_highlight_all = 1
+" let g:python_highlight_all = 1
 
 " ale
 Plug 'w0rp/ale'
 Plug 'tell-k/vim-autopep8', {'for': 'python'}
 
 " ale
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 0
@@ -138,7 +137,6 @@ Plug 'maralla/completor.vim'
 
 let g:completor_python_binary = '/usr/local/bin/python3'
 let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
-
 inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
@@ -169,7 +167,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
 " 代码格式化框架
-Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 
 " 文件保存时自动调用
 " 需要单独安装格式化工具

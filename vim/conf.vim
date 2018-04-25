@@ -15,10 +15,12 @@ filetype indent on
 " 为特定文件类型载入相关缩进文件
 filetype plugin on
 
+"
+set ttimeoutlen=100
 " 修复delete键
 set backspace=2
 " 默认显示行号
-set number
+" set number
 " 文件自动检测外部更改
 set autoread
 " UTF_8
@@ -58,7 +60,7 @@ set autoindent
 set smartindent
 set ai
 "高亮当前行
-set cursorline
+" set cursorline
 " 编辑的时候将所有的tab设置为空格
 set expandtab
 " 将tab换为4个空格
