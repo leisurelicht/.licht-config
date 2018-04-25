@@ -55,10 +55,6 @@ set hlsearch
 set ignorecase
 " 有一个或以上大写字母时仍大小写敏感
 set smartcase
-" 代码自动缩进
-set autoindent
-set smartindent
-set ai
 "高亮当前行
 " set cursorline
 " 编辑的时候将所有的tab设置为空格
