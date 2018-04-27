@@ -9,6 +9,7 @@ source ~/.config_file/nvim/func.vim
 
 " 使用brew 安装的python2
 let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " ----- 快捷键配置 -----
 "

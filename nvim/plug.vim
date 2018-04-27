@@ -112,7 +112,7 @@ Plug 'tell-k/vim-autopep8', {'for': 'python'}
 
 " ale
 let g:ale_lint_on_enter = 1
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 let g:ale_set_quickfix = 1
 let g:ale_sign_column_always = 0
 let g:ale_sign_error = '>>'
