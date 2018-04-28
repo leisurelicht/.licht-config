@@ -1,5 +1,7 @@
-brew install vim --with-override-vi
 brew install zsh
+brew install vim --with-override-vi
+brew install neovim
+brew install mycli
 brew install wget
 brew install autojump
 brew install git
