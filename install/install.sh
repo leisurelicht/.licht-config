@@ -1,30 +1,34 @@
 #
 basepath=$(
-    cd $(dirname $0)
-    pwd
+  cd $(dirname $0)
+  pwd
 )
 
 # 如果没有brew 安装brew
 if [ ! command -v brew ] &>/dev/null; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 source brew_install.sh
 source brew_cask_install.sh
 
 if [ -e ~/.zshrc ]; then
-    rm ~/.zshrc
+  rm ~/.zshrc
 fi
 ln -s $basepath/zsh/zshrc ~/.zshrc
 
 if [ -e ~/.vimrc ]; then
-    rm ~/.vimrc
+  rm ~/.vimrc
 fi
 ln -s $basepath/vim/vimrc ~/.vimrc
 
 if [ -e ~/.tmux.conf ]; then
-    rm ~/.tmux.conf
+  rm ~/.tmux.conf
 fi
+
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
 ln -s $basepath/tmux/tmux.conf ~/.tmux.conf
 
 # 配置fzf
@@ -42,9 +46,9 @@ chsh -s /bin/zsh
 /usr/local/bin/pip install neovim
 
 if [ command -v curl ] &>/dev/null; then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 elif [ command -v wget ] &>/dev/null; then
-    sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
 # 安装
