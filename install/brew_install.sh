@@ -17,3 +17,4 @@ brew install reattach-to-user-namespace
 brew install nmap
 brew install sqlmap
 brew install cloc
+brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
