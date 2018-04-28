@@ -22,7 +22,6 @@ let g:airline#extensions#branch#format = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#default#layout = [
       \ [ 'a', 'b', 'c' ],
       \ [ 'x', 'y', 'z', 'error', ]
