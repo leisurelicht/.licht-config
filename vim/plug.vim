@@ -175,6 +175,12 @@ au BufWrite * :Autoformat
 " 单词高亮
 Plug 'lfv89/vim-interestingwords'
 
+" surround
+Plug 'tpope/vim-surround'
+
+" " 兼容输入法
+" https://github.com/CodeFalling/fcitx-remote-for-osx
+Plug 'CodeFalling/fcitx-vim-osx'
 
 " Initialize plugin system
 call plug#end()
