@@ -174,5 +174,8 @@ Plug 'tpope/vim-surround'
 " https://github.com/CodeFalling/fcitx-remote-for-osx
 Plug 'CodeFalling/fcitx-vim-osx'
 
+" emmet-vim
+Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
+
 " Initialize plugin system
 call plug#end()
