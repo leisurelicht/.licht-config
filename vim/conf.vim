@@ -6,7 +6,9 @@ scriptencoding utf-8
 " 设置leader键
 let g:mapleader=','
 
-if has('vim')
+if has('nvim')
+
+else
   filetype on
   " 为特定文件类型载入相关缩进文件
   filetype indent on
@@ -40,7 +42,7 @@ if has('vim')
 endif
 
 "高亮当前行
-set cursorline
+  set cursorline
 " 开启语法高亮
 syntax enable
 " 允许使用制定高亮替换方案
@@ -99,12 +101,12 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.go,*.html,*.js match BadWhitespace /\
 
 " 空格配置
 au FileType python
-      \ set fileformat=unix |
+      \ setlocal fileformat=unix |
       \ setlocal colorcolumn=79
 " \ set colorcolumn=79
 au FileType javascript,html,css,vim,dockerfile,yaml
-      \ set fileformat=unix |
-      \ set tabstop=2 |
-      \ set softtabstop=2 |
-      \ set shiftwidth=2 |
+      \ setlocal fileformat=unix |
+      \ setlocal tabstop=2 |
+      \ setlocal softtabstop=2 |
+      \ setlocal shiftwidth=2 |
 

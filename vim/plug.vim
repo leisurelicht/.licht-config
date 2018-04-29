@@ -41,17 +41,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 let g:NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeShowBookmarks=1
-let g:NERDTreeIndicatorMapCustom = {
-      \ 'Modified'  : '✹',
-      \ 'Staged'    : '✚',
-      \ 'Untracked' : '✭',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Deleted'   : '✖',
-      \ 'Dirty'     : '✗',
-      \ 'Clean'     : '✔︎',
-      \ 'Unknown'   : '?',
-      \ }
 au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
@@ -98,8 +87,7 @@ let g:fzf_command_prefix = 'Fzf'
 if has('nvim')
   " 通用语法高亮
   Plug 'sheerun/vim-polyglot'
-endif
-if has('vim')
+else
   " Python 语法高亮
   Plug 'vim-python/python-syntax' , {'for': 'python'}
 endif
@@ -115,7 +103,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-      \   'python': ['add_blank_lines_for_python_control_statements','autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+      \ 'python': ['add_blank_lines_for_python_control_statements','autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
       \}
 
 " 代码补全
@@ -123,8 +111,7 @@ Plug 'maralla/completor.vim'
 
 if has('nvim')
   let g:completor_python_binary = '/usr/local/bin/python'
-endif
-if has('vim')
+else
   let g:completor_python_binary = '/usr/local/bin/python3'
 endif
 let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
