@@ -1,4 +1,3 @@
-#
 basepath=$(
     cd $(dirname $0)
     pwd
@@ -31,32 +30,19 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 ln -s $basepath/tmux/tmux.conf ~/.tmux.conf
 
-# 配置fzf
-gem install rough
-
 # 切换shell
 chsh -s /bin/zsh
 
-/usr/local/bin/pip3 install jedi
-/usr/local/bin/pip3 install neovim
-/usr/local/bin/pip3 install --upgrade --user autopep8
-/usr/local/bin/pip3 install yapf
-
-/usr/local/bin/pip install jedi
-/usr/local/bin/pip install --upgrade --user autopep8
-/usr/local/bin/pip install yapf
-/usr/local/bin/pip install neovim
-/usr/local/bin/pip install flake8
-
+# 安装oh-my-zsh
 if [ command -v curl ] &>/dev/null; then
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 elif [ command -v wget ] &>/dev/null; then
     sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
-# 安装
-vim -c PlugInstall
-
 # tmux
 mkdir -p ~/.tmux/plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# 安装vim插件
+vim -c PlugInstall
