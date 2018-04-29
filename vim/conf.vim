@@ -97,6 +97,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.go,*.html,*.js match BadWhitespace /\
 " 空格配置
 au FileType python
       \ set fileformat=unix |
+      \ setlocal colorcolumn=79
 " \ set colorcolumn=79
 au FileType javascript,html,css,vim,dockerfile,yaml
       \ set fileformat=unix |
