@@ -1,4 +1,3 @@
-
 " vim 插件配置文件
 source ~/.config_file/vim/plug.vim
 
@@ -8,6 +7,11 @@ source ~/.config_file/vim/conf.vim
 " vim 函数
 source ~/.config_file/vim/func.vim
 
+if has('nvim')
+  " 使用brew 安装的python2
+  let g:python_host_prog = '/usr/local/bin/python'
+  let g:python3_host_prog = '/usr/local/bin/python3'
+endif
 " ----- 快捷键配置 -----
 "
 " 强制保存
@@ -68,21 +72,9 @@ map <F12> :call CompileRun()<CR>
 " 取消单词高亮 <leader>K
 " 高亮单词间移动 n\N
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+" ale
+nmap <silent> <C-S> <Plug>(ale_previous_wrap)
+nmap <silent> <C-D> <Plug>(ale_next_wrap)
 
 
 " 自动生效
