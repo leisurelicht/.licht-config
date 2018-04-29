@@ -114,6 +114,9 @@ let g:ale_sign_warning = '★'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
 let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+      \   'python': ['add_blank_lines_for_python_control_statements','autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+      \}
 
 " 代码补全
 Plug 'maralla/completor.vim'
