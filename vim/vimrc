@@ -59,7 +59,7 @@ map <F6> :UndotreeToggle<CR>
 " map <F8>
 " map <F9>
 au FileType markdown nmap <silent> <F10> <Plug>MarkdownPreview
-au FileType python noremap <buffer> <F10> :Autopep8 <CR>
+map <F11> :Autoformat<CR>
 map <F12> :call CompileRun()<CR>
 
 " python代码跳转 <leader>g
