@@ -27,7 +27,7 @@ let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ale#enabled = 1
 
 " 缩进指示线
-Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go']}
+Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go', 'htmldjango']}
 
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
@@ -38,9 +38,9 @@ Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " NerdTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
+let g:NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDTreeShowLineNumbers = 1
-let NERDTreeShowBookmarks=1
+let g:NERDTreeShowBookmarks=1
 let g:NERDTreeIndicatorMapCustom = {
       \ 'Modified'  : '✹',
       \ 'Staged'    : '✚',
@@ -50,7 +50,7 @@ let g:NERDTreeIndicatorMapCustom = {
       \ 'Deleted'   : '✖',
       \ 'Dirty'     : '✗',
       \ 'Clean'     : '✔︎',
-      \ 'Unknown'   : '?'
+      \ 'Unknown'   : '?',
       \ }
 au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
@@ -164,7 +164,7 @@ Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 
 " 文件保存时自动调用
 " 需要单独安装格式化工具
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
 let g:formatter_yapf_style = 'pep8'
 
 " 单词高亮
