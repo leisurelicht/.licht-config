@@ -1,9 +1,10 @@
+scriptencoding utf-8
 " vim原生配置
 
 " ---- Vim 配置 ----
 "
 " 设置leader键
-let mapleader=','
+let g:mapleader=','
 
 if has('vim')
   filetype on
@@ -14,8 +15,6 @@ if has('vim')
   set backspace=2
   " 文件自动检测外部更改
   set autoread
-  " UTF_8
-  set encoding=utf-8
   " 不启用兼容模式
   set nocompatible
   " 关闭自动备份
@@ -55,7 +54,7 @@ set showcmd
 " 使用backspace直接删除tab
 set smarttab
 " 不在单词中间折行
-set lbr
+set linebreak
 " 分隔窗口在当前窗口下边
 set splitbelow
 " 分隔窗口在当前窗口下边
@@ -85,10 +84,14 @@ set colorcolumn=0
 " ----自动动作配置----
 "
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup auto_position
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup end
 
 " 定义函数AutoSetFileHead，自动插入文件头
-au BufNewFile *.sh,*.py call func#AutoSetFileHead()
+augroup auto_set_file_head
+  au BufNewFile *.sh,*.py call func#AutoSetFileHead()
+augroup end
 
 " 标识不必要的空白字符
 hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red

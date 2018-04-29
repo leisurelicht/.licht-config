@@ -17,7 +17,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
-let g:airline#extensions#branch#vcs_priority = ["git",]
+let g:airline#extensions#branch#vcs_priority = ['git',]
 let g:airline#extensions#branch#format = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#hunks#enabled=0
@@ -42,15 +42,15 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 let g:NERDTreeShowLineNumbers = 1
 let NERDTreeShowBookmarks=1
 let g:NERDTreeIndicatorMapCustom = {
-      \ "Modified"  : "✹",
-      \ "Staged"    : "✚",
-      \ "Untracked" : "✭",
-      \ "Renamed"   : "➜",
-      \ "Unmerged"  : "═",
-      \ "Deleted"   : "✖",
-      \ "Dirty"     : "✗",
-      \ "Clean"     : "✔︎",
-      \ "Unknown"   : "?"
+      \ 'Modified'  : '✹',
+      \ 'Staged'    : '✚',
+      \ 'Untracked' : '✭',
+      \ 'Renamed'   : '➜',
+      \ 'Unmerged'  : '═',
+      \ 'Deleted'   : '✖',
+      \ 'Dirty'     : '✗',
+      \ 'Clean'     : '✔︎',
+      \ 'Unknown'   : '?'
       \ }
 au StdinReadPre * let s:std_in=1
 au vimenter * if !argc() | NERDTree |
@@ -59,7 +59,7 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType 
 " 时光机
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 
-if has("persistent_undo")
+if has('persistent_undo')
   set undodir=~/.undodir/
   set undofile
 endif
@@ -113,7 +113,7 @@ let g:ale_sign_error = '☠'
 let g:ale_sign_warning = '★'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 " 代码补全
 Plug 'maralla/completor.vim'
@@ -144,11 +144,11 @@ inoremap <silent><expr> ( complete_parameter#pre_complete("()")
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 let g:jedi#completions_enabled = 0
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = "<leader>d"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#goto_command = '<leader>g'
+let g:jedi#goto_assignments_command = '<leader>d'
+let g:jedi#goto_definitions_command = ''
+let g:jedi#rename_command = '<leader>r'
+let g:jedi#use_splits_not_buffers = 'bottom'
 
 " vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
