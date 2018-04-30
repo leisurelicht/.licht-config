@@ -77,7 +77,7 @@ nmap <silent> <C-S> <Plug>(ale_previous_wrap)
 nmap <silent> <C-D> <Plug>(ale_next_wrap)
 
 " ultisuips
-let g:UltiSnipsExpandTrigger='<C-M>'
+let g:UltiSnipsExpandTrigger='<C-B>'
 let g:UltiSnipsJumpForwardTrigger='<C-N>'
 let g:UltiSnipsJumpBackwardTrigger='<C-P>'
 

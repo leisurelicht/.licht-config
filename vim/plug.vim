@@ -118,11 +118,6 @@ else
   let g:completor_python_binary = '/usr/local/bin/python3'
 endif
 let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
-inoremap <expr> <Tab> pumvisible() ? "\<C-N>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
-" inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
-
 
 " 参数提示
 Plug 'tenfyzhong/CompleteParameter.vim'
@@ -175,10 +170,6 @@ Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-
-
-
-
 
 " Initialize plugin system
 call plug#end()
