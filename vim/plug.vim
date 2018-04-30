@@ -96,6 +96,7 @@ endif
 Plug 'w0rp/ale'
 
 " ale
+let g:ale_lint_on_text_changed = 'nerver'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '☠'
 let g:ale_sign_warning = '★'
@@ -168,6 +169,16 @@ Plug 'CodeFalling/fcitx-vim-osx'
 
 " emmet-vim
 Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+
+
+
 
 " Initialize plugin system
 call plug#end()
