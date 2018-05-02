@@ -73,7 +73,7 @@ Plug 'scrooloose/nerdcommenter'
 
 let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
-let g:NERDSpaceDelims=1
+" let g:NERDSpaceDelims=1
 
 " markdown
 Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
@@ -96,6 +96,7 @@ endif
 Plug 'w0rp/ale'
 
 " ale
+let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 'nerver'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '☠'
