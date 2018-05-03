@@ -83,6 +83,9 @@ set foldlevelstart=99
 " 这是长度表示线
 set colorcolumn=0
 
+" 颜色修改
+highlight MatchParen ctermfg=0 ctermbg=81 gui=undercurl guisp=Blue
+
 " ----自动动作配置----
 "
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
@@ -109,4 +112,3 @@ au FileType javascript,html,css,vim,dockerfile,yaml
       \ setlocal tabstop=2 |
       \ setlocal softtabstop=2 |
       \ setlocal shiftwidth=2 |
-
