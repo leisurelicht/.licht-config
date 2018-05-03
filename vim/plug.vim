@@ -109,6 +109,9 @@ let g:ale_fixers = {
       \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines','trim_whitespace'],
       \ 'vim': ['remove_trailing_lines', 'trim_whitespace'],
       \}
+highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7<Paste>
+highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
 
 " 代码补全
 Plug 'maralla/completor.vim'
