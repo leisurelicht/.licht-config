@@ -132,3 +132,6 @@ bindkey '^Z' fancy-ctrl-z
 
 # pyenv 初始化
 eval "$(pyenv init -)"
+
+# brew install software
+export PATH=$PATH:/usr/local/sbin
