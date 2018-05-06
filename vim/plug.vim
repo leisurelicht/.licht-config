@@ -69,11 +69,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'MattesGroeger/vim-bookmarks'
 
 " 注释
-Plug 'scrooloose/nerdcommenter'
-
-let g:NERDDefaultAlign = 'left'
-let g:NERDTrimTrailingWhitespace = 1
-" let g:NERDSpaceDelims=1
+Plug 'tpope/vim-commentary'
 
 " markdown
 Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}

@@ -72,6 +72,8 @@ map <F12> :call CompileRun()<CR>
 " 取消单词高亮 <leader>K
 " 高亮单词间移动 n\N
 
+" 注释 gc
+
 " ale
 nmap <silent> <C-S> <Plug>(ale_previous_wrap)
 nmap <silent> <C-D> <Plug>(ale_next_wrap)
