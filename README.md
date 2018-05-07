@@ -51,6 +51,8 @@
 
         自定义的vim函数
 
+        需要去wakatime.com注册一个账号并输入api才能使用vim记录
+
 ## zsh配置
 
 * zshrc
