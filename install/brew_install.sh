@@ -18,3 +18,4 @@ brew install nmap
 brew install sqlmap
 brew install cloc
 brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
+brew install ctop

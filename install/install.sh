@@ -10,6 +10,9 @@ fi
 
 source brew_install.sh
 source brew_cask_install.sh
+source go_install.sh
+source gem_install.sh
+source npm_install.sh
 
 if [ -e ~/.zshrc ]; then
     rm ~/.zshrc

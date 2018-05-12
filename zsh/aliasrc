@@ -9,3 +9,9 @@ alias hidefile="defaults write com.apple.finder AppleShowAllFiles -boolean false
 
 # 展示python文件
 alias lp="ls *.py"
+
+# 终端字典工具
+alias zdict="dict"
+
+# 好看的man工具
+alias gman="tldr"
