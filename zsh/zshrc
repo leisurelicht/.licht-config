@@ -98,8 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -e ~/.config_file/zsh/.aliasrc ]; then
-  source ~/.config_file/zsh/.aliasrc
+if [ -e ~/.config_file/zsh/aliasrc ]; then
+  source ~/.config_file/zsh/aliasrc
 fi
 
 # SoftWare Config
