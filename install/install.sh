@@ -49,30 +49,29 @@ fi
 echo "====> Install vim plugins manage plugin vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-
 echo "====> Create back up dir"
 mkdir -p $conf_path/bak/
 
 if [ -e ~/.zshrc ]; then
     echo "====> Zsh config file zshrc is exist, backup and delete it."
-    mv ~/.zshrc $basepath/bak/
+    mv ~/.zshrc $conf_path/bak/
 fi
 echo "====> Create zshrc link"
-ln -s $basepath/zsh/zshrc ~/.zshrc
+ln -s $conf_path/zsh/zshrc ~/.zshrc
 
 if [ -e ~/.vimrc ]; then
     echo "====> Vim config file vimrc is exist, backup and delete it."
-    mv ~/.vimrc $basepath/bak/
+    mv ~/.vimrc $conf_path/bak/
 fi
 echo "====> Create vimrc link"
-ln -s $basepath/vim/vimrc ~/.vimrc
+ln -s $conf_path/vim/vimrc ~/.vimrc
 
 if [ -e ~/.tmux.conf ]; then
     echo "====> Tmux config file tmux.confis exist, backup and delete it."
-    mv ~/.tmux.conf $basepath/bak/
+    mv ~/.tmux.conf $conf_path/bak/
 fi
 echo "====> Create tmux.conf link"
-ln -s $basepath/tmux/tmux.conf ~/.tmux.conf
+ln -s $conf_path/tmux/tmux.conf ~/.tmux.conf
 
 if [ ! -d ~/.config/ ]; then
     mkdir ~/.config/
@@ -80,7 +79,7 @@ fi
 
 if [ -d ~/.config/nvim ]; then
     echo "====> Neovim config dir nvim is exist, backup and delete it."
-    mv ~/.config/nvim $basepath/bak/
+    mv ~/.config/nvim $conf_path/bak/
 fi
 echo "====> Create neovim config file links"
 ln -s ~/.vim ~/.config/nvim
