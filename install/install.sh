@@ -48,33 +48,32 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 echo "====> Create back up dir"
 
 echo "====> Back up dir path is: ${config_path}/bak"
-mkdir -p $config_path/bak
+if [ ! -d $config_path/bak ]; then
+    mkdir -p $config_path/bak
+fi
 
 if [ -f ~/.zshrc ]; then
     echo "====> Zsh config file zshrc is exist, backup and delete it."
     mv ~/.zshrc $config_path/bak/zshrc.bak
-elif [ -e ~/.zshrc ]; then
-    rm ~/.zshrc
 fi
 echo "====> Create zshrc link"
+rm ~/.zshrc >/dev/null 2>&1
 ln -s $config_path/zsh/zshrc ~/.zshrc
 
 if [ -f ~/.vimrc ]; then
     echo "====> Vim config file vimrc is exist, backup and delete it."
-    mv ~/.vimrc $config_path/bak/vimrc
-elif [ -e ~/.vimrc ]; then
-    rm ~/.vimrc
+    mv ~/.vimrc $config_path/bak/vimrc.bak
 fi
 echo "====> Create vimrc link"
-ln -s $config_path/vim/vimrc ~/.vimrc.bak
+rm ~/.vimrc >/dev/null 2>&1
+ln -s $config_path/vim/vimrc ~/.vimrc
 
 if [ -f ~/.tmux.conf ]; then
-    echo "====> Tmux config file tmux.confis exist, backup and delete it."
+    echo "====> Tmux config file tmux.conf is exist, backup and delete it."
     mv ~/.tmux.conf $config_path/bak/tmux.conf.bak
-elif [ -e ~/.tmux.conf ]; then
-    rm ~/.tmux.conf
 fi
 echo "====> Create tmux.conf link"
+rm ~/.tmux.conf >/dev/null 2>&1
 ln -s $config_path/tmux/tmux.conf ~/.tmux.conf
 
 if [ ! -d ~/.config/ ]; then
@@ -86,14 +85,14 @@ if [ -d ~/.config/nvim ]; then
     mv ~/.config/nvim $config_path/bak/nvim_bak
 fi
 echo "====> Create neovim config file links"
+rm -r ~/.config/nvim >/dev/null 2>&1
 ln -s ~/.vim ~/.config/nvim
 
 if [ -f ~/.config/nvim/init.vim ]; then
     mv ~/.config/nvim/init.vim
-elif [ -e ~/.config/nvim/init.vim ]; then
-    rm ~/.config/nvim/init.vim
 fi
 echo "====> Create neovim init file links"
+rm ~/.config/nvim/init.vim >/dev/null 2>&1
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 function install_from_file(){
