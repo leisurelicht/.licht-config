@@ -21,7 +21,7 @@ brew doctor
 
 echo "====> Use brew to intall necessary"
 brew install zsh
-brew install vim --with-override-vi
+brew install vim --with-override-system-vi
 brew install node
 brew install go
 brew install fzf
