@@ -1,0 +1,14 @@
+neovim
+mycli
+wget
+autojump
+git
+tig
+tmate
+redis
+reattach-to-user-namespace
+nmap
+sqlmap
+cloc
+fcitx-remote-for-osx --with-input-method=osx-pinyin
+ctop

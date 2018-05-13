@@ -1,0 +1,6 @@
+jedi
+--upgrade --user autopep8
+yapf
+neovim
+flake8
+vim-vint
