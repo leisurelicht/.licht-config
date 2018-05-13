@@ -12,7 +12,7 @@ else
 fi
 
 echo "update brew and run doctor"
-brew upadte
+brew update
 brew doctor
 
 echo "use brew to intall necessary"
