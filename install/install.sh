@@ -46,7 +46,7 @@ echo "====> Install vim plugins manage plugin vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "====> Create back up dir"
-bak_path=(
+bak_path=$(
   cd $conf_path/bak
   pwd
 )
