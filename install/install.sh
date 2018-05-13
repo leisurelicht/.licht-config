@@ -52,21 +52,21 @@ mkdir -p $config_path/bak
 
 if [ -e ~/.zshrc ]; then
     echo "====> Zsh config file zshrc is exist, backup and delete it."
-    mv ~/.zshrc $config_path/bak/
+    mv ~/.zshrc $config_path/bak/zshrc.bak
 fi
 echo "====> Create zshrc link"
 ln -s $config_path/zsh/zshrc ~/.zshrc
 
 if [ -e ~/.vimrc ]; then
     echo "====> Vim config file vimrc is exist, backup and delete it."
-    mv ~/.vimrc $config_path/bak/
+    mv ~/.vimrc $config_path/bak/vimrc
 fi
 echo "====> Create vimrc link"
-ln -s $config_path/vim/vimrc ~/.vimrc
+ln -s $config_path/vim/vimrc ~/.vimrc.bak
 
 if [ -e ~/.tmux.conf ]; then
     echo "====> Tmux config file tmux.confis exist, backup and delete it."
-    mv ~/.tmux.conf $config_path/bak/
+    mv ~/.tmux.conf $config_path/bak/tmux.conf.bak
 fi
 echo "====> Create tmux.conf link"
 ln -s $config_path/tmux/tmux.conf ~/.tmux.conf
@@ -77,7 +77,7 @@ fi
 
 if [ -d ~/.config/nvim ]; then
     echo "====> Neovim config dir nvim is exist, backup and delete it."
-    mv ~/.config/nvim $config_path/bak/
+    mv ~/.config/nvim $config_path/bak/nvim_bak
 fi
 echo "====> Create neovim config file links"
 ln -s ~/.vim ~/.config/nvim
