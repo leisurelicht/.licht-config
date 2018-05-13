@@ -49,6 +49,7 @@ fi
 echo "====> Install vim plugins manage plugin vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+
 echo "====> Create back up dir"
 mkdir -p $conf_path/bak/
 
@@ -89,6 +90,7 @@ function install_from_file(){
     while read -r line
     do
         if [[ ! $line =~ "#" ]]; then
+            echo "$2 $3 $4 $line"
             `$2 $3 $4 $line`
         fi
     done < $1
