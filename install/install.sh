@@ -15,10 +15,6 @@ else
     echo "====> Commnad brew is already install"
 fi
 
-echo "====> Update brew and run doctor"
-brew update
-brew doctor
-
 echo "====> Use brew to intall necessary"
 brew install zsh
 brew install vim --with-override-system-vi
