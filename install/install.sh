@@ -30,10 +30,6 @@ brew install ag
 brew install tmux
 brew install autojump
 
-# 切换shell
-echo "====> Change shell"
-chsh -s /bin/zsh
-
 # 安装oh-my-zsh
 echo "====> Install oh-my-zsh"
 if command -v curl >/dev/null 2>&1; then
@@ -54,7 +50,7 @@ echo "====> Install vim plugins manage plugin vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "====> Create back up dir"
-mkdir $conf_path/bak
+mkdir -p $conf_path/bak/
 
 if [ -e ~/.zshrc ]; then
     echo "====> Zsh config file zshrc is exist, backup and delete it."
@@ -117,10 +113,10 @@ for parm in $@; do
 done
 
 echo "====> Use pip to install package"
-install_from_file $install_path/pip_install /usr/local/bin/pip3 install
+install_from_file $install_path/pip3_install /usr/local/bin/pip3 install
 
-if command -v brew >/dev/null 2>&1; then
-    install_from_file $install_path/pip3_install /usr/local/bin/pip install
+if command -v neovim >/dev/null 2>&1; then
+    install_from_file $install_path/pip_install /usr/local/bin/pip install
 fi
 
 echo "====> Use gem to install package"
