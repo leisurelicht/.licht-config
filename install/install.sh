@@ -36,6 +36,11 @@ function install_from_file(){
 }
 
 for parm in $@; do
+    if [[ param == "all" ]]; then
+        install_from_file ./brew_install brew install
+        install_from_file ./brew_cask_install brew install
+    fi
+
     if [[ param == "brew" ]];then
         echo "开始用brew 安装命令行软件。"
         install_from_file ./brew_install brew install
@@ -45,16 +50,19 @@ for parm in $@; do
         echo "开始用brew cask 安装图形界面软件。"
         install_from_file ./brew_cask_install brew cask install
     fi
+done
 
 echo "开始用Python 包管理器pip 安装第三方包。"
 install_from_file ./pip_install /usr/local/bin/pip3 install
-install_from_file ./pip3_install /usr/local/bin/pip install
+
+if command -v brew >/dev/null 2>&1; then
+    install_from_file ./pip3_install /usr/local/bin/pip install
+fi
 
 echo "开始用Ruby 包管理器gem 安装第三方包。"
 install_from_file ./gem_install gem install
 
-echo "开始用node 包管理器npm 安装第三方包。"
-install_from_file ./npm_install npm install -g
+echo "开始用node 包管理器npm 安装第三方包。" install_from_file ./npm_install npm install -g
 
 echo "开始用Go 包管理器安装第三方包。"
 install_from_file ./go_install go get -u
