@@ -47,7 +47,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 echo "====> Create back up dir"
 bak_path=$(
-  cd $conf_path/bak
+  cd $config_path/bak
   pwd
 )
 echo "====> Back up dir path is: ${bak_path}"
