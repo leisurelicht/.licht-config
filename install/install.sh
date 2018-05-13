@@ -50,23 +50,29 @@ echo "====> Create back up dir"
 echo "====> Back up dir path is: ${config_path}/bak"
 mkdir -p $config_path/bak
 
-if [ -e ~/.zshrc ]; then
+if [ -f ~/.zshrc ]; then
     echo "====> Zsh config file zshrc is exist, backup and delete it."
     mv ~/.zshrc $config_path/bak/zshrc.bak
+elif [ -e ~/.zshrc ]; then
+    rm ~/.zshrc
 fi
 echo "====> Create zshrc link"
 ln -s $config_path/zsh/zshrc ~/.zshrc
 
-if [ -e ~/.vimrc ]; then
+if [ -f ~/.vimrc ]; then
     echo "====> Vim config file vimrc is exist, backup and delete it."
     mv ~/.vimrc $config_path/bak/vimrc
+elif [ -e ~/.vimrc ]; then
+    rm ~/.vimrc
 fi
 echo "====> Create vimrc link"
 ln -s $config_path/vim/vimrc ~/.vimrc.bak
 
-if [ -e ~/.tmux.conf ]; then
+if [ -f ~/.tmux.conf ]; then
     echo "====> Tmux config file tmux.confis exist, backup and delete it."
     mv ~/.tmux.conf $config_path/bak/tmux.conf.bak
+elif [ -e ~/.tmux.conf ]; then
+    rm ~/.tmux.conf
 fi
 echo "====> Create tmux.conf link"
 ln -s $config_path/tmux/tmux.conf ~/.tmux.conf
@@ -81,6 +87,13 @@ if [ -d ~/.config/nvim ]; then
 fi
 echo "====> Create neovim config file links"
 ln -s ~/.vim ~/.config/nvim
+
+if [ -f ~/.config/nvim/init.vim ]; then
+    mv ~/.config/nvim/init.vim
+elif [ -e ~/.config/nvim/init.vim ]; then
+    rm ~/.config/nvim/init.vim
+fi
+echo "====> Create neovim init file links"
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 function install_from_file(){
