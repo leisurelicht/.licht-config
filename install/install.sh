@@ -88,9 +88,6 @@ echo "====> Create neovim config file links"
 rm -r ~/.config/nvim >/dev/null 2>&1
 ln -s ~/.vim ~/.config/nvim
 
-if [ -f ~/.config/nvim/init.vim ]; then
-    mv ~/.config/nvim/init.vim
-fi
 echo "====> Create neovim init file links"
 rm ~/.config/nvim/init.vim >/dev/null 2>&1
 ln -s ~/.vimrc ~/.config/nvim/init.vim
