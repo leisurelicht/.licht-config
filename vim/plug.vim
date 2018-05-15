@@ -38,7 +38,7 @@ Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
 Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " NerdTree
-let g:NERDTreeIgnore=['\.pyc$', '\~$', 'tags$']
+let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeShowBookmarks=1
 au StdinReadPre * let s:std_in=1
