@@ -12,3 +12,4 @@ sqlmap
 cloc
 fcitx-remote-for-osx --with-input-method=osx-pinyin
 ctop
+lnav
