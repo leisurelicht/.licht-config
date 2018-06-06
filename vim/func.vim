@@ -33,5 +33,7 @@ func! CompileRun()
     exec '!python %'
   elseif &filetype ==# 'sh'
     :!./%
+  elseif &filetype ==# 'html'
+    exec '!open %'
   endif
 endfunc
