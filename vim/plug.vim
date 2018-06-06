@@ -178,5 +178,8 @@ Plug 'wakatime/vim-wakatime'
 " Makes your javascript files support React jsx correctly.
 Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 
+" html5
+Plug 'othree/html5.vim', {'for': 'html'}
+
 " Initialize plugin system
 call plug#end()
