@@ -107,7 +107,7 @@ au FileType python
       \ setlocal fileformat=unix |
       \ setlocal colorcolumn=79
 " \ set colorcolumn=79
-au FileType javascript,html,css,vim,dockerfile,yaml,bash
+au FileType vim,dockerfile,yaml,bash
       \ setlocal fileformat=unix |
       \ setlocal tabstop=2 |
       \ setlocal softtabstop=2 |
