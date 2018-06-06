@@ -106,7 +106,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.go,*.html,*.js match BadWhitespace /\
 au FileType python
       \ setlocal fileformat=unix |
       \ setlocal colorcolumn=79
-au FileType javascript
+au FileType javascript,vue
       \ setlocal fileformat=unix |
       \ setlocal colorcolumn=80
 au FileType vim,dockerfile,yaml,bash

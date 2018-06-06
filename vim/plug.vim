@@ -104,6 +104,7 @@ let g:ale_fixers = {
       \ 'python': ['add_blank_lines_for_python_control_statements', 'autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines','trim_whitespace'],
       \ 'vim': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['eslint', 'importjs', 'prettier_eslint', 'prettier_standard','remove_trailing_lines','trim_whitespace']
       \}
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
 highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
@@ -171,7 +172,11 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
+" 记录代码时间
 Plug 'wakatime/vim-wakatime'
+
+" Makes your javascript files support React jsx correctly.
+Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 
 " Initialize plugin system
 call plug#end()
