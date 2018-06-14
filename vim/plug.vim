@@ -164,7 +164,7 @@ Plug 'tpope/vim-surround'
 Plug 'CodeFalling/fcitx-vim-osx'
 
 " emmet-vim
-Plug 'mattn/emmet-vim', {'for': ['html', 'css']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'htmldjango']}
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
