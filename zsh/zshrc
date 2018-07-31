@@ -114,8 +114,9 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Go
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$GOROOT/go
+export GOPATH=$HOME/Code/GoLang
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # 快速恢复后台任务
 fancy-ctrl-z () {
