@@ -41,9 +41,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeShowBookmarks=1
-au StdinReadPre * let s:std_in=1
-au vimenter * if !argc() | NERDTree |
+augroup read_pre
+  au StdinReadPre * let s:std_in=1
+augroup end
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+au vimenter * if !argc() | NERDTree |
 
 " 时光机
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
@@ -80,14 +82,6 @@ Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
 
-if has('nvim')
-  " 通用语法高亮
-  Plug 'sheerun/vim-polyglot'
-else
-  " Python 语法高亮
-  Plug 'vim-python/python-syntax' , {'for': 'python'}
-endif
-
 " ale
 Plug 'w0rp/ale'
 
@@ -113,11 +107,6 @@ highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
 " 代码补全
 Plug 'maralla/completor.vim'
 
-if has('nvim')
-  let g:completor_python_binary = '/usr/local/bin/python'
-else
-  let g:completor_python_binary = '/usr/local/bin/python3'
-endif
 let g:completor_gocode_binary = '/usr/local/opt/go/libexec/go/bin/gocode'
 
 " 参数提示
@@ -180,6 +169,22 @@ Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 
 " html5
 Plug 'othree/html5.vim', {'for': 'html'}
+
+if has('nvim')
+  " 通用语法高亮
+  Plug 'sheerun/vim-polyglot'
+
+  " completor 插件设置
+  " Python 语法补全
+  let g:completor_python_binary = '/usr/local/bin/python'
+else
+  " Python 语法高亮
+  Plug 'vim-python/python-syntax' , {'for': 'python'}
+
+  " completor 插件设置
+  " Python 语法补全
+  let g:completor_python_binary = '/usr/local/bin/python3'
+endif
 
 " Initialize plugin system
 call plug#end()
