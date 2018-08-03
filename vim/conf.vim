@@ -110,7 +110,7 @@ au FileType python
 au FileType javascript
       \ setlocal fileformat=unix |
       \ setlocal colorcolumn=80
-au FileType vim,dockerfile,yaml,bash,vue,html,htmldjango
+au FileType vim,dockerfile,yaml,bash,vue,html,htmldjango,javascript.jsx
       \ setlocal fileformat=unix |
       \ setlocal tabstop=2 |
       \ setlocal softtabstop=2 |
