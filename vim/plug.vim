@@ -27,7 +27,7 @@ let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#ale#enabled = 1
 
 " 缩进指示线
-Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go', 'htmldjango']}
+Plug 'Yggdroot/indentLine', {'for': ['python', 'html', 'javascript', 'go', 'htmldjango', 'vue']}
 
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
@@ -104,8 +104,10 @@ let g:ale_fixers = {
       \ 'python': ['add_blank_lines_for_python_control_statements', 'autopep8', 'isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines','trim_whitespace'],
       \ 'vim': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'javascript': ['eslint', 'importjs', 'prettier_eslint', 'prettier_standard','remove_trailing_lines','trim_whitespace']
+      \ 'javascript': ['eslint', 'importjs', 'prettier_eslint', 'prettier_standard','remove_trailing_lines','trim_whitespace'],
+      \ 'vue': ['eslint']
       \}
+
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
 highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
 highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
@@ -164,7 +166,7 @@ Plug 'tpope/vim-surround'
 Plug 'CodeFalling/fcitx-vim-osx'
 
 " emmet-vim
-Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'htmldjango']}
+Plug 'mattn/emmet-vim', {'for': ['html', 'css', 'htmldjango', 'vue']}
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
