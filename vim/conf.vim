@@ -7,7 +7,8 @@ scriptencoding utf-8
 let g:mapleader=','
 
 if has('nvim')
-
+  " 即时预览命令效果
+  set inccommand=split
 else
   filetype on
   " 为特定文件类型载入相关缩进文件
