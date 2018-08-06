@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 
