@@ -100,7 +100,7 @@ let g:ale_fixers = {
       \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines','trim_whitespace'],
       \ 'vim': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'javascript': ['eslint', 'importjs', 'prettier_eslint', 'prettier_standard','remove_trailing_lines','trim_whitespace'],
-      \ 'vue': ['eslint']
+      \ 'vue': ['prettier']
       \}
 
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
@@ -172,6 +172,11 @@ Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 
 " html5
 Plug 'othree/html5.vim', {'for': 'html'}
+
+" vue
+Plug 'posva/vim-vue', {'for': 'vue'}
+
+let g:vue_disable_pre_processors=1
 
 if has('nvim')
   " 通用语法高亮

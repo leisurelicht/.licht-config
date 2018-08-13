@@ -115,3 +115,4 @@ au FileType vim,dockerfile,yaml,bash,vue,html,htmldjango,javascript.jsx
       \ setlocal tabstop=2 |
       \ setlocal softtabstop=2 |
       \ setlocal shiftwidth=2 |
+autocmd FileType vue syntax sync fromstart
