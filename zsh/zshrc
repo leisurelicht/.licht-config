@@ -114,7 +114,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Go
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/Code/GoLang
+export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
