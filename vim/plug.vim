@@ -100,7 +100,7 @@ let g:ale_fixers = {
       \ 'go': ['gofmt', 'goimports', 'remove_trailing_lines','trim_whitespace'],
       \ 'vim': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'javascript': ['eslint', 'importjs', 'prettier_eslint', 'prettier_standard','remove_trailing_lines','trim_whitespace'],
-      \ 'vue': ['prettier']
+      \ 'vue': ['eslint']
       \}
 
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
