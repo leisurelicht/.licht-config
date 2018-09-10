@@ -19,27 +19,8 @@ echo "====> Use brew to intall necessary"
 brew install zsh
 brew install vim --with-override-system-vi
 brew install node
-brew install go
-brew install fzf
 brew install ctags
 brew install ag
-brew install tmux
-brew install autojump
-
-# 安装oh-my-zsh
-echo "====> Install oh-my-zsh"
-if command -v curl >/dev/null 2>&1; then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-elif command -v wget >/dev/null 2>&1; then
-    sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-fi
-
-# tmux
-echo "====> Install tumx plugins manage plugin tpm"
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    mkdir -p ~/.tmux/plugins/tpm
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
 
 # vim-plug
 echo "====> Install vim plugins manage plugin vim-plug"
@@ -52,14 +33,6 @@ if [ ! -d $config_path/bak ]; then
     mkdir -p $config_path/bak
 fi
 
-if [ -f ~/.zshrc ]; then
-    echo "====> Zsh config file zshrc is exist, backup and delete it."
-    mv ~/.zshrc $config_path/bak/zshrc.bak
-fi
-echo "====> Create zshrc link"
-rm ~/.zshrc >/dev/null 2>&1
-ln -s $config_path/zsh/zshrc ~/.zshrc
-
 if [ -f ~/.vimrc ]; then
     echo "====> Vim config file vimrc is exist, backup and delete it."
     mv ~/.vimrc $config_path/bak/vimrc.bak
@@ -67,14 +40,6 @@ fi
 echo "====> Create vimrc link"
 rm ~/.vimrc >/dev/null 2>&1
 ln -s $config_path/vim/vimrc ~/.vimrc
-
-if [ -f ~/.tmux.conf ]; then
-    echo "====> Tmux config file tmux.conf is exist, backup and delete it."
-    mv ~/.tmux.conf $config_path/bak/tmux.conf.bak
-fi
-echo "====> Create tmux.conf link"
-rm ~/.tmux.conf >/dev/null 2>&1
-ln -s $config_path/tmux/tmux.conf ~/.tmux.conf
 
 if [ ! -d ~/.config/ ]; then
     mkdir ~/.config/
