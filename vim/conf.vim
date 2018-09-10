@@ -43,7 +43,7 @@ else
 endif
 
 "高亮当前行
-  set cursorline
+set cursorline
 " 开启语法高亮
 syntax enable
 " 允许使用制定高亮替换方案
