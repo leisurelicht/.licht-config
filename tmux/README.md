@@ -25,6 +25,12 @@
     ||pk-x|强制关闭当前pane|
     ||pk-"|水平分割window|
     ||pk-%|垂直分割window|
+    ||pk-q|显示每个pane的编号|
+    ||pk-z|全屏当前pane|
+    ||pk-h|移动到左边的pane|
+    ||pk-l|移动到右边的pane|
+    ||pk-j|移动到下边的pane|
+    ||pk-k|移动到上边的pane|
     |*|其他||
     ||pk-y|复制(慎用)|
     ||pk-]|粘贴(慎用)|
