@@ -118,7 +118,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# pyenv 初始化
+# Pyenv 初始化
 eval "$(pyenv init -)"
 
 # brew install software
