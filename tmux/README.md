@@ -11,17 +11,21 @@
     ||pk-d|退出tmux但不关闭session|
     ||pk-w|总览所有session|
     |*|window相关||
+    ||C-d|关闭当前window|
     ||pk-c|创建新的window|
-    ||C-d|删除当前window|
     ||pk-&|强制删除当前window|
-    ||pk-"|水平分割window|
-    ||pk-%|垂直分割window|
     ||pk-n|移动向下一个window|
     ||pk-p|移动向前一个window|
+    ||pk-f|搜索window|
+    ||pk-数字|根据数字选择window|
+    ||pk-'|根据数字选择window|
+    ||pk-,|重命名window|
+    |*|pane相关||
+    ||C-d|关闭当前pane|
+    ||pk-x|强制关闭当前pane|
+    ||pk-"|水平分割window|
+    ||pk-%|垂直分割window|
     |*|其他||
+    ||pk-y|复制(慎用)|
+    ||pk-]|粘贴(慎用)|
     ||pk-t|全屏显示时间|
-    
-
-
-
-----
