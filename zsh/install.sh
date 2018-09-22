@@ -22,6 +22,10 @@ brew install fzf
 brew install autojump
 brew install go
 brew install python
+brew install python@2
+
+echo "====> Use Gem to install necessary"
+gem install rough
 
 # 安装oh-my-zsh
 echo "====> Install oh-my-zsh"

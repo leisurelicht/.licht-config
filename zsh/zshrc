@@ -118,19 +118,6 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# 快速恢复后台任务
-fancy-ctrl-z () {
-if [[ $#BUFFER -eq 0 ]]; then
-  BUFFER="fg"
-  zle accept-line
-else
-  zle push-input
-  zle clear-screen
-fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
 # pyenv 初始化
 eval "$(pyenv init -)"
 

@@ -1,4 +1,4 @@
-# aliase file
+# alias file
 
 # tree
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
@@ -15,3 +15,16 @@ alias zdict="dict"
 
 # 好看的man工具
 alias gman="tldr"
+
+# 快速恢复后台任务
+fancy-ctrl-z () {
+if [[ $#BUFFER -eq 0 ]]; then
+  BUFFER="fg"
+  zle accept-line
+else
+  zle push-input
+  zle clear-screen
+fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
