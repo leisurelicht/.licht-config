@@ -1,6 +1,26 @@
 # Tmux 配置
 ----
 
+* 安装过程
+
+    * 运行tmux/install.sh
+
+----
+
+* 文件结构
+
+    * tmux.conf
+        
+        tmux配置文件
+
+    * install.sh
+    
+        安装脚本
+
+    * README.md
+
+----
+
 * 快捷键
 
     * **Prefix-key = Ctrl-b**
