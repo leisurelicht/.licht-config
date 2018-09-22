@@ -16,8 +16,9 @@ else
 fi
 
 echo "====> Use brew to intall necessary"
-brew install zsh
 brew install vim --with-override-system-vi
+brew install neovim
+brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
 brew install node
 brew install ctags
 brew install ag
@@ -66,24 +67,6 @@ function install_from_file(){
         fi
     done < $1
 }
-
-for parm in $@; do
-    if [[ param == "all" ]]; then
-        echo "====> Use brew and brew cask install software"
-        install_from_file $install_path/brew_install brew install
-        install_from_file $install_path/brew_cask_install brew install
-    fi
-
-    if [[ param == "brew" ]];then
-        echo "====> Use brew to install command"
-        install_from_file $install_path/brew_install brew install
-    fi
-
-    if [[ param == "brewcask" ]]; then
-        echo "====> Use brew cask to install software"
-        install_from_file $install_path/brew_cask_install brew cask install
-    fi
-done
 
 echo "====> Use pip to install package"
 install_from_file $install_path/pip3_install /usr/local/bin/pip3 install
