@@ -6,7 +6,6 @@ git
 tig
 tmate
 redis
-reattach-to-user-namespace
 nmap
 sqlmap
 cloc

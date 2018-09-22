@@ -18,6 +18,7 @@ fi
 
 echo "====> Use brew to intall necessary"
 brew install tmux
+brew install reattach-to-user-namespace
 
 # tmux
 echo "====> Install tumx plugins manage plugin tpm"
