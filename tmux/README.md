@@ -23,8 +23,8 @@
     |*|pane相关||
     ||C-d|关闭当前pane|
     ||pk-x|强制关闭当前pane|
-    ||pk-"|水平分割window|
-    ||pk-%|垂直分割window|
+    ||pk-"|水平分割创建pane|
+    ||pk-%|垂直分割创建pane|
     ||pk-q|显示每个pane的编号|
     ||pk-z|全屏当前pane|
     ||pk-h|移动到左边的pane|
