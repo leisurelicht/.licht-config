@@ -103,8 +103,8 @@ if [ -e ~/.config_file/zsh/aliasrc ]; then
 fi
 
 # SoftWare Config
-#
-# fzf
+
+# Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # need run 'gem install rough' first
 alias fzf='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (rougify {}  ||  cat {}) 2> /dev/null | head -500'"'"

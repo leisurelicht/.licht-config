@@ -20,9 +20,6 @@ echo "====> Use brew to intall necessary"
 brew install zsh
 brew install fzf
 brew install autojump
-brew install go
-brew install python
-brew install python@2
 
 echo "====> Use Gem to install necessary"
 gem install rough
@@ -35,7 +32,7 @@ elif command -v wget >/dev/null 2>&1; then
     sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
-# 创建备份文件
+# 备份文件
 echo "====> Back up dir path is: ${config_path}/bak"
 if [ ! -d $config_path/bak ]; then
     mkdir -p $config_path/bak
