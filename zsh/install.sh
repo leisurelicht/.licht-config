@@ -49,3 +49,6 @@ echo "====> Create zshrc link"
 
 rm ~/.zshrc >/dev/null 2>&1
 ln -s $config_path/zsh/zshrc ~/.zshrc
+
+# 切换到zsh
+chsh -s /bin/zsh
