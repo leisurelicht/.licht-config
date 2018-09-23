@@ -43,10 +43,10 @@ let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeShowBookmarks=1
 augroup read_pre
-  au StdinReadPre * let s:std_in=1
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+  autocmd vimenter * if !argc() | NERDTree |
 augroup end
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-au vimenter * if !argc() | NERDTree |
 
 " 时光机
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
