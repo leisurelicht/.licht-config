@@ -19,6 +19,8 @@ echo "====> Use brew to intall necessary"
 brew install vim --with-override-system-vi
 brew install neovim
 brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
+brew install python
+brew intalll python@2
 brew install node
 brew install ctags
 brew install ag
