@@ -23,11 +23,6 @@ brew install python
 brew intalll python@2
 brew install node
 brew install ctags
-brew install ag
-
-# vim-plug
-echo "====> Install vim plugins manage plugin vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "====> Create back up dir"
 
@@ -52,6 +47,7 @@ if [ -d ~/.config/nvim ]; then
     echo "====> Neovim config dir nvim is exist, backup and delete it."
     mv ~/.config/nvim $config_path/bak/nvim_bak
 fi
+
 echo "====> Create neovim config file links"
 rm -r ~/.config/nvim >/dev/null 2>&1
 ln -s ~/.vim ~/.config/nvim
