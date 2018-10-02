@@ -18,8 +18,10 @@ fi
 
 echo "====> Use brew to intall necessary"
 brew install zsh
-brew install fzf
 brew install autojump
+brew install fzf
+$(brew --prefix)/opt/fzf/install --all
+brew install ag
 
 echo "====> Use Gem to install necessary"
 gem install rough
