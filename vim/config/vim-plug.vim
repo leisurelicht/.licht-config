@@ -23,6 +23,26 @@ call plugs#load#Base('fzf')
 
 call plugs#language#Befor('init-module')
 
+if g:complete_framework ==? 'deoplete'
+  let g:deoplete_framework_enable = 1
+  let g:ncm2_framework_enable = 1
+  call plugs#language#Befor('deoplete-module')
+elseif g:complete_framework ==? 'ncm2'
+  let g:deoplete_framework_enable = 0
+  if has('nvim')
+    call plugs#language#Befor('ncm2-module')
+    let g:ncm2_framework_enable = 1
+  else
+    let g:ncm2_framework_enable = 0
+  endif
+else
+  echom 'Set CompleteFramework Error'
+endif
+call plugs#language#Befor('ultisnips-module')
+
+if g:language_markdown_enable ==# 1
+  call plugs#language#Enable('markdown-module')
+endif
 if g:language_vim_enable ==# 1
   call plugs#language#Enable('vim-module')
 endif
@@ -38,19 +58,19 @@ endif
 if g:language_javascript_enable ==# 1
   call plugs#language#Enable('javascript-module')
 endif
-if g:language_html_enable ==# 1
-  call plugs#language#Enable('html-module')
-endif
 if g:language_vue_enable ==# 1
   call plugs#language#Enable('vue-module')
+endif
+if g:language_html_enable ==# 1
+  call plugs#language#Enable('html-module')
 endif
 
 call plugs#language#After('autoformat-module')
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
-call plugs#language#After('ultisnips-module')
 call plugs#language#After('ale-module')
-call plugs#language#After('completeparameter-module')
+
+
 
 
 call plug#end()

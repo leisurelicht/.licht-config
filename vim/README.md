@@ -1,6 +1,12 @@
 # Vim 配置
 ----
 
+```python3
+
+    def test(self):
+        print(test)
+
+```
 * 安装过程
 
     * 运行vim/install/install.sh

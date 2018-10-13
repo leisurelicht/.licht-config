@@ -21,3 +21,14 @@ if g:ale_python_autopep8
 endif
 
 let g:_ale_fixer_map.python = s:fixer_list
+
+if g:deoplete_framework_enable
+  Plug 'zchee/deoplete-jedi', {'for': 'python'}
+  let g:deoplete#sources#jedi#statement_length=50
+  let g:deoplete#sources#jedi#enable_typeinfo=0
+  let g:deoplete#sources#jedi#show_docstring=0
+endif
+
+if g:ncm2_framework_enable
+  Plug 'ncm2/ncm2-jedi', {'for': 'python'}
+endif

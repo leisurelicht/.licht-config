@@ -20,3 +20,11 @@ if g:ale_javascript_prettier
 endif
 
 let g:_ale_fixer_map.javascript = s:fixer_list
+
+if g:deoplete_framework_enable
+  Plug 'wokalski/autocomplete-flow'
+endif
+
+if g:ncm2_framework_enable
+  Plug 'ncm2/ncm2-tern', {'do': 'npm install', 'for': 'javascript'}
+endif

@@ -84,5 +84,6 @@ install_from_file $install_path/go_install go get -u
 
 # 安装vim插件
 echo "====> Install vim PlugInstall"
-vim -c PlugInstall
+nvim -c +PlugInstall +UpdateRemotePlugins +qa
+vim -c +PlugInstall +UpdateRemotePlugins +qa
 
