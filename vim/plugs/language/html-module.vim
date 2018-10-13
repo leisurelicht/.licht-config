@@ -12,3 +12,12 @@ if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-cssomni'
   Plug 'ncm2/ncm2-html-subscope'
 endif
+
+" ale fixer
+let s:fixer_list = []
+
+if g:ale_html_write_good
+  call add(s:fixer_list, 'write-good')
+endif
+
+let g:_ale_fixer_map.html = s:fixer_list

@@ -4,3 +4,4 @@ jsonlint
 htmlhint
 write-good
 prettier
+bash-language-server

@@ -43,6 +43,12 @@ call plugs#language#Befor('ultisnips-module')
 if g:language_markdown_enable ==# 1
   call plugs#language#Enable('markdown-module')
 endif
+if g:language_yaml_enable ==# 1
+  call plugs#language#Enable('yaml-module')
+endif
+if g:language_sql_enable ==# 1
+  call plugs#language#Enable('sql-module')
+endif
 if g:language_vim_enable ==# 1
   call plugs#language#Enable('vim-module')
 endif

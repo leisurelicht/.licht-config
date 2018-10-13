@@ -8,7 +8,7 @@ call add(g:_frontend_list, 'htmldjango')
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
 " ale fixer
-let s:fixer_list = ['add_blank_lines_for_python_control_statements', 'remove_trailing_lines', 'trim_whitespace']
+let s:fixer_list = ['add_blank_lines_for_python_control_statements',]
 
 if g:ale_python_isort
   call add(s:fixer_list, 'isort')

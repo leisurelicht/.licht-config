@@ -6,7 +6,7 @@ call add(g:_backend_list, 'go')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 
 " ale fixer
-let s:fixer_list = ['remove_trailing_lines', 'trim_whitespace']
+let s:fixer_list = []
 
 if g:ale_go_import
   call add(s:fixer_list, 'goimports')

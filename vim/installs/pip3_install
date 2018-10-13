@@ -1,6 +1,8 @@
-jedi
---upgrade --user autopep8
-yapf
 neovim
+jedi
+isort
+--upgrade --user autopep8
 flake8
+yapf
 vim-vint
+--user yamllint

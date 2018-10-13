@@ -4,12 +4,22 @@ scriptencoding utf-8
 "           <dein>      use dein(in plan)
 let g:plugin_manager = 'vim-plug'
 
-" 语言加载设置
+" Supported Languages Module Option
 "
 " Markdown
 " default:  <1> enable support markdown
 "           <0> disable support markdown
 let g:language_markdown_enable = 1
+
+" YAML
+" default:  <1> enable support markdown
+"           <0> disable support markdown
+let g:language_yaml_enable = 1
+
+" SQL
+" default:  <1> enable support markdown
+"           <0> disable support markdown
+let g:language_sql_enable = 1
 
 " Shell
 " default:  <1> enable support shell
@@ -53,6 +63,10 @@ let g:ale_enable = 1
 " ale fixer
 " default:  <1> enable
 "           <0> disable
+let g:ale_auto_fix_on_save = 1
+" supported languages and tools
+" need enable language module
+let g:ale_vim_vint = 1
 let g:ale_python_isort = 1
 let g:ale_python_yapf = 1
 let g:ale_python_autopep8 = 1
@@ -62,15 +76,24 @@ let g:ale_javascript_eslint = 1
 let g:ale_javascript_import_js = 1
 let g:ale_javascript_prettier = 1
 let g:ale_vue_eslint = 1
+let g:ale_html_write_good = 1
+let g:ale_markdown_prettier = 1
+let g:ale_markdown_write_good = 1
+let g:ale_yaml_prettier = 1
+let g:ale_yaml_yamllint = 1
+let g:ale_bash_language_server = 1
+let g:ale_bash_shfmt = 1
+let g:ale_sql_sqlint = 1
+let g:ale_sql_sqlfmt = 1
 
 
 " python2 path
-" let g:_python2_path = '/path/to/python2'
+" let g:_python2_path = '/full/path/to/python2'
 " default: use python2 install by brew
 let g:_python2_path = '/usr/local/bin/python'
 
 " python3 path
-" let g:_python3_path = '/path/to/python3'
+" let g:_python3_path = '/full/path/to/python3'
 " default: use python3 install by brew
 let g:_python3_path = '/usr/local/bin/python3'
 

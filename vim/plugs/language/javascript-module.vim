@@ -6,7 +6,7 @@ call add(g:_frontend_list, 'javacript')
 Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript'}
 
 " ale fixer
-let s:fixer_list = ['remove_trailing_lines', 'trim_whitespace']
+let s:fixer_list = []
 
 if g:ale_javascript_eslint
   call add(s:fixer_list, 'eslint')
