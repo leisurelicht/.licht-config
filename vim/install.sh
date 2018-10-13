@@ -82,18 +82,18 @@ function install_from_file(){
     done < $1
 }
 
-# echo "====> Use pip to install package"
-# install_from_file $install_path/pip3_install /usr/local/bin/pip3 install
-# install_from_file $install_path/pip2_install /usr/local/bin/pip3 install
+echo "====> Use pip to install package"
+install_from_file $install_path/pip3_install /usr/local/bin/pip3 install
+install_from_file $install_path/pip2_install /usr/local/bin/pip3 install
 
-# echo "====> Use gem to install package"
-# install_from_file $install_path/installs/gem_install gem install
+echo "====> Use gem to install package"
+install_from_file $install_path/installs/gem_install gem install
 
-# echo "====> Use npm to install package"
-# install_from_file $install_path/installs/npm_install npm install -g
+echo "====> Use npm to install package"
+install_from_file $install_path/installs/npm_install npm install -g
 
-# echo "====> Use go to install package"
-# install_from_file $install_path/installs/go_install go get -u
+echo "====> Use go to install package"
+install_from_file $install_path/installs/go_install go get -u
 
 echo "====> Create back up dir"
 
