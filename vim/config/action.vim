@@ -21,7 +21,7 @@ augroup file_set
   autocmd FileType python
         \ setlocal fileformat=unix |
         \ setlocal colorcolumn=79
-  autocmd FileType vim,dockerfile,yaml,bash,vue,html,htmldjango,javascript,jsx
+  autocmd FileType vim,dockerfile,yaml,bash,vue,html,htmldjango,javascript,javascript.jsx
         \ setlocal fileformat=unix |
         \ setlocal tabstop=2 |
         \ setlocal softtabstop=2 |
