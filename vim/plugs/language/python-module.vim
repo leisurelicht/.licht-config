@@ -34,7 +34,9 @@ if g:ncm2_framework_enable
   " call ncm2#override_source('LanguageClient_python', {'enable': 0})
 endif
 
-let g:LanguageClient_serverCommands.python = ['pyls']
-augroup lsp_map
-  autocmd FileType python call LSP_maps()
-augroup end
+if executable('pyls')
+  let g:LanguageClient_serverCommands.python = ['pyls']
+  augroup lsp_map
+    autocmd FileType python call LSP_maps()
+  augroup end
+endif

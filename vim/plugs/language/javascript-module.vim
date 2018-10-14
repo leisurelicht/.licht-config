@@ -28,3 +28,17 @@ endif
 if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-tern', {'do': 'npm install', 'for': 'javascript'}
 endif
+
+if executable('javascript-typescript-stdio')
+  let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+  augroup lsp_map
+    autocmd FileType javascript call LSP_maps()
+  augroup end
+endif
+
+if executable('typescript-language-server')
+  let g:LanguageClient_serverCommands.typescript = ['typescript-language-server', '--stdio']
+  augroup lsp_map
+    autocmd FileType typescript call LSP_maps()
+  augroup end
+endif

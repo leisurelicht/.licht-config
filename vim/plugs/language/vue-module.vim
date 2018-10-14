@@ -11,3 +11,11 @@ if g:ale_vue_eslint
 endif
 
 let g:_ale_fixer_map.vue = s:fixer_list
+
+if executable('vls')
+  let g:LanguageClient_serverCommands.vue = ['vls']
+  augroup lsp_map
+    autocmd FileType sh call LSP_maps()
+  augroup end
+endif
+

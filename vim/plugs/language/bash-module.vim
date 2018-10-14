@@ -18,8 +18,9 @@ endif
 
 let g:_ale_fixer_map.yaml = s:fixer_list
 
-
-let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
-augroup lsp_map
-  autocmd FileType sh call LSP_maps()
-augroup end
+if executable('bash-language-server')
+  let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
+  augroup lsp_map
+    autocmd FileType sh call LSP_maps()
+  augroup end
+endif

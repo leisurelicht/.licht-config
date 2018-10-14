@@ -27,7 +27,9 @@ if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-go', {'for': 'go'}
 endif
 
-let g:LanguageClient_serverCommands.go = ['go-langserver', '-mode', 'stdio']
-augroup lsp_map
-  autocmd FileType go call LSP_maps()
-augroup end
+if executable('go-langserver')
+  let g:LanguageClient_serverCommands.go = ['go-langserver', '-mode', 'stdio']
+  augroup lsp_map
+    autocmd FileType go call LSP_maps()
+  augroup end
+endif
