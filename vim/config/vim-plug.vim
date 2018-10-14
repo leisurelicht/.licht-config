@@ -73,7 +73,6 @@ if g:language_html_enable ==# 1
   call plugs#language#Enable('html-module')
 endif
 
-call plugs#language#After('autoformat-module')
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
 " call plugs#language#After('ale-module')
