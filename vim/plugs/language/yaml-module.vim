@@ -1,5 +1,6 @@
 " yaml
 "
+call add(g:_backend_list, 'yaml')
 " ale fixer
 let s:fixer_list = []
 

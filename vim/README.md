@@ -1,10 +1,6 @@
 # Vim 配置
-----
 
-```python3
-
-    def test(self):
-        print(test)
+---
 
 ```
 * 安装过程
@@ -28,4 +24,4 @@
         需要去wakatime.com注册一个账号并输入api才能使用vim记录
 
 ----
-
+```

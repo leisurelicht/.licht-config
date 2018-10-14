@@ -38,6 +38,8 @@ elseif g:complete_framework ==? 'ncm2'
 else
   echom 'Set CompleteFramework Error'
 endif
+call plugs#language#Befor('lsp-module')
+
 call plugs#language#Befor('ultisnips-module')
 
 if g:language_markdown_enable ==# 1
@@ -53,7 +55,7 @@ if g:language_vim_enable ==# 1
   call plugs#language#Enable('vim-module')
 endif
 if g:language_shell_enable ==# 1
-  call plugs#language#Enable('shell-module')
+  call plugs#language#Enable('bash-module')
 endif
 if g:language_python_enable ==# 1
   call plugs#language#Enable('python-module')
@@ -74,7 +76,7 @@ endif
 call plugs#language#After('autoformat-module')
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
-call plugs#language#After('ale-module')
+" call plugs#language#After('ale-module')
 
 
 

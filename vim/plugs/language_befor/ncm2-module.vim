@@ -3,6 +3,14 @@
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 
+" LanguageServer client for NeoVim.
+Plug 'autozimu/LanguageClient-neovim', {
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
+
+let g:LanguageClient_serverCommands = {}
+
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
 

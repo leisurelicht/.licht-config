@@ -22,6 +22,12 @@ if g:deoplete_framework_enable
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 endif
+
 if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-go', {'for': 'go'}
 endif
+
+let g:LanguageClient_serverCommands.go = ['go-langserver', '-mode', 'stdio']
+augroup lsp_map
+  autocmd FileType go call LSP_maps()
+augroup end

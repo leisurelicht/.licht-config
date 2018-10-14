@@ -49,9 +49,14 @@ else
     echo "----> Command npm is already installed"
 fi
 
+
 if ! command -v go >/dev/null 2>&1; then
     echo "----> Use brew to install go"
     brew install go
+    # export GOROOT=/usr/local/opt/go/libexec
+    # export GOPATH=$HOME/.go
+    # export PATH=$PATH:$GOPATH/bin
+    # export PATH=$PATH:$GOROOT/bin
 else
     echo "----> Command go is already installed"
 fi
