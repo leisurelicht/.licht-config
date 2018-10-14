@@ -1,8 +1,8 @@
 neovim
 jedi
 isort
---upgrade --user autopep8
+autopep8
 flake8
 yapf
 vim-vint
---user yamllint
+yamllint

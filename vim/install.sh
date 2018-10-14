@@ -82,14 +82,14 @@ function install_from_file(){
     do
         if [[ ! $line =~ "#" ]]; then
             echo "$2 $3 $4 $line"
-            `$2 $3 $4 $line`
+            $2 $3 $4 $line
         fi
     done < $1
 }
 
 echo "====> Use pip to install package"
-install_from_file $install_path/pip3_install /usr/local/bin/pip3 install
-install_from_file $install_path/pip2_install /usr/local/bin/pip3 install
+$(brew --prefix)/bin/pip3 install --upgrade --user -r $install_path/installs/pip3_install 
+$(brew --prefix)/bin/pip2 install --upgrade --user -r $install_path/installs/pip2_install 
 
 echo "====> Use gem to install package"
 install_from_file $install_path/installs/gem_install gem install
