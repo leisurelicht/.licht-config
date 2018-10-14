@@ -75,7 +75,7 @@ endif
 
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
-" call plugs#language#After('ale-module')
+call plugs#language#After('ale-module')
 
 
 
