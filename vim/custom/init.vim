@@ -88,8 +88,8 @@ let g:ale_sql_sqlfmt = 1
 
 " python2 path
 " let g:_python2_path = '/full/path/to/python2'
-" default: use python2 install by brew
-let g:_python2_path = '/usr/local/bin/python'
+" default: empty
+let g:_python2_path = ''
 
 " python3 path
 " let g:_python3_path = '/full/path/to/python3'
