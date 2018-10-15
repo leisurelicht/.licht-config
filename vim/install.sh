@@ -87,9 +87,13 @@ function install_from_file(){
     done < $1
 }
 
+echo "====> Upgrade pip "
+$(brew --prefix)/bin/pip3 install --upgrade pip
+$(brew --prefix)/bin/pip2 install --upgrade pip
+
 echo "====> Use pip to install package"
-$(brew --prefix)/bin/pip3 install --upgrade --user -r $install_path/installs/pip3_install 
-$(brew --prefix)/bin/pip2 install --upgrade --user -r $install_path/installs/pip2_install 
+$(brew --prefix)/bin/pip3 install --upgrade --user -r $install_path/installs/pip3_install
+$(brew --prefix)/bin/pip2 install --upgrade --user -r $install_path/installs/pip2_install
 
 echo "====> Use gem to install package"
 install_from_file $install_path/installs/gem_install gem install
