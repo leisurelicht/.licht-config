@@ -138,5 +138,5 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # 安装vim插件
 echo "====> Install vim PlugInstall"
-nvim -c +PlugInstall +UpdateRemotePlugins +qa
-vim -c +PlugInstall +UpdateRemotePlugins +qa
+nvim +PlugInstall +UpdateRemotePlugins +qa
+vim +PlugInstall +UpdateRemotePlugins +qa
