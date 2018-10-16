@@ -16,7 +16,7 @@ if g:ale_bash_language_server
   call add(s:fixer_list, 'language-server')
 endif
 
-let g:_ale_fixer_map.yaml = s:fixer_list
+let g:_ale_fixer_map.sh = s:fixer_list
 
 if executable('bash-language-server')
   let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
