@@ -9,6 +9,5 @@ if has('nvim')
 else
   let g:_main = '/.config_file/vim/config/main.vim'
 endif
-execute 'source' fnamemodify(expand('<sfile>'), ':h').g:_main
-  
 
+execute 'source' fnamemodify(expand('<sfile>'), ':h').g:_main
