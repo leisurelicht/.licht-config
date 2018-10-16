@@ -79,7 +79,6 @@ let g:ale_vue_eslint = 1
 let g:ale_html_write_good = 1
 let g:ale_markdown_prettier = 1
 let g:ale_yaml_prettier = 1
-let g:ale_yaml_yamllint = 1
 let g:ale_bash_language_server = 1
 let g:ale_bash_shfmt = 1
 let g:ale_sql_sqlint = 1
