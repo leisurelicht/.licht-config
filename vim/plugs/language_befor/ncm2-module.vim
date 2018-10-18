@@ -45,4 +45,4 @@ Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 
 Plug 'filipekiss/ncm2-look.vim'
-let g:ncm2_look_enabled = 1
+let g:ncm2_look_enabled = 0
