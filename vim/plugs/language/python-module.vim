@@ -31,7 +31,7 @@ endif
 
 if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-jedi', {'for': 'python'}
-  " call ncm2#override_source('LanguageClient_python', {'enable': 0})
+  call ncm2#override_source('LanguageClient_python', {'enable': 0})
 endif
 
 if executable('pyls')
