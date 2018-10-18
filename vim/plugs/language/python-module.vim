@@ -29,14 +29,20 @@ if g:deoplete_framework_enable
   let g:deoplete#sources#jedi#show_docstring=0
 endif
 
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-jedi', {'for': 'python'}
-  call ncm2#override_source('LanguageClient_python', {'enable': 0})
-endif
-
 if executable('pyls')
   let g:LanguageClient_serverCommands.python = ['pyls']
+
   augroup lsp_map
     autocmd FileType python call LSP_maps()
   augroup end
+
+	if g:ncm2_framework_enable
+		augroup close_python_lsp
+			autocmd FileType python call ncm2#override_source('LanguageClient_python', {'enable': 0})
+		augroup end
+	endif
+endif
+
+if g:ncm2_framework_enable
+  Plug 'ncm2/ncm2-jedi', {'for': 'python'}
 endif
