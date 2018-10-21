@@ -19,6 +19,7 @@ call plugs#load#Base('vim-multiple-cursors')
 call plugs#load#Base('vim-signify')
 call plugs#load#Base('vim-surround')
 call plugs#load#Base('fzf')
+call plugs#load#Base('tabular')
 
 
 call plugs#language#Befor('init-module')
