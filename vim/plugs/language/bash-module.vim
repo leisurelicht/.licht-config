@@ -9,7 +9,7 @@ augroup auto_set_file_head
   autocmd BufNewFile *.sh call custom#header#Bash()
 augroup end
 
-" run
+" run file
 augroup run_file
   autocmd FileType sh noremap <buffer> <F12> :call custom#run#Bash()<CR>
 augroup end
