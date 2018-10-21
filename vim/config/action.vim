@@ -9,18 +9,5 @@ augroup end
 " 标识不必要的空白字符
 augroup white_space
   hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
-  autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.go,*.html,*.js match BadWhitespace /\s\+$/
-augroup end
-
-" 不同类型文件配置
-augroup file_set
-  autocmd FileType python
-        \ setlocal fileformat=unix |
-        \ setlocal colorcolumn=79
-  autocmd FileType vim,dockerfile,yaml,bash,vue,html,htmldjango,javascript,javascript.jsx
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType vue syntax sync fromstart
+  autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 augroup end

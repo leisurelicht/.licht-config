@@ -8,6 +8,14 @@ augroup run_file
   autocmd FileType html noremap <buffer> <F12> :call custom#run#Html()<CR>
 augroup end
 
+" 修改不同类型文件的设置
+augroup file_set
+  autocmd FileType bash
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+augroup end
 
 Plug 'mattn/emmet-vim', {'for': g:_frontend_list}
 

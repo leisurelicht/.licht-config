@@ -16,6 +16,11 @@ let g:language_markdown_enable = 1
 "           <0> disable support markdown
 let g:language_yaml_enable = 1
 
+" Docker
+" default:  <1> enable support Dockerfile
+"           <0> disable support Dockerfile
+let g:language_docker_enable = 1
+
 " SQL
 " default:  <1> enable support markdown
 "           <0> disable support markdown

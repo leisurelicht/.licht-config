@@ -14,6 +14,20 @@ augroup run_file
   autocmd FileType python noremap <buffer> <F12> :call custom#run#Python()<CR>
 augroup end
 
+" 修改不同类型文件的设置
+augroup file_set
+  autocmd FileType python
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+  autocmd FileType htmldjango
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+augroup end
+
 " Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 

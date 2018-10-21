@@ -48,6 +48,9 @@ endif
 if g:language_yaml_enable ==# 1
   call plugs#language#Enable('yaml-module')
 endif
+if g:language_docker_enable ==# 1
+  call plugs#language#Enable('docker-module')
+endif
 if g:language_sql_enable ==# 1
   call plugs#language#Enable('sql-module')
 endif
