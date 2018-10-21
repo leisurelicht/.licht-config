@@ -6,9 +6,9 @@ augroup auto_position
 augroup end
 
 " 定义函数AutoSetFileHead，自动插入文件头
-augroup auto_set_file_head
-  autocmd BufNewFile *.sh,*.py call custom#file#AutoSetFileHead()
-augroup end
+" augroup auto_set_file_head
+"   autocmd BufNewFile *.sh,*.py call custom#file#AutoSetFileHead()
+" augroup end
 
 " 标识不必要的空白字符
 augroup white_space

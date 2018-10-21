@@ -2,6 +2,11 @@
 "
 call add(g:_backend_list, 'go')
 
+"run file
+augroup type_file
+  autocmd FileType go noremap <buffer> <F12> :call custom#run#Go()<CR>
+augroup end
+
 " vim-go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
 

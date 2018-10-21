@@ -4,6 +4,16 @@ if g:deoplete_framework_enable
   Plug 'zchee/deoplete-zsh', {'for': 'bash'}
 endif
 
+" 自动插入文件头
+augroup auto_set_file_head
+  autocmd BufNewFile *.sh call custom#header#Bash()
+augroup end
+
+" run
+augroup run_file
+  autocmd FileType sh noremap <buffer> <F12> :call custom#run#Bash()<CR>
+augroup end
+
 " ale fixer
 let s:fixer_list = []
 

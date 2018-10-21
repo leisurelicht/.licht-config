@@ -3,6 +3,12 @@
 call add(g:_frontend_list, 'html')
 call add(g:_frontend_list, 'css')
 
+"run file
+augroup type_file
+  autocmd FileType html noremap <buffer> <F12> :call custom#run#Html()<CR>
+augroup end
+
+
 Plug 'mattn/emmet-vim', {'for': g:_frontend_list}
 
 " html5

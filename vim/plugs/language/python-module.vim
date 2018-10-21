@@ -4,6 +4,16 @@ scriptencoding utf-8
 call add(g:_backend_list, 'python')
 call add(g:_frontend_list, 'htmldjango')
 
+" 自动插入文件头
+augroup auto_set_file_head
+  autocmd BufNewFile *.py call custom#header#Python()
+augroup end
+
+" run file
+augroup run_file
+  autocmd FileType python noremap <buffer> <F12> :call custom#run#Python()<CR>
+augroup end
+
 " Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
