@@ -18,7 +18,6 @@ endif
 " ale fixer
 let s:fixer_list = []
 
-
 if g:ale_markdown_prettier
   call add(s:fixer_list, 'prettier')
 endif
