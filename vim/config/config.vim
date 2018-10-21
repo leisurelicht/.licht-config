@@ -3,7 +3,8 @@ scriptencoding utf-8
 "
 
 " 设置leader键
-let g:mapleader=','
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
 
 if has('nvim')
   " 即时预览命令效果

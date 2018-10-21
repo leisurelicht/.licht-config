@@ -3,25 +3,36 @@
 ---
 
 ```
-* 安装过程
+* 安装/卸载
 
-    * 运行vim/install/install.sh
+    * install.sh
+    * uninstall.sh
 
 * 文件结构
 
-    * plug.vim
+    * vimrc
 
-        第三方插件配置文件
+        vim入口文件
 
-    * conf.vim
+    * custom
 
-        vim配置文件
+        自定义配置
 
-    * func.vim
+    * autoload
 
-        自定义的vim函数
+        vim函数
 
-        需要去wakatime.com注册一个账号并输入api才能使用vim记录
+    * installs
+
+        要安装的第三方库
+
+    * plugs
+
+        第三方插件
+
+    * config
+
+        vim配置
 
 ----
 ```

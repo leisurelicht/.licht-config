@@ -9,11 +9,11 @@ endif
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
-nnoremap <c-p> :FzfGFiles<cr>
-nnoremap <leader><tab> :FzfCommands<cr>
-nnoremap <leader>t :FzfTags<cr>
-nnoremap <leader>b :FzfBuffers<cr>
-nnoremap <leader>a :FzfAg<cr>
+nnoremap <localleader><tab> :FzfCommands<cr>
+nnoremap <localleader>p :FzfGFiles<cr>
+nnoremap <localleader>t :FzfTags<cr>
+nnoremap <localleader>b :FzfBuffers<cr>
+nnoremap <localleader>a :FzfAg<cr>
 
 command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
