@@ -25,57 +25,26 @@ call plugs#load#Base('tabular')
 call plugs#language#Befor('init-module')
 
 if g:complete_framework ==? 'deoplete'
-  let g:deoplete_framework_enable = 1
-  let g:ncm2_framework_enable = 1
   call plugs#language#Befor('deoplete-module')
 elseif g:complete_framework ==? 'ncm2'
-  let g:deoplete_framework_enable = 0
-  if has('nvim')
-    call plugs#language#Befor('ncm2-module')
-    let g:ncm2_framework_enable = 1
-  else
-    let g:ncm2_framework_enable = 0
-  endif
-else
-  echom 'Set CompleteFramework Error'
+  call plugs#language#Befor('ncm2-module')
 endif
-call plugs#language#Befor('lsp-module')
-
 call plugs#language#Befor('ultisnips-module')
 
-if g:language_markdown_enable ==# 1
-  call plugs#language#Enable('markdown-module')
-endif
-if g:language_yaml_enable ==# 1
-  call plugs#language#Enable('yaml-module')
-endif
-if g:language_docker_enable ==# 1
-  call plugs#language#Enable('docker-module')
-endif
-if g:language_sql_enable ==# 1
-  call plugs#language#Enable('sql-module')
-endif
-if g:language_vim_enable ==# 1
-  call plugs#language#Enable('vim-module')
-endif
-if g:language_shell_enable ==# 1
-  call plugs#language#Enable('bash-module')
-endif
-if g:language_python_enable ==# 1
-  call plugs#language#Enable('python-module')
-endif
-if g:language_go_enable ==# 1
-  call plugs#language#Enable('go-module')
-endif
-if g:language_javascript_enable ==# 1
-  call plugs#language#Enable('javascript-module')
-endif
-if g:language_vue_enable ==# 1
-  call plugs#language#Enable('vue-module')
-endif
-if g:language_html_enable ==# 1
-  call plugs#language#Enable('html-module')
-endif
+augroup language_load
+  call plugs#language#Befor('lsp-module')
+  autocmd FileType markdown call plugs#language#Enable('markdown-module')
+  autocmd FileType yaml call plugs#language#Enable('yaml-module')
+  autocmd FileType dockerfile call plugs#language#Enable('docker-module')
+  autocmd FileType sql call plugs#language#Enable('sql-module')
+  autocmd FileType vim call plugs#language#Enable('vim-module')
+  autocmd FileType sh call plugs#language#Enable('bash-module')
+  autocmd FileType python call plugs#language#Enable('python-module')
+  autocmd FileType go call plugs#language#Enable('go-module')
+  autocmd FileType javascript, javascript.jsx call plugs#language#Enable('javascript-module')
+  autocmd FileType vue call plugs#language#Enable('vue-module')
+  autocmd FileType html, htmldjango call plugs#language#Enable('html-module')
+augroup end
 
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')

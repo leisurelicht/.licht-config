@@ -1,15 +1,13 @@
+scriptencoding utf-8
 " Vue
 "
-call add(g:_frontend_list, 'vue')
-
 " 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType vue
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType vue syntax sync fromstart
+  setlocal fileformat=unix
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
+  syntax sync fromstart
 augroup end
 
 Plug 'posva/vim-vue', {'for': 'vue'}
@@ -24,7 +22,5 @@ let g:_ale_fixer_map.vue = s:fixer_list
 
 if executable('vls')
   let g:LanguageClient_serverCommands.vue = ['vls']
-  augroup lsp_map
-    autocmd FileType sh call LSP_maps()
-  augroup end
+  call LSP_maps()
 endif

@@ -1,15 +1,15 @@
-" sql
+scriptencoding utf-8
+" SQL
 "
 " ale fixer
 let s:fixer_list = []
 
 " 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType sql
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
+  setlocal fileformat=unix
+  setlocal tabstop=2
+  setlocal softtabstop=2
+  setlocal shiftwidth=2
 augroup end
 
 if g:ale_sql_sqlint

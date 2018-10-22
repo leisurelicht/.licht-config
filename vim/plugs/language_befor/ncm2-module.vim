@@ -44,5 +44,18 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-tmux'
 Plug 'ncm2/ncm2-path'
 
-Plug 'filipekiss/ncm2-look.vim'
-let g:ncm2_look_enabled = 0
+" Plug 'filipekiss/ncm2-look.vim'
+
+Plug 'ncm2/ncm2-ultisnips'
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+Plug 'ncm2/ncm2-jedi', {'for': 'python'}
+Plug 'ncm2/ncm2-go', {'for': 'go'}
+
+
+Plug 'ncm2/ncm2-cssomni', {'for': 'css'}
+Plug 'ncm2/ncm2-html-subscope', {'for': 'html'}
+Plug 'ncm2/ncm2-tern', {'do': 'npm install', 'for': 'javascript'}
+Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
+Plug 'ncm2/ncm2-vim'
+Plug 'Shougo/neco-vim'

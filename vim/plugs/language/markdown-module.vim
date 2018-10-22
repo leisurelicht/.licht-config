@@ -1,18 +1,17 @@
+scriptencoding utf-8
 " markdown
 "
 call add(g:_backend_list, 'markdown')
 
 " 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType markdown
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
+  setlocal fileformat=unix
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
 augroup end
 
 if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-markdown-subscope'
 endif
 
 " ale fixer

@@ -1,10 +1,6 @@
+scriptencoding utf-8
 " 代码片段补全
 "
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-ultisnips'
-  inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-endif
-
 " Track the engine.
 Plug 'SirVer/ultisnips'
 

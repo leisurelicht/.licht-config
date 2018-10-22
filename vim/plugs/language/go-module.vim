@@ -1,5 +1,6 @@
 " Go
 "
+echom "call go"
 call add(g:_backend_list, 'go')
 
 "run file
@@ -9,15 +10,14 @@ augroup end
 
 " 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType go
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
+  setlocal fileformat=unix
+  setlocal tabstop=4
+  setlocal softtabstop=4
+  setlocal shiftwidth=4
 augroup end
 
 " vim-go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' , 'for': 'go'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
 
 " ale fixer
 let s:fixer_list = []
@@ -32,18 +32,12 @@ endif
 let g:_ale_fixer_map.go = s:fixer_list
 
 if g:deoplete_framework_enable
-  Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+  Plug 'zchee/deoplete-go', { 'do': 'make'}
   let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 endif
 
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-go', {'for': 'go'}
-endif
-
 if executable('go-langserver')
   let g:LanguageClient_serverCommands.go = ['go-langserver', '-mode', 'stdio']
-  augroup lsp_map
-    autocmd FileType go call LSP_maps()
-  augroup end
+  call LSP_maps()
 endif
