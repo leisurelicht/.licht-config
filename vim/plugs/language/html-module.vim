@@ -1,10 +1,6 @@
 scriptencoding utf-8
 " HTML and CSS
 "
-call add(g:_frontend_list, 'html')
-call add(g:_frontend_list, 'css')
-call add(g:_frontend_list, 'htmldjango')
-
 "run file
 augroup run_file
   noremap <buffer> <F12> :call custom#run#Html()<CR>
