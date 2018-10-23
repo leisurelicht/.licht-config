@@ -25,25 +25,29 @@ call plugs#load#Base('tabular')
 call plugs#language#Befor('init-module')
 
 if g:complete_framework ==? 'deoplete'
+  let g:deoplete_framework_enable = 1
+  let g:ncm2_framework_enable = 0
   call plugs#language#Befor('deoplete-module')
 elseif g:complete_framework ==? 'ncm2'
+  let g:deoplete_framework_enable = 0
+  let g:ncm2_framework_enable = 1
   call plugs#language#Befor('ncm2-module')
 endif
 call plugs#language#Befor('ultisnips-module')
+call plugs#language#Befor('lsp-module')
 
 augroup language_load
-  call plugs#language#Befor('lsp-module')
-  autocmd FileType markdown call plugs#language#Enable('markdown-module')
-  autocmd FileType yaml call plugs#language#Enable('yaml-module')
-  autocmd FileType dockerfile call plugs#language#Enable('docker-module')
-  autocmd FileType sql call plugs#language#Enable('sql-module')
-  autocmd FileType vim call plugs#language#Enable('vim-module')
-  autocmd FileType sh call plugs#language#Enable('bash-module')
-  autocmd FileType python call plugs#language#Enable('python-module')
-  autocmd FileType go call plugs#language#Enable('go-module')
-  autocmd FileType javascript, javascript.jsx call plugs#language#Enable('javascript-module')
-  autocmd FileType vue call plugs#language#Enable('vue-module')
-  autocmd FileType html, htmldjango call plugs#language#Enable('html-module')
+  call plugs#language#Enable('markdown-module')
+  call plugs#language#Enable('yaml-module')
+  call plugs#language#Enable('docker-module')
+  call plugs#language#Enable('sql-module')
+  call plugs#language#Enable('vim-module')
+  call plugs#language#Enable('bash-module')
+  call plugs#language#Enable('python-module')
+  call plugs#language#Enable('go-module')
+  call plugs#language#Enable('javascript-module')
+  call plugs#language#Enable('vue-module')
+  call plugs#language#Enable('html-module')
 augroup end
 
 call plugs#language#After('polyglot-module')

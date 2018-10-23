@@ -33,8 +33,8 @@ inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-Plug 'ncm2/ncm2-match-highlight'
-let g:ncm1#match_highlight = 'double-struck'
+" Plug 'ncm2/ncm2-match-highlight'
+" let g:ncm1#match_highlight = 'double-struck'
 
 " Plug 'ncm2/ncm2-highprio-pop'
 "
@@ -48,14 +48,3 @@ Plug 'ncm2/ncm2-path'
 
 Plug 'ncm2/ncm2-ultisnips'
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-Plug 'ncm2/ncm2-jedi', {'for': 'python'}
-Plug 'ncm2/ncm2-go', {'for': 'go'}
-
-
-Plug 'ncm2/ncm2-cssomni', {'for': 'css'}
-Plug 'ncm2/ncm2-html-subscope', {'for': 'html'}
-Plug 'ncm2/ncm2-tern', {'do': 'npm install', 'for': 'javascript'}
-Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
-Plug 'ncm2/ncm2-vim'
-Plug 'Shougo/neco-vim'

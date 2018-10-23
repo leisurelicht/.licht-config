@@ -30,12 +30,3 @@ smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
 smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
 imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-
-Plug 'zchee/deoplete-zsh', {'for': 'bash'}
-
-Plug 'wokalski/autocomplete-flow', {'for': 'javascript'}
-
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
-let g:deoplete#sources#jedi#statement_length=50
-let g:deoplete#sources#jedi#enable_typeinfo=0
-let g:deoplete#sources#jedi#show_docstring=0
