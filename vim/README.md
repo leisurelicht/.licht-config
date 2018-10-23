@@ -2,37 +2,48 @@
 
 ---
 
-```
-* 安装/卸载
+- 安装/卸载
 
-    * install.sh
-    * uninstall.sh
+  - install.sh
+  - uninstall.sh
 
-* 文件结构
+- 文件结构
 
-    * vimrc
+  - vimrc
 
-        vim入口文件
+    vim 入口文件
 
-    * custom
+  - custom
 
-        自定义配置
+    自定义配置
 
-    * autoload
+  - autoload
 
-        vim函数
+    vim 函数
 
-    * installs
+  - installs
 
-        要安装的第三方库
+    要安装的第三方库
 
-    * plugs
+  - plugs
 
-        第三方插件
+    第三方插件
 
-    * config
+  - config
 
-        vim配置
+    vim 配置
 
-----
-```
+- Supported
+
+  - Markdown
+  - YAML
+  - Docker
+  - SQL
+  - Shell
+  - Vimscript
+  - Python
+  - Go
+  - Javascript
+  - Vue
+
+test
