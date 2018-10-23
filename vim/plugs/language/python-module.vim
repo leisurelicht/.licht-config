@@ -53,16 +53,4 @@ if executable('pyls')
 endif
 
 " ----> ale fixer
-let s:fixer_list = ['add_blank_lines_for_python_control_statements',]
-
-if g:ale_python_isort
-  call add(s:fixer_list, 'isort')
-endif
-if g:ale_python_yapf
-  call add(s:fixer_list, 'yapf')
-endif
-if g:ale_python_autopep8
-  call add(s:fixer_list, 'autopep8')
-endif
-
-let g:_ale_fixer_map.python = s:fixer_list
+let g:ale_fixers.python = ['add_blank_lines_for_python_control_statements', 'isort', 'yapf', 'autopep8',]

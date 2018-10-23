@@ -23,10 +23,4 @@ if executable('vls')
 endif
 
 " ---> ale fixer
-let s:fixer_list = []
-
-if g:ale_vue_eslint
-  call add(s:fixer_list, 'eslint')
-endif
-
-let g:_ale_fixer_map.vue = s:fixer_list
+let g:ale_fixers.vue = ['eslint',]

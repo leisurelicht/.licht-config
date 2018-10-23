@@ -25,7 +25,6 @@ let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = g:ale_auto_fix_on_save
 " let g:ale_fixers = g:_ale_fixer_map
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-call extend(g:ale_fixers, g:_ale_fixer_map)
 
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
 highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7

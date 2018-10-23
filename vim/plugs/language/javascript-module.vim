@@ -32,17 +32,4 @@ if executable('javascript-typescript-stdio')
 endif
 
 " ---> ale fixer
-let s:fixer_list = []
-
-if g:ale_javascript_eslint
-  call add(s:fixer_list, 'eslint')
-endif
-if g:ale_javascript_import_js
-  call add(s:fixer_list, 'importjs')
-endif
-if g:ale_javascript_prettier
-  call add(s:fixer_list, 'prettier_eslint')
-  call add(s:fixer_list, 'prettier_standard')
-endif
-
-let g:_ale_fixer_map.javascript = s:fixer_list
+let g:ale_fixers.html = ['eslint',' importjs', 'prettier_eslint', 'prettier_standard']

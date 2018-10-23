@@ -36,13 +36,4 @@ if executable('go-langserver')
 endif
 
 " ---> ale fixer
-let s:fixer_list = []
-
-if g:ale_go_import
-  call add(s:fixer_list, 'goimports')
-endif
-if g:ale_go_fmt
-  call add(s:fixer_list, 'gofmt')
-endif
-
-let g:_ale_fixer_map.go = s:fixer_list
+let g:ale_fixers.go = ['goimports', 'gofmt']

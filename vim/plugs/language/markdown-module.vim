@@ -19,10 +19,4 @@ if g:ncm2_framework_enable
 endif
 
 " ---> ale fixer
-let s:fixer_list = []
-
-if g:ale_markdown_prettier
-  call add(s:fixer_list, 'prettier')
-endif
-
-let g:_ale_fixer_map.markdown = s:fixer_list
+let g:ale_fixers.markdown = ['prettier']

@@ -11,10 +11,4 @@ augroup file_set
 augroup end
 
 " ---> ale fixer
-let s:fixer_list = []
-
-if g:ale_yaml_prettier
-  call add(s:fixer_list, 'prettier')
-endif
-
-let g:_ale_fixer_map.yaml = s:fixer_list
+let g:ale_fixers.yaml = []

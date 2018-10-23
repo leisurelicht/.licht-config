@@ -21,7 +21,6 @@ call plugs#load#Base('vim-surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
 
-
 call plugs#language#Befor('init-module')
 
 if g:complete_framework ==? 'deoplete'
@@ -33,8 +32,10 @@ elseif g:complete_framework ==? 'ncm2'
   let g:ncm2_framework_enable = 1
   call plugs#language#Befor('ncm2-module')
 endif
+
 call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('lsp-module')
+call plugs#language#Befor('ale-module')
 
 augroup language_load
   call plugs#language#Enable('markdown-module')
@@ -42,7 +43,7 @@ augroup language_load
   call plugs#language#Enable('docker-module')
   call plugs#language#Enable('sql-module')
   call plugs#language#Enable('vim-module')
-  call plugs#language#Enable('bash-module')
+  call plugs#language#Enable('shell-module')
   call plugs#language#Enable('python-module')
   call plugs#language#Enable('go-module')
   call plugs#language#Enable('javascript-module')
@@ -52,9 +53,5 @@ augroup end
 
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
-call plugs#language#After('ale-module')
-
-
-
 
 call plug#end()
