@@ -13,7 +13,7 @@ else
   filetype on
   " 为特定文件类型载入相关缩进文件
   filetype indent on
-  set ttimeoutlen=100
+  set timeoutlen=100
   " 修复delete键
   set backspace=2
   " 文件自动检测外部更改
