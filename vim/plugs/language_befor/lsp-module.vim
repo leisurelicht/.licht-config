@@ -26,7 +26,7 @@ function LSP_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nnoremap <F2> :call LanguageClient_contextMenu()<CR>
     nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> <leader>g :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-    nnoremap <buffer> <silent> <leader>r :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <buffer> <silent> <localleader>g :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+    nnoremap <buffer> <silent> <localleader>r :call LanguageClient#textDocument_rename()<CR>
   endif
 endfunction
