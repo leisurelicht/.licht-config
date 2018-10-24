@@ -34,4 +34,4 @@ if executable('bash-language-server')
 endif
 
 " ---> ale fixer
-let g:ale_fixers.sh = ['shfmt', 'language-server']
+let g:ale_fixers.sh = ['shfmt',]
