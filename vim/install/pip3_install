@@ -1,6 +1,0 @@
-jedi
-neovim
---upgrade --user autopep8
-yapf
-zdict
-tldr

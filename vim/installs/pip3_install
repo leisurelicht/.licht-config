@@ -1,0 +1,9 @@
+neovim
+jedi
+isort
+autopep8
+flake8
+yapf
+python-language-server[rope]
+vim-vint
+yamllint

@@ -1,25 +1,49 @@
 # Vim 配置
-----
 
-* 安装过程
+---
 
-    * 运行vim/install/install.sh
+- 安装/卸载
 
-* 文件结构
+  - install.sh
+  - uninstall.sh
 
-    * plug.vim
+- 文件结构
 
-        第三方插件配置文件
+  - vimrc
 
-    * conf.vim
+    vim 入口文件
 
-        vim配置文件
+  - custom
 
-    * func.vim
+    自定义配置
 
-        自定义的vim函数
+  - autoload
 
-        需要去wakatime.com注册一个账号并输入api才能使用vim记录
+    vim 函数
 
-----
+  - installs
 
+    要安装的第三方库
+
+  - plugs
+
+    第三方插件
+
+  - config
+
+    vim 配置
+
+- Supported
+
+  - Markdown
+  - YAML
+  - Docker
+  - SQL
+  - Shell
+  - Vimscript
+  - Python
+  - Go
+  - Javascript
+  - Vue
+
+test
