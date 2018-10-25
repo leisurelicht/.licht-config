@@ -9,7 +9,7 @@ endif
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
-nnoremap <localleader>f<tab> :FzfCommands<cr>
+nnoremap <localleader>f<Tab> :FzfCommands<cr>
 nnoremap <localleader>fp :FzfGFiles<cr>
 nnoremap <localleader>ft :FzfTags<cr>
 nnoremap <localleader>fb :FzfBuffers<cr>

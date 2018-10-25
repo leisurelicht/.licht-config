@@ -1,27 +1,51 @@
 " vim-which-key
+"
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+
 autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+autocmd User vim-which-key call which_key#register(',', 'g:which_key_localmap')
+
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 let g:which_key_map = {}
-let g:which_key_map.w = {
-      \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
+let g:which_key_localmap = {}
+
+" ---> Create menus based on existing mappings
+"
+let g:which_key_map.1 = 'window-1'
+let g:which_key_map.2 = 'window-2'
+let g:which_key_map.3 = 'window-3'
+let g:which_key_map.4 = 'window-4'
+let g:which_key_map.5 = 'window-5'
+let g:which_key_map.6 = 'window-6'
+let g:which_key_map.7 = 'window-7'
+let g:which_key_map.8 = 'window-8'
+let g:which_key_map.9 = 'window-9'
+
+let g:which_key_map.v = {'name': '+VersionControl'}
+let g:which_key_map.v.g = {'name': '+GitControl'}
+
+let g:which_key_map.l = {
+      \ 'name': '+Lsp',
+      \ 'K': 'hover',
+      \ 'R': 'rename',
+      \ 'S': 'workspace-symbol',
+      \ 's': 'document-symbol',
+      \ 'g': {
+      \ 'name': '+Goto',
+        \ 'd': 'definition',
+        \ 't': 'type-definition',
+        \ 'i': 'implementation',
+        \}
+      \}
+
+let g:which_key_map.a = {
+      \ 'name': '+ALE',
+      \ 'a': 'AutoFixSwitch',
+      \}
+
+let g:which_key_localmap.f = {'name': '+Fzf'}
+
+" --->Create menus not based on existing mappings
+"

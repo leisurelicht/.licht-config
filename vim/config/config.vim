@@ -13,7 +13,6 @@ else
   filetype on
   " 为特定文件类型载入相关缩进文件
   filetype indent on
-  set timeoutlen=100
   " 修复delete键
   set backspace=2
   " 文件自动检测外部更改
@@ -32,6 +31,7 @@ else
   set autoindent
 endif
 
+set timeoutlen=100
 " 显示行号
 set number
 "高亮当前行

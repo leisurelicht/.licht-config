@@ -43,4 +43,10 @@ function! ALEAutoFix() abort
   endif
 endfunction
 
-nnoremap <F9> :call ALEAutoFix()<CR>
+nnoremap <leader>ae :ALEEnable<CR>
+nnoremap <leader>ad :ALEDisable<CR>
+nnoremap <leader>aa :call ALEAutoFix()<CR>
+nnoremap <leader>af :ALEFix<CR>
+nnoremap <leader>aF :ALEFixSuggest<CR>
+nnoremap <leader>an :ALEFixSuggest<CR>
+nnoremap <leader>ap :ALEFixSuggest<CR>
