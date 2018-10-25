@@ -27,7 +27,7 @@ function LSP_maps()
     let g:lsp_key_register = 1
     nnoremap <F2> :call LanguageClient_contextMenu()<CR>
     nnoremap <buffer> <silent> <leader>lR :call LanguageClient#textDocument_rename()<CR>
-    nnoremap <buffer> <silent> <leader>lk :call LanguageClient#textDocument_hover()<cr>
+    nnoremap <buffer> <silent> <leader>lK :call LanguageClient#textDocument_hover()<CR>
     nnoremap <buffer> <silent> <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
     nnoremap <buffer> <silent> <leader>lS :call LanguageClient#workspace_symbol()<CR>
     nnoremap <buffer> <silent> <leader>lgd :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
