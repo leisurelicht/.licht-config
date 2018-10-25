@@ -6,6 +6,7 @@ Plug 'mhinz/vim-signify'
 
 " ---> Git命令
 Plug 'tpope/vim-fugitive'
+
 nnoremap <leader>vgg :Git<CR>
 nnoremap <leader>vgs :Gstatus<CR>
 nnoremap <leader>vgc :Gcommit %<CR>
