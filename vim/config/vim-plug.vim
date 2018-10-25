@@ -17,7 +17,7 @@ call plugs#load#Base('vim-bookmarks')
 call plugs#load#Base('vim-commentary')
 call plugs#load#Base('vim-interestingwords')
 call plugs#load#Base('vim-multiple-cursors')
-call plugs#load#Base('vim-signify')
+call plugs#load#Base('git')
 call plugs#load#Base('vim-surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
@@ -29,9 +29,15 @@ if g:complete_framework ==? 'deoplete'
   let g:ncm2_framework_enable = 0
   call plugs#language#Befor('deoplete-module')
 elseif g:complete_framework ==? 'ncm2'
-  let g:deoplete_framework_enable = 0
-  let g:ncm2_framework_enable = 1
-  call plugs#language#Befor('ncm2-module')
+  if has('nvim')
+    call plugs#language#Befor('ncm2-module')
+    let g:deoplete_framework_enable = 0
+    let g:ncm2_framework_enable = 1
+  else
+    call plugs#language#Befor('deoplete-module')
+    let g:deoplete_framework_enable = 1
+    let g:ncm2_framework_enable = 0
+  endif
 endif
 
 call plugs#language#Befor('ultisnips-module')
