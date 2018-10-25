@@ -7,6 +7,7 @@ if utils#system#OSX()
   call plugs#load#Base('fcitx-vim-osx')
 endif
 
+call plugs#load#Base('vim-which-key')
 call plugs#load#Base('airline')
 call plugs#load#Base('nerdtree')
 call plugs#load#Base('tagbar')
