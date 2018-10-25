@@ -23,8 +23,16 @@ let g:which_key_map.7 = 'window-7'
 let g:which_key_map.8 = 'window-8'
 let g:which_key_map.9 = 'window-9'
 
+let g:which_key_map.s = {
+      \ 'name': '+System',
+      \ 'n': ['setlocal number!', 'number'],
+      \ 'h': ['setlocal hlsearch!', 'hlsearch'],
+      \}
+
 let g:which_key_map.v = {'name': '+VersionControl'}
 let g:which_key_map.v.g = {'name': '+GitControl'}
+
+let g:which_key_map.m = {'name': '+BookMarks'}
 
 let g:which_key_map.l = {
       \ 'name': '+Lsp',
