@@ -19,3 +19,5 @@ nnoremap <leader>vgd :Gdelete<CR>
 
 " ---> Commit browser
 Plug 'junegunn/gv.vim'
+
+nnoremap <leader>vgv :Gv<CR>
