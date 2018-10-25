@@ -31,7 +31,7 @@ else
   set autoindent
 endif
 
-set timeoutlen=100
+set timeoutlen=200
 " 显示行号
 set number
 "高亮当前行

@@ -19,3 +19,5 @@ catch
   let &runtimepath .= ',' . g:_root_dir
   call Entry#Begin()
 endtry
+
+colorscheme space-vim-dark
