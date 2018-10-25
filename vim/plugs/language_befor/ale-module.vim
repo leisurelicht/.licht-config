@@ -48,5 +48,5 @@ nnoremap <leader>ad :ALEDisable<CR>
 nnoremap <leader>aa :call ALEAutoFix()<CR>
 nnoremap <leader>af :ALEFix<CR>
 nnoremap <leader>aF :ALEFixSuggest<CR>
-nnoremap <leader>an :ALEFixSuggest<CR>
-nnoremap <leader>ap :ALEFixSuggest<CR>
+nnoremap <leader>an :ALENext<CR>
+nnoremap <leader>ap :ALEPrevious<CR>
