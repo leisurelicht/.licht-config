@@ -15,8 +15,7 @@ nnoremap <Leader>mu :BookmarkMoveUp<Space>
 nnoremap <Leader>md :BookmarkMoveDown<Space>
 nnoremap <Leader>mg :BookmarkMoveToLine<CR>
 
-
 highlight BookmarkSign ctermbg=black ctermfg=white
 highlight BookmarkAnnotationSign ctermbg=black ctermfg=white
-highlight BookmarkLine ctermbg=159 ctermfg=NONE
-highlight BookmarkAnnotationLine ctermbg=black ctermfg=white
+highlight BookmarkLine ctermbg=121 ctermfg=None
+highlight BookmarkAnnotationLine ctermbg=154 ctermfg=white
