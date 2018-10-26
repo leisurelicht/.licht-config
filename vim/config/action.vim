@@ -11,3 +11,8 @@ augroup white_space
   hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
   autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 augroup end
+
+" 在commit message中开启拼写检查和设置文本宽度为 72
+augroup set_gitcommit
+  autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
+augroup end
