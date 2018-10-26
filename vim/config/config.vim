@@ -10,7 +10,6 @@ if has('nvim')
   " 即时预览命令效果
   set inccommand=split
 else
-  set timeoutlen=200
   filetype on
   " 为特定文件类型载入相关缩进文件
   filetype indent on
@@ -32,6 +31,7 @@ else
   set autoindent
 endif
 
+set ttimeoutlen=200
 " 显示行号
 set number
 "高亮当前行
