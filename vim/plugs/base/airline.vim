@@ -22,7 +22,7 @@ let g:airline#extensions#tagbar#flags = 'f'
 function! WindowNumber(...)
   let builder = a:1
   let context = a:2
-  call builder.add_section('airline_b', '[%{tabpagewinnr(tabpagenr())}]')
+  call builder.add_section('airline_b', '[%{tabpagewinnr(tabpagenr())}]➤')
   return 0
 endfunction
 
