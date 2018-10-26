@@ -3,8 +3,10 @@ scriptencoding utf-8
 "
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
-autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
-autocmd User vim-which-key call which_key#register(',', 'g:which_key_localmap')
+augroup vim_enter
+  autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+  autocmd User vim-which-key call which_key#register(',', 'g:which_key_localmap')
+augroup end
 
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
