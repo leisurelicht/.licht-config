@@ -13,11 +13,6 @@ let g:LanguageClient_serverCommands = {}
 " 为了解决重命名时的bug
 set hidden
 
-" Show parameter doc.
-" [BUG] can not show parameter
-Plug 'Shougo/echodoc.vim'
-set noshowmode
-
 let g:LanguageClient_rootMarkers = ['.git',]
 
 let g:LanguageClient_diagnosticsEnable = 0

@@ -31,18 +31,19 @@ if g:complete_framework ==? 'deoplete'
   call plugs#language#Befor('deoplete-module')
 elseif g:complete_framework ==? 'ncm2'
   if has('nvim')
-    call plugs#language#Befor('ncm2-module')
     let g:deoplete_framework_enable = 0
     let g:ncm2_framework_enable = 1
+    call plugs#language#Befor('ncm2-module')
   else
-    call plugs#language#Befor('deoplete-module')
     let g:deoplete_framework_enable = 1
     let g:ncm2_framework_enable = 0
+    call plugs#language#Befor('deoplete-module')
   endif
 endif
 
-call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('lsp-module')
+call plugs#language#Befor('echodoc-module')
+call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('ale-module')
 
 call plugs#language#Enable('markdown-module')
