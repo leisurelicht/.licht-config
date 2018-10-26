@@ -1,13 +1,28 @@
 " tabular
 "
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
-if exists(':Tabularize')
-  nnoremap <leader>a= :Tabularize /=<CR>
-  vnoremap <leader>a= :Tabularize /=<CR>
-  nnoremap <leader>a: :Tabularize /:\zs<CR>
-  vnoremap <leader>a: :Tabularize /:\zs<CR>
-endif
+nnoremap <leader>t= :Tabularize /=<CR>
+vnoremap <leader>t= :Tabularize /=<CR>
+nnoremap <leader>t+  :Tabularize /=\zs<CR>
+vnoremap <leader>t+ :Tabularize /=\zs<CR>
+nnoremap <leader>t: :Tabularize /:<CR>
+vnoremap <leader>t: :Tabularize /:<CR>
+nnoremap <leader>t; :Tabularize /:\zs<CR>
+vnoremap <leader>t; :Tabularize /:\zs<CR>
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 

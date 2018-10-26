@@ -59,6 +59,9 @@ let g:which_key_map.a = {
 let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
 
+let g:which_key_map.t = {
+      \ 'name': 'Tabularize',
+      \}
 " let g:which_key_map.c = {
 "       \ 'name': 'Commentary',
 "       \}
