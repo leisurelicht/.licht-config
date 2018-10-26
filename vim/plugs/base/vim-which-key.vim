@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " vim-which-key
 "
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -25,8 +26,8 @@ let g:which_key_map.9 = 'window-9'
 
 let g:which_key_map.s = {
       \ 'name': '+System',
-      \ 'n': ['setlocal number!', 'number'],
-      \ 'h': ['setlocal hlsearch!', 'hlsearch'],
+      \ 'n': ['setlocal invnumber', 'number'],
+      \ 'h': ['setlocal invhlsearch', 'hlsearch'],
       \}
 
 let g:which_key_map.v = {'name': '+VersionControl'}
@@ -52,6 +53,13 @@ let g:which_key_map.a = {
       \ 'name': '+ALE',
       \ 'a': 'AutoFixSwitch',
       \}
+
+let g:which_key_map.k = 'InterestingWords'
+let g:which_key_map.K = 'UncolorAllWords'
+
+" let g:which_key_map.c = {
+"       \ 'name': 'Commentary',
+"       \}
 
 let g:which_key_localmap.f = {'name': '+Fzf'}
 
