@@ -76,4 +76,4 @@ set foldlevelstart=99
 " 这是长度表示线
 set colorcolumn=0
 
-highlight MatchParen ctermfg=0 ctermbg=81 gui=undercurl guisp=Blue
+" highlight MatchParen ctermfg=0 ctermbg=81 gui=undercurl guisp=Blue
