@@ -97,7 +97,7 @@ let g:which_key_localmap.f = {
         \ 'h': 'Files',
         \ 'c': 'Commands',
         \ 's': 'Search',
-      \},
+        \},
       \}
 
 " --->Create menus not based on existing mappings
