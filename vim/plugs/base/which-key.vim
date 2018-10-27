@@ -38,10 +38,11 @@ let g:which_key_map.m = {'name': '+BookMarks'}
 
 let g:which_key_map.l = {
       \ 'name': '+Lsp',
-      \ 'K': 'hover',
-      \ 'R': 'rename',
-      \ 'S': 'workspace-symbol',
-      \ 's': 'document-symbol',
+      \ 'm': 'Menu',
+      \ 'k': 'hover',
+      \ 'r': 'rename',
+      \ 'w': 'workspace-symbol',
+      \ 'd': 'document-symbol',
       \ 'g': {
       \ 'name': '+Goto',
         \ 'd': 'definition',
@@ -59,11 +60,18 @@ let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
 
 let g:which_key_map.f = {
-      \ 'name': 'Format',
+      \ 'name': '+Format',
       \ '=': '=',
       \ '+': '=zs',
       \ ':': ':',
       \ ';': ':zs',
+      \}
+
+let g:which_key_map.p = {
+      \ 'name': '+Plugs',
+      \ 'n': 'NerdTree',
+      \ 't': 'TagBar',
+      \ 'u': 'UndoTree',
       \}
 
 let g:which_key_localmap.f = {

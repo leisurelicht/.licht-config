@@ -15,3 +15,4 @@ augroup read_pre
 augroup end
 
 noremap <F4> :NERDTreeToggle<CR>
+noremap <leader>pn :NERDTreeToggle<CR>
