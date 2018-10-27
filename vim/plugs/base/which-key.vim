@@ -71,6 +71,7 @@ let g:which_key_map.p = {
       \ 'n': 'NerdTree',
       \ 't': 'TagBar',
       \ 'u': 'UndoTree',
+      \ 'g': 'Goyo',
       \}
 
 let g:which_key_localmap.f = {

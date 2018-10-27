@@ -31,6 +31,7 @@ else
   set autoindent
 endif
 
+set scrolloff=5
 " mapping delays
 set timeoutlen=500
 " key code delays

@@ -22,6 +22,7 @@ call plugs#load#Base('git')
 call plugs#load#Base('surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
+call plugs#load#Base('goyo')
 
 call plugs#language#Befor('init-module')
 
