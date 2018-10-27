@@ -38,6 +38,7 @@
   - Markdown
   - YAML
   - Docker
+
   - SQL
   - Shell
   - Vimscript
@@ -45,5 +46,3 @@
   - Go
   - Javascript
   - Vue
-
-test
