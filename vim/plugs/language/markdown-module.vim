@@ -4,7 +4,7 @@ scriptencoding utf-8
 " ---> run file
 augroup run_file
   autocmd FileType markdown noremap <F12> :MarkdownPreview<CR>
-  autocmd BufWinLeave *.md :MarkdownPreviewStop
+  autocmd BufWinLeave *.md call plugs#markdown#PreviewStop()
 augroup end
 
 " ---> 修改不同类型文件的设置
