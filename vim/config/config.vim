@@ -68,9 +68,9 @@ set smartcase
 " 编辑的时候将所有的tab设置为空格
 set expandtab
 " 将tab换为4个空格
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " 代码自动缩进
 set smartindent
 " 折叠方式
