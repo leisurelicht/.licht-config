@@ -31,7 +31,10 @@ else
   set autoindent
 endif
 
-set ttimeoutlen=200
+" mapping delays
+set timeoutlen=500
+" key code delays
+set ttimeoutlen=0
 " 显示行号
 set number
 "高亮当前行
