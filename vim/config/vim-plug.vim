@@ -23,6 +23,7 @@ call plugs#load#Base('surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
 call plugs#load#Base('goyo')
+call plugs#load#Base('devicons')
 
 call plugs#language#Befor('init-module')
 
