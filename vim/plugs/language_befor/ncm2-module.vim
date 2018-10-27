@@ -47,4 +47,5 @@ Plug 'ncm2/ncm2-path'
 " Plug 'filipekiss/ncm2-look.vim'
 
 Plug 'ncm2/ncm2-ultisnips'
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+" inoremap <silent> <expr> <C-a> ncm2_ultisnips#expand_or("\<CR>", 'n')
+inoremap <silent> <expr> <CR> pumvisible() ? ncm2_ultisnips#expand_or("\<CR>", 'n') : "\<CR>"
