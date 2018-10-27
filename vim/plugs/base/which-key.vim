@@ -66,7 +66,27 @@ let g:which_key_map.t = {
 "       \ 'name': 'Commentary',
 "       \}
 
-let g:which_key_localmap.f = {'name': '+Fzf'}
+let g:which_key_localmap.f = {
+      \ 'name': '+Fzf',
+      \ '<Tab>': 'Commands',
+      \ 'a': 'Code',
+      \ 'b': 'Buffers',
+      \ 'w': 'Windows',
+      \ 's': 'Snippets',
+      \ 'p': 'Files',
+      \ 'H': 'HelpTags',
+      \ 'F': 'FileTypes',
+      \ 'O': 'Colors',
+      \ 'M': 'Maps',
+      \ 'g': 'Gitfiles',
+      \ 'G': 'Gitfiles?',
+      \ 't': 'Tags',
+      \ 'T': 'BTags',
+      \ 'l': 'Lines',
+      \ 'L': 'BLines',
+      \ 'c': 'Commit',
+      \ 'C': 'BCommit',
+      \}
 
 " --->Create menus not based on existing mappings
 "
