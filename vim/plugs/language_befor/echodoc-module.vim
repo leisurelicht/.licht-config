@@ -1,6 +1,6 @@
 " echodoc
-" Show parameter doc.
 "
+" Show parameter doc.
 Plug 'Shougo/echodoc.vim'
 
 set noshowmode
