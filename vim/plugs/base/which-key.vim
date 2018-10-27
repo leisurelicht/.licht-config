@@ -60,10 +60,11 @@ let g:which_key_map.K = 'UncolorAllWords'
 
 let g:which_key_map.f = {
       \ 'name': '+Format',
-      \ '=': '=',
-      \ '+': '=zs',
-      \ ':': ':',
-      \ ';': ':zs',
+      \ 't': 'Tab',
+      \ '=': 'Tab=',
+      \ '+': 'Tab=zs',
+      \ ':': 'Tab:',
+      \ ';': 'Tab:zs',
       \}
 
 let g:which_key_map.p = {

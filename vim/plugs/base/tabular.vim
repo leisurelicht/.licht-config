@@ -2,6 +2,7 @@
 "
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
+nnoremap <leader>ft :Tab/
 nnoremap <leader>f= :Tabularize /=<CR>
 vnoremap <leader>f= :Tabularize /=<CR>
 nnoremap <leader>f+ :Tabularize /=\zs<CR>
