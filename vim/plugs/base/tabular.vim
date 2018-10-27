@@ -2,14 +2,14 @@
 "
 Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
-nnoremap <leader>t= :Tabularize /=<CR>
-vnoremap <leader>t= :Tabularize /=<CR>
-nnoremap <leader>t+  :Tabularize /=\zs<CR>
-vnoremap <leader>t+ :Tabularize /=\zs<CR>
-nnoremap <leader>t: :Tabularize /:<CR>
-vnoremap <leader>t: :Tabularize /:<CR>
-nnoremap <leader>t; :Tabularize /:\zs<CR>
-vnoremap <leader>t; :Tabularize /:\zs<CR>
+nnoremap <leader>f= :Tabularize /=<CR>
+vnoremap <leader>f= :Tabularize /=<CR>
+nnoremap <leader>f+ :Tabularize /=\zs<CR>
+vnoremap <leader>f+ :Tabularize /=\zs<CR>
+nnoremap <leader>f: :Tabularize /:<CR>
+vnoremap <leader>f: :Tabularize /:<CR>
+nnoremap <leader>f; :Tabularize /:\zs<CR>
+vnoremap <leader>f; :Tabularize /:\zs<CR>
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 

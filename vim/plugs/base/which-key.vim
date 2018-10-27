@@ -15,7 +15,6 @@ let g:which_key_map = {}
 let g:which_key_localmap = {}
 
 " ---> Create menus based on existing mappings
-"
 let g:which_key_map.1 = 'window-1'
 let g:which_key_map.2 = 'window-2'
 let g:which_key_map.3 = 'window-3'
@@ -59,12 +58,13 @@ let g:which_key_map.a = {
 let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
 
-let g:which_key_map.t = {
-      \ 'name': 'Tabularize',
+let g:which_key_map.f = {
+      \ 'name': 'Format',
+      \ '=': '=',
+      \ '+': '=zs',
+      \ ':': ':',
+      \ ';': ':zs',
       \}
-" let g:which_key_map.c = {
-"       \ 'name': 'Commentary',
-"       \}
 
 let g:which_key_localmap.f = {
       \ 'name': '+Fzf',
