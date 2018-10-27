@@ -9,6 +9,7 @@ let g:maplocalleader=','
 if has('nvim')
   " 即时预览命令效果
   set inccommand=split
+  " set termguicolors
 else
   filetype on
   " 为特定文件类型载入相关缩进文件
