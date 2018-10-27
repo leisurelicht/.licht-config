@@ -20,6 +20,10 @@ nnoremap <localleader>fp :FzfFiles<CR>
 nnoremap <localleader>fg :FzfGFiles<CR>
 nnoremap <localleader>fG :FzfGFiles?<CR>
 
+nnoremap <localleader>fhh :FzfHistory<CR>
+nnoremap <localleader>fhc :FzfHistory:<CR>
+nnoremap <localleader>fhs :FzfHistory/<CR>
+
 nnoremap <localleader>ft :FzfTags<CR>
 nnoremap <localleader>fT :FzfBTags<CR>
 nnoremap <localleader>fl :FzfLines<CR>

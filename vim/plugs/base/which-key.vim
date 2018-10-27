@@ -7,7 +7,6 @@ augroup vim_enter
   autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
   autocmd User vim-which-key call which_key#register(',', 'g:which_key_localmap')
 augroup end
-
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
@@ -93,7 +92,12 @@ let g:which_key_localmap.f = {
       \ 'l': 'Lines',
       \ 'L': 'BLines',
       \ 'c': 'Commit',
-      \ 'C': 'BCommit',
+      \ 'h': {
+        \ 'name': 'History',
+        \ 'h': 'Files',
+        \ 'c': 'Commands',
+        \ 's': 'Search',
+      \},
       \}
 
 " --->Create menus not based on existing mappings
