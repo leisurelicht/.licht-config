@@ -31,6 +31,3 @@ endif
 
 " ---> ale fixer
 let g:ale_fixers.markdown = ['prettier']
-
-" ---> nerdtree hightlight file
-call plugs#nerdtree#HighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
