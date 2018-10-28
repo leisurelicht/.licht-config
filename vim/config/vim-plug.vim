@@ -7,7 +7,7 @@ if utils#system#OSX()
   call plugs#load#Base('fcitx-vim-osx')
 endif
 
-call plugs#load#Base('color')
+call plugs#load#Base('themes')
 call plugs#load#Base('commentary')
 call plugs#load#Base('which-key')
 call plugs#load#Base('airline')
@@ -23,7 +23,6 @@ call plugs#load#Base('surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
 call plugs#load#Base('goyo')
-call plugs#load#Base('devicons')
 
 call plugs#language#Befor('init-module')
 
