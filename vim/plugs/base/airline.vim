@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " 状态栏 airline
 "
 Plug 'vim-airline/vim-airline'
