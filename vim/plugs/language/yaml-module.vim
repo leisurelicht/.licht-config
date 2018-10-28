@@ -12,3 +12,6 @@ augroup end
 
 " ---> ale fixer
 let g:ale_fixers.yaml = []
+
+" ---> nerdtree hightlight file
+call plugs#nerdtree#HighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
