@@ -9,11 +9,11 @@ let g:maplocalleader=','
 if has('nvim')
   " 即时预览命令效果
   set inccommand=split
+  " set termguicolors
 else
   filetype on
   " 为特定文件类型载入相关缩进文件
   filetype indent on
-  set timeoutlen=100
   " 修复delete键
   set backspace=2
   " 文件自动检测外部更改
@@ -32,6 +32,11 @@ else
   set autoindent
 endif
 
+set scrolloff=5
+" mapping delays
+set timeoutlen=500
+" key code delays
+set ttimeoutlen=0
 " 显示行号
 set number
 "高亮当前行
@@ -65,15 +70,15 @@ set smartcase
 " 编辑的时候将所有的tab设置为空格
 set expandtab
 " 将tab换为4个空格
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 " 代码自动缩进
 set smartindent
 " 折叠方式
 set foldmethod=indent
 set foldlevelstart=99
-" 这是长度表示线
+" 长度表示线
 set colorcolumn=0
 
-highlight MatchParen ctermfg=0 ctermbg=81 gui=undercurl guisp=Blue
+" highlight MatchParen ctermfg=0 ctermbg=81 gui=undercurl guisp=Blue

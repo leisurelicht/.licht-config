@@ -23,7 +23,6 @@ let g:ale_completion_enabled = 1
 " let g:ale_keep_list_window_open = 1
 
 let g:ale_fix_on_save = g:ale_auto_fix_on_save
-" let g:ale_fixers = g:_ale_fixer_map
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
 highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
@@ -33,14 +32,10 @@ highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
 nnoremap <silent> <C-n> <Plug>(ale_previous_wrap)
 nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
 
-function! ALEAutoFix() abort
-  if g:ale_fix_on_save
-    let g:ale_fix_on_save = 0
-    echo 'ALE Fix: OFF'
-  else
-    let g:ale_fix_on_save = 1
-    echo 'ALE Fix: ON'
-  endif
-endfunction
-
-nnoremap <F9> :call ALEAutoFix()<CR>
+nnoremap <leader>ae :ALEEnable<CR>
+nnoremap <leader>ad :ALEDisable<CR>
+nnoremap <leader>aa :call plugs#ale#AutoFix()<CR>
+nnoremap <leader>af :ALEFix<CR>
+nnoremap <leader>aF :ALEFixSuggest<CR>
+nnoremap <leader>an :ALENext<CR>
+nnoremap <leader>ap :ALEPrevious<CR>

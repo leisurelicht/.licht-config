@@ -1,13 +1,16 @@
 " tabular
 "
-Plug 'godlygeek/tabular'
+Plug 'godlygeek/tabular', {'on': 'Tabularize'}
 
-if exists(':Tabularize')
-  nnoremap <leader>a= :Tabularize /=<CR>
-  vnoremap <leader>a= :Tabularize /=<CR>
-  nnoremap <leader>a: :Tabularize /:\zs<CR>
-  vnoremap <leader>a: :Tabularize /:\zs<CR>
-endif
+nnoremap <leader>ft :Tab/
+nnoremap <leader>f= :Tabularize /=<CR>
+vnoremap <leader>f= :Tabularize /=<CR>
+nnoremap <leader>f+ :Tabularize /=\zs<CR>
+vnoremap <leader>f+ :Tabularize /=\zs<CR>
+nnoremap <leader>f: :Tabularize /:<CR>
+vnoremap <leader>f: :Tabularize /:<CR>
+nnoremap <leader>f; :Tabularize /:\zs<CR>
+vnoremap <leader>f; :Tabularize /:\zs<CR>
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 

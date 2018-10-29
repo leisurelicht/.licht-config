@@ -7,4 +7,5 @@ if has('persistent_undo')
   set undofile
 endif
 
-map <F6> :UndotreeToggle<CR>
+noremap <F6> :UndotreeToggle<CR>
+noremap <leader>pu :UndotreeToggle<CR>

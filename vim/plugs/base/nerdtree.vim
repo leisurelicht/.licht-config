@@ -1,17 +1,30 @@
 " NerdTree
 "
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
-Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+" ---> nerdtree
+Plug 'scrooloose/nerdtree'
 
 let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeShowBookmarks=1
 
-augroup read_pre
+augroup vim_enter
   autocmd StdinReadPre * let s:std_in=1
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
-  autocmd vimenter * if !argc() | NERDTree |
+  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
+augroup end
+
+augroup auto_refresh
+  autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 augroup end
 
 noremap <F4> :NERDTreeToggle<CR>
+noremap <leader>pn :NERDTreeToggle<CR>
+
+" ---> have the nerdtree on erery tab automatically
+Plug 'jistr/vim-nerdtree-tabs'
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" ---> show git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" ---> highlight
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

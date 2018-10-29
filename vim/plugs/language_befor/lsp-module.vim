@@ -13,20 +13,21 @@ let g:LanguageClient_serverCommands = {}
 " 为了解决重命名时的bug
 set hidden
 
-" Show parameter doc.
-" [BUG] can not show parameter
-Plug 'Shougo/echodoc.vim'
-set noshowmode
-
 let g:LanguageClient_rootMarkers = ['.git',]
 
 let g:LanguageClient_diagnosticsEnable = 0
 
 function LSP_maps()
   if has_key(g:LanguageClient_serverCommands, &filetype)
+    let g:lsp_key_register = 1
     nnoremap <F2> :call LanguageClient_contextMenu()<CR>
-    nnoremap <buffer> <silent> K :call LanguageClient#textDocument_hover()<cr>
-    nnoremap <buffer> <silent> <localleader>g :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-    nnoremap <buffer> <silent> <localleader>r :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+    nnoremap <buffer> <silent> <leader>lR :call LanguageClient#textDocument_rename()<CR>
+    nnoremap <buffer> <silent> <leader>lK :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <buffer> <silent> <leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+    nnoremap <buffer> <silent> <leader>lS :call LanguageClient#workspace_symbol()<CR>
+    nnoremap <buffer> <silent> <leader>lgd :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
+    nnoremap <buffer> <silent> <leader>lgt :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})<CR>
+    nnoremap <buffer> <silent> <leader>lgi :call LanguageClient#textDocument_implementation({'gotoCmd': 'split'})<CR>
   endif
 endfunction
