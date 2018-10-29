@@ -20,6 +20,8 @@ echo "====> Use brew to intall necessary"
 brew install vim --with-override-system-vi
 brew install neovim
 brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
 
 if ! command -v ctags >/dev/null 2>&1; then
   echo "----> Use brew to install ctags"
@@ -138,3 +140,5 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 echo "====> Install vim PlugInstall"
 nvim +PlugInstall +UpdateRemotePlugins +qa
 vim +PlugInstall +UpdateRemotePlugins +qa
+
+echo "**** Please change Non-ASCII Font to Hack Nerd Font ****"
