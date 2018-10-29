@@ -8,10 +8,11 @@ if utils#system#OSX()
 endif
 
 call plugs#load#Base('themes')
+call plugs#load#Base('nerdtree')
+call plugs#load#Base('startify')
 call plugs#load#Base('commentary')
 call plugs#load#Base('which-key')
 call plugs#load#Base('airline')
-call plugs#load#Base('nerdtree')
 call plugs#load#Base('tagbar')
 call plugs#load#Base('auto-pairs')
 call plugs#load#Base('undotree')
