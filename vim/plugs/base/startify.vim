@@ -7,12 +7,16 @@ augroup vim_enter
 augroup end
 
 if has('nvim')
-  autocmd TabNewEntered * Startify
+  augroup new_tab_enter
+    autocmd TabNewEntered * Startify
+  augroup end
 else
-  autocmd VimEnter * let t:startify_new_tab = 1
-  autocmd BufEnter *
-        \ if !exists('t:startify_new_tab') && empty(expand('%')) |
-        \   let t:startify_new_tab = 1 |
-        \   Startify |
-        \ endif
+  augroup new_tab_enter
+    autocmd VimEnter * let t:startify_new_tab = 1
+    autocmd BufEnter *
+          \ if !exists('t:startify_new_tab') && empty(expand('%')) |
+          \   let t:startify_new_tab = 1 |
+          \   Startify |
+          \ endif
+  augroup end
 endif
