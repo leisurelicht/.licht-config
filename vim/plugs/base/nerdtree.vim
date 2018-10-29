@@ -5,7 +5,8 @@ Plug 'scrooloose/nerdtree'
 
 let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeShowBookmarks=1
+" let g:NERDTreeShowBookmarks=1
+let g:NERDTreeStatusline='NERDTree'
 
 augroup vim_enter
   autocmd StdinReadPre * let s:std_in=1
