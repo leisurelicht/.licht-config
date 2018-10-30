@@ -1,11 +1,11 @@
-# Mac配置
+# Mac 配置
 
-* 包含zsh、tmux、vim
+- 包含 zsh、tmux、vim
 
-* [tmux说明](./tmux/README.md)
+- [tmux 说明](./tmux/README.md)
 
-* [zsh说明](./zsh/README.md)
+- [zsh 说明](./zsh/README.md)
 
-* [vim说明](./vim/README.md)
+- [vim 说明](./vim/README.md)
 
-* [安装的软件](./install/README.md)
+- [安装的软件](./install/README.md)
