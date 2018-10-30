@@ -13,10 +13,6 @@ augroup vim_enter
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
 augroup end
 
-augroup auto_refresh
-  autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
-augroup end
-
 noremap <F4> :NERDTreeToggle<CR>
 noremap <leader>pn :NERDTreeToggle<CR>
 
