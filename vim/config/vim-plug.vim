@@ -59,6 +59,7 @@ call plugs#language#Enable('go-module')
 call plugs#language#Enable('javascript-module')
 call plugs#language#Enable('vue-module')
 call plugs#language#Enable('html-module')
+call plugs#language#Enable('raml-module')
 
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')

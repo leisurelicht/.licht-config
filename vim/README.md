@@ -36,8 +36,9 @@
 - Supported
 
   - Markdown
-  - YAML
+  - Yaml
   - Docker
+  - Raml (!)
 
   - SQL
   - Shell

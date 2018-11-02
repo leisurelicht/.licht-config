@@ -35,3 +35,10 @@ function! custom#run#Html() abort
   exec 'w'
   exec '!open %'
 endfunction
+
+function! custom#run#Raml() abort
+  exec 'w'
+  let s:name = expand('%:t:r').'.html'
+  exec '!raml2html % > '.s:name
+  exec '!open '.s:name
+endfunction
