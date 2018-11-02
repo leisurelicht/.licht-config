@@ -12,12 +12,14 @@ if has('nvim')
   " set termguicolors
 else
   filetype on
-  " 为特定文件类型载入相关缩进文件
-  filetype indent on
+  " 载入文件类型插件
+  filetype plugin on
+  " 开启语法高亮
+  syntax enable
+  " 允许使用制定高亮替换方案
+  syntax on
   " 修复delete键
   set backspace=2
-  " 文件自动检测外部更改
-  set autoread
   " 始终显示状态拦
   set laststatus=2
   " 让鼠标能使用
@@ -28,10 +30,17 @@ else
   set hlsearch
   " 有一个或以上大写字母时仍大小写敏感
   set smartcase
-  " 代码自动缩进
+  " 自动套用上一行的缩进方式
   set autoindent
+  " 智能缩进
+  set smartindent
+  " 文件自动检测外部更改
+  set autoread
 endif
 
+" 为特定文件类型载入相关缩进文件
+filetype indent on
+" 光标和顶部/底部保持5行的距离
 set scrolloff=5
 " mapping delays
 set timeoutlen=500
@@ -41,12 +50,6 @@ set ttimeoutlen=0
 set number
 "高亮当前行
 set cursorline
-" 开启语法高亮
-syntax enable
-" 允许使用制定高亮替换方案
-syntax on
-" 载入文件类型插件
-filetype plugin on
 " 关闭自动备份
 set noswapfile
 " 右下角显示正在输入的命令
@@ -73,8 +76,6 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-" 代码自动缩进
-set smartindent
 " 折叠方式
 set foldmethod=indent
 set foldlevelstart=99
