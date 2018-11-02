@@ -28,6 +28,7 @@ let g:which_key_map.s = {
       \ 'name': '+System',
       \ 'n': ['setlocal invnumber', 'number'],
       \ 'h': ['setlocal invhlsearch', 'hlsearch'],
+      \ 'p': ['setlocal invpaste', 'paste'],
       \}
 
 let g:which_key_map.g = {'name': '+Git'}
