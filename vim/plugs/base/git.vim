@@ -7,18 +7,18 @@ Plug 'mhinz/vim-signify'
 " ---> Git命令
 Plug 'tpope/vim-fugitive'
 
-nnoremap <leader>vgg :Git<CR>
-nnoremap <leader>vgs :Gstatus<CR>
-nnoremap <leader>vgc :Gcommit %<CR>
-nnoremap <leader>vgh :Gpush<CR>
-nnoremap <leader>vgl :Gpull<CR>
-nnoremap <leader>vgb :Gblame<CR>
-nnoremap <leader>vge :Gbedit<CR>
-nnoremap <leader>vgr :Gread<CR>
-nnoremap <leader>vgf :Gdiff<CR>
-nnoremap <leader>vgd :Gdelete<CR>
+nnoremap <leader>gg :Git<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit %<CR>
+nnoremap <leader>gh :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>ge :Gbedit<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gf :Gdiff<CR>
+nnoremap <leader>gd :Gdelete<CR>
 
 " ---> Commit browser
 Plug 'junegunn/gv.vim'
 
-nnoremap <leader>vgv :Gv<CR>
+nnoremap <leader>gv :Gv<CR>

@@ -30,8 +30,7 @@ let g:which_key_map.s = {
       \ 'h': ['setlocal invhlsearch', 'hlsearch'],
       \}
 
-let g:which_key_map.v = {'name': '+VersionControl'}
-let g:which_key_map.v.g = {'name': '+GitControl'}
+let g:which_key_map.g = {'name': '+Git'}
 
 let g:which_key_map.m = {'name': '+BookMarks'}
 
