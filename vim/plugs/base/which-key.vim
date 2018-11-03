@@ -75,6 +75,44 @@ let g:which_key_map.p = {
       \ 'g': 'Goyo',
       \}
 
+let g:which_key_map.t = {
+      \ 'name': '+Tabs',
+      \ 't': 'Tab',
+      \ 'a': 'New Tab',
+      \ 'c': 'Close Tab',
+      \ 'l': 'List Tabs',
+      \ 'n': 'Next Tab',
+      \ 'p': 'Previous Tab',
+      \ 'd': 'Do In Tabs',
+      \ 's': 'To New Tab',
+      \ 'F': 'First Tab',
+      \ 'L': 'Last Tab',
+      \ 'o': {
+        \ 'name': '+CloseOnly',
+        \ 'o': 'TabOnly',
+        \ 'a': 'Close All Other Tab',
+        \ '1': 'Close All Except 1',
+        \ '2': 'Close All Except 2',
+        \ '3': 'Close All Except 3',
+        \ '4': 'Close All Except 4',
+        \ '5': 'Close All Except 5',
+        \ '6': 'Close All Except 6',
+        \ '7': 'Close All Except 7',
+        \ '8': 'Close All Except 8',
+        \ '9': 'Close All Except 9',
+        \ '$': 'Close All Except Last',
+        \},
+      \ '1': 'Tab1',
+      \ '2': 'Tab2',
+      \ '3': 'Tab3',
+      \ '4': 'Tab4',
+      \ '5': 'Tab5',
+      \ '6': 'Tab6',
+      \ '7': 'Tab7',
+      \ '8': 'Tab8',
+      \ '9': 'Tab9',
+      \}
+
 let g:which_key_localmap.f = {
       \ 'name': '+Fzf',
       \ '<Tab>': 'Commands',
@@ -101,6 +139,7 @@ let g:which_key_localmap.f = {
         \ 's': 'Search',
         \},
       \}
+
 
 " --->Create menus not based on existing mappings
 "
