@@ -4,7 +4,7 @@ scriptencoding utf-8
 cmap w!! w !sudo tee > /dev/null %
 
 " 一键大写
-:imap <C-U> <ESC>viwUea
+inoremap <C-U> <ESC>viwUea
 
 " 窗口切换组合快捷键
 nnoremap <C-J> <C-W><C-J>
