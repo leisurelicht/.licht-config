@@ -30,4 +30,4 @@ if g:ncm2_framework_enable
 endif
 
 " ---> ale fixer
-let g:ale_fixers.markdown = ['prettier']
+" let g:ale_fixers.markdown = ['prettier']
