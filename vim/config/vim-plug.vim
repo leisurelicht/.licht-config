@@ -24,6 +24,8 @@ call plugs#load#Base('surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
 call plugs#load#Base('goyo')
+" just use to develop plugin
+call plugs#load#Base('dev')
 
 call plugs#language#Befor('init-module')
 
@@ -59,7 +61,7 @@ call plugs#language#Enable('go-module')
 call plugs#language#Enable('javascript-module')
 call plugs#language#Enable('vue-module')
 call plugs#language#Enable('html-module')
-call plugs#language#Enable('raml-module')
+" call plugs#language#Enable('raml-module')
 
 call plugs#language#After('polyglot-module')
 call plugs#language#After('indentline-module')
