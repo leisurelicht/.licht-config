@@ -56,3 +56,5 @@ noremap <silent> <leader>6 :6wincmd w<CR>
 noremap <silent> <leader>7 :7wincmd w<CR>
 noremap <silent> <leader>8 :8wincmd w<CR>
 noremap <silent> <leader>9 :9wincmd w<CR>
+
+noremap <silent> <localleader>za za<CR>
