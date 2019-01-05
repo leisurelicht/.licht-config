@@ -7,3 +7,4 @@ yapf
 python-language-server[rope]
 vim-vint
 yamllint
+mypy

@@ -3,6 +3,9 @@ scriptencoding utf-8
 " 强制保存
 cmap w!! w !sudo tee > /dev/null %
 
+" 一键大写
+inoremap <C-U> <ESC>viwUea
+
 " 窗口切换组合快捷键
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -53,3 +56,5 @@ noremap <silent> <leader>6 :6wincmd w<CR>
 noremap <silent> <leader>7 :7wincmd w<CR>
 noremap <silent> <leader>8 :8wincmd w<CR>
 noremap <silent> <leader>9 :9wincmd w<CR>
+
+noremap <silent> <localleader>za za<CR>

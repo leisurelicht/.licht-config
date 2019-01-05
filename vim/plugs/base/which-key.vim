@@ -140,6 +140,11 @@ let g:which_key_localmap.f = {
         \},
       \}
 
+let g:which_key_localmap.z = {
+      \ 'name': '+Fold',
+      \ 'a': 'fold',
+      \}
+
 
 " --->Create menus not based on existing mappings
 "
