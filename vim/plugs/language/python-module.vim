@@ -55,6 +55,3 @@ endif
 
 " ----> ale fixer
 let g:ale_fixers.python = ['add_blank_lines_for_python_control_statements', 'isort', 'yapf', 'autopep8',]
-
-" ----> mypy
-Plug 'integralist/vim-mypy', {'for': 'python'}
