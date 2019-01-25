@@ -125,3 +125,6 @@ eval "$(pyenv init -)"
 
 # brew install software
 export PATH=$PATH:/usr/local/sbin
+
+# Flutter
+export PATH=$PATH:~/Code/Flutter/flutter/bin
