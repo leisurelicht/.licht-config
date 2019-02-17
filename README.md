@@ -1,6 +1,23 @@
-# Mac 配置
+# 我的 Vim 及命令行配置
+
+* 基于 macos 平台
+
+----
 
 - 包含 zsh、tmux、vim
+
+## 效果图
+
+> tmux 及 vim
+
+![image](./screenshot/tmux-vim-entry.png.png)
+
+
+> vim 编辑 Python 文件
+
+![image](./screenshot/vim-python.png.png)
+
+----
 
 - [tmux 说明](./tmux/README.md)
 
