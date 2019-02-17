@@ -10,12 +10,12 @@
 
 > tmux 及 vim
 
-![image](./screenshot/tmux-vim-entry.png.png)
+![image](./screenshot/tmux-vim-entry.png)
 
 
 > vim 编辑 Python 文件
 
-![image](./screenshot/vim-python.png.png)
+![image](./screenshot/vim-python.png)
 
 ----
 
