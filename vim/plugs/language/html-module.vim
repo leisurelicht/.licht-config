@@ -28,4 +28,4 @@ if g:ncm2_framework_enable
 endif
 
 " ---> ale fixer
-let g:ale_fixers.html = ['write-good',]
+let g:ale_fixers.html = ['prettier',]
