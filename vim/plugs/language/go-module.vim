@@ -15,7 +15,7 @@ augroup file_set
 augroup end
 
 " ---> vim-go
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
 
 " ---> deoplete
 if g:deoplete_framework_enable ==# 1
