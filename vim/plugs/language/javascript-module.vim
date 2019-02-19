@@ -3,7 +3,7 @@ scriptencoding utf-8
 "
 " ---> 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType javascript, javascrip.jsx
+  autocmd FileType javascrip.jsx, javascript
         \ setlocal fileformat=unix |
         \ setlocal tabstop=2 |
         \ setlocal softtabstop=2 |
