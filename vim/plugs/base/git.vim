@@ -22,3 +22,8 @@ nnoremap <leader>gd :Gdelete<CR>
 Plug 'junegunn/gv.vim'
 
 nnoremap <leader>gv :Gv<CR>
+
+" ---> Git Message
+Plug 'rhysd/git-messenger.vim'
+
+nnoremap <leader>gm :GitMessage<CR>
