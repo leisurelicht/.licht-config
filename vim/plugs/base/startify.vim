@@ -8,7 +8,7 @@ augroup end
 
 if has('nvim')
   augroup new_tab_enter
-    autocmd TabNewEntered * Startify
+    autocmd TabNew * Startify
   augroup end
 else
   augroup new_tab_enter
