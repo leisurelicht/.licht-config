@@ -24,7 +24,7 @@ let g:ale_auto_fix_on_save = 1
 " python2 path
 " let g:_python2_path = '/full/path/to/python2'
 " default: empty
-let g:_python2_path = ''
+let g:_python2_path = '/usr/local/bin/python2'
 
 " python3 path
 " let g:_python3_path = '/full/path/to/python3'
