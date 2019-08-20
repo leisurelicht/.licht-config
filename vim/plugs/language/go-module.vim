@@ -30,8 +30,11 @@ if g:ncm2_framework_enable ==# 1
 endif
 
 " ---> neovim lsp
-if executable('go-langserver')
-  let g:LanguageClient_serverCommands.go = ['go-langserver', '-mode', 'stdio']
+if executable('gopls')
+  let g:LanguageClient_serverCommands.go = ['gopls']
+  augroup format
+    autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+  augroup end
   call LSP_maps()
 endif
 
