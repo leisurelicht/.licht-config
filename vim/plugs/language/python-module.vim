@@ -29,29 +29,22 @@ augroup end
 " ---> Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
-" ---> deoplete
-if g:deoplete_framework_enable
-  Plug 'zchee/deoplete-jedi', {'for': 'python'}
-  let g:deoplete#sources#jedi#statement_length=50
-  let g:deoplete#sources#jedi#enable_typeinfo=0
-  let g:deoplete#sources#jedi#show_docstring=0
-endif
-
 " ---> ncm2
 if g:ncm2_framework_enable
   Plug 'ncm2/ncm2-jedi', {'for': 'python'}
   augroup close_lsp
     autocmd FileType python call ncm2#override_source('LanguageClient_python', {'enable': 0})
   augroup end
+
+  " ---> neovim lsp
+  if executable('pyls')
+    let g:LanguageClient_serverCommands.python = ['pyls']
+    augroup lsp_map
+      autocmd FileType python call LSP_maps()
+    augroup end
+  endif
 endif
 
-" ---> neovim lsp
-if executable('pyls')
-  let g:LanguageClient_serverCommands.python = ['pyls']
-  augroup lsp_map
-    autocmd FileType python call LSP_maps()
-  augroup end
-endif
 
 " ----> ale fixer
 let g:ale_fixers.python = ['add_blank_lines_for_python_control_statements', 'isort', 'yapf', 'autopep8',]

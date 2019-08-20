@@ -17,26 +17,20 @@ augroup end
 " ---> vim-go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
 
-" ---> deoplete
-if g:deoplete_framework_enable ==# 1
-  Plug 'zchee/deoplete-go', { 'do': 'make'}
-  let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-endif
-
 " ---> ncm2
 if g:ncm2_framework_enable ==# 1
   Plug 'ncm2/ncm2-go', {'for': 'go'}
+
+  " ---> neovim lsp
+  if executable('gopls')
+    let g:LanguageClient_serverCommands.go = ['gopls']
+    augroup format
+      autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+    augroup end
+    call LSP_maps()
+  endif
 endif
 
-" ---> neovim lsp
-if executable('gopls')
-  let g:LanguageClient_serverCommands.go = ['gopls']
-  augroup format
-    autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-  augroup end
-  call LSP_maps()
-endif
 
 " ---> ale fixer
 let g:ale_fixers.go = ['goimports', 'gofmt']

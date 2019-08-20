@@ -20,17 +20,14 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-" ---> deoplete
-if g:deoplete_framework_enable
-  Plug 'zchee/deoplete-zsh', {'for': 'sh'}
-endif
-
-" ---> neovim lsp
-if executable('bash-language-server')
-  let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
-  augroup lsp_map
-    call LSP_maps()
-  augroup end
+if g:ncm2_framework_enable
+  " ---> neovim lsp
+  if executable('bash-language-server')
+    let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
+    augroup lsp_map
+      call LSP_maps()
+    augroup end
+  endif
 endif
 
 " ---> ale fixer

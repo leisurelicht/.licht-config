@@ -14,12 +14,14 @@ augroup end
 " ---> vim vue
 Plug 'posva/vim-vue', {'for': 'vue'}
 
-" ---> neovim vim
-if executable('vls')
-  let g:LanguageClient_serverCommands.vue = ['vls']
-  augroup lsp_map
-    autocmd FileType sh call LSP_maps()
-  augroup end
+if g:ncm2_framework_enable
+  " ---> neovim vim
+  if executable('vls')
+    let g:LanguageClient_serverCommands.vue = ['vls']
+    augroup lsp_map
+      autocmd FileType sh call LSP_maps()
+    augroup end
+  endif
 endif
 
 " ---> ale fixer

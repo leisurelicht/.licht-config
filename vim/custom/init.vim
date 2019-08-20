@@ -33,5 +33,5 @@ let g:_python3_path = '/usr/local/bin/python3'
 
 " 自动补全框架
 " default:  <ncm2>      ncm2 framework
-"           <deoplete>  deoplete framework
+"           <coc>  deoplete framework
 let g:complete_framework = 'ncm2'

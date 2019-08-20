@@ -29,23 +29,15 @@ call plugs#load#Base('dev')
 
 call plugs#language#Befor('init-module')
 
-if g:complete_framework ==? 'deoplete'
-  let g:deoplete_framework_enable = 1
+if g:complete_framework ==? 'coc'
   let g:ncm2_framework_enable = 0
-  call plugs#language#Befor('deoplete-module')
+  call plugs#language#Befor('coc-module')
 elseif g:complete_framework ==? 'ncm2'
-  if has('nvim')
-    let g:deoplete_framework_enable = 0
-    let g:ncm2_framework_enable = 1
-    call plugs#language#Befor('ncm2-module')
-  else
-    let g:deoplete_framework_enable = 1
-    let g:ncm2_framework_enable = 0
-    call plugs#language#Befor('deoplete-module')
-  endif
+  let g:ncm2_framework_enable = 1
+  call plugs#language#Befor('ncm2-module')
+  call plugs#language#Befor('lsp-module')
 endif
 
-call plugs#language#Befor('lsp-module')
 call plugs#language#Befor('echodoc-module')
 call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('ale-module')
