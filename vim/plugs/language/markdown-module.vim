@@ -17,7 +17,7 @@ augroup file_set
 augroup end
 
 " ---> 自动生成目录
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 
 " ---> 实时预览
 Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
