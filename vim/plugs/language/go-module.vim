@@ -27,7 +27,10 @@ if g:ncm2_framework_enable ==# 1
     augroup format
       autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
     augroup end
-    call LSP_maps()
+
+    augroup lsp_map
+      autocmd FileType go call LSP_maps()
+    augroup end
   endif
 endif
 
