@@ -2,6 +2,9 @@
 " assuming you're using vim-plug: https://github.com/junegunn/vim-plug
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+if !has('nvim')
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " LanguageServer client for NeoVim.
 Plug 'autozimu/LanguageClient-neovim', {
