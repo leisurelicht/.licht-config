@@ -21,7 +21,7 @@ if g:ncm2_framework_enable ==# 1
   if executable('javascript-typescript-stdio')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     augroup lsp_map
-      autocmd FileType javascript call LSP_maps()
+      autocmd FileType javascript, javascript.jsx call LSP_maps()
     augroup end
   endif
 endif

@@ -25,7 +25,7 @@ if g:ncm2_framework_enable
   if executable('bash-language-server')
     let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
     augroup lsp_map
-      call LSP_maps()
+      autocmd FileType sh call LSP_maps()
     augroup end
   endif
 endif
