@@ -20,8 +20,7 @@ augroup end
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 
 " ---> 实时预览
-Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
-let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install', 'for': 'markdown'}
 let g:mkdp_auto_close = 0
 
 " ---> ncm2
