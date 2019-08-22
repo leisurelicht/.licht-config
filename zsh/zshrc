@@ -115,7 +115,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=$GOPATH:$HOME/Zhihu/Code/Go
+export PATH=$PATH:$GOROOT/bin:$GOBIN
 
 # Pyenv 初始化
 export PYENV_ROOT="$HOME/.pyenv"
@@ -132,3 +133,6 @@ export PATH=$PATH:~/Code/Flutter/flutter/bin
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/node@8/lib"
 export CPPFLAGS="-I/usr/local/opt/node@8/include"
+
+# Bison
+export PATH="/usr/local/opt/bison/bin:$PATH"
