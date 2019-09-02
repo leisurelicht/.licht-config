@@ -45,8 +45,11 @@ let g:which_key_map.l = {
       \ 'g': {
       \ 'name': '+Goto',
         \ 'd': 'definition',
+        \ 'dv': 'v-definition',
         \ 't': 'type-definition',
+        \ 'tv': 'v-type-definition',
         \ 'i': 'implementation',
+        \ 'iv': 'v-implementation',
         \}
       \}
 
