@@ -28,9 +28,12 @@ function LSP_maps()
     nnoremap <buffer> <silent> <leader>lS :call LanguageClient#workspace_symbol()<CR>
     nnoremap <buffer> <silent> <leader>lgdd :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
     nnoremap <buffer> <silent> <leader>lgdv :call LanguageClient#textDocument_definition({'gotoCmd': 'vsplit'})<CR>
+    nnoremap <buffer> <silent> <leader>lgdf :call LanguageClient#textDocument_definition()<CR>
     nnoremap <buffer> <silent> <leader>lgtt :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'split'})<CR>
     nnoremap <buffer> <silent> <leader>lgtv :call LanguageClient#textDocument_typeDefinition({'gotoCmd': 'vsplit'})<CR>
+    nnoremap <buffer> <silent> <leader>lgtf :call LanguageClient#textDocument_typeDefinition()<CR>
     nnoremap <buffer> <silent> <leader>lgii :call LanguageClient#textDocument_implementation({'gotoCmd': 'split'})<CR>
     nnoremap <buffer> <silent> <leader>lgiv :call LanguageClient#textDocument_implementation({'gotoCmd': 'vsplit'})<CR>
+    nnoremap <buffer> <silent> <leader>lgif :call LanguageClient#textDocument_implementation()<CR>
   endif
 endfunction

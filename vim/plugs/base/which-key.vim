@@ -44,12 +44,24 @@ let g:which_key_map.l = {
       \ 'S': 'workspace symbol',
       \ 'g': {
       \ 'name': '+Goto',
-        \ 'd': 'definition',
-        \ 'dv': 'v-definition',
-        \ 't': 'type-definition',
-        \ 'tv': 'v-type-definition',
-        \ 'i': 'implementation',
-        \ 'iv': 'v-implementation',
+        \ 'd': {
+        \ 'name': 'Definition',
+          \ 'd': 's-definition',
+          \ 'v': 'v-definition',
+          \ 'f': 'full-definition',
+          \},
+        \ 't': {
+        \ 'name': 'Type-Definition',
+          \ 't': 's-type-definition',
+          \ 'v': 'v-type-definition',
+          \ 'f': 'full-type-definition',
+          \},
+        \ 'i': {
+        \ 'name': 'Implementation',
+          \ 'i': 's-implementation',
+          \ 'v': 'v-implementation',
+          \ 'f': 'full-implementation',
+          \},
         \}
       \}
 
