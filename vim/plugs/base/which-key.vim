@@ -38,10 +38,10 @@ let g:which_key_map.m = {'name': '+BookMarks'}
 let g:which_key_map.l = {
       \ 'name': '+Lsp',
       \ 'm': 'Menu',
-      \ 'k': 'hover',
-      \ 'r': 'rename',
-      \ 'w': 'workspace-symbol',
-      \ 'd': 'document-symbol',
+      \ 'K': 'hover',
+      \ 'R': 'rename',
+      \ 's': 'document symbol',
+      \ 'S': 'workspace symbol',
       \ 'g': {
       \ 'name': '+Goto',
         \ 'd': 'definition',
