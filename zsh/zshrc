@@ -136,3 +136,8 @@ export CPPFLAGS="-I/usr/local/opt/node@8/include"
 
 # Bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
+
+
+if [ -e ~/.config_file/zsh/export_env ]; then
+  source ~/.config_file/zsh/export_env
+fi
