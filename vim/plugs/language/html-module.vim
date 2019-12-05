@@ -21,11 +21,8 @@ Plug 'mattn/emmet-vim', {'for': 'html'}
 " ---> html5
 Plug 'othree/html5.vim', {'for': 'html'}
 
-" ---> ncm2
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-html-subscope', {'for': 'html'}
-  Plug 'ncm2/ncm2-cssomni', {'for': 'css'}
-endif
-
 " ---> ale fixer
 let g:ale_fixers.html = ['prettier',]
+
+" ---> coc
+let g:coc_global_extensions += ['coc-html', 'coc-css']

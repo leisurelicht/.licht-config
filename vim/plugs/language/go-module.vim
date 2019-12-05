@@ -18,23 +18,8 @@ augroup end
 " ---> vim-go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
 
-" ---> ncm2
-if g:ncm2_framework_enable ==# 1
-  Plug 'ncm2/ncm2-go', {'for': 'go'}
-
-  " ---> neovim lsp
-  if executable('gopls')
-    let g:LanguageClient_serverCommands.go = ['gopls']
-    augroup format
-      autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-    augroup end
-
-    augroup lsp_map
-      autocmd FileType go call LSP_maps()
-    augroup end
-  endif
-endif
-
-
 " ---> ale fixer
 let g:ale_fixers.go = ['goimports', 'gofmt']
+
+" ---> coc
+let g:coc_global_extensions += ['coc-go']

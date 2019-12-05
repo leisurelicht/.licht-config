@@ -20,15 +20,5 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-if g:ncm2_framework_enable
-  " ---> neovim lsp
-  if executable('bash-language-server')
-    let g:LanguageClient_serverCommands.sh = ['bash-language-server', 'start']
-    augroup lsp_map
-      autocmd FileType sh call LSP_maps()
-    augroup end
-  endif
-endif
-
 " ---> ale fixer
 let g:ale_fixers.sh = ['shfmt',]

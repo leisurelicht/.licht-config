@@ -29,22 +29,8 @@ augroup end
 " ---> Python代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 
-" ---> ncm2
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-jedi', {'for': 'python'}
-  augroup close_lsp
-    autocmd FileType python call ncm2#override_source('LanguageClient_python', {'enable': 0})
-  augroup end
-
-  " ---> neovim lsp
-  if executable('pyls')
-    let g:LanguageClient_serverCommands.python = ['pyls']
-    augroup lsp_map
-      autocmd FileType python call LSP_maps()
-    augroup end
-  endif
-endif
-
-
-" ----> ale fixer
+" ---> ale fixer
 let g:ale_fixers.python = ['add_blank_lines_for_python_control_statements', 'isort', 'yapf', 'autopep8',]
+
+" ---> coc
+let g:coc_global_extensions += ['coc-python']

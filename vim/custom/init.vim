@@ -30,8 +30,3 @@ let g:_python2_path = '/usr/local/bin/python2'
 " let g:_python3_path = '/full/path/to/python3'
 " default: use python3 install by brew
 let g:_python3_path = '/usr/local/bin/python3'
-
-" 自动补全框架
-" default:  <ncm2>      ncm2 framework
-"           <coc>  deoplete framework
-let g:complete_framework = 'ncm2'

@@ -23,10 +23,8 @@ Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install', 'for': 'markdown'}
 let g:mkdp_auto_close = 0
 
-" ---> ncm2
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-markdown-subscope', {'for': 'markdown'}
-endif
-
 " ---> ale fixer
 " let g:ale_fixers.markdown = ['prettier']
+
+" ---> coc
+let g:coc_global_extensions += ['coc-markdownlint']

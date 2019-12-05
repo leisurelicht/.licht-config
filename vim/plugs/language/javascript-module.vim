@@ -13,19 +13,8 @@ augroup end
 " ---> Makes your javascript files support React jsx correctly.
 Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript.jsx'}
 
-" ---> ncm2
-if g:ncm2_framework_enable ==# 1
-  Plug 'ncm2/ncm2-tern', {'do': 'npm install', 'for': 'javascript'}
-
-  " ---> neovim lsp
-  if executable('javascript-typescript-stdio')
-    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-    augroup lsp_map
-      autocmd FileType javascript, javascript.jsx call LSP_maps()
-    augroup end
-  endif
-endif
-
-
 " ---> ale fixer
 let g:ale_fixers.html = ['eslint',' importjs', 'prettier_eslint', 'prettier_standard']
+
+" ---> coc
+let g:coc_global_extensions += ['coc-tsserver']

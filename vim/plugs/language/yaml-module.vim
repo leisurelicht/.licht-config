@@ -12,3 +12,6 @@ augroup end
 
 " ---> ale fixer
 let g:ale_fixers.yaml = []
+
+" ---> coc
+let g:coc_global_extensions += ['coc-yaml']
