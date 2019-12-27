@@ -20,6 +20,8 @@ echo "====> Use brew to intall necessary"
 brew install zsh
 brew install autojump
 brew install fzf
+brew install zsh-syntax-highlighting
+brew install pyenv
 $(brew --prefix)/opt/fzf/install --all
 brew install ag
 
