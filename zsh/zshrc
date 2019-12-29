@@ -61,7 +61,7 @@ ZSH_THEME="amuse"
 plugins=(
 git
 autojump
-zsh-syntax-highlighting
+#zsh-syntax-highlighting
 )
 
 # autojump
@@ -111,12 +111,15 @@ export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Gvm
+[[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
+
 # Go
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
-export GOPATH=$GOPATH:$HOME/Zhihu/Code/Go
 export PATH=$PATH:$GOROOT/bin:$GOBIN
+
 
 # Pyenv 初始化
 export PYENV_ROOT="$HOME/.pyenv"
@@ -141,3 +144,4 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 if [ -e ~/.config_file/zsh/export_env ]; then
   source ~/.config_file/zsh/export_env
 fi
+
