@@ -101,6 +101,11 @@ if [ -e ~/.config_file/zsh/aliasrc ]; then
   source ~/.config_file/zsh/aliasrc
 fi
 
+# export file
+if [ -e ~/.config_file/zsh/export_env ]; then
+  source ~/.config_file/zsh/export_env
+fi
+
 # SoftWare Config
 
 # Fzf
@@ -111,8 +116,6 @@ export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Gvm
-[[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
 
 # Go
 export GOROOT=/usr/local/opt/go/libexec
@@ -120,6 +123,9 @@ export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin:$GOBIN
 export GO111MODULE=on
+
+# Gvm
+[[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
 
 
 # Pyenv 初始化
@@ -140,9 +146,3 @@ export CPPFLAGS="-I/usr/local/opt/node@8/include"
 
 # Bison
 export PATH="/usr/local/opt/bison/bin:$PATH"
-
-
-if [ -e ~/.config_file/zsh/export_env ]; then
-  source ~/.config_file/zsh/export_env
-fi
-
