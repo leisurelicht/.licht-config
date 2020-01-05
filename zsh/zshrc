@@ -116,17 +116,15 @@ export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Gvm
+[[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
 
 # Go
-export GOROOT=/usr/local/opt/go/libexec
+#export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin:$GOBIN
 export GO111MODULE=on
-
-# Gvm
-[[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
-
 
 # Pyenv 初始化
 export PYENV_ROOT="$HOME/.pyenv"
