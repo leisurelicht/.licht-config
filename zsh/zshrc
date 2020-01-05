@@ -120,7 +120,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [[ -s "/Users/ducheng/.gvm/scripts/gvm" ]] && source "/Users/ducheng/.gvm/scripts/gvm"
 
 # Go
-#export GOROOT=/usr/local/opt/go/libexec
+# export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin:$GOBIN
