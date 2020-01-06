@@ -18,6 +18,9 @@ augroup end
 " ---> vim-go
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
 
+" go doc
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
 " ---> ncm2
 if g:ncm2_framework_enable ==# 1
   Plug 'ncm2/ncm2-go', {'for': 'go'}
