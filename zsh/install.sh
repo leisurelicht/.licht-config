@@ -52,8 +52,9 @@ echo "====> Create zshrc link"
 rm ~/.zshrc >/dev/null 2>&1
 ln -s $config_path/zsh/zshrc ~/.zshrc
 
-# download zsh-autosuggestions
+# download zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # 切换到zsh
 chsh -s /bin/zsh

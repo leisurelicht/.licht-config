@@ -59,9 +59,10 @@ ZSH_THEME="amuse"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
-autojump
-#zsh-syntax-highlighting
+  git
+  autojump
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
 
 # autojump
