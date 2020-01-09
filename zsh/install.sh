@@ -10,10 +10,10 @@ config_path=$(
 echo "====> Config file root path is: ${config_path}"
 
 if ! command -v brew >/dev/null 2>&1; then
-    echo "====> Command brew is not be installed, start to install"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "====> Command brew is not be installed, start to install"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-    echo "====> Commnad brew is already install"
+  echo "====> Commnad brew is already install"
 fi
 
 echo "====> Use brew to intall necessary"
@@ -21,6 +21,7 @@ brew install zsh
 brew install autojump
 brew install fzf
 brew install zsh-syntax-highlighting
+brew install zsh-autosuggestions
 brew install pyenv
 $(brew --prefix)/opt/fzf/install --all
 brew install ag
@@ -31,25 +32,28 @@ gem install rough
 # 安装oh-my-zsh
 echo "====> Install oh-my-zsh"
 if command -v curl >/dev/null 2>&1; then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 elif command -v wget >/dev/null 2>&1; then
-    sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
 # 备份文件
 echo "====> Back up dir path is: ${config_path}/bak"
 if [ ! -d $config_path/bak ]; then
-    mkdir -p $config_path/bak
+  mkdir -p $config_path/bak
 fi
 
 if [ -f ~/.zshrc ]; then
-    echo "====> Zsh config file zshrc is exist, backup and delete it."
-    mv ~/.zshrc $config_path/bak/zshrc.bak
+  echo "====> Zsh config file zshrc is exist, backup and delete it."
+  mv ~/.zshrc $config_path/bak/zshrc.bak
 fi
 echo "====> Create zshrc link"
 
 rm ~/.zshrc >/dev/null 2>&1
 ln -s $config_path/zsh/zshrc ~/.zshrc
+
+# download zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # 切换到zsh
 chsh -s /bin/zsh
