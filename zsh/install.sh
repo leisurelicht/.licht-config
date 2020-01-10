@@ -16,14 +16,24 @@ else
   echo "====> Commnad brew is already install"
 fi
 
+# 安装 Powerline fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
+# 安装 nerd font
+brew cask install font-hack-nerd-font
+
 echo "====> Use brew to intall necessary"
 brew install zsh
 brew install autojump
 brew install fzf
+$(brew --prefix)/opt/fzf/install --all
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install pyenv
-$(brew --prefix)/opt/fzf/install --all
 brew install ag
 
 echo "====> Use Gem to install necessary"
@@ -55,13 +65,6 @@ ln -s $config_path/zsh/zshrc ~/.zshrc
 # download zsh plugins
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# 安装 Powerline fonts
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
 
 # 切换到zsh
 chsh -s /bin/zsh
