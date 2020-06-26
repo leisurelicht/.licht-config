@@ -22,3 +22,6 @@ else
 endif
 
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+
+" ---> enable vim devicons
+let g:webdevicons_enable_startify = 1
