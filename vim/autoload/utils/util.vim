@@ -4,7 +4,7 @@ function! utils#util#Source_file(file) abort
   endif
 endfunction
 
-function! utils#util#User_define(file) abort
+function! utils#util#UserConfig(file) abort
   if filereadable(g:_root_dir. '/custom/' . a:file)
     execute 'source '.g:_root_dir.'/custom/'.a:file
   endif

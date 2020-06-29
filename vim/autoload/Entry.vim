@@ -1,6 +1,6 @@
 function! Entry#Begin() abort
 
-  call utils#util#User_define('init.vim')
+  call utils#util#UserConfig('init.vim')
 
   " python host
   if has('nvim')
