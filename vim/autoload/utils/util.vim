@@ -1,4 +1,4 @@
-function! utils#util#Source_file(file) abort
+function! utils#util#SystemConfig(file) abort
   if filereadable(g:_config_dir. '/' . a:file)
     execute 'source '.g:_config_dir.'/'.a:file
   endif
