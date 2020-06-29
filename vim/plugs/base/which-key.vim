@@ -35,33 +35,18 @@ let g:which_key_map.g = {'name': '+Git'}
 
 let g:which_key_map.m = {'name': '+BookMarks'}
 
-let g:which_key_map.l = {
-      \ 'name': '+Lsp',
-      \ 'm': 'Menu',
-      \ 'K': 'hover',
-      \ 'R': 'rename',
-      \ 's': 'document symbol',
-      \ 'S': 'workspace symbol',
-      \ 'g': {
-      \ 'name': '+Goto',
-        \ 'd': {
-        \ 'name': 'Definition',
-          \ 'd': 's-definition',
-          \ 'v': 'v-definition',
-          \ 'f': 'full-definition',
-          \},
-        \ 't': {
-        \ 'name': 'Type-Definition',
-          \ 't': 's-type-definition',
-          \ 'v': 'v-type-definition',
-          \ 'f': 'full-type-definition',
-          \},
-        \ 'i': {
-        \ 'name': 'Implementation',
-          \ 'i': 's-implementation',
-          \ 'v': 'v-implementation',
-          \ 'f': 'full-implementation',
-          \},
+let g:which_key_map.c = {
+      \ 'name': '+Coc',
+      \ 'l': {
+      \ 'name': '+CocList',
+        \ 'a': 'Diagnostics',
+        \ 'e': 'Extensions',
+        \ 'c': 'Commands',
+        \ 'o': 'Outline',
+        \ 's': 'Symbols',
+        \ 'n': 'CocNext',
+        \ 'p': 'CocPrev',
+        \ 'r': 'CocListResume',
         \}
       \}
 

@@ -49,13 +49,13 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> <leader>lgd <Plug>(coc-definition)
-nmap <silent> <leader>lgy <Plug>(coc-type-definition)
-nmap <silent> <leader>lgi <Plug>(coc-implementation)
-nmap <silent> <leader>lgr <Plug>(coc-references)
+nmap <silent> <leader>cgd <Plug>(coc-definition)
+nmap <silent> <leader>cgy <Plug>(coc-type-definition)
+nmap <silent> <leader>cgi <Plug>(coc-implementation)
+nmap <silent> <leader>cgr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
-nnoremap <silent> <leader>lk :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>ck :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -117,25 +117,20 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <leader>lla  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>cla  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <leader>lle  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>cle  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <leader>llc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>clc  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <leader>llo  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>clo  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <leader>lls  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <leader>cls  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <leader>llj  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>clj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <leader>llk  :<C-u>CocPrev<CR>
+nnoremap <silent> <leader>clk  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <leader>llp  :<C-u>CocListResume<CR>
-
+nnoremap <silent> <leader>clp  :<C-u>CocListResume<CR>
 
 let g:coc_global_extensions = []
-" CocInstall coc-marketplace
-" CocInstall coc-python
-" CocInstall coc-pyls
-" CocInstall coc-json

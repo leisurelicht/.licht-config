@@ -7,6 +7,7 @@ if utils#system#OSX()
   call plugs#load#Base('fcitx-vim-osx')
 endif
 
+call plugs#load#Base('init-module')
 call plugs#load#Base('themes')
 call plugs#load#Base('nerdtree')
 call plugs#load#Base('startify')
@@ -29,11 +30,9 @@ call plugs#load#Base('devicons')
 call plugs#load#Base('dev')
 
 call plugs#language#Befor('init-module')
-
 if has('nvim')
   call plugs#language#Befor('coc-module')
 endif
-
 call plugs#language#Befor('echodoc-module')
 call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('ale-module')
