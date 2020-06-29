@@ -1,7 +1,7 @@
 scriptencoding utf-8
 " 搜索 fzf
 "
-if utils#util#exists('/usr/local/opt/fzf')
+if utils#util#FileExist('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf'
 else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

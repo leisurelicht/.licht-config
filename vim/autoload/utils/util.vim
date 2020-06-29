@@ -10,7 +10,7 @@ function! utils#util#User_define(file) abort
   endif
 endfunction
 
-function! utils#util#exists(file)
+function! utils#util#FileExist(file)
   if !empty(glob(a:file))
     return 1
   endif
