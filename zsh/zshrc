@@ -23,8 +23,7 @@ source ~/.zinit/bin/zinit.zsh
  zinit ice lucid wait='0'
  zinit light zsh-users/zsh-completions
 
- # 加载 OMZ 框架及部分插件
- zinit snippet OMZ::lib/completion.zsh
+ # 加载 OMZ 框架及部分插件 zinit snippet OMZ::lib/completion.zsh
  zinit snippet OMZ::lib/history.zsh
  zinit snippet OMZ::lib/key-bindings.zsh
  zinit snippet OMZ::lib/theme-and-appearance.zsh
@@ -54,8 +53,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
-export GOPATH=$GOPATH:$HOME/Code/Venus/nacs
 export PATH=$PATH:$GOROOT/bin:$GOBIN
+export GO111MODULE=on
 
 # Pyenv 初始化
 export PYENV_ROOT="$HOME/.pyenv"
