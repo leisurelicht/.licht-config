@@ -55,6 +55,7 @@ export GOPATH=$HOME/Code/Go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin:$GOBIN
 export GO111MODULE=on
+export GOPROXY=https://goproxy.io
 
 # Pyenv 初始化
 export PYENV_ROOT="$HOME/.pyenv"
