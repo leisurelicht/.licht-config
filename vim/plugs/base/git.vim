@@ -26,8 +26,5 @@ nnoremap <leader>gv :Gv<CR>
 " ---> Git Message
 Plug 'rhysd/git-messenger.vim'
 
-nnoremap <leader>gm :GitMessage<CR>
-
 " ---> Coc git
 let g:coc_global_extensions = ["coc-git"]
-
