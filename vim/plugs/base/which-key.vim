@@ -50,6 +50,19 @@ let g:which_key_map.c = {
         \ 'n': 'CocNext',
         \ 'p': 'CocPrev',
         \ 'r': 'CocListResume',
+        \},
+        \ 'r': {
+        \ 'name': '+Refactoring',
+          \ 'n': 'Rename',
+          \ 'f': 'Refactor',
+        \},
+        \ 'k': 'Document',
+        \ 'g': {
+        \ 'name': '+Goto',
+          \ 'd': 'Definition',
+          \ 'y': 'TypeDefinition',
+          \ 'i': 'Implementation',
+          \ 'r': 'References',
         \}
       \}
 
