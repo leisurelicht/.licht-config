@@ -20,7 +20,7 @@ echo "====> Use brew to intall necessary"
 brew install vim --with-override-system-vi
 brew install neovim
 brew install fcitx-remote-for-osx --with-input-method=osx-pinyin
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 if ! command -v ctags >/dev/null 2>&1; then

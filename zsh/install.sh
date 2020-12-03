@@ -58,7 +58,7 @@ fi
 
 # 创建备份文件地址
 if [ ! -d $config_path/bak ]; then
-    mkdir -p $config_path/bak
+  mkdir -p $config_path/bak
 fi
 echo "====> Back up dir path is: ${config_path}/bak"
 
