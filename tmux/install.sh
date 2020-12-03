@@ -9,16 +9,19 @@ config_path=$(
 
 echo "====> Config file root path is: ${config_path}"
 
-if ! command -v brew >/dev/null 2>&1; then
-    echo "====> Command brew is not be installed, start to install"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-    echo "====> Commnad brew is already install"
-fi
 
-echo "====> Use brew to intall necessary"
-brew install tmux
-brew install reattach-to-user-namespace
+if [[ `uname` == 'Darwin'  ]]; then
+  # 安装包管理器
+  if ! command -v brew >/dev/null 2>&1; then
+      echo "====> Command brew is not be installed, start to install"
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+      echo "====> Commnad brew is already install"
+  fi
+
+  echo "====> Use brew to intall tmux"
+  brew install tmux
+fi
 
 # tmux
 echo "====> Install tumx plugins manage plugin tpm"
