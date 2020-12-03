@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 
 nnoremap <leader>gg :Git<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit %<CR>
+nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gh :Gpush<CR>
 nnoremap <leader>gl :Gpull<CR>
 nnoremap <leader>gb :Gblame<CR>
@@ -26,4 +26,5 @@ nnoremap <leader>gv :Gv<CR>
 " ---> Git Message
 Plug 'rhysd/git-messenger.vim'
 
-nnoremap <leader>gm :GitMessage<CR>
+" ---> Coc git
+let g:coc_global_extensions = ["coc-git"]

@@ -20,4 +20,5 @@ catch
   call Entry#Begin()
 endtry
 
+
 colorscheme space-vim-dark

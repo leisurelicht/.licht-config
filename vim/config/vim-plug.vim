@@ -7,6 +7,7 @@ if utils#system#OSX()
   call plugs#load#Base('fcitx-vim-osx')
 endif
 
+call plugs#load#Base('init-module')
 call plugs#load#Base('themes')
 call plugs#load#Base('nerdtree')
 call plugs#load#Base('startify')
@@ -24,20 +25,14 @@ call plugs#load#Base('surround')
 call plugs#load#Base('fzf')
 call plugs#load#Base('tabular')
 call plugs#load#Base('goyo')
+call plugs#load#Base('devicons')
 " just use to develop plugin
 call plugs#load#Base('dev')
 
 call plugs#language#Befor('init-module')
-
-if g:complete_framework ==? 'coc'
-  let g:ncm2_framework_enable = 0
+if has('nvim')
   call plugs#language#Befor('coc-module')
-elseif g:complete_framework ==? 'ncm2'
-  let g:ncm2_framework_enable = 1
-  call plugs#language#Befor('ncm2-module')
-  call plugs#language#Befor('lsp-module')
 endif
-
 call plugs#language#Befor('echodoc-module')
 call plugs#language#Befor('ultisnips-module')
 call plugs#language#Befor('ale-module')

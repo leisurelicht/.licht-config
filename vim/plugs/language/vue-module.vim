@@ -14,15 +14,8 @@ augroup end
 " ---> vim vue
 Plug 'posva/vim-vue', {'for': 'vue'}
 
-if g:ncm2_framework_enable
-  " ---> neovim vim
-  if executable('vls')
-    let g:LanguageClient_serverCommands.vue = ['vls']
-    augroup lsp_map
-      autocmd FileType vue call LSP_maps()
-    augroup end
-  endif
-endif
-
 " ---> ale fixer
 let g:ale_fixers.vue = ['eslint',]
+
+" ---> coc
+let g:coc_global_extensions += ['coc-vetur']

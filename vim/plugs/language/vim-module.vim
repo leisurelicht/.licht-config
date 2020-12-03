@@ -10,7 +10,5 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-if g:ncm2_framework_enable
-  Plug 'ncm2/ncm2-vim', {'for': 'vim'}
-endif
-Plug 'Shougo/neco-vim', {'for': 'vim'}
+" ---> coc
+let g:coc_global_extensions += ['coc-vimlsp']
