@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 
 nnoremap <leader>gg :Git<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gc :Gcommit %<CR>
 nnoremap <leader>gh :Gpush<CR>
 nnoremap <leader>gl :Gpull<CR>
 nnoremap <leader>gb :Gblame<CR>
