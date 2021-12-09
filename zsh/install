@@ -17,7 +17,7 @@ if [[ `uname` == 'Darwin'  ]]; then
       echo "====> Homebrew is not be installed, start to install"
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   else
-      echo "====> Homebrew is already install"
+      echo "----> Homebrew is already install"
   fi
 
   # 安装软件
@@ -25,32 +25,42 @@ if [[ `uname` == 'Darwin'  ]]; then
       echo "====> Zsh is not be installed, start to install"
       brew install zsh
   else
-      echo "====> Zsh is already install"
+      echo "----> Zsh is already install"
   fi
 
   if ! command -v fzf >/dev/null 2>&1; then
       echo "====> Fzf is not be installed, start to install"
       brew install fzf
-      $(brew --prefix)/opt/fzf/install --all
+      $(brew --prefix)/opt/fzf/install
   else
-      echo "====> Fzf is already install"
+      echo "----> Fzf is already install"
   fi
 
   if ! command -v brew >/dev/null 2>&1; then
       echo "====> Ag is not be installed, start to install"
       brew install ag
   else
-      echo "====> Ag is already install"
+      echo "----> Ag is already install"
   fi
 
-  # 安装zinit
-  if [ ! -d ~/.zinit  ]; then
-    echo "====> Zinit is not be installed, start to install"
-    mkdir ~/.zinit
-    git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
-  else
-      echo "====> Zinit is already install"
+else
+  echo "xxxx> Currenty operating system is not supported"
+  exit 1
+fi
+
+
+# 安装zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+if [ ! -e "$ZINIT_HOME" ]; then
+  echo "====> Zinit is not be installed, start to install"
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  if [ $? -ne 0 ]; then
+    echo "xxxx> Install zinit failed, install stop"
+    exit 1
   fi
+else
+  echo "----> Zinit is already install"
 fi
 
 # echo "====> Use Gem to install necessary"
@@ -64,9 +74,9 @@ echo "====> Back up dir path is: ${config_path}/bak"
 
 # 备份已有的zshrc文件
 if [ -f ~/.zshrc ]; then
-    echo "====> Zsh config file zshrc is exist, backup and delete it."
-    mv ~/.zshrc $config_path/bak/zshrc.bak
-    rm ~/.zshrc >/dev/null 2>&1
+  echo "====> Zsh config file zshrc is exist, backup and delete it."
+  mv ~/.zshrc $config_path/bak/zshrc.bak
+  rm ~/.zshrc >/dev/null 2>&1
 fi
 
 echo "====> Create zshrc link"
@@ -74,9 +84,9 @@ ln -s $config_path/zsh/zshrc ~/.zshrc
 
 # 备份已有的p10k.zsh文件
 if [ -f ~/.p10k.zsh ]; then
-    echo "====> p10k config file zshrc is exist, backup and delete it."
-    mv ~/.p10k.zsh $config_path/bak/p10k.zsh.bak
-    rm ~/.p10k.zsh >/dev/null 2>&1
+  echo "====> p10k config file zshrc is exist, backup and delete it."
+  mv ~/.p10k.zsh $config_path/bak/p10k.zsh.bak
+  rm ~/.p10k.zsh >/dev/null 2>&1
 fi
 
 echo "====> Create p10k link"
