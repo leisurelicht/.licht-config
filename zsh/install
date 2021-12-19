@@ -36,7 +36,7 @@ if [[ `uname` == 'Darwin'  ]]; then
       echo "----> Fzf is already install"
   fi
 
-  if ! command -v brew >/dev/null 2>&1; then
+  if ! command -v ag >/dev/null 2>&1; then
       echo "====> Ag is not be installed, start to install"
       brew install ag
   else
@@ -84,13 +84,23 @@ ln -s $config_path/zsh/zshrc ~/.zshrc
 
 # 备份已有的p10k.zsh文件
 if [ -f ~/.p10k.zsh ]; then
-  echo "====> p10k config file zshrc is exist, backup and delete it."
+  echo "====> p10k config file .p10k.zsh is exist, backup and delete it."
   mv ~/.p10k.zsh $config_path/bak/p10k.zsh.bak
   rm ~/.p10k.zsh >/dev/null 2>&1
 fi
 
 echo "====> Create p10k link"
 ln -s $config_path/zsh/p10k.zsh ~/.p10k.zsh
+
+# 备份已有的 fzf 文件
+if [ -f ~/.fzf.zsh ]; then
+  echo "====> fzf config file is .fzf.zsh exist, backup and delete it."
+  mv ~/.fzf.zsh $config_path/bak/fzf.zsh.bak
+  rm ~/.fzf.zsh >/dev/null 2>&1
+fi
+
+echo "====> Create fzf link"
+ln -s $config_path/zsh/fzf.zsh ~/.fzf.zsh
 
 # 切换到zsh
 echo "====> Change to zsh"
