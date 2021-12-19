@@ -22,7 +22,7 @@ alias fzf='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a 
 
 # Export configure
 # ------
-export FZF_DEFAULT_OPTS='--height 60% --reverse --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
+export FZF_DEFAULT_OPTS='--height 60% --layout=reverse'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
 
 export FZF_CTRL_T_OPTS='--height 60% --reverse --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
