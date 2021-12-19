@@ -36,13 +36,26 @@ if [[ `uname` == 'Darwin'  ]]; then
       echo "----> Fzf is already install"
   fi
 
-  if ! command -v ag >/dev/null 2>&1; then
-      echo "====> Ag is not be installed, start to install"
-      brew install ag
+  if ! command -v rg >/dev/null 2>&1; then
+      echo "====> Ripgrep is not be installed, start to install"
+      brew install Ripgrep
   else
-      echo "----> Ag is already install"
+      echo "----> Ripgrep is already install"
+  fi
+  
+  if ! command -v fd >/dev/null 2>&1; then
+      echo "====> Fd is not be installed, start to install"
+      brew install fd
+  else
+      echo "----> fd is already install"
   fi
 
+  if ! command -v bat >/dev/null 2>&1; then
+      echo "====> Bat is not be installed, start to install"
+      brew install bat
+  else
+      echo "----> Bat is already install"
+  fi
 else
   echo "xxxx> Currenty operating system is not supported"
   exit 1

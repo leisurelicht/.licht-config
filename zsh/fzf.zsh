@@ -17,22 +17,15 @@ source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin
 
 # Alias
 # -----
-# It's better to run 'gem install rough' first
-alias ff='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (rougify {} || highlight -O ansi -l {} || coderay {} || cat {}) 2> /dev/null | head -500'"'"
+# It's better to run 'brew install bat' first
+alias fzf='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
 
 # Export configure
 # ------
-export FZF_DEFAULT_OPTS='--height 40% --reverse --inline-info'
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-# export FZF_CTRL_T_OPTS="--preview '(rougify {} || cat {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_OPTS='--height 60% --reverse --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*" 2> /dev/null'
+
+export FZF_CTRL_T_OPTS='--height 60% --reverse --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# bindkey
-# -------
-fzf-history-widget-accept() {
-  fzf-history-widget
-  zle accept-line
-}
-zle -N fzf-history-widget-accept
-bindkey '^X^R' fzf-history-widget-accept
+export FZF_ALT_C_COMMAND="fd --type d --color=never"
