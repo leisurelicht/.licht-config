@@ -30,10 +30,11 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # socks5
-alias socks5="http_proxy=socks5://127.0.0.1:1080 https_proxy=socks5://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080 "
+alias set_socks5="all_proxy=socks5://127.0.0.1:10800"
+alias unset_socks5="unset all_proxy"
 
 # 可恢复删除
-alias rm="rmtrash"
+alias rm="trash"
 
 # 清屏
 alias c="clear"
@@ -62,9 +63,3 @@ extract() {
 
 # 查看网络连接
 alias listen="lsof -P -i -n"
-
-# 防止gvm修改gopath
-gvmuse() {
-  gvm use $1
-  source ~/.zshrc
-}
