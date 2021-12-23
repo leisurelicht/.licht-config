@@ -1,7 +1,12 @@
 # alias file
 
+# ls && ll
+alias ls="exa"
+alias ll="exa --all --long --header --inode --git --color-scale --icons"
+
 # tree
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+# alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
 
 # 文件隐藏和显示
 alias showall="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
@@ -63,3 +68,4 @@ extract() {
 
 # 查看网络连接
 alias listen="lsof -P -i -n"
+
