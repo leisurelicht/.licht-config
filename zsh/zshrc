@@ -46,9 +46,12 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 # alias
 [ -f ~/.config_file/zsh/aliasrc ] && source ~/.config_file/zsh/aliasrc
 
-# homebrew go
-export GOPATH=$HOME/.go
-export GOBIN=$GOPATH/bin
-export PATH=$GOROOT/bin:$GOBIN:$PATH
+# ===== set g environment variables =====
+export GOROOT="${HOME}/.g/go"
+export GOPATH="${HOME}/.g/path"
+export PATH="${HOME}/.g/bin:${HOME}/.g/go/bin:$PATH"
+export G_MIRROR=https://golang.google.cn/dl/
+
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io,direct
+
