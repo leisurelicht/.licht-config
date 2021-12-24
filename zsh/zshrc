@@ -32,13 +32,15 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 
-# vscode
-zinit ice lucid wait='1'
-zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+# git open
+zinit ice lucide wait='1'
+zinit light paulirish/git-open
 
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zinit snippet OMZ::plugins/extract
+# OMZ 插件
 zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::plugins/extract
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
 
 # homebrew
 # 禁止自动全局更新和全局清理
@@ -55,7 +57,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 [ -f ~/.config_file/zsh/aliasrc ] && source ~/.config_file/zsh/aliasrc
 
 # ===== set g environment variables =====
-unalias g
+unalias g 2> /dev/null
 export GOROOT="${HOME}/.g/go"
 export GOPATH="${HOME}/.g/path"
 export PATH="${HOME}/.g/bin:${HOME}/.g/go/bin:$PATH"
