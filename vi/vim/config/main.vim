@@ -14,11 +14,11 @@ lockvar g:_config_dir
 lockvar g:_root_dir
 
 try
-  call Entry#Begin()
+  call entry#Begin()
 catch
   let &runtimepath .= ',' . g:_root_dir
-  call Entry#Begin()
+  call entry#Begin()
 endtry
 
 
-colorscheme space-vim-dark
+" colorscheme space-vim-dark
