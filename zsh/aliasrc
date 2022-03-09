@@ -38,7 +38,7 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 # socks5
-alias set_socks5="all_proxy=socks5://127.0.0.1:10800"
+alias set_socks5="all_proxy=socks5://127.0.0.1:10080"
 alias unset_socks5="unset all_proxy"
 
 # 可恢复删除
