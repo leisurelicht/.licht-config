@@ -99,6 +99,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- 编辑的时候将所有的tab设置为空格
+vim.bo.expandtab = true
 vim.o.expandtab = true
 
 -- 将tab换为4个空格
@@ -138,3 +139,9 @@ vim.o.showtabline = 2
 
 -- 使用增强状态栏后不再需要 vim 的模式提示
 -- vim.o.showmode = false
+
+-- 隐藏未保存的buffer
+-- vim.g.hidden = true
+
+-- 不在单词中间折行
+vim.o.linebreak = true

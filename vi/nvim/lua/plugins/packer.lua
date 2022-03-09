@@ -53,12 +53,12 @@ return require('packer').startup(function(use)
   -- nvim-autopairs 自动配对括号
   use 'windwp/nvim-autopairs'
 
-  -- -- bufferline buffer美化
-  -- use {
-  --   'akinsho/bufferline.nvim',
-  --   requires = 'kyazdani42/nvim-web-devicons',
-  -- }
-  --
+  -- bufferline buffer美化
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
+
   -- -- nvim-treesitter 代码高亮
   -- use {
   --   'nvim-treesitter/nvim-treesitter',
