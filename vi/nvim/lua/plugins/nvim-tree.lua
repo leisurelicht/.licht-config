@@ -5,11 +5,13 @@
 --
 local ok, nvim_tree = pcall(require, "nvim-tree")
 if not ok then
+  print("require nvim-tree failed")
   return
 end
 
 local config_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
 if not config_ok then
+  print("require nvim-tree config failed")
   return
 end
 
