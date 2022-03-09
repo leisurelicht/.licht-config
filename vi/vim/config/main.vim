@@ -21,4 +21,4 @@ catch
 endtry
 
 
-" colorscheme space-vim-dark
+colorscheme space-vim-dark
