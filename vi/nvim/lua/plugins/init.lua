@@ -6,7 +6,7 @@
 require('plugins.packer')
 require('plugins.nvim-tree')
 require('plugins.comment')
--- require('plugins.nvim-autopairs')
+require('plugins.nvim-autopairs')
 -- require('plugins.bufferline')
 -- require('plugins.nvim-treesitter')
 -- require('plugins.alpha-nvim')

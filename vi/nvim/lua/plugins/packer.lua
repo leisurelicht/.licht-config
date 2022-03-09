@@ -50,8 +50,8 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- nvim-autopairs
-  -- use 'windwp/nvim-autopairs'
+  -- nvim-autopairs 自动配对括号
+  use 'windwp/nvim-autopairs'
 
   -- -- bufferline buffer美化
   -- use {
