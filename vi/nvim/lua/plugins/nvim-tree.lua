@@ -3,29 +3,53 @@
 -- Author: MuCheng
 -- =================
 --
-local tree_cb = require('nvim-tree.config').nvim_tree_callback
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+  return
+end
 
--- local function print_node_path(node) {
---   print(node.absolute_path)
--- }
+local config_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+if not config_ok then
+  return
+end
 
-require('nvim-tree').setup {
+local tree_cb = nvim_tree_config.nvim_tree_callback
+
+local function print_node_path(node) 
+  print(node.absolute_path) 
+end
+
+nvim_tree.setup {
+  open_on_setup = true,
+  ignore_ft_on_setup = {},
   auto_close = true,
   open_on_tab = true,
+  system_open = {
+    cmd = nil,
+    args = {},
+  },
   view = {
     mappings = {
       list = {
-        -- { key = "p", action = "print_path", action_cb = print_node_path },
-        { key = "s", cb = tree_cb('vsplit') },
+        { key = "p", action = "print_path", action_cb = print_node_path },
+        { key = "s", cb = tree_cb("vsplit") },
+        { key = "o", cb = tree_cb("split") },
+        { key = "<C-o>", cb = tree_cb("system_open") },
       },
     },
+    number = true,
   },
 }
 
-local keys = require('utils.keys')
+local keys_ok, keys = pcall(require, "utils.keys")
+if not keys_ok then
+  return
+end
+
 keys.map('n', '<F4>', ':NvimTreeToggle<CR>', keys.opt)
 keys.map('n', '<leader>pn', ':NvimTreeToggle<CR>', keys.opt)
 
+-- nvim 启动时指定文件时自动开启 NvimTreeOpen
 -- vim.cmd([[
 --   augroup vim_enter
 --     autocmd StdinReadPre * let s:std_in=1
@@ -33,6 +57,7 @@ keys.map('n', '<leader>pn', ':NvimTreeToggle<CR>', keys.opt)
 --   augroup end
 -- ]])
 
+-- nvim 启动时不指定文件时自动开启 NvimTreeOpen
 -- vim.cmd([[
 --   augroup vim_enter
 --     autocmd VimEnter * if !argc() | NvimTreeOpen | wincmd w | endif

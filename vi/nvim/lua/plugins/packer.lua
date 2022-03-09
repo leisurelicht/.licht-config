@@ -31,8 +31,8 @@ return require('packer').startup(function(use)
   }
 
   use 'ful1e5/onedark.nvim'
-  use 'shaunsingh/nord.nvim'
-  use 'glepnir/zephyr-nvim'
+  -- use 'shaunsingh/nord.nvim'
+  -- use 'glepnir/zephyr-nvim'
 
   -- nvim-tree 文件树
   use {
@@ -40,7 +40,6 @@ return require('packer').startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    config = function() require('nvim-tree').setup {} end
   }
 
   -- 智能注释
