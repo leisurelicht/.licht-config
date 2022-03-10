@@ -59,6 +59,12 @@ return require('packer').startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
 
+  -- nvim
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   -- dashboard
   -- use {
   --   'goolord/alpha-nvim',

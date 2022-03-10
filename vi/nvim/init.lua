@@ -8,6 +8,7 @@ vim.g.HOME_PATH = vim.fn.expand('$HOME')
 vim.g.CONFIG = vim.g.HOME_PATH.."/.config_file/vi/nvim"
 vim.o.runtimepath = vim.o.runtimepath..","..vim.g.CONFIG
 
+
 require('core')
 require('plugins')
 -- require('lsp')
@@ -21,3 +22,5 @@ vim.cmd([[colorscheme onedark]])
 -- print(vim.inspect(vim.api.nvim_get_keymap('n')))
 -- 输出文件类型
 -- print(vim.bo.filetype)
+-- 输出所有 vim 支持的方法
+-- print(vim.inspect(vim))

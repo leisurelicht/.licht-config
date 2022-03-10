@@ -11,9 +11,9 @@ if not ok then
 end
 
 autopairs.setup {
-  disable_filetype = {
-    -- "TelescopePrompt",
-  },
+  -- disable_filetype = {
+  --   -- "TelescopePrompt",
+  -- },
 }
 
 -- -- If you want insert `(` after select function or method item
