@@ -26,7 +26,9 @@ return require('packer').startup(function(use)
   -- 主题皮肤
   use {
     'ellisonleao/gruvbox.nvim',
-    requires = {'rktjmp/lush.nvim'},
+    requires = {
+      'rktjmp/lush.nvim'
+    },
   }
 
   use 'ful1e5/onedark.nvim'
@@ -44,9 +46,9 @@ return require('packer').startup(function(use)
   -- 智能注释
   use {
     'numToStr/Comment.nvim',
-    config = function()
-        require('Comment').setup()
-    end
+    -- config = function()
+    --     require('Comment').setup()
+    -- end
   }
   -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
@@ -59,11 +61,22 @@ return require('packer').startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
 
-  -- nvim
+  -- lualine 状态栏美化
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 
+      'kyazdani42/nvim-web-devicons', 
+      opt = true,
+    }
   }
+
+  -- which-key 快捷键提示
+  use {
+  "folke/which-key.nvim",
+  -- config = function()
+  --   require("which-key").setup {}
+  -- end
+}
 
   -- dashboard
   -- use {

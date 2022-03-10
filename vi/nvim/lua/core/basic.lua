@@ -57,9 +57,6 @@ vim.o.smarttab = true
 -- mapping delays
 vim.o.timeoutlen = 500
 
--- key code delays
-vim.o.ttimeoutlen = 0
-
 -- 关闭自动备份
 vim.o.backup = false
 vim.o.writebackup = false

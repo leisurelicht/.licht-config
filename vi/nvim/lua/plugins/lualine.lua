@@ -12,7 +12,7 @@ end
 local function window_num()
   -- local num = vim.inspect([[%{tabpagewinnr(tabpagenr())}]])
   local num = [[%{winnr()}]]
-  return num
+  return "["..num.."]"
 end
 
 
@@ -20,7 +20,11 @@ lualine.setup {
   -- options = { fmt = string.lower },
   sections = {
     lualine_a = {
-      window_num,
+      {
+        window_num,
+        separator = { right = ""},
+        color = { fg = "white", bg = "grey" },
+      },
       {
         "mode",
         fmt = function(str) return str:sub(1,1) end,
@@ -43,5 +47,3 @@ lualine.setup {
 
 
 }
-
-dump({1,2,3})

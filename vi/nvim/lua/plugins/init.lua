@@ -3,12 +3,13 @@
 -- Author: MuCheng
 -- =================
 --
-require('plugins.packer')
-require('plugins.nvim-tree')
-require('plugins.comment')
-require('plugins.nvim-autopairs')
-require('plugins.bufferline')
+require("plugins.packer")
+require("plugins.nvim-tree")
+require("plugins.comment")
+require("plugins.nvim-autopairs")
+require("plugins.bufferline")
 require("plugins.lualine")
+require("plugins.which-key")
 -- require('plugins.alpha-nvim')
 -- require('plugins.nvim-treesitter')
 -- require('plugins.symbols-outline')
