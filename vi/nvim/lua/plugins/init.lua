@@ -8,8 +8,8 @@ require('plugins.nvim-tree')
 require('plugins.comment')
 require('plugins.nvim-autopairs')
 require('plugins.bufferline')
--- require('plugins.nvim-treesitter')
 -- require('plugins.alpha-nvim')
+-- require('plugins.nvim-treesitter')
 -- require('plugins.symbols-outline')
 
 -- local path = debug.getinfo(1, 'S').source

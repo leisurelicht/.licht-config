@@ -4,7 +4,6 @@
 -- =================
 --
 vim.cmd [[packadd packer.nvim]]
-
 -- 文件保存时自动更新插件
 vim.cmd([[
   augroup packer_user_config
@@ -49,6 +48,7 @@ return require('packer').startup(function(use)
         require('Comment').setup()
     end
   }
+  -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- nvim-autopairs 自动配对括号
   use 'windwp/nvim-autopairs'
@@ -58,6 +58,13 @@ return require('packer').startup(function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
   }
+
+  -- dashboard
+  -- use {
+  --   'goolord/alpha-nvim',
+  --   requires = 'kyazdani42/nvim-web-devicons',
+  --   config = require("plugins.alpha-nvim").setup
+  -- }
 
   -- -- nvim-treesitter 代码高亮
   -- use {
