@@ -35,7 +35,8 @@ lualine.setup {
     lualine_a = {
       {
         window_num,
-        color = { fg = 'white' },
+        separator = { right = ""},
+        color = { fg = 'white', bg = "grey" },
       },
     },
   },
