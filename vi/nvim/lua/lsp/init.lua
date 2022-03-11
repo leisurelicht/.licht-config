@@ -1,5 +1,4 @@
--- =================
--- init.lua --- lsp init file
+-- ==============-- init.lua --- lsp init file
 -- Author: MuCheng
 -- =================
 --

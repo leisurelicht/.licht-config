@@ -8,6 +8,8 @@ vim.g.HOME_PATH = vim.fn.expand('$HOME')
 vim.g.CONFIG = vim.g.HOME_PATH.."/.config_file/vi/nvim"
 vim.o.runtimepath = vim.o.runtimepath..","..vim.g.CONFIG
 
+-- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
+vim.api.nvim_set_var('python3_host_prog', '/opt/homebrew/bin/python3')
 
 require('core')
 require('plugins')

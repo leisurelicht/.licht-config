@@ -3,7 +3,13 @@
 -- Author: MuCheng
 -- =================
 --
-vim.cmd [[packadd packer.nvim]]
+-- packer 未安装时自动安装
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+
 -- 文件保存时自动更新插件
 vim.cmd([[
   augroup packer_user_config
@@ -12,13 +18,7 @@ vim.cmd([[
   augroup end
 ]])
 
--- packer 未安装时自动安装
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
+vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
@@ -34,6 +34,14 @@ return require('packer').startup(function(use)
   use 'ful1e5/onedark.nvim'
   -- use 'shaunsingh/nord.nvim'
   -- use 'glepnir/zephyr-nvim'
+  
+  -- which-key 快捷键提示
+  use {
+  "folke/which-key.nvim",
+  -- config = function()
+  --   require("which-key").setup {}
+  -- end
+  }
 
   -- nvim-tree 文件树
   use {
@@ -70,13 +78,14 @@ return require('packer').startup(function(use)
     }
   }
 
-  -- which-key 快捷键提示
+  -- tabline
   use {
-  "folke/which-key.nvim",
-  -- config = function()
-  --   require("which-key").setup {}
-  -- end
-}
+    'kdheepak/tabline.nvim',
+    requires = { 
+      { 'hoob3rt/lualine.nvim', opt=true }, 
+      {'kyazdani42/nvim-web-devicons', opt = true},
+    }
+  }
 
   -- dashboard
   -- use {

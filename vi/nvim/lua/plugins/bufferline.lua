@@ -43,28 +43,33 @@ end
 
 
 local keys = require('utils.keys')
-keys.map('n', '<A-h>',':BufferLineCyclePrev<CR>', key.opt)
-keys.map('n', '<A-l>',':BufferLineCycleNext<CR>', key.opt)
 
-keys.map('n', '<A-<>',':BufferLineMovePrev<CR>', key.opt)
-keys.map('n', '<A->>',':BufferLineMoveNext<CR>', key.opt)
+keys.mapCmd('<A-h>',':BufferLineCyclePrev<CR>')
+keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
 
+keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
+keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
-keys.map('n', '<leader>b1',':BufferLineGoToBuffer 1<CR>', key.opt)
-keys.map('n', '<leader>b2',':BufferLineGoToBuffer 2<CR>', key.opt)
-keys.map('n', '<leader>b3',':BufferLineGoToBuffer 3<CR>', key.opt)
-keys.map('n', '<leader>b4',':BufferLineGoToBuffer 4<CR>', key.opt)
-keys.map('n', '<leader>b5',':BufferLineGoToBuffer 5<CR>', key.opt)
-keys.map('n', '<leader>b6',':BufferLineGoToBuffer 6<CR>', key.opt)
-keys.map('n', '<leader>b7',':BufferLineGoToBuffer 7<CR>', key.opt)
-keys.map('n', '<leader>b8',':BufferLineGoToBuffer 8<CR>', key.opt)
-keys.map('n', '<leader>b9',':BufferLineGoToBuffer 9<CR>', key.opt)
+maps = {
+  b = {
+    name = "+Buffer",
+    ["1"] = {"<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1"},
+    ["2"] = {"<CMD>BufferLineGoToBuffer 2<CR>", "Buffer 2"},
+    ["3"] = {"<CMD>BufferLineGoToBuffer 3<CR>", "Buffer 3"},
+    ["4"] = {"<CMD>BufferLineGoToBuffer 4<CR>", "Buffer 4"},
+    ["5"] = {"<CMD>BufferLineGoToBuffer 5<CR>", "Buffer 5"},
+    ["6"] = {"<CMD>BufferLineGoToBuffer 6<CR>", "Buffer 6"},
+    ["7"] = {"<CMD>BufferLineGoToBuffer 7<CR>", "Buffer 7"},
+    ["8"] = {"<CMD>BufferLineGoToBuffer 8<CR>", "Buffer 8"},
+    ["9"] = {"<CMD>BufferLineGoToBuffer 9<CR>", "Buffer 9"},
+    p = {"<CMD>BufferLinePick<CR>", "Buffer Pick"},
+    c = {"<CMD>BufferLinePickClose<CR>", "Buffer Pick Close"},
+    t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
+    d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
+    e = {"<CMD>BufferLineSortByExtension<CR>", "Sort By Extension"},
+    r = {"<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "},
+  }
+}
+tableMerge(WhichKeysMap.maps.n, maps)
 
-keys.map('n', '<leader>bp',':BufferLinePick<CR>', key.opt)
-keys.map('n', '<leader>bc',':BufferLinePickClose<CR>', key.opt)
-
-keys.map('n', '<leader>bt',':BufferLineSortByTabs<CR>', key.opt)
-keys.map('n', '<leader>bd',':BufferLineSortByDirecory<CR>', key.opt)
-keys.map('n', '<leader>be',':BufferLineSortByExtension<CR>', key.opt)
-keys.map('n', '<leader>br',':BufferLineSortByRelativeDirectory<CR>', key.opt)
-
+-- print(vim.inspect(WhichKeysMap.maps.n))

@@ -45,6 +45,4 @@ lualine.setup {
     "symbols-outline",
     "fzf",
   }
-
-
 }

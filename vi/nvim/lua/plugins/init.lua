@@ -3,13 +3,15 @@
 -- Author: MuCheng
 -- =================
 --
+
 require("plugins.packer")
+require("plugins.which-key")
 require("plugins.nvim-tree")
 require("plugins.comment")
 require("plugins.nvim-autopairs")
 require("plugins.bufferline")
+-- require("plugins.tabline")
 require("plugins.lualine")
-require("plugins.which-key")
 -- require('plugins.alpha-nvim')
 -- require('plugins.nvim-treesitter')
 -- require('plugins.symbols-outline')
@@ -21,3 +23,4 @@ require("plugins.which-key")
 -- vim.cmd([[echom "pause"]])
 --
 
+-- print(vim.inspect(KeysMap.nopts))
