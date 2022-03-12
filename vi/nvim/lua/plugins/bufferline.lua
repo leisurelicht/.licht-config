@@ -50,7 +50,7 @@ keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
 keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
-maps = {
+nmaps = {
   b = {
     name = "+Buffer",
     ["1"] = {"<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1"},
@@ -70,6 +70,5 @@ maps = {
     r = {"<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "},
   }
 }
-tableMerge(WhichKeysMap.maps.n, maps)
 
--- print(vim.inspect(WhichKeysMap.maps.n))
+tableMerge(WhichKeysMap.maps.normal, nmaps)

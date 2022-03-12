@@ -20,7 +20,7 @@ which_key.setup {
 WhichKeysMap = {}
 
 WhichKeysMap.opts = {
-  n = {
+  normal = {
     mode = "n",
     prefix = "<leader>",
     buffer = nil,
@@ -28,7 +28,7 @@ WhichKeysMap.opts = {
     noremap = true,
     nowaite = true,
   },
-  v = {
+  visual = {
     mode = "v",
     prefix = "<leader>",
     buffer = nil,
@@ -41,7 +41,7 @@ WhichKeysMap.opts = {
 
 
 WhichKeysMap.maps = {
-  n = {
+  normal = {
     ["1"] = "window 1",
     ["2"] = "window 2",
     ["3"] = "window 3",
@@ -99,6 +99,5 @@ WhichKeysMap.maps = {
   }
 }
 
-
-which_key.register(WhichKeysMap.maps.n, WhichKeysMap.opts.n)
+which_key.register(WhichKeysMap.maps.normal, WhichKeysMap.opts.normal)
 
