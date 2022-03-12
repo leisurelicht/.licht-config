@@ -3,20 +3,36 @@
 -- Author: MuCheng
 -- =================
 --
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'maintained',
+local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
+if not ok then
+  return
+end
 
-  sync_install =false,
-
+treesitter_config.setup {
+  ensure_installed = {
+    "vim",
+    "bash",
+    "lua",
+    "python",
+    "go",
+    "make",
+    "markdown",
+    "json",
+    "c",
+    "gomod",
+    "yaml",
+    "dockerfile",
+    "comment",
+    "cmake",
+    "http",
+    "html",
+  },
   ignore_install = {
     'java',
   },
 
   highlight = {
-    enable = false,
-    disable = {
-      "java",
-    },
+    enable = true,
     additional_vim_regex_highlighting = false,
   },
   incremental_selection = {
@@ -35,6 +51,16 @@ require('nvim-treesitter.configs').setup {
 
 }
 
+nmap = {
+  T = {
+    name = "+TreeSitter",
+    u = {"<CMD>TSUpdate all<CR>", "Update All"},
+    U = {"<CMD>TSUpdate ", "Update {language}"},
+    s = {"<CMD>TSModuleInfo", "Module Info"},  
+  } 
+}
+
+tableMerge(WhichKeyMap.maps.normal, nmap)
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
