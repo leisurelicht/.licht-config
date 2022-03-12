@@ -4,6 +4,12 @@
 -- =================
 --
 
+WhichKeyMap = {
+  maps = {
+    normal = {}
+  }
+}
+
 require("plugins.packer")
 require("plugins.which-key")
 require("plugins.nvim-tree")
@@ -12,9 +18,9 @@ require("plugins.nvim-autopairs")
 require("plugins.bufferline")
 -- require("plugins.tabline")
 require("plugins.lualine")
+require('plugins.symbols-outline')
 -- require('plugins.alpha-nvim')
 -- require('plugins.nvim-treesitter')
--- require('plugins.symbols-outline')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)

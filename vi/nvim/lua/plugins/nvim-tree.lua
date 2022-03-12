@@ -49,16 +49,18 @@ if not keys_ok then
 end
 
 keys.mapCmd("<F4>", "NvimTreeToggle")
-nmaps = {
+nmap = {
   f = {
     name = "+FileTree",
-    n = { "<cmd>NvimTreeToggle<CR>", "Toggle FileTree" },
-    r = { "<cmd>NvimTreeResize", "Resize FileTree" },
-    f = { "<cmd>NvimTreeFocus<CR>", "Focus FileTree" },
+    t = { "<CMD>NvimTreeToggle<CR>", "Toggle FileTree" },
+    r = { "<CMD>NvimTreeResize", "Resize FileTree" },
+    f = { "<CMD>NvimTreeFocus<CR>", "Focus FileTree" },
+    o = { "<CMD>NvimTreeOpen<CR>", "Open FileTree" },
+    c = { "<CMD>NvimTreeClose<CR>", "Close FileTree" },
   }
 }
 
-tableMerge(WhichKeysMap.maps.normal, nmaps)
+tableMerge(WhichKeyMap.maps.normal, nmap)
 
 
 -- nvim 启动时指定文件时自动开启 NvimTreeOpen

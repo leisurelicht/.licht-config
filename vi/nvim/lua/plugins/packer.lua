@@ -10,6 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
+
 -- 文件保存时自动更新插件
 vim.cmd([[
   augroup packer_user_config
@@ -87,6 +88,14 @@ return require('packer').startup(function(use)
     }
   }
 
+  use 'simrat39/symbols-outline.nvim'
+
+  -- -- nvim-treesitter 代码高亮
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   run = ':TSUpdate',
+  -- }
+
   -- dashboard
   -- use {
   --   'goolord/alpha-nvim',
@@ -94,11 +103,6 @@ return require('packer').startup(function(use)
   --   config = require("plugins.alpha-nvim").setup
   -- }
 
-  -- -- nvim-treesitter 代码高亮
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = ':TSUpdate',
-  -- }
   --
   -- -- startify
   -- use {
@@ -108,7 +112,6 @@ return require('packer').startup(function(use)
   --   end
   -- }
   --
-  -- use 'simrat39/symbols-outline.nvim'
   --
   -- -- lsp
   -- use {

@@ -50,7 +50,7 @@ keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
 keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
-nmaps = {
+nmap = {
   b = {
     name = "+Buffer",
     ["1"] = {"<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1"},
@@ -71,4 +71,4 @@ nmaps = {
   }
 }
 
-tableMerge(WhichKeysMap.maps.normal, nmaps)
+tableMerge(WhichKeyMap.maps.normal, nmap)
