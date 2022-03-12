@@ -47,8 +47,8 @@ local keys = require('utils.keys')
 keys.mapCmd('<A-h>',':BufferLineCyclePrev<CR>')
 keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
 
-keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
-keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
+-- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
+-- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
 nmap = {
   b = {
@@ -62,7 +62,11 @@ nmap = {
     ["7"] = {"<CMD>BufferLineGoToBuffer 7<CR>", "Buffer 7"},
     ["8"] = {"<CMD>BufferLineGoToBuffer 8<CR>", "Buffer 8"},
     ["9"] = {"<CMD>BufferLineGoToBuffer 9<CR>", "Buffer 9"},
-    p = {"<CMD>BufferLinePick<CR>", "Buffer Pick"},
+    [","] = {"<CMD>BufferLineMovePrev<CR>", "Move Buffer Previous"},
+    ["."] = {"<CMD>BufferLineMoveNext<CR>", "Move Buffer Next"},
+    n = {"<CMD>BufferLineCycleNext<CR>", "Next Buffer"},
+    p = {"<CMD>BufferLineCycleNext<CR>", "Next Buffer"},
+    k = {"<CMD>BufferLinePick<CR>", "Buffer Pick"},
     c = {"<CMD>BufferLinePickClose<CR>", "Buffer Pick Close"},
     t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
     d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
