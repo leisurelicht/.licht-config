@@ -15,11 +15,12 @@ require("plugins.which-key")
 require("plugins.nvim-tree")
 require("plugins.comment")
 require("plugins.nvim-autopairs")
-require("plugins.bufferline")
+-- require("plugins.bufferline")
 -- require("plugins.tabline")
 require("plugins.lualine")
 require('plugins.symbols-outline')
 require('plugins.nvim-treesitter')
+require('plugins.telescope')
 -- require('plugins.alpha-nvim')
 
 -- local path = debug.getinfo(1, 'S').source

@@ -67,7 +67,12 @@ nmap = {
     n = {"<CMD>BufferLineCycleNext<CR>", "Next Buffer"},
     p = {"<CMD>BufferLineCycleNext<CR>", "Next Buffer"},
     k = {"<CMD>BufferLinePick<CR>", "Buffer Pick"},
-    c = {"<CMD>BufferLinePickClose<CR>", "Buffer Pick Close"},
+    c = {
+      name = "+Close",
+      c = {"<CMD>BufferLinePickClose<CR>", "Close Pick Buffer"},
+      l = {"<CMD>BufferLineCloseLeft<CR>", "Close Left Buffer"},
+      r = {"<CMD>BufferLineCloseRight<CR>", "Close Right Buffer"},
+    },
     t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
     d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
     e = {"<CMD>BufferLineSortByExtension<CR>", "Sort By Extension"},
