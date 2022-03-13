@@ -6,8 +6,11 @@
 
 WhichKeyMap = {
   maps = {
-    normal = {}
-  }
+    normal = {},
+  },
+  localMaps = {
+    normal = {},
+  },
 }
 
 require("plugins.packer")

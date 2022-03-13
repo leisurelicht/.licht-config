@@ -50,13 +50,19 @@ end
 
 keys.mapCmd("<F4>", "NvimTreeToggle")
 nmap = {
-  f = {
+  F = {
     name = "+FileTree",
-    t = { "<CMD>NvimTreeToggle<CR>", "Toggle FileTree" },
-    r = { "<CMD>NvimTreeResize", "Resize FileTree" },
-    f = { "<CMD>NvimTreeFocus<CR>", "Focus FileTree" },
-    o = { "<CMD>NvimTreeOpen<CR>", "Open FileTree" },
-    c = { "<CMD>NvimTreeClose<CR>", "Close FileTree" },
+    t = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
+    r = {
+      name = "+Resize",
+      ["3"] = { "<CMD>NvimTreeResize 10<CR>", "Resize To 30" },
+      ["4"] = { "<CMD>NvimTreeResize 10<CR>", "Resize To 40" },
+      ["5"] = { "<CMD>NvimTreeResize 10<CR>", "Resize To 50" },
+      ["6"] = { "<CMD>NvimTreeResize 10<CR>", "Resize To 60" },
+    },
+    f = { "<CMD>NvimTreeFocus<CR>", "Focus" },
+    o = { "<CMD>NvimTreeOpen<CR>", "Open" },
+    c = { "<CMD>NvimTreeClose<CR>", "Close" },
   }
 }
 

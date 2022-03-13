@@ -85,12 +85,22 @@ local startup = packer.startup(function(use)
     }
   }
 
+  -- 文件树
   use 'simrat39/symbols-outline.nvim'
 
   -- nvim-treesitter 代码高亮
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+  }
+
+  -- 搜索插件
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { 
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    }
   }
 
   -- dashboard

@@ -10,8 +10,13 @@ keys.mapKey('c', 'w!!', 'w !sudo tee > /dev/null %')
 
 -- 一键大写
 keys.mapKey('i', '<C-U>', '<ESC>viwUea')
+keys.mapKey('n', '<localleader>su', 'viwUea')
 -- 一键小写
-keys.mapKey('i', '<C-O>', '<ESC>viwuea')
+keys.mapKey('i', '<C-L>', '<ESC>viwuea')
+keys.mapKey('n', '<localleader>sl', 'viwuea')
+-- 首字母大写
+-- keys.mapKey('i', '<C-O>', "<ESC>bvi'Uea")
+-- keys.mapKey('n', '<localleader>so', "bvi'Uea")
 
 -- 窗口切换组合快捷键
 keys.mapKey('n', '<C-J>', '<C-W><C-J>')

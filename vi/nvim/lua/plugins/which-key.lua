@@ -36,6 +36,24 @@ WhichKeyMap.opts = {
     nowaite = true,
   },
 }
+WhichKeyMap.localOpts = {
+  normal = {
+    mode = "n",
+    prefix = "<localleader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowaite = true,
+  },
+  visual = {
+    mode = "v",
+    prefix = "<localleader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowaite = true,
+  },
+}
 
 
 
@@ -53,31 +71,31 @@ nmap = {
     name = "+Split",
     v = "竖直分屏",
     h = "水平分屏",
-    c = "close current window",
-    o = "close other window",
+    c = "Close Current Window",
+    o = "Close Other Window",
   },
   t = {
     name = "+Tab",
     t = "tab",
     d = "tabdo",
-    a = "new tab",
-    e = "edit file",
-    c = "close tab",
-    b = "list tabs",
-    s = "list tabs",
-    f = "first tab",
-    l = "last tab",
-    p = "previous tab",
-    n = "next tab",
-    ["1"] = "tab 1",
-    ["2"] = "tab 2",
-    ["3"] = "tab 3",
-    ["4"] = "tab 4",
-    ["5"] = "tab 5",
-    ["6"] = "tab 6",
-    ["7"] = "tab 7",
-    ["8"] = "tab 8",
-    ["9"] = "tab 9",
+    a = "New Tab",
+    e = "Edit File",
+    c = "Close Tab",
+    b = "List Tabs",
+    s = "List Tabs",
+    f = "First Tab",
+    l = "Last Tab",
+    p = "Previous Tab",
+    n = "Next Tab",
+    ["1"] = "Tab 1",
+    ["2"] = "Tab 2",
+    ["3"] = "Tab 3",
+    ["4"] = "Tab 4",
+    ["5"] = "Tab 5",
+    ["6"] = "Tab 6",
+    ["7"] = "Tab 7",
+    ["8"] = "Tab 8",
+    ["9"] = "Tab 9",
     o = {
       name = "+CloseOnly",
       o = "close all tab except [tab]",
@@ -96,7 +114,20 @@ nmap = {
   },
 }
 
+localNmap = {
+  s = {
+    name = "+Shift Str",
+    u = "Upper Word",
+    l = "Lower Word",
+    o = "Upper Word First letter",
+  }
+}
+
 tableMerge(WhichKeyMap.maps.normal, nmap)
+tableMerge(WhichKeyMap.localMaps.normal, localNmap)
 
 which_key.register(WhichKeyMap.maps.normal, WhichKeyMap.opts.normal)
+which_key.register(WhichKeyMap.localMaps.normal, WhichKeyMap.localOpts.normal)
+
+
 
