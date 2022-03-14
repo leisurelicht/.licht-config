@@ -104,11 +104,15 @@ local startup = packer.startup(function(use)
   }
 
   -- dashboard
-  -- use {
-  --   'goolord/alpha-nvim',
-  --   requires = 'kyazdani42/nvim-web-devicons',
-  --   config = require("plugins.alpha-nvim").setup
-  -- }
+  use {
+    'goolord/alpha-nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
+
+  -- marks
+  use {
+    'chentau/marks.nvim'
+  }
 
   --
   -- -- startify
@@ -160,11 +164,11 @@ vim.cmd([[
 nmap = {
   P = {
     name = "+Packer",
-    i = {"<CMD>PakcerInstall<CR>", "Install Plugins"},
-    u = {"<CMD>PakcerUpdate<CR>", "Update Plugins"},
-    c = {"<CMD>PakcerClean<CR>", "Clean Plugins"},
-    s = {"<CMD>PakcerStatus<CR>", "Show Plugins Status"},
-    y = {"<CMD>PakcerSync<CR>", "Sync Plugins"},
+    i = {"<CMD>PackerInstall<CR>", "Install Plugins"},
+    u = {"<CMD>PackerUpdate<CR>", "Update Plugins"},
+    c = {"<CMD>PackerClean<CR>", "Clean Plugins"},
+    s = {"<CMD>PackerStatus<CR>", "Show Plugins Status"},
+    y = {"<CMD>PackerSync<CR>", "Sync Plugins"},
   }
 }
 

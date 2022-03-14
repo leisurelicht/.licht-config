@@ -24,7 +24,8 @@ require("plugins.lualine")
 require('plugins.symbols-outline')
 require('plugins.nvim-treesitter')
 require('plugins.telescope')
--- require('plugins.alpha-nvim')
+require('plugins.alpha-nvim')
+require('plugins.marks')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)

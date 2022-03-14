@@ -8,3 +8,5 @@ if not ok then
   print("require alpha failed")
   return
 end
+
+alpha.setup(require'alpha.themes.dashboard'.config)
