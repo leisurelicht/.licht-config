@@ -1,7 +1,4 @@
--- =================
--- which-key.lua --- which-key config file
--- author: mucheng
--- =================
+-- ================= which-key.lua --- which-key config file author: mucheng =================
 --
 local ok, which_key = pcall(require, "which-key")
 if not ok then
@@ -119,7 +116,7 @@ localNmap = {
     name = "+Shift Str",
     u = "Upper Word",
     l = "Lower Word",
-    o = "Upper Word First letter",
+    o = "Upper First letter",
   }
 }
 
