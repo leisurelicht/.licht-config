@@ -21,6 +21,9 @@ local startup = packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- 通知
+  use 'rcarriga/nvim-notify'
+
   -- 主题皮肤
   use {
     'ellisonleao/gruvbox.nvim',
@@ -34,12 +37,7 @@ local startup = packer.startup(function(use)
   -- use 'glepnir/zephyr-nvim'
   
   -- which-key 快捷键提示
-  use {
-  "folke/which-key.nvim",
-  -- config = function()
-  --   require("which-key").setup {}
-  -- end
-  }
+  use 'folke/which-key.nvim'
 
   -- nvim-tree 文件树
   use {
@@ -50,12 +48,7 @@ local startup = packer.startup(function(use)
   }
 
   -- 智能注释
-  use {
-    'numToStr/Comment.nvim',
-    -- config = function()
-    --     require('Comment').setup()
-    -- end
-  }
+  use 'numToStr/Comment.nvim'
   -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- nvim-autopairs 自动配对括号
@@ -67,15 +60,6 @@ local startup = packer.startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons',
   }
 
-  -- lualine 状态栏美化
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 
-      'kyazdani42/nvim-web-devicons', 
-      opt = true,
-    }
-  }
-
   -- tabline
   use {
     'kdheepak/tabline.nvim',
@@ -84,7 +68,17 @@ local startup = packer.startup(function(use)
       {'kyazdani42/nvim-web-devicons', opt = true},
     }
   }
+  -- use 'moll/vim-bbye'
 
+  -- lualine 状态栏美化
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 
+      'kyazdani42/nvim-web-devicons', 
+      opt = true,
+    }
+  }
+ 
   -- 文件树
   use 'simrat39/symbols-outline.nvim'
 
@@ -110,20 +104,24 @@ local startup = packer.startup(function(use)
   }
 
   -- marks
+  use 'chentau/marks.nvim'
+
+  -- 优化filetype
+  use "nathom/filetype.nvim"
+
+  -- 优化插件加载
   use {
-    'chentau/marks.nvim'
+    'lewis6991/impatient.nvim',
+    config = function()
+      require("impatient")
+    end
+
   }
 
-  --
-  -- -- startify
-  -- use {
-  --   'goolord/alpha-nvim',
-  --   config = function ()
-  --       require'alpha'.setup(require'alpha.themes.dashboard'.config)
-  --   end
-  -- }
-  --
-  --
+  -- Git
+  use 'tpope/vim-fugitive'
+  use 'f-person/git-blame.nvim'
+
   -- -- lsp
   -- use {
   --   'neovim/nvim-lspconfig', 
@@ -172,6 +170,6 @@ nmap = {
   }
 }
 
-tableMerge(WhichKeyMap.maps.normal, nmap)
+tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
 
 return startup

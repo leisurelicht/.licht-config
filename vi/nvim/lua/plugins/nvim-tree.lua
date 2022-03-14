@@ -66,7 +66,7 @@ nmap = {
   }
 }
 
-tableMerge(WhichKeyMap.maps.normal, nmap)
+tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
 
 
 -- nvim 启动时指定文件时自动开启 NvimTreeOpen

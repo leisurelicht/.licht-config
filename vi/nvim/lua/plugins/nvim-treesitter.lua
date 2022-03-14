@@ -60,7 +60,7 @@ nmap = {
   } 
 }
 
-tableMerge(WhichKeyMap.maps.normal, nmap)
+tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 

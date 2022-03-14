@@ -30,4 +30,4 @@ nmap = {
   }
 }
 
-tableMerge(WhichKeyMap.maps.normal, nmap)
+tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

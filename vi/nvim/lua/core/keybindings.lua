@@ -39,7 +39,7 @@ keys.mapKey('n', '<leader>sc', '<C-w>c')
 keys.mapKey('n', '<leader>so', '<C-w>o')
 
 -- 开启关闭代码
-keys.mapKey('n', '<localleader>za', 'za')
+-- keys.mapKey('n', '<localleader>za', 'za')
 
 -- tab页
 keys.mapCmd('<leader>tt', 'tab')

@@ -30,6 +30,9 @@ lualine.setup {
         fmt = function(str) return str:sub(1,1) end,
       },
     },
+    lualine_c = {
+      "filename",
+    }
   },
   inactive_sections = {
     lualine_a = {

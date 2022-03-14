@@ -6,14 +6,19 @@
 
 WhichKeyMap = {
   maps = {
+    command = {},
+  },
+  leaderMaps = {
     normal = {},
   },
-  localMaps = {
+  localleaderMaps = {
     normal = {},
   },
 }
 
+
 require("plugins.packer")
+require("plugins.notify")
 require("plugins.which-key")
 require("plugins.nvim-tree")
 require("plugins.comment")
@@ -26,6 +31,8 @@ require('plugins.nvim-treesitter')
 require('plugins.telescope')
 require('plugins.alpha-nvim')
 require('plugins.marks')
+require('plugins.filetype')
+require('plugins.git')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)
