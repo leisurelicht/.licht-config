@@ -19,9 +19,9 @@ keys.mapCmd("<F5>", "SymbolsOutline")
 nmap = {
   S = {
     name = "+SymbolsOutline",
-    t = {"<CMD>SymbolsOutline<CR>", "Toggle SymbolsOutline"},
-    o = {"<CMD>SymbolsOutlineOpen<CR>", "Open SymbolsOutline"},
-    c = {"<CMD>SymbolsOutlineClose<CR>", "Close SymbolsOutline"},
+    t = {"<CMD>SymbolsOutline<CR>", "Toggle"},
+    o = {"<CMD>SymbolsOutlineOpen<CR>", "Open"},
+    c = {"<CMD>SymbolsOutlineClose<CR>", "Close"},
   }
 }
 

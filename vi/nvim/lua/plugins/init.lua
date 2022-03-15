@@ -35,6 +35,7 @@ require('plugins.marks')
 require('plugins.filetype')
 require('plugins.git')
 require('plugins.glow')
+require('plugins.toggleterm')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)

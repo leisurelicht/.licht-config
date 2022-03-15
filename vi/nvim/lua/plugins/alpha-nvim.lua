@@ -10,7 +10,6 @@ end
 math.randomseed(os.time())
 
 local logo = {
-    "",
     "      ░░                                                  ░░      ",
     "      ████                                              ████      ",
     "      ██▓▓██                                          ██  ██      ",
@@ -54,7 +53,6 @@ local logo = {
     "            ██    ██    ████░░░░░░░░░░████    ██▓▓▓▓██            ",
     "          ████████          ████░░████          ████████          ",
     "                                ██                                ",
-    "",
 }
 
 local function pick_color()
@@ -137,7 +135,7 @@ local buttons = {
     button("SPC f f", "  Find File"),
     button("SPC f o", "  Recently Opened Files"),
     button("SPC f w", "  Find Word"),
-    button("SPC P u", "  Update plugins"),
+    button("SPC p u", "  Update plugins"),
     button("q", "  Quit", ":qa<cr>")
   },
   opts = {
@@ -155,13 +153,13 @@ local section = {
 
 local config = {
   layout = {
-    { type = "padding", val = 2 },
+    { type = "padding", val = 1 },
     section.header,
-    { type = "padding", val = 2 },
+    { type = "padding", val = 1 },
     section.heading,
-    { type = "padding", val = 2 },
+    { type = "padding", val = 1 },
     section.buttons,
-    { type = "padding", val = 2 },
+    { type = "padding", val = 1 },
     section.footer,
   },
   opts = {

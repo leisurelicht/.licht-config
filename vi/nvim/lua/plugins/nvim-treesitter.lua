@@ -53,7 +53,7 @@ treesitter_config.setup {
 }
 
 nmap = {
-  T = {
+  ['P'] = {
     name = "+TreeSitter",
     u = {"<CMD>TSUpdate all<CR>", "Update All"},
     U = {"<CMD>TSUpdate ", "Update {language}"},

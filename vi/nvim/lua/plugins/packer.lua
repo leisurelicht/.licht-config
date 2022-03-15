@@ -125,6 +125,9 @@ local startup = packer.startup(function(use)
   use 'tpope/vim-fugitive'
   use 'f-person/git-blame.nvim'
 
+  -- 浮窗终端
+  use "akinsho/toggleterm.nvim"
+
   -- -- lsp
   -- use {
   --   'neovim/nvim-lspconfig', 
@@ -154,16 +157,16 @@ local startup = packer.startup(function(use)
 end)
 
 
--- 文件保存时自动更新插件
+-- 文件保存时自动更新插件信息
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost packer.lua echom "Sync Plugins..." | source <afile> | PackerCompile
+    autocmd BufWritePost packer.lua source <afile> | PackerCompile
   augroup end
 ]])
 
 nmap = {
-  P = {
+  p = {
     name = "+Packer",
     i = {"<CMD>PackerInstall<CR>", "Install Plugins"},
     u = {"<CMD>PackerUpdate<CR>", "Update Plugins"},
