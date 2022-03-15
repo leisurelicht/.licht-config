@@ -3,7 +3,7 @@
 -- Author: MuCheng
 -- ================= 
 local ok, alpha = pcall(require, "alpha") if not ok then
-  print("require alpha failed")
+  vim.notify("Require alpha Failed", "warn")
   return
 end
 

@@ -5,7 +5,7 @@
 --
 local ok, notify = pcall(require, "notify")
 if not ok then
-  print("require notify failed")
+  print("Require notify Failed")
   return
 end
 

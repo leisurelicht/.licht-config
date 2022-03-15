@@ -6,7 +6,7 @@
 require('nvim-autopairs').setup{}
 local ok, autopairs = pcall(require, "nvim-autopairs")
 if not ok then
-  print("require autopairs failed")
+  vim.notify("Require autopairs Failed", "warn")
   return
 end
 

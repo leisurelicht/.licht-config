@@ -10,10 +10,10 @@ keys.mapKey('c', 'w!!', 'w !sudo tee > /dev/null %')
 
 -- 一键大写
 keys.mapKey('i', '<C-U>', '<ESC>viwUea')
-keys.mapKey('n', '<localleader>su', 'viwUea')
+keys.mapKey('n', '<localleader>su', 'viwUe')
 -- 一键小写
 keys.mapKey('i', '<C-L>', '<ESC>viwuea')
-keys.mapKey('n', '<localleader>sl', 'viwuea')
+keys.mapKey('n', '<localleader>sl', 'viwue')
 -- 首字母大写
 -- keys.mapKey('i', '<C-O>', "<ESC>bvi'Uea")
 -- keys.mapKey('n', '<localleader>so', "bvi'Uea")
@@ -30,13 +30,13 @@ keys.mapKey('v', '>', '>gv')
 
 -- 分屏
 -- 水平分屏
-keys.mapCmdWait('<leader>sv', ':vsp')
+keys.mapCmdWait('<LEADER>sv', ':vsp<CR>')
 -- 垂直分屏
-keys.mapCmdWait('<leader>sh', ':sp')
+keys.mapCmdWait('<LEADER>sh', ':sp<CR>')
 -- 关闭当前分屏
-keys.mapKey('n', '<leader>sc', '<C-w>c')
+keys.mapKey('n', '<LEADER>sc', '<C-w>c')
 -- 关闭其他分屏
-keys.mapKey('n', '<leader>so', '<C-w>o')
+keys.mapKey('n', '<LEADER>so', '<C-w>o')
 
 -- 开启关闭代码
 -- keys.mapKey('n', '<localleader>za', 'za')

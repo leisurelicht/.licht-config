@@ -2,7 +2,7 @@
 --
 local ok, which_key = pcall(require, "which-key")
 if not ok then
-  print("require which-key failed")
+  vim.notify("Require which-key Failed", "warn")
   return
 end
 

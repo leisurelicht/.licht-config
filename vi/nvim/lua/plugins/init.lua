@@ -33,7 +33,7 @@ require('plugins.alpha-nvim')
 require('plugins.marks')
 require('plugins.filetype')
 require('plugins.git')
-
+require('plugins.glow')
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)
 -- path = string.match(path, "^.*/")

@@ -6,7 +6,7 @@
 
 local ok, outline = pcall(require, "symbols-outline")
 if not ok then
-  print("require symbols-outline failed")
+  vim.notify("Require symbols-outline Failed", "warn")
   return
 end
 

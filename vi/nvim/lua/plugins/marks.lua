@@ -5,7 +5,7 @@
 --
 local ok, marks = pcall(require, "marks")
 if not ok then
-  print("require marks failed")
+  vim.notify("Require marks Failed", "warn")
   return
 end
 

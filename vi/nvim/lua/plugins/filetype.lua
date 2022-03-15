@@ -5,7 +5,7 @@
 --
 local ok, ft = pcall(require, "filetype")
 if not ok then
-  print("require filetype failed")
+  vim.notify("Require filetype Failed", "warn")
   return
 end
 
