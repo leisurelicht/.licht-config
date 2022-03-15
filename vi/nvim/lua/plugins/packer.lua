@@ -11,7 +11,7 @@ if not ok then
   if fn.empty(fn.glob(install_path)) > 0 then
     packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   else
-    print("Packer Is Broken. Please Remove File :"..install_path)
+    vim.notify("Packer Is Broken. Please Remove File :"..install_path)
   end
   return
 end

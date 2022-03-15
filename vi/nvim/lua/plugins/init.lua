@@ -4,6 +4,8 @@
 -- =================
 --
 
+vim.notify = print
+
 WhichKeyMap = {
   maps = {
     command = {},
@@ -15,7 +17,6 @@ WhichKeyMap = {
     normal = {},
   },
 }
-
 
 require("plugins.packer")
 require("plugins.notify")
@@ -34,6 +35,7 @@ require('plugins.marks')
 require('plugins.filetype')
 require('plugins.git')
 require('plugins.glow')
+
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)
 -- path = string.match(path, "^.*/")

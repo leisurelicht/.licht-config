@@ -5,13 +5,14 @@
 --
 local ok, notify = pcall(require, "notify")
 if not ok then
-  print("Require notify Failed")
+  vim.notify("Require notify Failed")
   return
 end
 
 vim.notify = notify
 
 notify.setup({
-  background_colour = "#000000"
+  render = "slide",
+  background_colour = "#000000",
 })
 
