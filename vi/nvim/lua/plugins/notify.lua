@@ -9,10 +9,13 @@ if not ok then
   return
 end
 
-vim.notify = notify
-
 notify.setup({
-  render = "slide",
-  background_colour = "#000000",
+  render = "default",
+  stages = "slide",
+  -- background_colour = "#000000",
 })
 
+
+notify("This is an error message", "debug")
+
+-- vim.notify = notify

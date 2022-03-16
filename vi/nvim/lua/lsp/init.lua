@@ -1,7 +1,9 @@
--- ==============-- init.lua --- lsp init file
+-- ==============
+-- init.lua --- lsp init file
 -- Author: MuCheng
 -- =================
 --
+vim.notify("require lsp config", "info")
 local lsp_installer = require('nvim-lsp-installer')
 
 lsp_installer.settings({

@@ -9,12 +9,19 @@ if not ok then
   return
 end
 
-marks.setup {}
+marks.setup {
+  default_mappings = false,
+}
 
 nmap = {
   m = {
     name = "+Marks",
+    s = {"<Plug>(Marks-set)", "Set"},
+    d = {"<Plug>(Marks-delete)", "Delete Buf"},
+    r = {"<Plug>(Marks-delete-bookmark)", "Delete bookmark"},
     t = {"<CMD>MarksToggleSigns<CR>", "Toggle"},
+
+
     l = {
       name = "+List",
       a = {"<CMD>MarksListAll<CR>", "All"},

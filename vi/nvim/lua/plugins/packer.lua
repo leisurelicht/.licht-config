@@ -129,10 +129,12 @@ local startup = packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
 
   -- -- lsp
-  -- use {
-  --   'neovim/nvim-lspconfig', 
-  --   'williamboman/nvim-lsp-installer',
-  -- }
+  use {
+    'neovim/nvim-lspconfig',
+    require = {
+      'williamboman/nvim-lsp-installer',
+    }
+  }
   -- 
   -- -- nvim-cmp
   -- use 'hrsh7th/nvim-cmp'

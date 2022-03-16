@@ -9,6 +9,9 @@ if not ok then
   return
 end
 
+telescope.load_extension("fzf")
+telescope.load_extension("notify")
+
 telescope.setup {
   pickers = {
     find_files = { theme = "dropdown" },
@@ -23,11 +26,10 @@ telescope.setup {
     git_branches = { theme = "ivy" },
     git_status = { theme = "ivy" },
     git_stash = { theme = "ivy" },
+    notify = { theme = "dropdown" },
   },
 }
 
-telescope.load_extension("fzf")
-telescope.load_extension("notify")
 
 nmap = {
   f = {
@@ -43,6 +45,7 @@ nmap = {
     O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
     c = {"<CMD>Telescope commands<CR>", "Command"},
     C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
+    n = {"<CMD>Telescope notify", "Notify"},
     h = {
       name = "+History",
       c = {"<CMD>Telescope command_history<CR>", "Command"},

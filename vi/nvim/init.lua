@@ -13,10 +13,16 @@ vim.api.nvim_set_var('python3_host_prog', '/opt/homebrew/bin/python3')
 
 require('core')
 require('plugins')
--- require('lsp')
 
 -- 设置所使用的主题
 vim.cmd([[colorscheme onedark]])
+
+
+
+-- TODO List
+-- marks 快捷键
+-- notify 搜索窗口样式问题
+-- lsp
 
 
 -- 代码片段
