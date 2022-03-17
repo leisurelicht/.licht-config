@@ -5,7 +5,7 @@
 --
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then
-  vim.notify("Require comment Failed", "warn")
+  vim.notify("Load comment Failed", "warn")
   return
 end
 

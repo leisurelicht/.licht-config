@@ -5,7 +5,7 @@
 --
 local ok, term = pcall(require, "toggleterm")
 if not ok then
-  vim.notify("Require toggleterm Failed")
+  vim.notify("Load toggleterm Failed")
   return
 end
 

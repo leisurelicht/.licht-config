@@ -5,7 +5,7 @@
 --
 local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
 if not ok then
-  vim.notify("Require nvim-treesitter Failed", "warn")
+  vim.notify("Load nvim-treesitter Failed", "warn")
   return
 end
 

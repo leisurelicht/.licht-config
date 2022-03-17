@@ -5,17 +5,14 @@
 --
 local ok, notify = pcall(require, "notify")
 if not ok then
-  vim.notify("Require notify Failed")
+  vim.notify("Load notify Failed")
   return
 end
 
 notify.setup({
   render = "default",
   stages = "slide",
-  -- background_colour = "#000000",
+  background_colour = "#000000",
 })
 
-
-notify("This is an error message", "debug")
-
--- vim.notify = notify
+vim.notify = notify

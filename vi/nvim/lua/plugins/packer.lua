@@ -104,7 +104,7 @@ local startup = packer.startup(function(use)
   }
 
   -- marks
-  use 'chentau/marks.nvim'
+  -- use 'chentau/marks.nvim'
 
   -- 优化filetype
   use "nathom/filetype.nvim"

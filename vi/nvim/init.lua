@@ -19,8 +19,10 @@ vim.cmd([[colorscheme onedark]])
 
 
 
--- TODO List
+-- TODO
+-- ----
 -- marks 快捷键
+-- |-- marks 插件存在无法彻底删除mark的问题 
 -- notify 搜索窗口样式问题
 -- lsp
 

@@ -5,7 +5,7 @@
 --
 local ok, lualine = pcall(require, "lualine")
 if not ok then
-  vim.notify("Require lualine Failed", "warn")
+  vim.notify("Load lualine Failed", "warn")
   return
 end
 
