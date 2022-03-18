@@ -3,8 +3,25 @@
 -- Author: MuCheng
 -- =================
 --
-vim.notify("require lsp config", "info")
-local lsp_installer = require('nvim-lsp-installer')
+local ok, _ = pcall(require, "lspconfig")
+if not ok then
+  vim.notify("Load nvim-lspconfig Failed", "warn")
+  return
+end
+local install_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not install_ok then
+  vim.notify("Load nvim-lsp-installer Failed", "warn")
+  return
+end
+
+local language_ok, language = pcall(require, "lsp.language")
+if not language_ok then
+  vim.notify("Load lsp language Failed", "warn")
+return
+end
+
+local keybindings = require("lsp.keybindings")
+
 
 lsp_installer.settings({
   ui = {
@@ -16,37 +33,15 @@ lsp_installer.settings({
   }
 })
 
--- 语言安装列表
--- https://github.com/williamboman/nvim-lsp-installer#available-lsps
-local servers = {
-  sumneko_lua = require('lsp.lua'),
-  -- gopls = require('lsp.go')
-}
-
--- 自动安装 language server
--- 可以使用 :LspInstallInfo 命令查看安装状态
-for name, _ in pairs(servers) do
-  local ok, server = lsp_installer.get_server(name)
-  if ok then
-    if not server:is_installed() then
-      print("Installing " .. name)
-      server:install()
-    end
-  end
-end
+language.autoInstall(lsp_installer)
 
 lsp_installer.on_server_ready(function(server)
-  local opts = servers[server.name]
-  if opts then
-    opts.on_attach = function(_, bufnr)
-      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-      require('core.keybindings').maplsp(buf_set_keymap)
-    end
-    opts.flags = {
-      debounce_text_changes = 150,
-    }
-    server:setup(opts)
-  end
+  local opts = language[server.name]
+  opts.on_attach = keybindings.on_attach
+  opts.flags = {
+    debounce_text_changes = 150,
+  }
+  server:setup(opts)
 end)
 
-require('lsp.nvim-cmp')
+-- require('lsp.nvim-cmp')

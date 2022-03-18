@@ -36,12 +36,6 @@ bufferline.setup{
   }
 }
 
-local keys_ok, keys = pcall(require, "utils.keys")
-if not keys_ok then
-  return
-end
-
-
 local keys = require('utils.keys')
 
 keys.mapCmd('<A-h>',':BufferLineCyclePrev<CR>')
@@ -50,7 +44,7 @@ keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
 -- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 -- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
-nmap = {
+local nmap = {
   b = {
     name = "+Buffer",
     ["1"] = {"<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1"},

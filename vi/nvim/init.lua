@@ -3,7 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
-
 vim.g.HOME_PATH = vim.fn.expand('$HOME')
 vim.g.CONFIG = vim.g.HOME_PATH.."/.config_file/vi/nvim"
 vim.o.runtimepath = vim.o.runtimepath..","..vim.g.CONFIG
@@ -11,8 +10,11 @@ vim.o.runtimepath = vim.o.runtimepath..","..vim.g.CONFIG
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
 vim.api.nvim_set_var('python3_host_prog', '/opt/homebrew/bin/python3')
 
+vim.notify = print
+
 require('core')
 require('plugins')
+require("lsp")
 
 -- 设置所使用的主题
 vim.cmd([[colorscheme onedark]])

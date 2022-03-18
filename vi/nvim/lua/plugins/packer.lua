@@ -131,9 +131,7 @@ local startup = packer.startup(function(use)
   -- -- lsp
   use {
     'neovim/nvim-lspconfig',
-    require = {
-      'williamboman/nvim-lsp-installer',
-    }
+    'williamboman/nvim-lsp-installer',
   }
   -- 
   -- -- nvim-cmp

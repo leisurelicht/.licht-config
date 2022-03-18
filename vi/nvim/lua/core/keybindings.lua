@@ -1,6 +1,6 @@
 -- =================
 -- keybindings.lua --- 快捷键绑定设置文件
--- Author: MuCheng 
+-- Author: MuCheng
 -- =================
 --
 local keys = require('utils.keys')
