@@ -66,3 +66,7 @@ export G_MIRROR=https://golang.google.cn/dl/
 export GO111MODULE=on
 export GOPROXY=https://goproxy.io,direct
 
+# pyenv
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
