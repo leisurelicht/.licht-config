@@ -3,11 +3,6 @@ local keys = require("utils.keys")
 
 local maps = {}
 
-keys.mapLua('<leader>lo', 'vim.diagnostic.open_float()')
-keys.mapLua('<leader>ll', 'vim.diagnostic.setloclist()')
-keys.mapLua('<leader>lp', 'vim.diagnostic.goto_prev()')
-keys.mapLua('<leader>ln', 'vim.diagnostic.goto_next()')
-
 maps.on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -29,10 +24,10 @@ end
 local nmap = {
   l = {
     name = "+LSP",
-    o = {"Diagnostic In Float"},
-    l = {"Diagnostic In Quickfix"},
-    n = {"Next Diagnostic Info"},
-    p = {"Previous Diagnostic Info"},
+    o = {"<CMD>lua vim.diagnostic.open_float()<CR>", "Diagnostic In Float"},
+    l = {"<CMD>lua vim.diagnostic.setloclist()<CR>", "Diagnostic In Quickfix"},
+    n = {"<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info"},
+    p = {"<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info"},
     D = {"Declaration"},
     d = {"Definition"},
     K = {"Hover"},
@@ -48,7 +43,8 @@ local nmap = {
       a = {"Add Workspace Folder"},
       r = {"Remove Workspace Folder"},
       l = {"List Workspace Folders"},
-    }
+    },
+    I = {"<CMD>LspInstallInfo<CR>", "Install Info"},
   }
 }
 
