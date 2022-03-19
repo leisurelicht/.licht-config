@@ -15,10 +15,12 @@ outline.setup {
 }
 
 local keys = require('utils.keys')
+
 keys.mapCmd("<F5>", "SymbolsOutline")
-nmap = {
+
+local nmap = {
   S = {
-    name = "+SymbolsOutline",
+    name = "+代码结构树",
     t = {"<CMD>SymbolsOutline<CR>", "Toggle"},
     o = {"<CMD>SymbolsOutlineOpen<CR>", "Open"},
     c = {"<CMD>SymbolsOutlineClose<CR>", "Close"},

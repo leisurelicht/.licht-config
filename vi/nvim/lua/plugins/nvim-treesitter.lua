@@ -52,16 +52,17 @@ treesitter_config.setup {
 
 }
 
-nmap = {
-  ['P'] = {
-    name = "+TreeSitter",
+local nmap = {
+  H = {
+    name = "+代码高亮",
     u = {"<CMD>TSUpdate all<CR>", "Update All"},
     U = {"<CMD>TSUpdate ", "Update {language}"},
-    s = {"<CMD>TSModuleInfo", "Module Info"},  
-  } 
+    s = {"<CMD>TSModuleInfo<CR>", "Module Info"},
+  },
 }
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 

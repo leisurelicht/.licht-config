@@ -12,7 +12,7 @@ end
 marks.setup {
 }
 
-nmap = {
+local nmap = {
   m = {
     name = "+Marks",
     s = {"<Plug>(Marks-set)", "Set"},
@@ -41,5 +41,5 @@ nmap = {
     }
   }
 }
- 
+
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

@@ -1,5 +1,5 @@
 -- =================
--- git.lua --- git 插件配置 
+-- git.lua --- git 插件配置
 -- Author: MuCheng
 -- =================
 --
@@ -7,7 +7,7 @@
 -- 默认关闭 git blame
 vim.g.gitblame_enabled = 0
 
-nmap = {
+local nmap = {
   g = {
     name = "+Git",
     b = {
@@ -16,7 +16,7 @@ nmap = {
       e = {"<CMD>GitBlameEnable<CR>", "Enable"},
       d = {"<CMD>GitBlameDisable<CR>", "Disable"},
       c = {"<CMD>GitBlameCopySHA<CR>", "Copy SHA"},
-      d = {"<CMD>GitBlameOpenCommitURL<CR>", "Open URL"},
+      u = {"<CMD>GitBlameOpenCommitURL<CR>", "Open URL"},
     },
     g = {"<CMD>Git<CR>", "Status"},
     c = {"<CMD>Git commit<CR>", "Commit"},

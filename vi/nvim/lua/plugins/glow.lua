@@ -8,7 +8,7 @@ vim.g.glow_border = "rounded"
 vim.g.glow_use_pager = true
 vim.g.glow_style = "dark"
 
-nmap = {
+local nmap = {
   r = {
     name = "+Runner",
     m = {"<CMD>Glow<CR>", "markdown"},
