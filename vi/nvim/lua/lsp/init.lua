@@ -23,6 +23,10 @@ end
 local keybindings = require("lsp.keybindings")
 
 
+language.autoInstall(lsp_installer)
+
+local capabilities = require('lsp.nvim-cmp')
+
 lsp_installer.settings({
   ui = {
     icons = {
@@ -33,7 +37,8 @@ lsp_installer.settings({
   }
 })
 
-language.autoInstall(lsp_installer)
+
+
 
 lsp_installer.on_server_ready(function(server)
   local opts = language[server.name]
@@ -41,7 +46,7 @@ lsp_installer.on_server_ready(function(server)
   opts.flags = {
     debounce_text_changes = 150,
   }
+  opts.capabilities = capabilities
   server:setup(opts)
 end)
 
--- require('lsp.nvim-cmp')
