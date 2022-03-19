@@ -43,8 +43,8 @@ lualine.setup {
       },
     },
   },
-  extensions = { 
-    "nvim-tree", 
+  extensions = {
+    "nvim-tree",
     "symbols-outline",
     "fzf",
   }

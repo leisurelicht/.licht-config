@@ -9,7 +9,7 @@ if not ok then
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   else
     vim.notify("Packer Is Broken. Please Remove File :"..install_path)
   end
@@ -35,7 +35,7 @@ local startup = packer.startup(function(use)
   use 'ful1e5/onedark.nvim'
   -- use 'shaunsingh/nord.nvim'
   -- use 'glepnir/zephyr-nvim'
-  
+
   -- which-key 快捷键提示
   use 'folke/which-key.nvim'
 
@@ -131,29 +131,29 @@ local startup = packer.startup(function(use)
   -- -- lsp
   use {
     'neovim/nvim-lspconfig',
-    require = {
-      'williamboman/nvim-lsp-installer',
-    }
+    'williamboman/nvim-lsp-installer',
   }
-  -- 
-  -- -- nvim-cmp
-  -- use 'hrsh7th/nvim-cmp'
-  -- use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  -- use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
-  -- use 'hrsh7th/cmp-path'     -- { name = 'path' }
-  -- use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
-  -- -- vsnip
-  -- use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
-  -- use 'hrsh7th/vim-vsnip'
-  -- use 'rafamadriz/friendly-snippets'
-  -- -- lspkind
-  -- use 'onsails/lspkind-nvim'
+
+  -- nvim-cmp 代码补全
+  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
+  use 'hrsh7th/cmp-buffer'   -- { name = 'buffer' },
+  use 'hrsh7th/cmp-path'     -- { name = 'path' }
+  use 'hrsh7th/cmp-cmdline'  -- { name = 'cmdline' }
+  use 'hrsh7th/nvim-cmp'
+
+  -- vsnip 代码片段
+  use 'hrsh7th/cmp-vsnip'    -- { name = 'vsnip' }
+  use 'hrsh7th/vim-vsnip'
+  use 'rafamadriz/friendly-snippets'
+
+  -- lspkind
+  use 'onsails/lspkind-nvim'
 
 
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if packer_bootstrap then
+  if Packer_bootstrap then
     require('packer').sync()
   end
 end)
@@ -167,9 +167,9 @@ vim.cmd([[
   augroup end
 ]])
 
-nmap = {
-  p = {
-    name = "+Packer",
+local nmap = {
+  P = {
+    name = "+插件管理",
     i = {"<CMD>PackerInstall<CR>", "Install Plugins"},
     u = {"<CMD>PackerUpdate<CR>", "Update Plugins"},
     c = {"<CMD>PackerClean<CR>", "Clean Plugins"},

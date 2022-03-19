@@ -28,8 +28,12 @@ function keys.mapCmdWait(key, cmd)
 end
 
 
-function keys.maplua(key, method)
+function keys.mapLua(key, method)
   vim.api.nvim_set_keymap('n', key, ':lua '..method..'<cr>', keys.opt)
+end
+
+function keys.mapBufLua(buf, key, method)
+  vim.api.nvim_buf_set_keymap(buf, 'n', key, ':lua '..method..'<cr>', keys.opt)
 end
 
 return keys

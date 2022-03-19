@@ -31,7 +31,7 @@ telescope.setup {
 }
 
 
-nmap = {
+local nmap = {
   f = {
     name = "+Find",
     t = {"<CMD>Telescope<CR>", "Telescope List"},
@@ -41,7 +41,6 @@ nmap = {
     s = {"<CMD>Telescope live_grep<CR>", "String"},
     b = {"<CMD>Telescope buffers<CR>", "Buffer"},
     m = {"<CMD>Telescope marks<CR>", "Marks"},
-    h = {"<CMD>Telescope help_tags<CR>", "Help Tags"},
     O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
     c = {"<CMD>Telescope commands<CR>", "Command"},
     C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
@@ -51,6 +50,7 @@ nmap = {
       c = {"<CMD>Telescope command_history<CR>", "Command"},
       s = {"<CMD>Telescope search_history<CR>", "Search"},
     },
+    H = {"<CMD>Telescope help_tags<CR>", "Help Tags"},
     g = {
       name = "+Git",
       c = {"<CMD>Telescope git_commits<CR>", "Git Commits"},

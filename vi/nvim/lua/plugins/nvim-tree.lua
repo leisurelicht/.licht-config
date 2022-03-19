@@ -17,8 +17,8 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
-local function print_node_path(node) 
-  print(node.absolute_path) 
+local function print_node_path(node)
+  print(node.absolute_path)
 end
 
 nvim_tree.setup {
@@ -49,7 +49,7 @@ if not keys_ok then
 end
 
 keys.mapCmd("<F4>", "NvimTreeToggle")
-nmap = {
+local nmap = {
   F = {
     name = "+FileTree",
     t = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
