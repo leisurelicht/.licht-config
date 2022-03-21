@@ -3,6 +3,9 @@
 -- Author: MuCheng
 -- =================
 --
+-- 为了 which-key 能正常显示 LSP 相关快捷键
+require('lsp.keybindings')
+
 local ok, _ = pcall(require, "lspconfig")
 if not ok then
   vim.notify("Load nvim-lspconfig Failed", "warn")
@@ -32,21 +35,22 @@ local servers = {
   sumneko_lua = 'lua',
   gopls = 'go',
   golangci_lint_ls = 'go',
-  jedi_language_server = 'python',
   pyright = 'python',
-  -- bashls = 'bash',
-  -- clangd = 'c',
-  jsonls = 'json',
+  jedi_language_server = 'python',
   zk = 'markdown',
-  -- sqls = 'sql',
+  jsonls = 'json',
+  bashls = 'default',
+  clangd = 'default',
+  sqls = 'default',
   dockerls = 'default',
+  cmake = 'default',
 }
 
 -- 自动安装 language server
 -- 可以使用 :LspInstallInfo 命令查看安装状态
-function autoInstall(lsp_installer)
+local function autoInstall(installer)
   for name, _ in pairs(servers) do
-    local server_ok, server = lsp_installer.get_server(name)
+    local server_ok, server = installer.get_server(name)
     if server_ok then
       if not server:is_installed() then
         vim.notify("Installing " .. name, "info")
