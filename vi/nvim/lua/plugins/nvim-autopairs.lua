@@ -3,7 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
-require('nvim-autopairs').setup{}
 local ok, autopairs = pcall(require, "nvim-autopairs")
 if not ok then
   vim.notify("Load autopairs Failed", "warn")

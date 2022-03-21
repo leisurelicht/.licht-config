@@ -128,7 +128,10 @@ local startup = packer.startup(function(use)
   -- 浮窗终端
   use "akinsho/toggleterm.nvim"
 
-  -- -- lsp
+  -- indent
+  use "lukas-reineke/indent-blankline.nvim"
+
+  -- lsp
   use {
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',

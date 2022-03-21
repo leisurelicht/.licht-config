@@ -34,6 +34,7 @@ require('plugins.filetype')
 require('plugins.git')
 require('plugins.glow')
 require('plugins.toggleterm')
+require('plugins.indent')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)
