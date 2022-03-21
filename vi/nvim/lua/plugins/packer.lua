@@ -63,8 +63,8 @@ local startup = packer.startup(function(use)
   -- tabline
   use {
     'kdheepak/tabline.nvim',
-    requires = { 
-      { 'hoob3rt/lualine.nvim', opt=true }, 
+    requires = {
+      { 'hoob3rt/lualine.nvim', opt=true },
       {'kyazdani42/nvim-web-devicons', opt = true},
     }
   }
@@ -73,12 +73,12 @@ local startup = packer.startup(function(use)
   -- lualine 状态栏美化
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 
-      'kyazdani42/nvim-web-devicons', 
+    requires = {
+      'kyazdani42/nvim-web-devicons',
       opt = true,
     }
   }
- 
+
   -- 文件树
   use 'simrat39/symbols-outline.nvim'
 
@@ -91,7 +91,7 @@ local startup = packer.startup(function(use)
   -- 搜索插件
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 
+    requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     }
@@ -130,6 +130,9 @@ local startup = packer.startup(function(use)
 
   -- indent
   use "lukas-reineke/indent-blankline.nvim"
+
+  -- surround 快速修改
+  use "tpope/vim-surround"
 
   -- lsp
   use {
