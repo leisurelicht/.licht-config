@@ -11,8 +11,8 @@ end
 
 treesitter_config.setup {
   ensure_installed = {
-    "vim", "bash", "lua", "python", "go", "make", "markdown", "json", "c",
-    "gomod", "yaml", "dockerfile", "comment", "cmake", "http", "html"
+    "vim", "bash", "lua", "go", "make", "markdown", "json", "c", "gomod",
+    "yaml", "dockerfile", "comment", "cmake", "http", "html", "python"
   },
   ignore_install = {'java'},
 
@@ -20,23 +20,26 @@ treesitter_config.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<CR>',
-      node_incremental = '<CR>',
-      node_decremental = '<BS>',
-      scope_incremental = '<TAB>'
+      init_selection = '<leader>hn',
+      node_incremental = '<leader>hr',
+      node_decremental = '<leader>hc',
+      scope_incremental = '<leader>hm'
     }
   },
 
-  indent = {enable = true}
+  indent = {enable = true, disable = {"python"}}
 
 }
 
 local nmap = {
-  H = {
+  h = {
     name = "+代码高亮",
-    u = {"<CMD>TSUpdate all<CR>", "Update All"},
-    U = {"<CMD>TSUpdate ", "Update {language}"},
-    s = {"<CMD>TSModuleInfo<CR>", "Module Info"}
+    n = {"Selection"},
+    r = {"Incremental"},
+    c = {"Decremental"},
+    m = {"Incremental"},
+    U = {"<CMD>TSUpdate all<CR>", "Update All"},
+    S = {"<CMD>TSModuleInfo<CR>", "Module Info"}
   }
 }
 
