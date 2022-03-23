@@ -1,15 +1,18 @@
 -- =================
--- json.lua --- json lsp config file
+-- markdown.lua --- markdown lsp config file
 -- Author: MuCheng
 -- =================
 --
--- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
+-- vim.cmd [[
+-- augroup file_set
+--   autocmd FileType markdown
+--         \ setlocal fileformat=unix |
+--         \ setlocal tabstop=4 |
+--         \ setlocal softtabstop=4 |
+--         \ setlocal shiftwidth=4 |
+-- augroup end
+-- ]]
 return {
-  capabilities = capabilities,
-
   flags = {debounce_text_changes = 150},
 
   on_attach = function(client, bufnr)
@@ -19,7 +22,7 @@ return {
 
     require('lsp.keybindings').on_attach(client, bufnr)
 
-    -- 保存时使用lsp的自动格式化
+    -- 保存时自动格式化
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
   end
 }

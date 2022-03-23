@@ -20,17 +20,10 @@
 -- set incsearch
 -- 搜索时高亮显示被找到的文本
 -- set hlsearch
--- 有一个或以上大写字母时仍大小写敏感
--- set smartcase
--- 自动套用上一行的缩进方式
--- set autoindent
--- 智能缩进
--- set smartindent
 -- 文件自动检测外部更改
 -- set autoread
 -- 让鼠标能使用
 -- set mouse=a
--- leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
@@ -93,21 +86,29 @@ vim.o.ignorecase = true
 -- 有一个或以上大写字母时仍大小写敏感
 vim.o.smartcase = true
 
+-- 有一个或以上大写字母时仍大小写敏感
+vim.o.smartcase = true
+
+-- 自动套用上一行的缩进方式
+vim.o.autoindent = true
+
+-- 智能缩进
+vim.o.smartindent = true
+
 -- 编辑的时候将所有的tab设置为空格
-vim.bo.expandtab = true
 vim.o.expandtab = true
 
 -- 将tab换为4个空格
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.o.shiftround = true
 
 -- 折叠方式
 vim.g.foldmethod = "indent"
 vim.g.foldlevelstart = 99
 
--- 自动补全不自动选中 
+-- 自动补全不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
 -- 补全增强
@@ -122,7 +123,7 @@ vim.o.background = "dark"
 vim.o.list = false
 vim.o.listchars = "space:·,tab:>-,"
 
--- 
+--
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.pumheight = 10
 

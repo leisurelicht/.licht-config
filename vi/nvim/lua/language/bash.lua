@@ -3,6 +3,16 @@
 -- Author: MuCheng
 -- =================
 --
+-- vim.cmd [[
+-- augroup file_set
+--   autocmd FileType sh
+--         echom "bash" |
+--         \ setlocal fileformat=unix |
+--         \ setlocal tabstop=2 |
+--         \ setlocal softtabstop=2 |
+--         \ setlocal shiftwidth=2 |
+-- augroup end
+-- ]]
 return {
   flags = {debounce_text_changes = 150},
 

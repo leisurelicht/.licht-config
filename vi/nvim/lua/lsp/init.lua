@@ -64,7 +64,7 @@ autoInstall(lsp_installer)
 
 lsp_installer.on_server_ready(function(server)
   local server_file = servers[server.name]
-  server_file = "lsp.language." .. server_file
+  server_file = "language." .. server_file
 
   local opts_ok, opts = pcall(require, server_file)
   if not opts_ok then
