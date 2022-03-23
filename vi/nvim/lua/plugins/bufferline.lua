@@ -10,7 +10,7 @@ if not ok then
 end
 
 vim.opt.termguicolors = true
-bufferline.setup{
+bufferline.setup {
   options = {
     numbers = function(opts)
       return string.format('%s.%s', opts.ordinal, opts.lower(opts.id))
@@ -18,17 +18,18 @@ bufferline.setup{
     -- 使用 nvim 内置 lsp
     diagnostics = 'nvim_lsp',
     -- 左侧让出nvim-tree的位置
-    offsets = {{
-      filetype = 'NvimTree',
-      text = 'File Explorer',
-      highlight = 'Directory',
-      text_align = 'left',
-    }},
+    offsets = {
+      {
+        filetype = 'NvimTree',
+        text = 'File Explorer',
+        highlight = 'Directory',
+        text_align = 'left'
+      }
+    },
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and "  "
-          or (e == "warning" and "  " or " ")
+        local sym = e == "error" and "  " or (e == "warning" and "  " or " ")
         s = s .. n .. sym
       end
       return s
@@ -38,8 +39,8 @@ bufferline.setup{
 
 local keys = require('utils.keys')
 
-keys.mapCmd('<A-h>',':BufferLineCyclePrev<CR>')
-keys.mapCmd('<A-l>',':BufferLineCycleNext<CR>')
+keys.mapCmd('<A-h>', ':BufferLineCyclePrev<CR>')
+keys.mapCmd('<A-l>', ':BufferLineCycleNext<CR>')
 
 -- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 -- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
@@ -65,12 +66,14 @@ local nmap = {
       name = "+Close",
       c = {"<CMD>BufferLinePickClose<CR>", "Close Pick Buffer"},
       l = {"<CMD>BufferLineCloseLeft<CR>", "Close Left Buffer"},
-      r = {"<CMD>BufferLineCloseRight<CR>", "Close Right Buffer"},
+      r = {"<CMD>BufferLineCloseRight<CR>", "Close Right Buffer"}
     },
     t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
     d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
     e = {"<CMD>BufferLineSortByExtension<CR>", "Sort By Extension"},
-    r = {"<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "},
+    r = {
+      "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "
+    }
   }
 }
 

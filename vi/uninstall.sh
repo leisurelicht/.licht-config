@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install_path=$(
   cd $(dirname $0)
   pwd
@@ -27,5 +29,3 @@ rm -r ~/.vim/init.vim >/dev/null 2>&1
 
 echo '====> move nvim folder back'
 mv $config_path/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
-
-

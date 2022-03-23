@@ -9,8 +9,7 @@ if not ok then
   return
 end
 
-marks.setup {
-}
+marks.setup {}
 
 local nmap = {
   m = {
@@ -25,19 +24,19 @@ local nmap = {
       n = {"<Plug>(Marks-next-bookmark)", "Next"},
       p = {"<Plug>(Marks-prev-bookmark)", "Previous"},
       s = {"<Plug>(Marks-set-bookmark[0-9])", "Set"},
-      r = {"<Plug>(Marks-delete-bookmark[0-9])", "Remove"},
+      r = {"<Plug>(Marks-delete-bookmark[0-9])", "Remove"}
     },
     l = {
       name = "+List",
       a = {"<CMD>MarksListAll<CR>", "All"},
       b = {"<CMD>MarksListBuffer<CR>", "Buffer"},
-      g = {"<CMD>MarksListGlobal<CR>", "Global"},
+      g = {"<CMD>MarksListGlobal<CR>", "Global"}
     },
     q = {
       name = "+Quickfix List",
       a = {"<CMD>MarksQFListAll<CR>", "All"},
       b = {"<CMD>MarksQFListBuf<CR>", "Buffer"},
-      g = {"<CMD>MarksQFListGlocal<CR>", "Global"},
+      g = {"<CMD>MarksQFListGlocal<CR>", "Global"}
     }
   }
 }

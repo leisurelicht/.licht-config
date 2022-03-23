@@ -8,11 +8,6 @@ vim.g.glow_border = "rounded"
 vim.g.glow_use_pager = true
 vim.g.glow_style = "dark"
 
-local nmap = {
-  r = {
-    name = "+Runner",
-    m = {"<CMD>Glow<CR>", "markdown"},
-  }
-}
+local nmap = {r = {name = "+Runner", m = {"<CMD>Glow<CR>", "markdown"}}}
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

@@ -3,18 +3,13 @@
 -- Author: MuCheng
 -- =================
 --
-
 WhichKeyMap = {
-  maps = {
-    command = {},
-  },
-  leaderMaps = {
-    normal = {},
-  },
-  localleaderMaps = {
-    normal = {},
-  },
+  maps = {command = {}},
+  leaderMaps = {normal = {}},
+  localleaderMaps = {normal = {}}
 }
+
+ALEFixers = {}
 
 require("plugins.packer")
 require("plugins.notify")
@@ -35,6 +30,7 @@ require('plugins.git')
 require('plugins.glow')
 require('plugins.toggleterm')
 require('plugins.indent')
+require('plugins.ale')
 
 -- local path = debug.getinfo(1, 'S').source
 -- path = string.sub(path, 2, -1)

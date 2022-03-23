@@ -10,11 +10,7 @@ if not ok then
 end
 
 comment.setup {
-  ignore = function()
-    if vim.bo.filetype == "lua" then
-      return "^$"
-    end
-  end,
+  ignore = function() if vim.bo.filetype == "lua" then return "^$" end end
   -- pre_hook = function(ctx)
   --   if vim.bo.filetype == "raml" then
   --     return "/*%s*/"

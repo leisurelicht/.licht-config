@@ -3,7 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
-
 -- 以下是neovim默认开启的配置
 --
 -- filetype on
@@ -31,7 +30,6 @@
 -- set autoread
 -- 让鼠标能使用
 -- set mouse=a
-
 -- leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -66,7 +64,7 @@ vim.o.swapfile = false
 vim.o.linebreak = true
 
 -- 即时预览命令效果
-vim.o.inccommand= 'split'
+vim.o.inccommand = 'split'
 
 -- 系统剪贴板
 vim.o.clipboard = 'unnamed'

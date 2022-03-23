@@ -1,4 +1,3 @@
-
 local keys = require("utils.keys")
 
 local maps = {}
@@ -18,7 +17,8 @@ maps.on_attach = function(client, bufnr)
   keys.mapBufLua(bufnr, '<leader>lf', 'vim.lsp.buf.formatting()')
   keys.mapBufLua(bufnr, '<leader>lwa', 'vim.lsp.buf.add_workspace_folder()')
   keys.mapBufLua(bufnr, '<leader>lwr', 'vim.lsp.buf.remove_workspace_folder()')
-  keys.mapBufLua(bufnr, '<leader>lwl', 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
+  keys.mapBufLua(bufnr, '<leader>lwl',
+                 'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
 end
 
 local nmap = {
@@ -42,9 +42,9 @@ local nmap = {
       name = "+WorkSpace",
       a = {"Add Workspace Folder"},
       r = {"Remove Workspace Folder"},
-      l = {"List Workspace Folders"},
+      l = {"List Workspace Folders"}
     },
-    I = {"<CMD>LspInstallInfo<CR>", "Install Info"},
+    I = {"<CMD>LspInstallInfo<CR>", "Install Info"}
   }
 }
 

@@ -39,11 +39,11 @@ local servers = {
   jedi_language_server = 'python',
   zk = 'markdown',
   jsonls = 'json',
-  bashls = 'default',
+  bashls = 'bash',
   clangd = 'default',
-  sqls = 'default',
+  -- sqlls = 'default',
   dockerls = 'default',
-  cmake = 'default',
+  cmake = 'default'
 }
 
 -- 自动安装 language server
@@ -64,22 +64,19 @@ autoInstall(lsp_installer)
 
 lsp_installer.on_server_ready(function(server)
   local server_file = servers[server.name]
-  server_file = "lsp.language."..server_file
+  server_file = "lsp.language." .. server_file
 
   local opts_ok, opts = pcall(require, server_file)
   if not opts_ok then
-    vim.notify("Get Language Config File: "..server_file.." Failed.")
+    vim.notify("Get Language Config File: " .. server_file .. " Failed.")
     return
   end
 
-  if opts == nil then
-    return
-  end
+  print(server_file, opts)
 
-  if opts.capabilities == nil then
-    opts.capabilities = require('lsp.nvim-cmp')
-  end
+  if opts == nil then return end
+
+  if opts.capabilities == nil then opts.capabilities = require('lsp.nvim-cmp') end
 
   server:setup(opts)
 end)
-

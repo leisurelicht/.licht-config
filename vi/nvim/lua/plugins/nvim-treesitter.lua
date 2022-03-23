@@ -11,44 +11,23 @@ end
 
 treesitter_config.setup {
   ensure_installed = {
-    "vim",
-    "bash",
-    "lua",
-    "python",
-    "go",
-    "make",
-    "markdown",
-    "json",
-    "c",
-    "gomod",
-    "yaml",
-    "dockerfile",
-    "comment",
-    "cmake",
-    "http",
-    "html",
+    "vim", "bash", "lua", "python", "go", "make", "markdown", "json", "c",
+    "gomod", "yaml", "dockerfile", "comment", "cmake", "http", "html"
   },
-  ignore_install = {
-    'java',
-  },
+  ignore_install = {'java'},
 
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+  highlight = {enable = true, additional_vim_regex_highlighting = false},
   incremental_selection = {
     enable = true,
     keymaps = {
       init_selection = '<CR>',
       node_incremental = '<CR>',
       node_decremental = '<BS>',
-      scope_incremental = '<TAB>',
+      scope_incremental = '<TAB>'
     }
   },
 
-  indent = {
-    enable = true,
-  }
+  indent = {enable = true}
 
 }
 
@@ -57,8 +36,8 @@ local nmap = {
     name = "+代码高亮",
     u = {"<CMD>TSUpdate all<CR>", "Update All"},
     U = {"<CMD>TSUpdate ", "Update {language}"},
-    s = {"<CMD>TSModuleInfo<CR>", "Module Info"},
-  },
+    s = {"<CMD>TSModuleInfo<CR>", "Module Info"}
+  }
 }
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

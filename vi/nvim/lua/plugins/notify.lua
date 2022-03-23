@@ -12,7 +12,7 @@ end
 notify.setup({
   render = "default",
   stages = "slide",
-  background_colour = "#000000",
+  background_colour = "#000000"
 })
 
 vim.notify = notify

@@ -9,9 +9,5 @@ if not ok then
   return
 end
 
-tabline.setup{
-  options = {
-    show_bufnr = true,
-  }
-}
+tabline.setup {options = {show_bufnr = true}}
 

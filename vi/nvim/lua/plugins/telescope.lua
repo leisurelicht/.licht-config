@@ -14,22 +14,21 @@ telescope.load_extension("notify")
 
 telescope.setup {
   pickers = {
-    find_files = { theme = "dropdown" },
-    oldfiles = { theme = "dropdown" },
-    buffers = { theme = "dropdown" },
-    marks = { theme = "dropdown" },
-    commands = { theme = "ivy" },
-    command_history = { theme = "ivy" },
-    search_history = { theme = "ivy" },
-    git_commits = { theme = "ivy" },
-    git_bcommits = { theme = "ivy" },
-    git_branches = { theme = "ivy" },
-    git_status = { theme = "ivy" },
-    git_stash = { theme = "ivy" },
-    notify = { theme = "dropdown" },
-  },
+    find_files = {theme = "dropdown"},
+    oldfiles = {theme = "dropdown"},
+    buffers = {theme = "dropdown"},
+    marks = {theme = "dropdown"},
+    commands = {theme = "ivy"},
+    command_history = {theme = "ivy"},
+    search_history = {theme = "ivy"},
+    git_commits = {theme = "ivy"},
+    git_bcommits = {theme = "ivy"},
+    git_branches = {theme = "ivy"},
+    git_status = {theme = "ivy"},
+    git_stash = {theme = "ivy"},
+    notify = {theme = "dropdown"}
+  }
 }
-
 
 local nmap = {
   f = {
@@ -48,7 +47,7 @@ local nmap = {
     h = {
       name = "+History",
       c = {"<CMD>Telescope command_history<CR>", "Command"},
-      s = {"<CMD>Telescope search_history<CR>", "Search"},
+      s = {"<CMD>Telescope search_history<CR>", "Search"}
     },
     H = {"<CMD>Telescope help_tags<CR>", "Help Tags"},
     g = {
@@ -57,11 +56,10 @@ local nmap = {
       b = {"<CMD>Telescope git_bcommits<CR>", "Git Buffer's Commits"},
       r = {"<CMD>Telescope git_branches<CR>", "Git Branches"},
       s = {"<CMD>Telescope git_status<CR>", "Git Status"},
-      h = {"<CMD>Telescope git_stash<CR>", "Git Stash"},
+      h = {"<CMD>Telescope git_stash<CR>", "Git Stash"}
     }
   }
 }
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
-
 

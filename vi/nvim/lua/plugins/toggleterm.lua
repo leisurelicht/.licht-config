@@ -9,20 +9,13 @@ if not ok then
   return
 end
 
-term.setup {
-  direction = 'float',
-}
+term.setup {direction = 'float'}
 
 local keys = require('utils.keys')
 keys.mapKey("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>")
 keys.mapKey("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>")
 
-nmap = {
-  e = {
-    name = "+Term",
-    t = {"<CMD>ToggleTerm<CR>", "Toggle"},  
-  }
-}
+local nmap = {e = {name = "+Term", t = {"<CMD>ToggleTerm<CR>", "Toggle"}}}
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
-   
+

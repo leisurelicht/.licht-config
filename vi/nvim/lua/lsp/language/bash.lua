@@ -1,5 +1,5 @@
 -- =================
--- python.lua --- python lsp config file
+-- bash.lua --- bash lsp config file
 -- Author: MuCheng
 -- =================
 --

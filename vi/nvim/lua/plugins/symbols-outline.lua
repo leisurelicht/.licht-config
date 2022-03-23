@@ -3,16 +3,13 @@
 -- Author: MuCheng
 -- =================
 --
-
 local ok, outline = pcall(require, "symbols-outline")
 if not ok then
   vim.notify("Load symbols-outline Failed", "warn")
   return
 end
 
-outline.setup {
-  show_numbers = false,
-}
+outline.setup {show_numbers = false}
 
 local keys = require('utils.keys')
 
@@ -23,7 +20,7 @@ local nmap = {
     name = "+代码结构树",
     t = {"<CMD>SymbolsOutline<CR>", "Toggle"},
     o = {"<CMD>SymbolsOutlineOpen<CR>", "Open"},
-    c = {"<CMD>SymbolsOutlineClose<CR>", "Close"},
+    c = {"<CMD>SymbolsOutlineClose<CR>", "Close"}
   }
 }
 

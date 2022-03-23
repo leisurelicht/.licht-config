@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 install_path=$(
   cd $(dirname $0)
   pwd
