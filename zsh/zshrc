@@ -69,4 +69,7 @@ export GOPROXY=https://goproxy.io,direct
 # pyenv
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# pyenv virtualenv
+eval "$(pyenv virtualenv-init -)"
