@@ -72,8 +72,6 @@ lsp_installer.on_server_ready(function(server)
     return
   end
 
-  print(server_file, opts)
-
   if opts == nil then return end
 
   if opts.capabilities == nil then opts.capabilities = require('lsp.nvim-cmp') end
