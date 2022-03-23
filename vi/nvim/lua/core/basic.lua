@@ -138,6 +138,3 @@ vim.o.showtabline = 2
 
 -- 隐藏未保存的buffer
 -- vim.g.hidden = true
-
--- 不在单词中间折行
-vim.o.linebreak = true
