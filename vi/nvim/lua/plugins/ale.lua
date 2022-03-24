@@ -33,7 +33,8 @@ local fixers = {
   ["html"] = {"prettier"},
   ["shell"] = {"shtmt"},
   ["sql"] = {"sqllint", "sqlfmt"},
-  ["lua"] = {"lua-format"}
+  ["lua"] = {"lua-format"},
+  ["json"] = {"pretttier"}
 }
 tableMerge(ALEFixers, fixers)
 

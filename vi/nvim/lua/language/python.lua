@@ -3,21 +3,22 @@
 -- Author: MuCheng
 -- =================
 --
--- vim.cmd [[
--- augroup file_set
---   autocmd FileType python
---         \ setlocal fileformat=unix |
---         \ setlocal tabstop=4 |
---         \ setlocal softtabstop=4 |
---         \ setlocal shiftwidth=4 |
---         \ setlocal colorcolumn=79 |
---   autocmd FileType htmldjango
---         \ setlocal fileformat=unix |
---         \ setlocal tabstop=2 |
---         \ setlocal softtabstop=2 |
---         \ setlocal shiftwidth=2 |
--- augroup end
--- ]]
+vim.cmd([[
+augroup file_set
+  autocmd FileType python
+          \ setlocal fileformat=unix |
+          \ setlocal tabstop=4 |
+          \ setlocal softtabstop=4 |
+          \ setlocal shiftwidth=4 |
+          \ setlocal colorcolumn=79 |
+  autocmd FileType htmldjango
+          \ setlocal fileformat=unix |
+          \ setlocal tabstop=2 |
+          \ setlocal softtabstop=2 |
+          \ setlocal shiftwidth=2 |
+augroup end
+]])
+
 return {
   flags = {debounce_text_changes = 150},
 

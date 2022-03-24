@@ -6,11 +6,8 @@
 -- 以下是neovim默认开启的配置
 --
 -- filetype on
--- 载入文件类型插件
 -- filetype plugin on
--- 开启语法高亮
 -- syntax enable
--- 允许使用制定高亮替换方案
 -- syntax on
 -- 修复delete键
 -- set backspace=2
@@ -24,6 +21,16 @@
 -- set autoread
 -- 让鼠标能使用
 -- set mouse=a
+--
+-- 开启文件类型检查
+vim.cmd([[filetype on]])
+-- 载入文件类型插件
+vim.cmd([[filetype plugin on]])
+-- 开启语法高亮
+vim.cmd([[syntax enable]])
+-- 允许使用制定高亮替换方案
+vim.cmd([[syntax on]])
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 

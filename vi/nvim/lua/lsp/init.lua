@@ -32,18 +32,18 @@ lsp_installer.settings({
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --
 local servers = {
-  sumneko_lua = 'lua',
-  gopls = 'go',
-  golangci_lint_ls = 'go',
-  pyright = 'python',
-  jedi_language_server = 'python',
-  zk = 'markdown',
-  jsonls = 'json',
-  bashls = 'bash',
-  clangd = 'default',
-  -- sqlls = 'default',
-  dockerls = 'default',
-  cmake = 'default'
+  sumneko_lua = 'lua'
+  -- gopls = 'go',
+  -- golangci_lint_ls = 'go',
+  -- pyright = 'python',
+  -- jedi_language_server = 'python',
+  -- zk = 'markdown',
+  -- jsonls = 'json',
+  -- bashls = 'bash',
+  -- clangd = 'default',
+  -- -- sqlls = 'default',
+  -- dockerls = 'default',
+  -- cmake = 'default'
 }
 
 -- 自动安装 language server
@@ -64,17 +64,24 @@ autoInstall(lsp_installer)
 
 lsp_installer.on_server_ready(function(server)
   local server_file = servers[server.name]
+
+  if server_file == nil then return end
+
   server_file = "language." .. server_file
 
-  local opts_ok, opts = pcall(require, server_file)
+  local opts_ok, language = pcall(require, server_file)
   if not opts_ok then
-    vim.notify("Get Language Config File: " .. server_file .. " Failed.")
+    vim.notify("Get Language Config : " .. server_file .. " Failed.")
     return
   end
 
-  if opts == nil then return end
+  if language == nil then return end
 
-  if opts.capabilities == nil then opts.capabilities = require('lsp.nvim-cmp') end
+  if language.opts == nil then return end
 
-  server:setup(opts)
+  if language.opts.capabilities == nil then
+    language.opts.capabilities = require('lsp.nvim-cmp')
+  end
+
+  server:setup(language.opts)
 end)

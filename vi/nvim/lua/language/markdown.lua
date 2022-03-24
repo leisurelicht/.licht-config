@@ -3,15 +3,16 @@
 -- Author: MuCheng
 -- =================
 --
--- vim.cmd [[
--- augroup file_set
---   autocmd FileType markdown
---         \ setlocal fileformat=unix |
---         \ setlocal tabstop=4 |
---         \ setlocal softtabstop=4 |
---         \ setlocal shiftwidth=4 |
--- augroup end
--- ]]
+vim.cmd([[
+augroup file_set
+  autocmd FileType markdown
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+augroup end
+]])
+
 return {
   flags = {debounce_text_changes = 150},
 

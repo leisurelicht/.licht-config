@@ -3,16 +3,16 @@
 -- Author: MuCheng
 -- =================
 --
--- vim.cmd [[
--- augroup file_set
---   autocmd FileType lua
---         echom "lua" |
---         \ setlocal fileformat=unix |
---         \ setlocal tabstop=2 |
---         \ setlocal softtabstop=2 |
---         \ setlocal shiftwidth=2 |
--- augroup end
--- ]]
+vim.cmd([[
+augroup file_set
+  autocmd FileType lua
+          \ setlocal fileformat=unix |
+          \ setlocal tabstop=2 |
+          \ setlocal softtabstop=2 |
+          \ setlocal shiftwidth=2 |
+augroup end
+]])
+
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
