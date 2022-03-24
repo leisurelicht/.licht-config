@@ -69,19 +69,15 @@ lsp_installer.on_server_ready(function(server)
 
   server_file = "language." .. server_file
 
-  local opts_ok, language = pcall(require, server_file)
+  local opts_ok, opts = pcall(require, server_file)
   if not opts_ok then
     vim.notify("Get Language Config : " .. server_file .. " Failed.")
     return
   end
 
-  if language == nil then return end
+  if opts == nil then return end
 
-  if language.opts == nil then return end
+  if opts.capabilities == nil then opts.capabilities = require('lsp.nvim-cmp') end
 
-  if language.opts.capabilities == nil then
-    language.opts.capabilities = require('lsp.nvim-cmp')
-  end
-
-  server:setup(language.opts)
+  server:setup(opts)
 end)
