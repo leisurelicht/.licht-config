@@ -121,6 +121,9 @@ local startup = packer.startup(function(use)
   -- ale
   use "dense-analysis/ale"
 
+  -- python indent
+  use "vim-scripts/indentpython.vim"
+
   -- nvim-cmp 代码补全
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
