@@ -32,18 +32,18 @@ lsp_installer.settings({
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --
 local servers = {
-  sumneko_lua = 'lua'
-  -- gopls = 'go',
-  -- golangci_lint_ls = 'go',
-  -- pyright = 'python',
-  -- jedi_language_server = 'python',
-  -- zk = 'markdown',
-  -- jsonls = 'json',
-  -- bashls = 'bash',
-  -- clangd = 'default',
-  -- -- sqlls = 'default',
-  -- dockerls = 'default',
-  -- cmake = 'default'
+  sumneko_lua = 'lua',
+  gopls = 'go',
+  golangci_lint_ls = 'go',
+  pyright = 'python',
+  jedi_language_server = 'python',
+  zk = 'markdown',
+  jsonls = 'json',
+  bashls = 'bash',
+  clangd = 'default',
+  -- sqlls = 'default',
+  dockerls = 'default',
+  cmake = 'default'
 }
 
 -- 自动安装 language server
