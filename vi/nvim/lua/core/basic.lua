@@ -122,7 +122,6 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.o.wildmenu = true
 
 -- 样式
-vim.opt.termguicolors = true
 vim.o.termguicolors = true
 vim.o.background = "dark"
 
