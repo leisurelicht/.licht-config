@@ -72,3 +72,9 @@ extract() {
 # 查看网络连接
 alias listen="lsof -P -i -n"
 
+alias gs="git status"
+alias gp="git push"
+alias gz="git cz"
+alias ga="git add"
+alias gf="git diff"
+alias gfc="git diff --cached"
