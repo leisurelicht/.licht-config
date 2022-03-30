@@ -72,7 +72,7 @@ local startup = packer.startup(function(use)
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
-  -- 文件树
+  -- 代码结构树
   use 'simrat39/symbols-outline.nvim'
 
   -- nvim-treesitter 代码高亮
