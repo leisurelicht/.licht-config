@@ -22,7 +22,6 @@ local function print_node_path(node) print(node.absolute_path) end
 nvim_tree.setup {
   open_on_setup = true,
   ignore_ft_on_setup = {},
-  auto_close = true,
   open_on_tab = true,
   system_open = {cmd = nil, args = {}},
   view = {
@@ -59,6 +58,11 @@ local nmap = {
 }
 
 tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+
+-- automatically close the tab/vim when nvim-tree is the last window in the tab.
+vim.cmd([[
+  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]])
 
 -- nvim 启动时指定文件时自动开启 NvimTreeOpen
 -- vim.cmd([[
