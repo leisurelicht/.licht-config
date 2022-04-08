@@ -13,6 +13,21 @@ augroup file_set
 augroup end
 ]])
 
+-- vim.cmd([[
+--   autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
+-- ]])
+
+-- local path = require 'nvim-lsp-installer.path'
+-- local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
+
+-- require('go').setup({
+--   gopls_cmd = {install_root_dir .. '/go/gopls'},
+--   filstruct = 'gopls',
+--   dap_debug = true,
+--   dap_debug_gui = true,
+--   lsp_cfg = {capabilities = require('lsp.nvim-cmp').capabilities}
+-- })
+
 return {
   flags = {debounce_text_changes = 150},
 

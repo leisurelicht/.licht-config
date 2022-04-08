@@ -124,6 +124,9 @@ local startup = packer.startup(function(use)
   -- python indent
   use "vim-scripts/indentpython.vim"
 
+  -- modern go neovim plugin
+  -- use 'ray-x/go.nvim'
+
   -- nvim-cmp 代码补全
   use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
   use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
