@@ -27,7 +27,7 @@ telescope.setup {
     git_status = {theme = "ivy"},
     git_stash = {theme = "ivy"},
     notify = {theme = "dropdown"}
-  }
+  },
 }
 
 local nmap = {
@@ -43,7 +43,7 @@ local nmap = {
     O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
     c = {"<CMD>Telescope commands<CR>", "Command"},
     C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
-    n = {"<CMD>Telescope notify", "Notify"},
+    n = {"<CMD>Telescope notify<CR>", "Notify"},
     h = {
       name = "+History",
       c = {"<CMD>Telescope command_history<CR>", "Command"},
