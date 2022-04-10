@@ -29,11 +29,15 @@ local startup = packer.startup(function(use)
   use 'rcarriga/nvim-notify'
 
   -- 主题皮肤
-  use {'ellisonleao/gruvbox.nvim', requires = {'rktjmp/lush.nvim'}}
+  use {
+    'navarasu/onedark.nvim',
+    'shaunsingh/nord.nvim',
+    requires = {'rktjmp/lush.nvim', opt = true},
+  }
 
-  use 'ful1e5/onedark.nvim'
-  -- use 'shaunsingh/nord.nvim'
-  -- use 'glepnir/zephyr-nvim'
+  -- nvim-treesitter 代码高亮
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+
 
   -- which-key 快捷键提示
   use 'folke/which-key.nvim'
@@ -75,8 +79,6 @@ local startup = packer.startup(function(use)
   -- 代码结构树
   use 'simrat39/symbols-outline.nvim'
 
-  -- nvim-treesitter 代码高亮
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- 搜索插件
   use {
@@ -97,7 +99,10 @@ local startup = packer.startup(function(use)
   use "nathom/filetype.nvim"
 
   -- 优化插件加载
-  use {'lewis6991/impatient.nvim', config = function() require("impatient") end}
+  use {
+    'lewis6991/impatient.nvim',
+    config = function() require("impatient") end,
+  }
 
   -- markdown 预览
   use "ellisonleao/glow.nvim"
@@ -119,7 +124,7 @@ local startup = packer.startup(function(use)
   use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"}
 
   -- ale
-  use "dense-analysis/ale"
+  -- use "dense-analysis/ale"
 
   -- python indent
   use "vim-scripts/indentpython.vim"
