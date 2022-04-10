@@ -10,6 +10,7 @@ if not ok then
 end
 
 notify.setup({
+  level = "info",
   render = "default",
   stages = "slide",
   background_colour = "#000000"
