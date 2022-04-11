@@ -13,27 +13,39 @@ keys.map = vim.api.nvim_set_keymap
 -- key.bgmap = vim.api.nvim_buf_get_keymap
 -- key.bdmap = vim.api.nvim_buf_del_keymap
 
-keys.opt = {noremap = true, silent = true}
+keys.opts = {noremap = true, silent = true}
+keys.buf_opts = {noremap = true, expr = true}
 
-function keys.mapKey(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, keys.opt)
+function keys.mapKey(mode, lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
-function keys.mapCmd(key, cmd)
-  vim.api.nvim_set_keymap('n', key, ':'..cmd..'<cr>', keys.opt)
+function keys.mapCmd(lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  vim.api.nvim_set_keymap('n', lhs, ':'..rhs..'<cr>', opts)
 end
 
-function keys.mapCmdWait(key, cmd)
-  vim.api.nvim_set_keymap('n', key, ':'..cmd..' ', keys.opt)
+function keys.mapCmdWait(lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  vim.api.nvim_set_keymap('n', lhs, ':'..rhs..' ', opts)
 end
 
 
-function keys.mapLua(key, method)
-  vim.api.nvim_set_keymap('n', key, ':lua '..method..'<cr>', keys.opt)
+function keys.mapLua(lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  vim.api.nvim_set_keymap('n', lhs, ':lua '..rhs..'<cr>', opts)
 end
 
-function keys.mapBufLua(buf, key, method)
-  vim.api.nvim_buf_set_keymap(buf, 'n', key, ':lua '..method..'<cr>', keys.opt)
+function keys.mapBufKey(buf, mode, lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  print(vim.inspect(opts))
+  vim.api.nvim_buf_set_keymap(buf, mode, lhs, rhs, opts)
+end
+
+function keys.mapBufLua(buf, lhs, rhs, opts)
+  opts = vim.tbl_extend('force', keys.opts, opts or {})
+  vim.api.nvim_buf_set_keymap(buf, 'n', lhs, ':lua '..rhs..'<cr>', opts)
 end
 
 return keys

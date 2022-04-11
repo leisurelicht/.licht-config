@@ -31,19 +31,30 @@ treesitter_config.setup {
 
 }
 
-local nmap = {
+local wk = require("which-key")
+
+wk.register({
   h = {
     name = "+代码高亮",
     n = {"Selection"},
     r = {"Incremental"},
     c = {"Decremental"},
-    m = {"Incremental"},
+    m = {"Scope Incremental"},
     U = {"<CMD>TSUpdate all<CR>", "Update All"},
     S = {"<CMD>TSModuleInfo<CR>", "Module Info"}
   }
-}
+}, {prefix = "<leader>"})
 
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+wk.register({
+  h = {
+    name = "+代码高亮",
+    n = {"Selection"},
+    r = {"Incremental"},
+    c = {"decremental"},
+    m = {"Scope Incremental"},
+  }
+}, {mode = "v", prefix = "<leader>"})
+
 
 -- vim.wo.foldmethod = 'expr'
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'

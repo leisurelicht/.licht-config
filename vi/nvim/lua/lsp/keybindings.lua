@@ -23,6 +23,8 @@ maps.on_attach = function(client, bufnr)
   keys.mapBufLua(bufnr, '<leader>lwr', 'vim.lsp.buf.remove_workspace_folder()')
   keys.mapBufLua(bufnr, '<leader>lwl',
                  'print(vim.inspect(vim.lsp.buf.list_workspace_folders()))')
+  keys.mapBufLua(bufnr, ']d', 'vim.diagnostic.goto_next()')
+  keys.mapBufLua(bufnr, '[d', 'vim.diagnostic.goto_prev()')
 end
 
 local nmap = {
@@ -43,8 +45,8 @@ local nmap = {
 
     o = {"<CMD>lua vim.diagnostic.open_float()<CR>", "Diagnostic In Float"},
     l = {"<CMD>lua vim.diagnostic.setloclist()<CR>", "Diagnostic In Quickfix"},
-    n = {"<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info"},
-    p = {"<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info"},
+    -- n = {"<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info"},
+    -- p = {"<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info"},
     D = {"Declaration"},
     K = {"Hover"},
     k = {"Signature Help"},

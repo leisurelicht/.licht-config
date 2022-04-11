@@ -109,8 +109,8 @@ local startup = packer.startup(function(use)
 
   -- Git
   -- use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
   use 'f-person/git-blame.nvim'
+  use 'lewis6991/gitsigns.nvim'
 
   -- 浮窗终端
   use "akinsho/toggleterm.nvim"

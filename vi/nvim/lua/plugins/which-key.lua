@@ -6,7 +6,17 @@ if not ok then
   return
 end
 
-which_key.setup {layout = {height = {min = 4, max = 25}, align = "center"}}
+which_key.setup {
+  layout = {
+    height = {min = 4, max = 25}, 
+    align = "center"
+  },
+  icons = {
+    breadcrumb = "»",
+    separator = "➜",
+    group = "+",
+  }
+}
 
 WhichKeyMap.opts = {
   cMode = {
