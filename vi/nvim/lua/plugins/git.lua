@@ -64,7 +64,7 @@ gitsigns.setup {
         t = {"<CMD>Gitsigns toggle_current_line_blame<CR>", "开关文件变动展示"},
         c = {"<CMD>>Gitsigns toggle_deleted<CR>", "开关删除部分展示"},
       },
-    }, { prefix = "<leader>", buffer = bufnr})
+    }, { prefix = "<leader>", buffer = bufnr })
 
     wk.register({
       g = {
