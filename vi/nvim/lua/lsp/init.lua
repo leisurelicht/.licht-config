@@ -51,7 +51,7 @@ local function autoInstall(installer)
     local server_ok, server = installer.get_server(name)
     if server_ok then
       if not server:is_installed() then
-        vim.notify("Installing " .. name, "info")
+        vim.notify("Installing LSP Server : " .. name, "info")
         server:install()
       end
     end
