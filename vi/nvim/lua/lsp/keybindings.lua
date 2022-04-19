@@ -43,19 +43,19 @@ maps.register = function(client, bufnr)
   wk.register({
     ["lo"] = {"<CMD>lua vim.lsp.buf.open_float()<CR>", "Diagnostic In Float"},
     ["ll"] = {"<CMD>lua vim.lsp.buf.setloclist()<CR>", "Diagnostic In Quickfix"},
-    D = {"<CMD>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
-    K = {"<CMD>lua vim.lsp.buf.hover()<CR>", "Declaration"},
-    k = {"<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
-    r = {"<CMD>lua vim.lsp.buf.rename()<CR>", "Rename"},
-    f = {"<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting"},
-    w = {
+    ["lD"] = {"<CMD>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
+    ["lK"] = {"<CMD>lua vim.lsp.buf.hover()<CR>", "Hover"},
+    ["lk"] = {"<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
+    ["lr"] = {"<CMD>lua vim.lsp.buf.rename()<CR>", "Rename"},
+    ["lf"] = {"<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting"},
+    ["lw"] = {
       name = "+WorkSpace",
       a = {"<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Folder"},
       r = {"<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Folder"},
       l = {"<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders"},
     },
 
-    I = {"<CMD>LspInstallInfo<CR>", "Install Info"}
+    ["lI"] = {"<CMD>LspInstallInfo<CR>", "Install Info"}
   }, {prefix="<leader>", buffer=bufnr})
 
   wk.register({
