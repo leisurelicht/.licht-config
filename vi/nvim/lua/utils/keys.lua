@@ -39,7 +39,6 @@ end
 
 function keys.mapBufKey(buf, mode, lhs, rhs, opts)
   opts = vim.tbl_extend('force', keys.opts, opts or {})
-  print(vim.inspect(opts))
   vim.api.nvim_buf_set_keymap(buf, mode, lhs, rhs, opts)
 end
 

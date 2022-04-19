@@ -121,32 +121,34 @@ local startup = packer.startup(function(use)
   -- surround 快速修改
   use "tpope/vim-surround"
 
-  -- lsp
-  use {"neovim/nvim-lspconfig", "williamboman/nvim-lsp-installer"}
-
   -- ale
   -- use "dense-analysis/ale"
 
   -- python indent
   use "vim-scripts/indentpython.vim"
 
-  -- modern go neovim plugin
-  -- use 'ray-x/go.nvim'
+  -- lsp
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
 
   -- nvim-cmp 代码补全
-  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path' -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
-  use 'hrsh7th/nvim-cmp'
+  -- use 'hrsh7th/nvim-cmp'
+  -- use 'saadparwaiz1/cmp_luasnip'
+  -- use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
+  -- use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
+  -- use 'hrsh7th/cmp-path' -- { name = 'path' }
+  -- use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
 
-  -- vsnip 代码片段
-  use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
-  use 'hrsh7th/vim-vsnip'
-  use 'rafamadriz/friendly-snippets'
+  -- -- vsnip 代码片段
+  -- use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
+  -- use 'hrsh7th/vim-vsnip'
+  -- use 'rafamadriz/friendly-snippets'
 
-  -- lspkind
-  use 'onsails/lspkind-nvim'
+  -- -- lspkind
+  -- use 'onsails/lspkind-nvim'
+
+  -- modern go neovim plugin
+  -- use 'ray-x/go.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

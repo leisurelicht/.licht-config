@@ -3,9 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
--- 为了 which-key 能正常显示 LSP 相关快捷键
-require('lsp.keybindings')
-
 local ok, _ = pcall(require, "lspconfig")
 if not ok then
   vim.notify("Load nvim-lspconfig Failed", "warn")
