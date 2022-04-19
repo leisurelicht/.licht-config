@@ -10,7 +10,7 @@ function _G.dump(...)
 end
 
 
-function _G.tableMerge(t1, t2) 
+function _G.tableMerge(t1, t2)
   for k,v in pairs(t2) do
     if type(v) == "table" then
       if type(t1[k] or false) == "table" then
