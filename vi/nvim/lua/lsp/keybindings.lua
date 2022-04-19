@@ -6,7 +6,10 @@
 local wk = require("which-key")
 
 wk.register({
-  l = {name="+LSP"},
+  l = {
+    name="+LSP",
+    I = {"<CMD>LspInstallInfo<CR>", "Install Info"}
+  },
 }, {prefix = "<leader>"})
 
 local maps = {}
@@ -54,14 +57,12 @@ maps.register = function(client, bufnr)
       r = {"<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Folder"},
       l = {"<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders"},
     },
-
-    ["lI"] = {"<CMD>LspInstallInfo<CR>", "Install Info"}
   }, {prefix="<leader>", buffer=bufnr})
 
   wk.register({
       ["]d"] = {"<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info"},
       ["[d"] = {"<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info"},
-  }, { buffer=bufnr })
+  }, {buffer=bufnr})
 end
 
 return maps
