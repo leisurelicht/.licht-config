@@ -12,6 +12,10 @@ fi
 # ------------
 source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 
+if [ ! -d /opt/homebrew/opt/fzf/shell/zsh-interactive-cd ]; then
+  git clone --depth 1 https://github.com/changyuheng/zsh-interactive-cd \
+      /opt/homebrew/opt/fzf/shell/zsh-interactive-cd
+fi
 # Reinforce 'cd' command
 source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
 
