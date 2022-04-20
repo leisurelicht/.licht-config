@@ -88,6 +88,7 @@ local startup = packer.startup(function(use)
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     }
   }
+  use "nvim-telescope/telescope-packer.nvim"
 
   -- dashboard
   use {'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons'}

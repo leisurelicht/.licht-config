@@ -11,6 +11,7 @@ end
 
 telescope.load_extension("fzf")
 telescope.load_extension("notify")
+telescope.load_extension("packer")
 
 telescope.setup {
   defaults = {
@@ -48,8 +49,8 @@ local nmap = {
     O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
     c = {"<CMD>Telescope commands<CR>", "Command"},
     C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
-    -- n = {"<CMD>Telescope notify<CR>", "Notify"},
     n = {"<CMD>Telescope notify theme=dropdown<CR>", "Notify"},
+    p = {"<CMD>Telescope packer<CR>", "Packer Installed"},
     h = {
       name = "+History",
       c = {"<CMD>Telescope command_history<CR>", "Command"},
