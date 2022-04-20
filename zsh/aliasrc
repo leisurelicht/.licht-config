@@ -78,3 +78,5 @@ alias gz="git cz"
 alias ga="git add"
 alias gd="git diff"
 alias gdc="git diff --cached"
+
+alias python="python3"

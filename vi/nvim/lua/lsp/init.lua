@@ -39,7 +39,7 @@ local servers = {
   jsonls = 'json',
   bashls = 'bash',
   clangd = 'default',
-  -- sqlls = 'default',
+  sqlls = 'default',
   dockerls = 'default',
   cmake = 'default'
 }

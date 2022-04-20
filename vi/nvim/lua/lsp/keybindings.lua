@@ -14,7 +14,7 @@ wk.register({
 
 local maps = {}
 
-maps.register = function(client, bufnr)
+maps.register = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local ok, _ = pcall(require, "telescope")
