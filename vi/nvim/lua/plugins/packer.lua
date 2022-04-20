@@ -146,8 +146,8 @@ local startup = packer.startup(function(use)
 
   -- use 'saadparwaiz1/cmp_luasnip'
 
-  -- -- lspkind
-  -- use 'onsails/lspkind-nvim'
+  -- lspkind 补全界面美化
+  use 'onsails/lspkind-nvim'
 
   -- modern go neovim plugin
   -- use 'ray-x/go.nvim'

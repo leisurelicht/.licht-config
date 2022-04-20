@@ -9,11 +9,11 @@ if not ok then
   return
 end
 
--- local lspkind_ok, lspkind = pcall(require, "lspkind")
--- if not lspkind_ok then
---   vim.notify("Load lspkind Failed", "warn")
---   return
--- end
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
+  vim.notify("Load lspkind Failed", "warn")
+  return
+end
 
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_ok then
@@ -31,7 +31,9 @@ cmp.setup {
     ['<CR>'] = cmp.mapping.confirm({select = false}),
 
     ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<TAB>'] = cmp.mapping.select_next_item(),
 
     ['<C-e>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
@@ -42,16 +44,43 @@ cmp.setup {
   }, {
     {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}
   }),
-  -- formatting = {
-  --   format = lspkind.cmp_format({
-  --     mode = 'symbol',
-  --     maxwidth = 50,
-  --     before = function(entry, vim_item)
-  --       vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-  --       return vim_item
-  --     end
-  --   })
-  -- }
+  formatting = {
+    fields = {
+      'abbr', 'kind', 'menu'
+    },
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      before = function(entry, vim_item)
+        vim_item.menu = ({
+          nvim_lsp = "[LSP]",
+          path = "[PATH]",
+          buffer = "[BUFFER]",
+          nvim_lua = "[LUA]",
+          look = "[look]"
+        })[entry.source.name]
+
+        -- local types = require("cmp.types")
+        -- local str = require("cmp.utils.str")
+        --
+        -- local word = entry:get_insert_text()
+				-- if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
+				-- 	word = vim.lsp.util.parse_snippet(word)
+				-- end
+				-- word = str.oneline(word)
+
+				-- if
+				-- 	entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
+				-- 	and string.sub(vim_item.abbr, -1, -1) == "~"
+				-- then
+				-- 	word = word .. "~"
+				-- end
+				-- vim_item.abbr = word
+
+        return vim_item
+      end
+    })
+  }
 }
 
 -- -- Use buffer source for `/`.
