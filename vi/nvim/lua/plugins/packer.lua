@@ -58,7 +58,7 @@ local startup = packer.startup(function(use)
   use 'windwp/nvim-autopairs'
 
   -- bufferline buffer美化
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   -- tabline
   use {
@@ -133,17 +133,18 @@ local startup = packer.startup(function(use)
   use "williamboman/nvim-lsp-installer"
 
   -- nvim-cmp 代码补全
-  -- use 'hrsh7th/nvim-cmp'
-  -- use 'saadparwaiz1/cmp_luasnip'
-  -- use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  -- use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
-  -- use 'hrsh7th/cmp-path' -- { name = 'path' }
-  -- use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
+  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
+  use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
+  use 'hrsh7th/cmp-path' -- { name = 'path' }
+  use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
+  use 'hrsh7th/nvim-cmp'
 
   -- -- vsnip 代码片段
-  -- use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
-  -- use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
+  use 'hrsh7th/vim-vsnip'
   -- use 'rafamadriz/friendly-snippets'
+
+  -- use 'saadparwaiz1/cmp_luasnip'
 
   -- -- lspkind
   -- use 'onsails/lspkind-nvim'
