@@ -139,10 +139,10 @@ local startup = packer.startup(function(use)
   use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
   use 'hrsh7th/nvim-cmp'
 
-  -- -- vsnip 代码片段
+  -- -- vsnip 代码片段补全
   use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
   use 'hrsh7th/vim-vsnip'
-  -- use 'rafamadriz/friendly-snippets'
+  use 'rafamadriz/friendly-snippets'
 
   -- use 'saadparwaiz1/cmp_luasnip'
 
