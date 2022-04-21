@@ -38,6 +38,9 @@ vim.g.maplocalleader = ","
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
 
+-- 设定在无操作时，交换文件刷写到磁盘的等待毫秒数（默认为 4000）
+vim.o.updatetime = 100
+
 -- 光标和顶部/底部保持8行的距离
 vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
@@ -67,7 +70,7 @@ vim.o.linebreak = true
 vim.o.inccommand = 'split'
 
 -- 系统剪贴板
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 
 -- 长度表示线
 vim.wo.colorcolumn = '0'
@@ -126,8 +129,8 @@ vim.o.termguicolors = true
 vim.o.background = "dark"
 
 -- 不可见字符的显示，这里只把空格显示为一个点
-vim.o.list = false
-vim.o.listchars = "space:·,tab:>-,"
+vim.o.list = true
+-- vim.o.listchars = "space:·,tab:>-,"
 
 --
 vim.o.shortmess = vim.o.shortmess .. 'c'
@@ -138,6 +141,11 @@ vim.o.whichwrap = 'b,s,<,>,[,],h,l'
 
 -- always show tabline
 vim.o.showtabline = 2
+
+-- 是否开启单词拼写检查
+vim.o.spell = true
+-- 设定单词拼写检查的语言
+vim.o.spelllang = "en_us,cjk"
 
 -- 使用增强状态栏后不再需要 vim 的模式提示
 -- vim.o.showmode = false
