@@ -137,6 +137,9 @@ local startup = packer.startup(function(use)
   use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
   use 'hrsh7th/cmp-path' -- { name = 'path' }
   use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
+  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- { name = 'nvim_lsp_signature_help' }
+  use 'octaltree/cmp-look' -- { name = 'octaltree/cmp-look' }
+  use 'hrsh7th/cmp-nvim-lua' -- { name = 'hrsh7th/cmp-nvim-lua' }
   use 'hrsh7th/nvim-cmp'
 
   -- -- vsnip 代码片段补全

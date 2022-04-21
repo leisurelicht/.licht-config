@@ -23,12 +23,9 @@ end
 
 cmp.setup {
   snippet = {expand = function(args) vim.fn["vsnip#anonymous"](args.body) end},
-  mapping = {
-    ['<C-v>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
-    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-    ['<C-y>'] = cmp.config.disable,
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
+  mapping = cmp.mapping.preset.insert({
+    ['<C-v>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -36,11 +33,23 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<TAB>'] = cmp.mapping.select_next_item(),
 
-    ['<C-e>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
-    ['<C-c>'] = cmp.mapping({i = cmp.mapping.abort(), c = cmp.mapping.close()})
-  },
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+  }),
   sources = cmp.config.sources({
-    {name = 'nvim_lsp'}, {name = 'vsnip'}
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    -- { name = 'nvim_lsp_signature_help' },
+    { name = 'nvim_lua' },
+    {
+      name = 'look',
+      keyword_length = 2,
+      option = {
+        convert_case = true,
+        loud = true,
+      }
+    },
   }, {
     {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}
   }),
