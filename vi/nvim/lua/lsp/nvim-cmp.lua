@@ -50,7 +50,9 @@ cmp.setup {
         loud = true,
       }
     },
-  }, {
+    { name = 'tmux'},
+  },
+  {
     {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}
   }),
   formatting = {
