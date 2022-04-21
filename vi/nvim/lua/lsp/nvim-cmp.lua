@@ -52,13 +52,21 @@ cmp.setup {
       mode = 'symbol_text',
       maxwidth = 50,
       before = function(entry, vim_item)
-        vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          path = "[PATH]",
-          buffer = "[BUFFER]",
-          nvim_lua = "[LUA]",
-          look = "[look]"
-        })[entry.source.name]
+        vim_item.menu = (function ()
+          local m = ({
+            nvim_lsp = "[LSP]",
+            path = "[PATH]",
+            buffer = "[BUFFER]",
+            nvim_lua = "[LUA]",
+            look = "[LOOK]"
+          })[entry.source.name]
+
+          if m == nil then
+            m = "<"..string.upper(entry.source.name)..">"
+          end
+
+          return m
+        end)()
 
         -- local types = require("cmp.types")
         -- local str = require("cmp.utils.str")
