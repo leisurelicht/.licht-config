@@ -27,7 +27,18 @@ treesitter_config.setup {
     }
   },
 
-  indent = {enable = true, disable = {"python"}}
+  -- 关闭缩进，bug太多
+  indent = {enable = false, disable = {"python"}},
+
+  -- 彩虹括号
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
 
 }
 
@@ -51,11 +62,7 @@ wk.register({
     n = {"Selection"},
     r = {"Incremental"},
     c = {"decremental"},
-    m = {"Scope Incremental"},
+    m = {"Scope Incremental"}
   }
 }, {mode = "v", prefix = "<leader>"})
-
-
--- vim.wo.foldmethod = 'expr'
--- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 

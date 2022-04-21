@@ -11,12 +11,17 @@ keys.mapKey('c', 'w!!', 'w !sudo tee > /dev/null %')
 -- 一键大写
 keys.mapKey('i', '<C-U>', '<ESC>viwUea')
 keys.mapKey('n', '<localleader>su', 'viwUe')
+
 -- 一键小写
 keys.mapKey('i', '<C-L>', '<ESC>viwuea')
 keys.mapKey('n', '<localleader>sl', 'viwue')
+
 -- 首字母大写
 -- keys.mapKey('i', '<C-O>', "<ESC>bvi'Uea")
 -- keys.mapKey('n', '<localleader>so', "bvi'Uea")
+
+-- 正常模式下按 ESC 取消高亮显示
+keys.mapKey('n', '<ESC>', ':nohlsearch<CR>')
 
 -- 窗口切换组合快捷键
 keys.mapKey('n', '<C-J>', '<C-W><C-J>')

@@ -32,12 +32,15 @@ local startup = packer.startup(function(use)
   use {
     'navarasu/onedark.nvim',
     'shaunsingh/nord.nvim',
-    requires = {'rktjmp/lush.nvim', opt = true},
+    requires = {'rktjmp/lush.nvim', opt = true}
   }
 
   -- nvim-treesitter 代码高亮
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    requires = {"p00f/nvim-ts-rainbow"}
+  }
 
   -- which-key 快捷键提示
   use 'folke/which-key.nvim'

@@ -5,10 +5,6 @@
 --
 -- 以下是neovim默认开启的配置
 --
--- filetype on
--- filetype plugin on
--- syntax enable
--- syntax on
 -- 修复delete键
 -- set backspace=2
 -- 始终显示状态拦
@@ -22,14 +18,10 @@
 -- 让鼠标能使用
 -- set mouse=a
 --
--- 开启文件类型检查
-vim.cmd([[filetype on]])
--- 载入文件类型插件
-vim.cmd([[filetype plugin on]])
 -- 开启语法高亮
 vim.cmd([[syntax enable]])
--- 允许使用制定高亮替换方案
-vim.cmd([[syntax on]])
+-- 开启文件类型检查
+vim.cmd([[filetype plugin indent on]])
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -74,9 +66,6 @@ vim.o.clipboard = 'unnamedplus'
 
 -- 长度表示线
 vim.wo.colorcolumn = '0'
-
--- 为特定文件类型载入相关缩进文件
-vim.g.filetypeindent = 'on'
 
 -- 右下角显示正在输入的命令
 vim.o.showcmd = true
@@ -128,8 +117,8 @@ vim.o.wildmenu = true
 vim.o.termguicolors = true
 vim.o.background = "dark"
 
--- 不可见字符的显示，这里只把空格显示为一个点
-vim.o.list = true
+-- 不可见字符的显示
+vim.o.list = false
 -- vim.o.listchars = "space:·,tab:>-,"
 
 --
