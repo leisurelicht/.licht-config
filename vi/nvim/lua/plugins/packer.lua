@@ -2,7 +2,6 @@
 -- packer.lua --- packer file
 -- Author: MuCheng
 -- =================
---
 -- packer 未安装时自动安装
 local ok, packer = pcall(require, "packer")
 if not ok then
@@ -21,148 +20,158 @@ if not ok then
 end
 
 vim.cmd [[packadd packer.nvim]]
-local startup = packer.startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+local startup = packer.startup({
+  function(use)
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  -- 通知
-  use 'rcarriga/nvim-notify'
+    use "yianwillis/vimcdoc"
 
-  -- 主题皮肤
-  use {
-    'navarasu/onedark.nvim',
-    'shaunsingh/nord.nvim',
-    requires = {'rktjmp/lush.nvim', opt = true}
-  }
+    -- 通知
+    use 'rcarriga/nvim-notify'
 
-  -- nvim-treesitter 代码高亮
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    requires = {"p00f/nvim-ts-rainbow"}
-  }
-
-  -- which-key 快捷键提示
-  use 'folke/which-key.nvim'
-
-  -- nvim-tree 文件树
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons' -- optional, for file icon
+    -- 主题皮肤
+    use {
+      'navarasu/onedark.nvim',
+      'shaunsingh/nord.nvim',
+      requires = {'rktjmp/lush.nvim', opt = true}
     }
-  }
 
-  -- 智能注释
-  use 'numToStr/Comment.nvim'
-  -- use 'JoosepAlviste/nvim-ts-context-commentstring'
-
-  -- nvim-autopairs 自动配对括号
-  use 'windwp/nvim-autopairs'
-
-  -- bufferline buffer美化
-  -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-
-  -- tabline
-  use {
-    'kdheepak/tabline.nvim',
-    requires = {
-      {'hoob3rt/lualine.nvim', opt = true},
-      {'kyazdani42/nvim-web-devicons', opt = true}
+    -- nvim-treesitter 代码高亮
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
+      requires = {"p00f/nvim-ts-rainbow"}
     }
-  }
-  -- use 'moll/vim-bbye'
 
-  -- lualine 状态栏美化
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+    -- which-key 快捷键提示
+    use 'folke/which-key.nvim'
 
-  -- 代码结构树
-  use 'simrat39/symbols-outline.nvim'
-
-
-  -- 搜索插件
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    -- nvim-tree 文件树
+    use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons' -- optional, for file icon
+      }
     }
-  }
-  use "nvim-telescope/telescope-packer.nvim"
 
-  -- dashboard
-  use {'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    -- 智能注释
+    use 'numToStr/Comment.nvim'
+    -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-  -- marks
-  -- use 'chentau/marks.nvim'
+    -- nvim-autopairs 自动配对括号
+    use 'windwp/nvim-autopairs'
 
-  -- 优化filetype
-  use "nathom/filetype.nvim"
+    -- bufferline buffer美化
+    -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  -- 优化插件加载
-  use {
-    'lewis6991/impatient.nvim',
-    config = function() require("impatient") end,
-  }
+    -- tabline
+    use {
+      'kdheepak/tabline.nvim',
+      requires = {
+        {'hoob3rt/lualine.nvim', opt = true},
+        {'kyazdani42/nvim-web-devicons', opt = true}
+      }
+    }
+    -- use 'moll/vim-bbye'
 
-  -- markdown 预览
-  use "ellisonleao/glow.nvim"
+    -- lualine 状态栏美化
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
-  -- Git
-  -- use 'tpope/vim-fugitive'
-  use 'f-person/git-blame.nvim'
-  use 'lewis6991/gitsigns.nvim'
+    -- 代码结构树
+    use 'simrat39/symbols-outline.nvim'
 
-  -- 浮窗终端
-  use "akinsho/toggleterm.nvim"
+    -- 搜索插件
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {
+        {'nvim-lua/plenary.nvim'},
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+      }
+    }
+    use "nvim-telescope/telescope-packer.nvim"
 
-  -- indent
-  use "lukas-reineke/indent-blankline.nvim"
+    -- dashboard
+    use {'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
-  -- surround 快速修改
-  use "tpope/vim-surround"
+    -- marks
+    -- use 'chentau/marks.nvim'
 
-  -- ale
-  -- use "dense-analysis/ale"
+    -- 优化filetype
+    use "nathom/filetype.nvim"
 
-  -- python indent
-  use "vim-scripts/indentpython.vim"
+    -- 优化插件加载
+    use {
+      'lewis6991/impatient.nvim',
+      config = function() require("impatient") end
+    }
 
-  -- lsp
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+    -- markdown 预览
+    use {"ellisonleao/glow.nvim", ft = {"markdown"}}
 
-  -- nvim-cmp 代码补全
-  use 'hrsh7th/cmp-nvim-lsp' -- { name = nvim_lsp }
-  use 'hrsh7th/cmp-buffer' -- { name = 'buffer' },
-  use 'hrsh7th/cmp-path' -- { name = 'path' }
-  use 'hrsh7th/cmp-cmdline' -- { name = 'cmdline' }
-  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- { name = 'nvim_lsp_signature_help' }
-  use 'octaltree/cmp-look' -- { name = 'look' }
-  use 'hrsh7th/cmp-nvim-lua' -- { name = 'nvim-lua' }
-  use 'andersevenrud/cmp-tmux' -- { name = 'tmux'}
-  use 'hrsh7th/nvim-cmp'
+    -- Git
+    -- use 'tpope/vim-fugitive'
+    use 'f-person/git-blame.nvim'
+    use 'lewis6991/gitsigns.nvim'
 
-  -- -- vsnip 代码片段补全
-  use 'hrsh7th/cmp-vsnip' -- { name = 'vsnip' }
-  use 'hrsh7th/vim-vsnip'
-  use 'rafamadriz/friendly-snippets'
+    -- 浮窗终端
+    use "akinsho/toggleterm.nvim"
 
-  -- use 'saadparwaiz1/cmp_luasnip'
+    -- indent
+    use "lukas-reineke/indent-blankline.nvim"
 
-  -- lspkind 补全界面美化
-  use 'onsails/lspkind-nvim'
+    -- surround 快速修改
+    use "tpope/vim-surround"
 
-  -- modern go neovim plugin
-  -- use 'ray-x/go.nvim'
+    -- ale
+    use "dense-analysis/ale"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if Packer_bootstrap then require('packer').sync() end
-end)
+    -- python indent
+    use {"vim-scripts/indentpython.vim", ft = {"python", "djangohtml"}}
+
+    -- lsp
+    use {
+      "neovim/nvim-lspconfig", -- lsp
+      "williamboman/nvim-lsp-installer" -- lsp server install
+    }
+
+    -- nvim-cmp 代码补全
+    use {
+      'hrsh7th/cmp-nvim-lsp', -- { name = nvim_lsp }
+      'hrsh7th/cmp-buffer', -- { name = 'buffer' },
+      'hrsh7th/cmp-path', -- { name = 'path' }
+      'hrsh7th/cmp-cmdline', -- { name = 'cmdline' }
+      'hrsh7th/cmp-nvim-lsp-signature-help', -- { name = 'nvim_lsp_signature_help' }
+      'octaltree/cmp-look', -- { name = 'look' }
+      'hrsh7th/cmp-nvim-lua', -- { name = 'nvim-lua' }
+      'andersevenrud/cmp-tmux', -- { name = 'tmux'}
+      'hrsh7th/nvim-cmp'
+    }
+
+    -- vsnip 代码片段补全
+    use {
+      'hrsh7th/cmp-vsnip', -- { name = 'vsnip' }
+      'hrsh7th/vim-vsnip', -- VSCode(LSP)'s snippet feature in vim
+      'rafamadriz/friendly-snippets' -- 代码片段
+    }
+
+    -- use 'saadparwaiz1/cmp_luasnip'
+
+    -- lspkind 补全界面美化
+    use 'onsails/lspkind-nvim'
+
+    -- modern go neovim plugin
+    -- use 'ray-x/go.nvim'
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if Packer_bootstrap then require('packer').sync() end
+  end,
+  config = {display = {open_fn = require("packer.util").float}}
+})
 
 -- 文件保存时自动更新插件信息
 vim.cmd([[
@@ -172,7 +181,8 @@ vim.cmd([[
   augroup end
 ]])
 
-local nmap = {
+local wk = require("which-key")
+wk.register({
   P = {
     name = "+插件管理",
     i = {"<CMD>PackerInstall<CR>", "Install Plugins"},
@@ -181,8 +191,6 @@ local nmap = {
     s = {"<CMD>PackerStatus<CR>", "Show Plugins Status"},
     y = {"<CMD>PackerSync<CR>", "Sync Plugins"}
   }
-}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+}, {prefix = "<leader>"})
 
 return startup

@@ -36,28 +36,23 @@ nvim_tree.setup {
   }
 }
 
-local keys_ok, keys = pcall(require, "utils.keys")
-if not keys_ok then return end
-
+local keys = require('utils.keys')
 keys.mapCmd("<F4>", "NvimTreeToggle")
-local nmap = {
+
+local wk = require("which-key")
+wk.register({
   F = {
     name = "+FileTree",
+    ["3"] = {"<CMD>NvimTreeResize 30<CR>", "Resize To 30"},
+    ["4"] = {"<CMD>NvimTreeResize 40<CR>", "Resize To 40"},
+    ["5"] = {"<CMD>NvimTreeResize 50<CR>", "Resize To 50"},
+    ["6"] = {"<CMD>NvimTreeResize 60<CR>", "Resize To 60"},
     t = {"<CMD>NvimTreeToggle<CR>", "Toggle"},
-    r = {
-      name = "+Resize",
-      ["3"] = {"<CMD>NvimTreeResize 10<CR>", "Resize To 30"},
-      ["4"] = {"<CMD>NvimTreeResize 10<CR>", "Resize To 40"},
-      ["5"] = {"<CMD>NvimTreeResize 10<CR>", "Resize To 50"},
-      ["6"] = {"<CMD>NvimTreeResize 10<CR>", "Resize To 60"}
-    },
     f = {"<CMD>NvimTreeFocus<CR>", "Focus"},
     o = {"<CMD>NvimTreeOpen<CR>", "Open"},
     c = {"<CMD>NvimTreeClose<CR>", "Close"}
   }
-}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+}, {prefix = "<leader>"})
 
 -- automatically close the tab/vim when nvim-tree is the last window in the tab.
 vim.cmd([[
