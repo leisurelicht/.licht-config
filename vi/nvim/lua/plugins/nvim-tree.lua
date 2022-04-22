@@ -36,6 +36,8 @@ nvim_tree.setup {
   }
 }
 
+vim.g.nvim_tree_add_trailing = 1
+
 local keys = require('utils.keys')
 keys.mapCmd("<F4>", "NvimTreeToggle")
 
