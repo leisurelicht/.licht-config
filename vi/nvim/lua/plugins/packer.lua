@@ -78,7 +78,11 @@ local startup = packer.startup({
     }
 
     -- bufferline buffer美化
-    -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use {
+      'akinsho/bufferline.nvim',
+      requires = {"famiu/bufdelete.nvim"},
+      config = function() require("plugins.bufferline") end
+    }
 
     -- tabline
     -- use {

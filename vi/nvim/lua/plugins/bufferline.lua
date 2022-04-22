@@ -5,7 +5,7 @@
 --
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then
-  vim.notify("Load comment Failed", "warn")
+  vim.notify("Load bufferline Failed", "warn")
   return
 end
 
@@ -15,8 +15,7 @@ bufferline.setup {
     numbers = function(opts)
       return string.format('%s.%s', opts.ordinal, opts.lower(opts.id))
     end,
-    -- 使用 nvim 内置 lsp
-    diagnostics = 'nvim_lsp',
+
     -- 左侧让出nvim-tree的位置
     offsets = {
       {
@@ -26,6 +25,10 @@ bufferline.setup {
         text_align = 'left'
       }
     },
+
+    -- 使用 nvim 内置 lsp
+    diagnostics = 'nvim_lsp',
+    -- 显示 LSP 报错图标
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       local s = " "
       for e, n in pairs(diagnostics_dict) do
@@ -63,15 +66,21 @@ wk.register({
     k = {"<CMD>BufferLinePick<CR>", "Buffer Pick"},
     c = {
       name = "+Close",
-      c = {"<CMD>BufferLinePickClose<CR>", "Close Pick Buffer"},
-      l = {"<CMD>BufferLineCloseLeft<CR>", "Close Left Buffer"},
-      r = {"<CMD>BufferLineCloseRight<CR>", "Close Right Buffer"}
+      c = {"<CMD>Bdelete!<CR>", "Current Buffer"},
+      p = {"<CMD>BufferLinePickClose<CR>", "Pick Buffer"},
+      l = {"<CMD>BufferLineCloseLeft<CR>", "Left Buffer"},
+      r = {"<CMD>BufferLineCloseRight<CR>", "Right Buffer"}
     },
-    t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
-    d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
-    e = {"<CMD>BufferLineSortByExtension<CR>", "Sort By Extension"},
-    r = {
-      "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "
+    s = {
+      name = "+Sort",
+      t = {"<CMD>BufferSortByTabs<CR>", "Sort By Tabs"},
+      d = {"<CMD>BufferSortByDirecory<CR>", "Sort By Direcory"},
+      e = {"<CMD>BufferLineSortByExtension<CR>", "Sort By Extension"},
+      r = {
+        "<CMD>BufferLineSortByRelativeDirectory<CR>",
+        "Sort By RelativeDirectory "
+      }
+
     }
   }
 }, {prefix = "<leader>"})
