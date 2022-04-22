@@ -38,14 +38,13 @@ bufferline.setup {
 }
 
 local keys = require('utils.keys')
-
 keys.mapCmd('<A-h>', ':BufferLineCyclePrev<CR>')
 keys.mapCmd('<A-l>', ':BufferLineCycleNext<CR>')
-
 -- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 -- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 
-local nmap = {
+local wk = require("which-key")
+wk.register({
   b = {
     name = "+Buffer",
     ["1"] = {"<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1"},
@@ -75,6 +74,5 @@ local nmap = {
       "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory "
     }
   }
-}
+}, {prefix = "<leader>"})
 
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

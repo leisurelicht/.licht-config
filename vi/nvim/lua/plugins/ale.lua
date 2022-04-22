@@ -49,7 +49,8 @@ local keys = require('utils.keys')
 keys.mapKey('n', 'C-P', '<Plug>(ale_previous_wrap)')
 keys.mapKey('n', 'C-n', '<Plug>(ale_next_wrap)')
 
-local nmap = {
+local wk = require("which-key")
+wk.register({
   a = {
     name = "+ALE",
     e = {"<CMD>ALEEnable<CR>", "Enable"},
@@ -60,6 +61,5 @@ local nmap = {
     n = {"<CMD>ALENext<CR>", "Next"},
     p = {"<CMD>ALEPrevious<CR>", "Previous"}
   }
-}
+}, {prefix = "<leader>"})
 
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)

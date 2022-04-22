@@ -15,13 +15,13 @@ local keys = require('utils.keys')
 
 keys.mapCmd("<F5>", "SymbolsOutline")
 
-local nmap = {
+local wk = require("which-key")
+
+wk.register({
   S = {
     name = "+代码结构树",
     t = {"<CMD>SymbolsOutline<CR>", "Toggle"},
     o = {"<CMD>SymbolsOutlineOpen<CR>", "Open"},
     c = {"<CMD>SymbolsOutlineClose<CR>", "Close"}
   }
-}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+}, {prefix = "<leader>"})

@@ -14,9 +14,7 @@ telescope.load_extension("notify")
 telescope.load_extension("packer")
 
 telescope.setup {
-  defaults = {
-    prompt_prefix="🔍",
-  },
+  defaults = {prompt_prefix = "🔍"},
   pickers = {
     find_files = {theme = "dropdown"},
     oldfiles = {theme = "dropdown"},
@@ -29,14 +27,15 @@ telescope.setup {
     git_bcommits = {theme = "ivy"},
     git_branches = {theme = "ivy"},
     git_status = {theme = "ivy"},
-    git_stash = {theme = "ivy"},
+    git_stash = {theme = "ivy"}
   },
   extensions = {
     -- notify = {theme = "dropdown"},
   }
 }
 
-local nmap = {
+local wk = require("which-key")
+wk.register({
   f = {
     name = "+Find",
     t = {"<CMD>Telescope<CR>", "Telescope List"},
@@ -66,7 +65,4 @@ local nmap = {
       h = {"<CMD>Telescope git_stash<CR>", "Git Stash"}
     }
   }
-}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
-
+}, {prefix = "<leader>"})

@@ -11,7 +11,8 @@ end
 
 marks.setup {}
 
-local nmap = {
+local wk = require("which-key")
+wk.register({
   m = {
     name = "+Marks",
     s = {"<Plug>(Marks-set)", "Set"},
@@ -39,6 +40,4 @@ local nmap = {
       g = {"<CMD>MarksQFListGlocal<CR>", "Global"}
     }
   }
-}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
+})

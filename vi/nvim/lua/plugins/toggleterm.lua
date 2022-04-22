@@ -15,7 +15,6 @@ local keys = require('utils.keys')
 keys.mapKey("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>")
 keys.mapKey("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>")
 
-local nmap = {e = {name = "+Term", t = {"<CMD>ToggleTerm<CR>", "Toggle"}}}
-
-tableMerge(WhichKeyMap.leaderMaps.normal, nmap)
-
+local wk = require("which-key")
+wk.register({e = {name = "+Term", t = {"<CMD>ToggleTerm<CR>", "Toggle"}}},
+            {prefix = "<leader>"})
