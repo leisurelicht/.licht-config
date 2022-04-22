@@ -174,9 +174,11 @@ local startup = packer.startup({
     -- 搜索时显示条目
     use {
       "kevinhwang91/nvim-hlslens",
-      -- requires = {'mg979/vim-visual-multi'},
       config = function() require("plugins.hlslens") end
     }
+
+    -- 多光标
+    use {'mg979/vim-visual-multi'}
 
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
