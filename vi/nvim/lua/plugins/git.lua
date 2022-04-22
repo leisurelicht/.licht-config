@@ -9,24 +9,22 @@ local wk = require("which-key")
 local git_key_name = "+Git"
 
 -- git-blame
-if PluginsGitBlame then
-  -- 默认关闭 git blame
-  vim.g.gitblame_enabled = 0
+-- 默认关闭 git blame
+vim.g.gitblame_enabled = 0
 
-  wk.register({
-    g = {
-      name = git_key_name,
-      b = {
-        name = "+Blame",
-        t = {"<CMD>GitBlameToggle<CR>", "Toggle"},
-        e = {"<CMD>GitBlameEnable<CR>", "Enable"},
-        d = {"<CMD>GitBlameDisable<CR>", "Disable"},
-        c = {"<CMD>GitBlameCopySHA<CR>", "Copy SHA"},
-        u = {"<CMD>GitBlameOpenCommitURL<CR>", "Open URL"}
-      }
+wk.register({
+  g = {
+    name = git_key_name,
+    b = {
+      name = "+Blame",
+      t = {"<CMD>GitBlameToggle<CR>", "Toggle"},
+      e = {"<CMD>GitBlameEnable<CR>", "Enable"},
+      d = {"<CMD>GitBlameDisable<CR>", "Disable"},
+      c = {"<CMD>GitBlameCopySHA<CR>", "Copy SHA"},
+      u = {"<CMD>GitBlameOpenCommitURL<CR>", "Open URL"}
     }
-  }, {prefix = "<leader>"})
-end
+  }
+}, {prefix = "<leader>"})
 
 -- gitsigns
 local ok, gitsigns = pcall(require, "gitsigns")

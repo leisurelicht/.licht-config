@@ -151,15 +151,8 @@ local startup = packer.startup({
 
     -- Git
     use {
-      "f-person/git-blame.nvim",
-      config = function()
-        PluginsGitBlame = 1
-        require("plugins.git")
-      end
-
-    }
-    use {
       "lewis6991/gitsigns.nvim",
+      require = {"f-person/git-blame.nvim"},
       config = function() require("plugins.git") end
     }
 
@@ -177,6 +170,12 @@ local startup = packer.startup({
 
     -- surround 快速修改
     use "tpope/vim-surround"
+
+    -- 搜索时显示条目
+    use {
+      "kevinhwang91/nvim-hlslens",
+      config = function() require("plugins.hlslens") end
+    }
 
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
