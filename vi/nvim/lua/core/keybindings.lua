@@ -39,9 +39,9 @@ keys.mapCmdWait('<leader>sv', ':vsp<CR>')
 -- 垂直分屏
 keys.mapCmdWait('<leader>so', ':sp<CR>')
 -- 关闭当前分屏
-keys.mapKey('n', '<leader>sc', '<C-w>c')
+keys.mapKey('n', '<leader>sd', '<C-w>c')
 -- 关闭其他分屏
-keys.mapKey('n', '<leader>sd', '<C-w>o')
+keys.mapKey('n', '<leader>sc', '<C-w>o')
 
 -- 开启关闭代码
 -- keys.mapKey('n', '<localleader>za', 'za')

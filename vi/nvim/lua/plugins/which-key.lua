@@ -28,8 +28,8 @@ wk.register({
     name = "+Split",
     v = "竖直分屏",
     o = "水平分屏",
-    c = "Close Current Window",
-    d = "Close Other Window"
+    d = "Close Current Window",
+    c = "Close Other Window"
   },
   t = {
     name = "+Tab",
