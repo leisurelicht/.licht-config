@@ -37,11 +37,11 @@ keys.mapKey('v', '>', '>gv')
 -- 水平分屏
 keys.mapCmdWait('<leader>sv', ':vsp<CR>')
 -- 垂直分屏
-keys.mapCmdWait('<leader>sh', ':sp<CR>')
+keys.mapCmdWait('<leader>so', ':sp<CR>')
 -- 关闭当前分屏
 keys.mapKey('n', '<leader>sc', '<C-w>c')
 -- 关闭其他分屏
-keys.mapKey('n', '<leader>so', '<C-w>o')
+keys.mapKey('n', '<leader>sd', '<C-w>o')
 
 -- 开启关闭代码
 -- keys.mapKey('n', '<localleader>za', 'za')

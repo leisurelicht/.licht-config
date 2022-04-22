@@ -27,9 +27,9 @@ wk.register({
   s = {
     name = "+Split",
     v = "竖直分屏",
-    h = "水平分屏",
+    o = "水平分屏",
     c = "Close Current Window",
-    o = "Close Other Window"
+    d = "Close Other Window"
   },
   t = {
     name = "+Tab",
@@ -78,4 +78,4 @@ wk.register({
     l = "Lower Word",
     o = "Upper First letter"
   }
-}, {prefix = "<leader>"})
+}, {mode = "v", prefix = "<leader>"})
