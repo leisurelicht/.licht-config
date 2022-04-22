@@ -152,7 +152,7 @@ local startup = packer.startup({
     -- Git
     use {
       "lewis6991/gitsigns.nvim",
-      require = {"f-person/git-blame.nvim"},
+      requires = {"f-person/git-blame.nvim"},
       config = function() require("plugins.git") end
     }
 
@@ -174,6 +174,7 @@ local startup = packer.startup({
     -- 搜索时显示条目
     use {
       "kevinhwang91/nvim-hlslens",
+      -- requires = {'mg979/vim-visual-multi'},
       config = function() require("plugins.hlslens") end
     }
 
