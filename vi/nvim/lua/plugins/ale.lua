@@ -36,9 +36,8 @@ local fixers = {
   ["lua"] = {"lua-format"},
   ["json"] = {"pretttier"}
 }
-tableMerge(ALEFixers, fixers)
 
-vim.g.ale_fixers = ALEFixers
+vim.g.ale_fixers = fixers
 
 vim.g.ale_lua_lua_format_options = "--indent-width=2 --tab-width=2"
 

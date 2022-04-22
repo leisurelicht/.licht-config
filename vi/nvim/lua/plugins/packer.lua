@@ -25,83 +25,112 @@ local startup = packer.startup({
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use "yianwillis/vimcdoc"
-
     -- 通知
-    use 'rcarriga/nvim-notify'
+    use {
+      'rcarriga/nvim-notify'
+      -- config = function() require("plugins.notify") end
+    }
+
+    -- 中文文档
+    use "yianwillis/vimcdoc"
 
     -- 主题皮肤
     use {
-      'navarasu/onedark.nvim',
-      'shaunsingh/nord.nvim',
-      requires = {'rktjmp/lush.nvim', opt = true}
+      "navarasu/onedark.nvim",
+      requires = {'rktjmp/lush.nvim', opt = true},
+      config = function() require("plugins.theme") end
     }
 
     -- nvim-treesitter 代码高亮
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      requires = {"p00f/nvim-ts-rainbow"}
+      requires = {"p00f/nvim-ts-rainbow"},
+      config = function() require("plugins.nvim-treesitter") end
     }
 
     -- which-key 快捷键提示
-    use 'folke/which-key.nvim'
+    use {
+      'folke/which-key.nvim',
+      config = function() require("plugins.which-key") end
+    }
 
     -- nvim-tree 文件树
     use {
       'kyazdani42/nvim-tree.lua',
       requires = {
         'kyazdani42/nvim-web-devicons' -- optional, for file icon
-      }
+      },
+      config = function() require("plugins.nvim-tree") end
     }
 
     -- 智能注释
-    use 'numToStr/Comment.nvim'
+    use {
+      'numToStr/Comment.nvim',
+      config = function() require("plugins.comment") end
+    }
     -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     -- nvim-autopairs 自动配对括号
-    use 'windwp/nvim-autopairs'
+    use {
+      "windwp/nvim-autopairs",
+      config = function() require("plugins.nvim-autopairs") end
+    }
 
     -- bufferline buffer美化
     -- use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
     -- tabline
-    use {
-      'kdheepak/tabline.nvim',
-      requires = {
-        {'hoob3rt/lualine.nvim', opt = true},
-        {'kyazdani42/nvim-web-devicons', opt = true}
-      }
-    }
+    -- use {
+    --   'kdheepak/tabline.nvim',
+    --   requires = {
+    --     {'hoob3rt/lualine.nvim', opt = true},
+    --     {'kyazdani42/nvim-web-devicons', opt = true}
+    --   },
+    --   config = function() require("plugins.tabline") end
+    -- }
+
     -- use 'moll/vim-bbye'
 
     -- lualine 状态栏美化
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+      "nvim-lualine/lualine.nvim",
+      requires = {"kyazdani42/nvim-web-devicons", opt = true},
+      config = function() require("plugins.lualine") end
     }
 
     -- 代码结构树
-    use 'simrat39/symbols-outline.nvim'
+    use {
+      "simrat39/symbols-outline.nvim",
+      config = function() require("plugins.symbols-outline") end
+    }
 
     -- 搜索插件
     use {
       'nvim-telescope/telescope.nvim',
       requires = {
         {'nvim-lua/plenary.nvim'},
-        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
-      }
+        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+        {"nvim-telescope/telescope-packer.nvim"}
+      },
+      config = function() require("plugins.telescope") end
     }
-    use "nvim-telescope/telescope-packer.nvim"
 
     -- dashboard
-    use {'goolord/alpha-nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use {
+      'goolord/alpha-nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function() require("plugins.alpha-nvim") end
+    }
 
     -- marks
     -- use 'chentau/marks.nvim'
 
     -- 优化filetype
-    use "nathom/filetype.nvim"
+    use {
+      "nathom/filetype.nvim",
+      config = function() require("filetype").setup {} end
+    }
 
     -- 优化插件加载
     use {
@@ -110,24 +139,43 @@ local startup = packer.startup({
     }
 
     -- markdown 预览
-    use {"ellisonleao/glow.nvim", ft = {"markdown"}}
+    use {
+      "ellisonleao/glow.nvim",
+      ft = {"markdown"},
+      config = function() require("plugins.glow") end
+    }
 
     -- Git
-    -- use 'tpope/vim-fugitive'
-    use 'f-person/git-blame.nvim'
-    use 'lewis6991/gitsigns.nvim'
+    use {
+      "f-person/git-blame.nvim",
+      config = function()
+        PluginsGitBlame = 1
+        require("plugins.git")
+      end
+
+    }
+    use {
+      "lewis6991/gitsigns.nvim",
+      config = function() require("plugins.git") end
+    }
 
     -- 浮窗终端
-    use "akinsho/toggleterm.nvim"
+    use {
+      "akinsho/toggleterm.nvim",
+      config = function() require("plugins.toggleterm") end
+    }
 
     -- indent
-    use "lukas-reineke/indent-blankline.nvim"
+    use {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function() require("plugins.indent") end
+    }
 
     -- surround 快速修改
     use "tpope/vim-surround"
 
     -- ale
-    use "dense-analysis/ale"
+    use {"dense-analysis/ale", config = function() require("plugins.ale") end}
 
     -- python indent
     use {"vim-scripts/indentpython.vim", ft = {"python", "djangohtml"}}

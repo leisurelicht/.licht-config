@@ -1,4 +1,7 @@
--- ================= which-key.lua --- which-key config file author: mucheng =================
+-- =================
+-- which-key.lua --- which-key config file
+-- author: mucheng
+-- =================
 --
 local ok, which_key = pcall(require, "which-key")
 if not ok then
@@ -7,15 +10,8 @@ if not ok then
 end
 
 which_key.setup {
-  layout = {
-    height = {min = 4, max = 25}, 
-    align = "center"
-  },
-  icons = {
-    breadcrumb = "»",
-    separator = "➜",
-    group = "+",
-  }
+  layout = {height = {min = 4, max = 25}, align = "center"},
+  icons = {breadcrumb = "»", separator = "➜", group = "+"}
 }
 
 WhichKeyMap.opts = {

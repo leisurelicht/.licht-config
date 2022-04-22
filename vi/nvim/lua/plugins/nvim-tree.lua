@@ -55,23 +55,3 @@ wk.register({
     c = {"<CMD>NvimTreeClose<CR>", "Close"}
   }
 }, {prefix = "<leader>"})
-
--- automatically close the tab/vim when nvim-tree is the last window in the tab.
-vim.cmd([[
-  autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-]])
-
--- nvim 启动时指定文件时自动开启 NvimTreeOpen
--- vim.cmd([[
---   augroup vim_enter
---     autocmd StdinReadPre * let s:std_in=1
---     autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NvimTreeOpen' argv()[0] | wincmd p | ene | wincmd p | endif
---   augroup end
--- ]])
-
--- nvim 启动时不指定文件时自动开启 NvimTreeOpen
--- vim.cmd([[
---   augroup vim_enter
---     autocmd VimEnter * if !argc() | NvimTreeOpen | wincmd w | endif
---   augroup end
--- ]])

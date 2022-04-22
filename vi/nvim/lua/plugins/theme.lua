@@ -3,11 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
-
-require('onedark').setup {
-  style = 'dark',
-  ending_tildes = true,
-}
-
--- require('onedark').load()
+local onedark_ok, onedark = pcall(require, "onedark")
+if onedark_ok then onedark.setup {style = 'dark', ending_tildes = true} end
 
