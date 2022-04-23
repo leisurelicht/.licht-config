@@ -20,10 +20,10 @@ treesitter_config.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<leader>hn',
-      node_incremental = '<leader>hr',
-      node_decremental = '<leader>hc',
-      scope_incremental = '<leader>hm'
+      init_selection = '<leader>Tn',
+      node_incremental = '<leader>Tr',
+      node_decremental = '<leader>Tc',
+      scope_incremental = '<leader>Tm'
     }
   },
 
@@ -45,8 +45,8 @@ treesitter_config.setup {
 local wk = require("which-key")
 
 wk.register({
-  h = {
-    name = "+代码高亮",
+  T = {
+    name = "+Treesitter",
     n = {"Selection"},
     r = {"Incremental"},
     c = {"Decremental"},
@@ -57,8 +57,8 @@ wk.register({
 }, {prefix = "<leader>"})
 
 wk.register({
-  h = {
-    name = "+代码高亮",
+  T = {
+    name = "+Treesitter",
     n = {"Selection"},
     r = {"Incremental"},
     c = {"decremental"},

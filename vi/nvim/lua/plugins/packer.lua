@@ -180,6 +180,9 @@ local startup = packer.startup({
     -- 多光标
     use {'mg979/vim-visual-multi'}
 
+    -- 快速跳转
+    use {"phaazon/hop.nvim", config = function() require("plugins.hop") end}
+
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
 
