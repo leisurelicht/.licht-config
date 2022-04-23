@@ -169,6 +169,9 @@ local startup = packer.startup({
     }
 
     -- surround 快速修改
+    -- cs : 修改包裹
+    -- ds : 删除包裹
+    -- ys : 增加包裹
     use "tpope/vim-surround"
 
     -- 搜索时显示条目
