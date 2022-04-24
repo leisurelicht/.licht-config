@@ -20,7 +20,7 @@ require("language")
 -- 设置所使用的主题
 vim.cmd([[colorscheme onedark]])
 
--- TODO
+-- TODO:
 -- ----
 -- marks 快捷键
 -- |-- marks 插件存在无法彻底删除mark的问题

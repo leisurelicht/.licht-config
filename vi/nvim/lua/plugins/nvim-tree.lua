@@ -4,8 +4,7 @@
 -- =================
 --
 local ok, nvim_tree = pcall(require, "nvim-tree")
-if not ok then
-  vim.notify("Load nvim-tree Failed", "warn")
+if not ok then vim.notify("Load nvim-tree Failed", "warn")
   return
 end
 

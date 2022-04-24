@@ -67,6 +67,7 @@ local startup = packer.startup({
     -- 智能注释
     use {
       'numToStr/Comment.nvim',
+      requires = "JoosepAlviste/nvim-ts-context-commentstring",
       config = function() require("plugins.comment") end
     }
     -- use 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -181,7 +182,10 @@ local startup = packer.startup({
     }
 
     -- 多光标
-    use {'mg979/vim-visual-multi'}
+    use {
+      'mg979/vim-visual-multi',
+      config = function() require("plugins.multi") end
+    }
 
     -- 快速跳转
     use {"phaazon/hop.nvim", config = function() require("plugins.hop") end}
@@ -192,6 +196,27 @@ local startup = packer.startup({
       config = function() require("plugins.spellsitter") end
     }
 
+    -- 最后编辑位置保存
+    use {
+      "ethanholz/nvim-lastplace",
+      config = function() require("plugins.lastplace") end
+    }
+
+    -- 16进制颜色展示
+    use {
+      "norcalli/nvim-colorizer.lua",
+      config = function() require("colorizer").setup() end
+    }
+
+    -- undo tree
+    use {"mbbill/undotree", config = function() require("plugins.undotree") end}
+
+    -- todo
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function() require("plugins.todo") end
+    }
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
 
@@ -240,12 +265,12 @@ local startup = packer.startup({
 })
 
 -- 文件保存时自动更新插件信息
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost packer.lua source <afile> | PackerCompile
-  augroup end
-]])
+local puc = vim.api.nvim_create_augroup("packer_user_config", {clear = true})
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+  pattern = {"packer.lua"},
+  command = "source <afile> | PackerCompile",
+  group = puc
+})
 
 local wk = require("which-key")
 wk.register({
