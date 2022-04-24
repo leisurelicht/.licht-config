@@ -70,7 +70,6 @@ local startup = packer.startup({
       requires = "JoosepAlviste/nvim-ts-context-commentstring",
       config = function() require("plugins.comment") end
     }
-    -- use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     -- nvim-autopairs 自动配对括号
     use {
@@ -217,6 +216,9 @@ local startup = packer.startup({
       requires = "nvim-lua/plenary.nvim",
       config = function() require("plugins.todo") end
     }
+
+    use "dstein64/vim-startuptime"
+
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
 
