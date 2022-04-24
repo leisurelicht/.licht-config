@@ -186,23 +186,14 @@ local startup = packer.startup({
     -- 快速跳转
     use {"phaazon/hop.nvim", config = function() require("plugins.hop") end}
 
-    -- 突出显示
-    use {
-      "RRethy/vim-illuminate",
-      config = function() require("plugins.illuminate") end
-    }
-
     -- 拼写检查
     use {
-      'lewis6991/spellsitter.nvim',
+      "lewis6991/spellsitter.nvim",
       config = function() require("plugins.spellsitter") end
     }
 
     -- ale
     use {"dense-analysis/ale", config = function() require("plugins.ale") end}
-
-    -- python indent
-    use {"vim-scripts/indentpython.vim", ft = {"python", "djangohtml"}}
 
     -- lsp
     use {
@@ -230,10 +221,13 @@ local startup = packer.startup({
       'rafamadriz/friendly-snippets' -- 代码片段
     }
 
-    -- use 'saadparwaiz1/cmp_luasnip'
-
     -- lspkind 补全界面美化
     use 'onsails/lspkind-nvim'
+
+    -- code 增强
+
+    -- python indent
+    use {"vim-scripts/indentpython.vim", ft = {"python", "djangohtml"}}
 
     -- modern go neovim plugin
     -- use 'ray-x/go.nvim'
