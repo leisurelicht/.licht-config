@@ -14,35 +14,45 @@ local keys = {}
 -- key.bdmap = vim.api.nvim_buf_del_keymap
 
 keys.opts = {noremap = true, silent = true}
-keys.buf_opts = {noremap = true, expr = true}
+
+local function checkOpts(opts)
+  if opts == nil then
+    opts = keys.opts
+  elseif next(opts) == nil then
+    opts = {}
+  else
+    opts = vim.tbl_extend('force', keys.opts, opts)
+  end
+  return opts
+end
 
 function keys.mapKey(mode, lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
 end
 
 function keys.mapCmd(lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_set_keymap('n', lhs, ':' .. rhs .. '<cr>', opts)
 end
 
 function keys.mapCmdWait(lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_set_keymap('n', lhs, ':' .. rhs .. ' ', opts)
 end
 
 function keys.mapLua(lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_set_keymap('n', lhs, ':lua ' .. rhs .. '<cr>', opts)
 end
 
 function keys.mapBufKey(buf, mode, lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_buf_set_keymap(buf, mode, lhs, rhs, opts)
 end
 
 function keys.mapBufLua(buf, lhs, rhs, opts)
-  if opts == nil then opts = vim.tbl_extend('force', keys.opts, opts or {}) end
+  opts = checkOpts(opts)
   vim.api.nvim_buf_set_keymap(buf, 'n', lhs, ':lua ' .. rhs .. '<cr>', opts)
 end
 

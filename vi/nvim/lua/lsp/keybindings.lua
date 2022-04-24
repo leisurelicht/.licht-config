@@ -20,22 +20,20 @@ maps.register = function(_, bufnr)
   local ok, _ = pcall(require, "telescope")
   if ok then
     wk.register({
-      ["la"] = {"<CMD>Telescope lsp_code_actions<CR>", "Code Action"},
-      ["le"] = {"<CMD>Telescope lsp_references<CR>", "References"},
-      ["ld"] = {"<CMD>Telescope lsp_definitions<CR>", "Definition"},
-      ["lt"] = {"<CMD>Telescope lsp_type_definitions<CR>", "Type Definition"},
-      ["li"] = {"<CMD>Telescope lsp_implementations<CR>", "Implementation"},
-      ["lg"] = {"<CMD>Telescope diagnostics<CR>", "Diagnostic"},
+      ["le"] = {"<CMD>Telescope lsp_references theme=dropdown<CR>", "References"},
+      ["ld"] = {"<CMD>Telescope lsp_definitions theme=dropdown<CR>", "Definition"},
+      ["lt"] = {"<CMD>Telescope lsp_type_definitions theme=dropdown<CR>", "Type Definition"},
+      ["li"] = {"<CMD>Telescope lsp_implementations theme=dropdown<CR>", "Implementation"},
+      ["lg"] = {"<CMD>Telescope diagnostics theme=dropdown<CR>", "Diagnostic"},
       ["ls"] = {
         name = "+Symbols",
-        d = {"<CMD>Telescope lsp_document_symbols<CR>", "Document"},
-        w = {"<CMD>Telescope lsp_workspace_symbols<CR>", "WorkSpace"},
-        y = {"<CMD>Telescope lsp_dynamic_workspace_symbols", "Dynamically"},
+        d = {"<CMD>Telescope lsp_document_symbols theme=dropdown<CR>", "Document"},
+        w = {"<CMD>Telescope lsp_workspace_symbols theme=dropdown<CR>", "WorkSpace"},
+        y = {"<CMD>Telescope lsp_dynamic_workspace_symbols theme=dropdown<CR>", "Dynamically"},
       }
     }, {prefix="<leader>", buffer=bufnr})
   else
     wk.register({
-      ["la"] = {"<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action"},
       ["le"] = {"<CMD>lua vim.lsp.buf.references()<CR>", "References"},
       ["ld"] = {"<CMD>lua vim.lsp.buf.definition()<CR>", "Definition"},
       ["lt"] = {"<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition"},
@@ -44,24 +42,29 @@ maps.register = function(_, bufnr)
   end
 
   wk.register({
-    ["lo"] = {"<CMD>lua vim.lsp.buf.open_float()<CR>", "Diagnostic In Float"},
-    ["ll"] = {"<CMD>lua vim.lsp.buf.setloclist()<CR>", "Diagnostic In Quickfix"},
+    ["lr"] = {"<CMD>Lspsaga rename<CR>", "Rename"},
+    ["la"] = {"<CMD>Lspsaga code_action<CR>", "Code Action"},
+    ["lh"] = {"<CMD>Lspsaga hover_doc<CR>", "Hover"},
+    ["lf"] = {"<CMD>Lspsaga lsp_finder<CR>", "Finder"},
     ["lD"] = {"<CMD>lua vim.lsp.buf.declaration()<CR>", "Declaration"},
-    ["lK"] = {"<CMD>lua vim.lsp.buf.hover()<CR>", "Hover"},
-    ["lk"] = {"<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
-    ["lr"] = {"<CMD>lua vim.lsp.buf.rename()<CR>", "Rename"},
-    ["lf"] = {"<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting"},
+    ["lH"] = {"<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help"},
+    ["lm"] = {"<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting"},
     ["lw"] = {
       name = "+WorkSpace",
       a = {"<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add Folder"},
       r = {"<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove Folder"},
       l = {"<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders"},
     },
+    ["ll"] = {"<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic"},
+    ["lj"] = {"<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic"},
+    ["lk"] = {"<CMD>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic"},
   }, {prefix="<leader>", buffer=bufnr})
 
   wk.register({
-      ["]d"] = {"<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info"},
-      ["[d"] = {"<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info"},
+      ["]d"] = {"<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic Info"},
+      ["[d"] = {"<CMD>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic Info"},
+      ["<C-b>"] = {"<CMD>require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<CR>", "Scroll Up"},
+      ["<C-f>"] = {"<CMD>require('lspsaga.action').smart_scroll_with_saga(1, '<c-u>')<CR>", "Scroll Down"},
   }, {buffer=bufnr})
 end
 

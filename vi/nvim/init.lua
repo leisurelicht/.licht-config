@@ -33,4 +33,3 @@ vim.cmd([[colorscheme onedark]])
 -- print(vim.bo.filetype)
 -- 输出所有 vim 支持的方法
 -- print(vim.inspect(vim))
-

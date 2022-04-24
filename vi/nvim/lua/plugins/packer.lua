@@ -208,7 +208,7 @@ local startup = packer.startup({
     }
 
     -- undo tree
-    use {"mbbill/undotree", config = function() require("plugins.undotree") end}
+    -- use {"mbbill/undotree", config = function() require("plugins.undotree") end}
 
     -- todo
     use {
@@ -219,37 +219,55 @@ local startup = packer.startup({
 
     use "dstein64/vim-startuptime"
 
-    -- ale
-    use {"dense-analysis/ale", config = function() require("plugins.ale") end}
-
     -- lsp
     use {
       "neovim/nvim-lspconfig", -- lsp
-      "williamboman/nvim-lsp-installer" -- lsp server install
+      "williamboman/nvim-lsp-installer", -- lsp server install
+      "tami5/lspsaga.nvim"
+    }
+
+    -- lsp 进度可视化
+    use {
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup({
+          window = {blend = 0}
+        })
+      end
+    }
+
+    -- 参数提示
+    use {
+      "ray-x/lsp_signature.nvim"
+    }
+
+    -- 小灯泡
+    use {
+      "kosayoda/nvim-lightbulb"
     }
 
     -- nvim-cmp 代码补全
     use {
-      'hrsh7th/cmp-nvim-lsp', -- { name = nvim_lsp }
-      'hrsh7th/cmp-buffer', -- { name = 'buffer' },
-      'hrsh7th/cmp-path', -- { name = 'path' }
-      'hrsh7th/cmp-cmdline', -- { name = 'cmdline' }
-      'hrsh7th/cmp-nvim-lsp-signature-help', -- { name = 'nvim_lsp_signature_help' }
-      'octaltree/cmp-look', -- { name = 'look' }
-      'hrsh7th/cmp-nvim-lua', -- { name = 'nvim-lua' }
-      'andersevenrud/cmp-tmux', -- { name = 'tmux'}
-      'hrsh7th/nvim-cmp'
+      "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
+      "hrsh7th/cmp-buffer", -- { name = 'buffer' },
+      "hrsh7th/cmp-path", -- { name = 'path' }
+      "hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
+      "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
+      "octaltree/cmp-look", -- { name = 'look' }
+      "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
+      "andersevenrud/cmp-tmux", -- { name = 'tmux'}
+      "hrsh7th/nvim-cmp"
     }
 
     -- vsnip 代码片段补全
     use {
-      'hrsh7th/cmp-vsnip', -- { name = 'vsnip' }
-      'hrsh7th/vim-vsnip', -- VSCode(LSP)'s snippet feature in vim
-      'rafamadriz/friendly-snippets' -- 代码片段
+      "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
+      "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
+      "rafamadriz/friendly-snippets" -- 代码片段
     }
 
     -- lspkind 补全界面美化
-    use 'onsails/lspkind-nvim'
+    use "onsails/lspkind-nvim"
 
     -- code 增强
 

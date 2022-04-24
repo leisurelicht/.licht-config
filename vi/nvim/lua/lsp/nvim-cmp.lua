@@ -24,7 +24,7 @@ end
 cmp.setup {
   snippet = {expand = function(args) vim.fn["vsnip#anonymous"](args.body) end},
   mapping = cmp.mapping.preset.insert({
-    ['<C-v>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-k>'] = cmp.mapping.select_prev_item(),
