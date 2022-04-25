@@ -256,8 +256,13 @@ local startup = packer.startup({
       "octaltree/cmp-look", -- { name = 'look' }
       "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
       "andersevenrud/cmp-tmux", -- { name = 'tmux'}
-      "hrsh7th/nvim-cmp"
+      "f3fora/cmp-spell", -- { name = 'spell' }
+      "hrsh7th/nvim-cmp",
     }
+    use {"tzachar/cmp-tabnine", run = "./install.sh"}
+ 
+    -- 优化补全列表排序
+    use {"lukas-reineke/cmp-under-comparator"}
 
     -- vsnip 代码片段补全
     use {

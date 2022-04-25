@@ -40,7 +40,6 @@ cmp.setup {
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
-    -- { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
     {
       name = 'look',
@@ -51,10 +50,26 @@ cmp.setup {
       }
     },
     { name = 'tmux'},
+    {name = "cmp_tabnine"},
+    { name = 'nvim_lsp_signature_help' },
   },
   {
-    {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}
+    {name = 'buffer'}, {name = 'path'}, {name = 'cmdline'}, {name = 'spell'}
   }),
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      require("cmp-under-comparator").under,
+      require("cmp_tabnine.compare"),
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order
+    }
+  },
   formatting = {
     fields = {
       'abbr', 'kind', 'menu'
@@ -69,7 +84,10 @@ cmp.setup {
             path = "[PATH]",
             buffer = "[BUFFER]",
             nvim_lua = "[LUA]",
-            look = "[LOOK]"
+            look = "[LOOK]",
+            vsnip = "[VSNIP]",
+            spell = "[SPELL]",
+            cmp_tabnine = "[TN]}"
           })[entry.source.name]
 
           if m == nil then
@@ -113,4 +131,8 @@ cmp.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
-return capabilities
+local M = {}
+
+M.capabilities = capabilities
+
+return M
