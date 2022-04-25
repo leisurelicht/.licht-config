@@ -275,10 +275,18 @@ local startup = packer.startup({
     use "onsails/lspkind-nvim"
 
     -- nvim-lint
-    -- use {
-    --   "mfussenegger/nvim-lint",
+    use {
+      "mfussenegger/nvim-lint",
     --   config = function () require("plugins.nvim-lint") end
-    -- }
+    }
+
+    -- neoformat
+    use {
+      "sbdchd/neoformat",
+      config = function ()
+        require("plugins.neoformat") 
+      end
+    }
       
     -- code 增强
 

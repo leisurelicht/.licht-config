@@ -82,10 +82,10 @@ cmp.setup {
           local m = ({
             nvim_lsp = "[LSP]",
             path = "[PATH]",
-            buffer = "[BUFFER]",
+            buffer = "[BUF]",
             nvim_lua = "[LUA]",
-            look = "[LOOK]",
-            vsnip = "[VSNIP]",
+            look = "[LK]",
+            vsnip = "[VS]",
             spell = "[SPELL]",
             cmp_tabnine = "[TN]}"
           })[entry.source.name]
