@@ -274,6 +274,12 @@ local startup = packer.startup({
     -- lspkind 补全界面美化
     use "onsails/lspkind-nvim"
 
+    -- nvim-lint
+    -- use {
+    --   "mfussenegger/nvim-lint",
+    --   config = function () require("plugins.nvim-lint") end
+    -- }
+      
     -- code 增强
 
     -- python indent
@@ -290,8 +296,9 @@ local startup = packer.startup({
 })
 
 -- 文件保存时自动更新插件信息
-local puc = vim.api.nvim_create_augroup("packer_user_config", {clear = true})
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
+local auto = require("utils.auto")
+local puc = auto.augroup("packer_user_config", {clear = true})
+auto.autocmd({"BufWritePost"}, {
   pattern = {"packer.lua"},
   command = "source <afile> | PackerCompile",
   group = puc
