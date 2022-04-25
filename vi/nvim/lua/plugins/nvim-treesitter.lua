@@ -17,19 +17,23 @@ treesitter_config.setup {
   ignore_install = {'java'},
 
   highlight = {enable = true, additional_vim_regex_highlighting = false},
+  -- 范围选择
   incremental_selection = {
     enable = true,
     keymaps = {
+      -- 初始化选择
       init_selection = '<leader>Tn',
+      -- 增加
       node_incremental = '<leader>Tr',
+      -- 减少
       node_decremental = '<leader>Tc',
+      -- 块选择
       scope_incremental = '<leader>Tm'
     }
   },
 
   -- 关闭缩进，bug太多
   indent = {enable = false, disable = {"python"}},
-
   -- 彩虹括号
   rainbow = {
     enable = true,
@@ -50,10 +54,10 @@ local wk = require("which-key")
 wk.register({
   T = {
     name = "+Treesitter",
-    n = {"Selection"},
-    r = {"Incremental"},
-    c = {"Decremental"},
-    m = {"Scope Incremental"},
+    n = {"代码选择"},
+    r = {"递增"},
+    c = {"递减"},
+    m = {"块递增"},
     U = {"<CMD>TSUpdate all<CR>", "Update All"},
     S = {"<CMD>TSModuleInfo<CR>", "Module Info"}
   }
@@ -62,10 +66,10 @@ wk.register({
 wk.register({
   T = {
     name = "+Treesitter",
-    n = {"Selection"},
-    r = {"Incremental"},
-    c = {"decremental"},
-    m = {"Scope Incremental"}
+    n = {"代码选择"},
+    r = {"递增"},
+    c = {"递减"},
+    m = {"块递增"}
   }
 }, {mode = "v", prefix = "<leader>"})
 
