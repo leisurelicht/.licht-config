@@ -9,10 +9,15 @@ if not ok then
   return
 end
 
-signature.setup({
-  bind = true,
-  handler_opts = {
-    border = "rounded"
-  },
-  toggle_key = "<C-j>",
-})
+signature.setup(
+  {
+    bind = true,
+    handler_opts = {
+      border = "rounded"
+    },
+    floating_window = false,
+    toggle_key = "<C-j>",
+    hint_enable = false,
+    hi_parameter = ""
+  }
+)
