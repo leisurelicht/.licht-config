@@ -10,24 +10,38 @@ if not ok then
 end
 
 comment.setup {
-  ignore = function() if vim.bo.filetype == "lua" then return "^$" end end,
-
+  toggler = {
+    line = "gcc", -- 切换行注释
+    block = "gCC" --- 切换块注释
+  },
+  opleader = {
+    line = "gc", -- 可视模式下的行注释
+    block = "gC" -- 可视模式下的块注释
+  },
+  extra = {
+    above = "gcO", -- 在当前行上方新增行注释
+    below = "gco", -- 在当前行下方新增行注释
+    eol = "gcA" -- 在当前行行尾新增行注释
+  },
+  ignore = function()
+    if vim.bo.filetype == "lua" then
+      return "^$"
+    end
+  end,
   pre_hook = function(ctx)
-    local U = require 'Comment.utils'
+    local U = require "Comment.utils"
 
     local location = nil
     if ctx.ctype == U.ctype.block then
-      location = require('ts_context_commentstring.utils').get_cursor_location()
+      location = require("ts_context_commentstring.utils").get_cursor_location()
     elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-      location =
-          require('ts_context_commentstring.utils').get_visual_start_location()
+      location = require("ts_context_commentstring.utils").get_visual_start_location()
     end
 
-    return
-        require('ts_context_commentstring.internal').calculate_commentstring {
-          key = ctx.ctype == U.ctype.line and '__default' or '__multiline',
-          location = location
-        }
+    return require("ts_context_commentstring.internal").calculate_commentstring {
+      key = ctx.ctype == U.ctype.line and "__default" or "__multiline",
+      location = location
+    }
   end
 }
 
