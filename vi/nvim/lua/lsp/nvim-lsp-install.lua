@@ -3,39 +3,42 @@
 -- Author: MuCheng
 -- =================
 --
-local install_ok, lsp_installer = pcall(require, 'nvim-lsp-installer')
-if not install_ok then vim.notify("Load nvim-lsp-installer Failed", "warn")
+local install_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not install_ok then
+  vim.notify("Load nvim-lsp-installer Failed", "warn")
   return
 end
 
-lsp_installer.settings({
-  ui = {
-    icons = {
-      server_installed = "✓",
-      server_pending = "➜",
-      server_uninstalled = "✗"
+lsp_installer.settings(
+  {
+    ui = {
+      icons = {
+        server_installed = "✓",
+        server_pending = "➜",
+        server_uninstalled = "✗"
+      }
     }
   }
-})
+)
 
 -- 语言安装列表
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --
 local servers = {
-  sumneko_lua = 'lua',
-  gopls = 'go',
-  golangci_lint_ls = 'go',
-  pyright = 'python',
-  pylsp = 'python',
-  jedi_language_server = 'python',
-  zk = 'markdown',
-  jsonls = 'json',
-  bashls = 'bash',
-  clangd = 'default',
-  sqlls = 'default',
-  dockerls = 'default',
-  cmake = 'default'
+  sumneko_lua = "lua",
+  gopls = "go",
+  golangci_lint_ls = "go",
+  pyright = "python",
+  pylsp = "python",
+  jedi_language_server = "python",
+  zk = "markdown",
+  jsonls = "json",
+  bashls = "bash",
+  clangd = "default",
+  sqlls = "default",
+  dockerls = "default",
+  cmake = "default"
 }
 
 -- 自动安装 language server
@@ -54,23 +57,29 @@ end
 
 autoInstall(lsp_installer)
 
-lsp_installer.on_server_ready(function(server)
-  local server_file = servers[server.name]
+lsp_installer.on_server_ready(
+  function(server)
+    local server_file = servers[server.name]
 
-  if server_file == nil then return end
+    if server_file == nil then
+      return
+    end
 
-  server_file = "language." .. server_file
+    server_file = "language." .. server_file
 
-  local opts_ok, opts = pcall(require, server_file)
-  if not opts_ok then
-    vim.notify("Get Language Config : " .. server_file .. " Failed.")
-    return
+    local opts_ok, opts = pcall(require, server_file)
+    if not opts_ok then
+      vim.notify("Get Language Config : " .. server_file .. " Failed.")
+      return
+    end
+
+    if opts.lsp == nil then
+      return
+    end
+
+    opts.lsp.capabilities = require("lsp.nvim-cmp").capabilities
+
+    ---@diagnostic disable-next-line: undefined-field
+    server:setup(opts.lsp)
   end
-
-  if opts == nil then return end
-
-  opts.capabilities = require('lsp.nvim-cmp').capabilities
-
----@diagnostic disable-next-line: undefined-field
-  server:setup(opts)
-end)
+)

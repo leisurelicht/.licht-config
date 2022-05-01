@@ -358,6 +358,36 @@ local startup =
         end
       }
 
+      -- 代码调试插件
+      use {
+        "mfussenegger/nvim-dap",
+        config = function()
+          require("plugins.dap.nvim-dap")
+        end
+      }
+
+      -- 为代码调试提供内联文本
+      use {
+        "theHamsta/nvim-dap-virtual-text",
+        requires = {
+          "mfussenegger/nvim-dap"
+        },
+        config = function()
+          require("plugins.dap.nvim-dap-virtual-text")
+        end
+      }
+
+      -- 为代码调试提供 UI 界面
+      use {
+        "rcarriga/nvim-dap-ui",
+        requires = {
+          "mfussenegger/nvim-dap"
+        },
+        config = function()
+          require("plugins.dap.nvim-dap-ui")
+        end
+      }
+
       -- code 增强
 
       -- python indent

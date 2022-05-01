@@ -29,40 +29,41 @@ telescope.setup {
     git_status = {theme = "ivy"},
     git_stash = {theme = "ivy"}
   },
-  extensions = {
-    -- notify = {theme = "dropdown"},
-  }
+  extensions = {}
 }
 
 local wk = require("which-key")
-wk.register({
-  f = {
-    name = "+Find",
-    t = {"<CMD>Telescope<CR>", "Telescope List"},
-    f = {"<CMD>Telescope find_files<CR>", "File"},
-    o = {"<CMD>Telescope oldfiles<CR>", "Recently Opened File"},
-    w = {"<CMD>Telescope grep_string<CR>", "Word"},
-    s = {"<CMD>Telescope live_grep<CR>", "String"},
-    b = {"<CMD>Telescope buffers<CR>", "Buffer"},
-    m = {"<CMD>Telescope marks<CR>", "Marks"},
-    O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
-    c = {"<CMD>Telescope commands<CR>", "Command"},
-    C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
-    n = {"<CMD>Telescope notify theme=dropdown<CR>", "Notify"},
-    p = {"<CMD>Telescope packer<CR>", "Packer Installed"},
-    h = {
-      name = "+History",
-      c = {"<CMD>Telescope command_history<CR>", "Command"},
-      s = {"<CMD>Telescope search_history<CR>", "Search"}
-    },
-    H = {"<CMD>Telescope help_tags<CR>", "Help Tags"},
-    g = {
-      name = "+Git",
-      c = {"<CMD>Telescope git_commits<CR>", "Git Commits"},
-      b = {"<CMD>Telescope git_bcommits<CR>", "Git Buffer's Commits"},
-      r = {"<CMD>Telescope git_branches<CR>", "Git Branches"},
-      s = {"<CMD>Telescope git_status<CR>", "Git Status"},
-      h = {"<CMD>Telescope git_stash<CR>", "Git Stash"}
+wk.register(
+  {
+    f = {
+      name = "+Find",
+      t = {"<CMD>Telescope<CR>", "Telescope List"},
+      f = {"<CMD>Telescope find_files<CR>", "File"},
+      o = {"<CMD>Telescope oldfiles<CR>", "Recently Opened File"},
+      w = {"<CMD>Telescope grep_string<CR>", "Word"},
+      s = {"<CMD>Telescope live_grep<CR>", "String"},
+      b = {"<CMD>Telescope buffers<CR>", "Buffer"},
+      m = {"<CMD>Telescope marks<CR>", "Marks"},
+      O = {"<CMD>Telescope vim_options<CR>", "Vim Option"},
+      c = {"<CMD>Telescope commands<CR>", "Command"},
+      C = {"<CMD>Telescope autocommand<CR>", "AutoCommand"},
+      n = {"<CMD>Telescope notify theme=dropdown<CR>", "Notify"},
+      p = {"<CMD>Telescope packer<CR>", "Packer Installed"},
+      h = {
+        name = "+History",
+        c = {"<CMD>Telescope command_history<CR>", "Command"},
+        s = {"<CMD>Telescope search_history<CR>", "Search"}
+      },
+      H = {"<CMD>Telescope help_tags<CR>", "Help Tags"},
+      g = {
+        name = "+Git",
+        c = {"<CMD>Telescope git_commits<CR>", "Git Commits"},
+        b = {"<CMD>Telescope git_bcommits<CR>", "Git Buffer's Commits"},
+        r = {"<CMD>Telescope git_branches<CR>", "Git Branches"},
+        s = {"<CMD>Telescope git_status<CR>", "Git Status"},
+        h = {"<CMD>Telescope git_stash<CR>", "Git Stash"}
+      }
     }
-  }
-}, {prefix = "<leader>"})
+  },
+  {prefix = "<leader>"}
+)
