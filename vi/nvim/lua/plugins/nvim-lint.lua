@@ -10,9 +10,10 @@ if not ok then
 end
 
 lint.linters_by_ft = {
+  -- pip install pylint
   python = {"pylint"},
   -- brew install golangci-lint
-  go = {"golangcilint"},
+  go = {"golangcilint"}
 }
 
 local auto = require("utils.auto")
