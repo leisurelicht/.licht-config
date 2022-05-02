@@ -65,13 +65,48 @@ api.autocmd(
 local wk = require("which-key")
 wk.register(
   {
-    e = {
+    o = {
       name = "+Term",
       f = {"<CMD>ToggleTerm direction=float<CR>", "Toggle In Float"},
       t = {"<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab"},
       h = {"<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In horizontal"},
-      v = {"<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical"}
+      v = {"<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical"},
+      c = {
+        name = "+Call",
+        h = {"<CMD>lua _HTOP_TOGGLE()<CR>", "Htop"}
+      }
     }
   },
   {prefix = "<leader>"}
 )
+
+local Terminal = require("toggleterm.terminal").Terminal
+
+local lazygit =
+  Terminal:new(
+  {
+    cmd = "lazygit",
+    dir = "git_dir",
+    direction = "float",
+    float_opts = {
+      border = "curved" -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
+    },
+    -- function to run on opening the terminal
+    on_open = function(term)
+      vim.cmd("startinsert!")
+      keys.mapBufKey(term.bufnr, "n", "q", "<CMD>close<CR>", {noremap = true, silent = true})
+    end
+    -- function to run on closing the terminal
+    -- on_close = function(term)
+    --   vim.cmd("Closing terminal")
+    -- end
+  }
+)
+function _LAZYGIT_TOGGLE()
+  lazygit:toggle()
+end
+
+local htop = Terminal:new({cmd = "htop", hidden = true})
+function _HTOP_TOGGLE()
+  htop:toggle()
+end

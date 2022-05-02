@@ -8,37 +8,12 @@ local wk = require("which-key")
 
 local git_key_name = "+Git"
 
-local Terminal = require("toggleterm.terminal").Terminal
-local lazygit =
-  Terminal:new(
-  {
-    cmd = "lazygit",
-    dir = "git_dir",
-    direction = "float",
-    float_opts = {
-      border = "curved" -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    },
-    -- function to run on opening the terminal
-    on_open = function(term)
-      vim.cmd("startinsert!")
-      keys.mapBufKey(term.bufnr, "n", "q", "<CMD>close<CR>", {noremap = true, silent = true})
-    end
-    -- function to run on closing the terminal
-    -- on_close = function(term)
-    --   vim.cmd("Closing terminal")
-    -- end
-  }
-)
-
-function _Lazygit_toggle()
-  lazygit:toggle()
-end
-
+-- lazygit
 wk.register(
   {
     g = {
       name = git_key_name,
-      l = {"<CMD>lua _Lazygit_toggle()<CR>", "Lazygit"}
+      l = {"<CMD>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"}
     }
   },
   {prefix = "<leader>"}
