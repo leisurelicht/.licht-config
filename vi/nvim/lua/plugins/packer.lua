@@ -406,6 +406,14 @@ local startup =
         end
       }
 
+      -- 输入法自动切换
+      use {
+        "brglng/vim-im-select",
+        config = function()
+          require("plugins.vim-im-select")
+        end
+      }
+
       -- code 增强 --
       --
       -- python indent
