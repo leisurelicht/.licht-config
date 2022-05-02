@@ -29,7 +29,8 @@ local lazygit =
     -- end,
   }
 )
-function _lazygit_toggle()
+
+function _Lazygit_toggle()
   lazygit:toggle()
 end
 
@@ -37,7 +38,7 @@ wk.register(
   {
     g = {
       name = git_key_name,
-      l = {"<CMD>lua _lazygit_toggle()<CR>", "Lazygit"}
+      l = {"<CMD>lua _Lazygit_toggle()<CR>", "Lazygit"}
     }
   },
   {prefix = "<leader>"}
