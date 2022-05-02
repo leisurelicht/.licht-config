@@ -9,10 +9,11 @@ if not ok then
   return
 end
 
--- dap.setup({})
+local api = require("utils.api")
+api.hi.set("debugger", {fg = "red"})
 
 local dap_config = {
-  -- python = require("language.python")
+  python = require("language.python"),
   go = require("language.go")
 }
 
@@ -22,23 +23,18 @@ for name, opts in pairs(dap_config) do
 end
 
 local wk = require("which-key")
-
 wk.register(
   {
     d = {
       name = "+DAP",
-      t = {"<CMD>lua require'dap'.toggle_breakpoint()<CR>", "Break Point"},
+      a = {"<CMD>lua require'dap'.toggle_breakpoint()<CR>", "Add Break Point"},
+      c = {"<CMD>lua require'dap'.clear_breakpoints()<CR>", "Clear Break Point"},
       d = {"<CMD>lua require'dap'.continue()<CR>", "Continue"},
-      j = {"<CMD>lua require'dap'.setup_over()<CR>", "Setp Over"},
-      n = {"<CMD>lua require'dap'.setup_into()<CR>", "Setp Into"},
-      o = {"<CMD>lua require'dap'.setup_out()<CR>", "Setp Out"},
+      j = {"<CMD>lua require'dap'.step_over()<CR>", "Setp Over"},
+      n = {"<CMD>lua require'dap'.step_into()<CR>", "Setp Into"},
+      o = {"<CMD>lua require'dap'.step_out()<CR>", "Setp Out"},
       r = {"<CMD>lua require'dap'.run_last()<CR>", "Run Last"},
-      c = {
-        "<CMD>lua require'dap'.close()<CR>" ..
-          "<CMD>lua require'dap.repl'.close<CR>" ..
-            "<CMD>lua require'dapui.close()<CR><CMD>DapVirtualTextForceRefresh<CR>",
-        "Close"
-      }
+      t = {"<CMD>lua require'dap'.terminate()<CR>", "Terminate"}
     }
   },
   {prefix = "<leader>"}

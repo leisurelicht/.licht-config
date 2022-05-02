@@ -12,7 +12,7 @@ M.lsp = {
     -- client.resolved_capabilities.document_formatting = false
     -- client.resolved_capabilities.document_range_formatting = false
 
-    require("lsp.keybindings").register(client, bufnr)
+    require("plugins.lsp.keybindings").register(client, bufnr)
 
     -- 保存时自动格式化
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")

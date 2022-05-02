@@ -77,7 +77,7 @@ lsp_installer.on_server_ready(
       return
     end
 
-    opts.lsp.capabilities = require("lsp.nvim-cmp").capabilities
+    opts.lsp.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
     ---@diagnostic disable-next-line: undefined-field
     server:setup(opts.lsp)

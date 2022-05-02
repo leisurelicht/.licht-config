@@ -14,8 +14,6 @@ vim.notify = print
 
 require("core")
 require("plugins")
-require("lsp")
--- require("language")
 
 -- 设置所使用的主题
 -- vim.cmd([[colorscheme onedark]])

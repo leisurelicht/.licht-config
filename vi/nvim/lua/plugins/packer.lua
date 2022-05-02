@@ -290,8 +290,21 @@ local startup =
       -- lsp
       use {
         "neovim/nvim-lspconfig", -- lsp
+        config = function()
+          require("plugins.lsp.lsp-config")
+        end
+      }
+      use {
         "williamboman/nvim-lsp-installer", -- lsp server install
-        "tami5/lspsaga.nvim"
+        config = function()
+          require("plugins.lsp.nvim-lsp-install")
+        end
+      }
+      use {
+        "tami5/lspsaga.nvim",
+        config = function()
+          require("plugins.lsp.lspsaga")
+        end
       }
 
       -- lsp 进度可视化
@@ -308,41 +321,46 @@ local startup =
 
       -- 参数提示
       use {
-        "ray-x/lsp_signature.nvim"
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require("plugins.lsp.signature")
+        end
       }
 
       -- 小灯泡
       use {
-        "kosayoda/nvim-lightbulb"
+        "kosayoda/nvim-lightbulb",
+        config = function()
+          require("plugins.lsp.lightbulb")
+        end
       }
 
       -- nvim-cmp 代码补全
       use {
-        "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
-        "hrsh7th/cmp-buffer", -- { name = 'buffer' },
-        "hrsh7th/cmp-path", -- { name = 'path' }
-        "hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
-        "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
-        "octaltree/cmp-look", -- { name = 'look' }
-        "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
-        "andersevenrud/cmp-tmux", -- { name = 'tmux'}
-        "f3fora/cmp-spell", -- { name = 'spell' }
-        "hrsh7th/nvim-cmp"
+        "hrsh7th/nvim-cmp",
+        requires = {
+          -- 代码补全插件
+          "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
+          "hrsh7th/cmp-buffer", -- { name = 'buffer' },
+          "hrsh7th/cmp-path", -- { name = 'path' }
+          "hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
+          "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
+          "octaltree/cmp-look", -- { name = 'look' }
+          "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
+          "andersevenrud/cmp-tmux", -- { name = 'tmux'}
+          "f3fora/cmp-spell", -- { name = 'spell' }
+          {"tzachar/cmp-tabnine", run = "./install.sh"}, -- { name = "tabline" }
+          "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
+          -- vsnip 代码片段补全
+          "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
+          "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
+          "rafamadriz/friendly-snippets", -- 代码片段
+          "onsails/lspkind-nvim" -- lspkind 补全界面美化
+        },
+        config = function()
+          require("plugins.lsp.nvim-cmp")
+        end
       }
-      use {"tzachar/cmp-tabnine", run = "./install.sh"}
-
-      -- 优化补全列表排序
-      use {"lukas-reineke/cmp-under-comparator"}
-
-      -- vsnip 代码片段补全
-      use {
-        "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
-        "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
-        "rafamadriz/friendly-snippets" -- 代码片段
-      }
-
-      -- lspkind 补全界面美化
-      use "onsails/lspkind-nvim"
 
       -- nvim-lint
       use {
@@ -407,9 +425,9 @@ local startup =
 )
 
 -- 文件保存时自动更新插件信息
-local auto = require("utils.auto")
-local puc = auto.augroup("packer_user_config", {clear = true})
-auto.autocmd(
+local api = require("utils.api")
+local puc = api.augroup("packer_user_config", {clear = true})
+api.autocmd(
   {"BufWritePost"},
   {
     pattern = {"packer.lua"},

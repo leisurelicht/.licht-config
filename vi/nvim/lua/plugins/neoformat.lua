@@ -29,9 +29,9 @@ vim.g.neoformat_enabled_lua = {"luafmt"}
 vim.g.neoformat_enabled_python = {"yapf", "autopep8", "isort"}
 vim.g.neoformat_enabled_c = {"clang-format"}
 
-local auto = require("utils.auto")
-local format = auto.augroup("Preat", {clear = true})
-auto.autocmd(
+local api = require("utils.api")
+local format = api.augroup("Preat", {clear = true})
+api.autocmd(
   {"BufWritePre"},
   {
     pattern = {"*"},
