@@ -7,8 +7,12 @@ vim.g.HOME_PATH = vim.fn.expand("$HOME")
 vim.g.CONFIG = vim.g.HOME_PATH .. "/.config_file/vi/nvim"
 vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
+-- set nvim python interpreter
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
 vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
+
+-- set font
+vim.o.guifont = "Hack Nerd Font"
 
 vim.notify = print
 
@@ -23,7 +27,6 @@ vim.cmd([[colorscheme catppuccin]])
 -- ----
 -- marks 快捷键
 -- |-- marks 插件存在无法彻底删除mark的问题
--- lsp
 
 -- 代码片段
 -- 输出绑定的 normal 类型快捷键
