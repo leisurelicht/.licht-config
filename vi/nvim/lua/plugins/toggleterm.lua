@@ -69,8 +69,9 @@ wk.register(
       name = "+Term",
       f = {"<CMD>ToggleTerm direction=float<CR>", "Toggle In Float"},
       t = {"<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab"},
-      h = {"<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In horizontal"},
+      h = {"<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal"},
       v = {"<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical"},
+      r = {"<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line"},
       c = {
         name = "+Call",
         h = {"<CMD>lua _HTOP_TOGGLE()<CR>", "Htop"}
@@ -78,6 +79,16 @@ wk.register(
     }
   },
   {prefix = "<leader>"}
+)
+wk.register(
+  {
+    o = {
+      name = "+Term",
+      r = {"<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines"},
+      s = {"<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection"}
+    }
+  },
+  {mode = "v", prefix = "<leader>"}
 )
 
 local Terminal = require("toggleterm.terminal").Terminal
