@@ -42,7 +42,7 @@ local keys = require("utils.keys")
 keys.mapKey("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>")
 keys.mapKey("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>")
 
-function _Set_terminal_keymaps()
+function _SET_TERMINAL_KEYMAPS()
   keys.mapBufKey(0, "t", "<ESC>", [[<C-\><C-n>]])
   -- keys.mapBufKey(0, "t", "jk", [[<C-\><C-n>]])
   keys.mapBufKey(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]])
@@ -56,7 +56,7 @@ api.autocmd(
   {"TermOpen"},
   {
     pattern = {"term://*"},
-    command = "lua _Set_terminal_keymaps()"
+    command = "lua _SET_TERMINAL_KEYMAPS()"
   }
 )
 
