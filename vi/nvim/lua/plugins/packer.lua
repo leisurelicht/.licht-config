@@ -35,8 +35,10 @@ local startup =
 
       -- 通知
       use {
-        "rcarriga/nvim-notify"
-        -- config = function() require("plugins.notify") end
+        "rcarriga/nvim-notify",
+        config = function()
+          require("plugins.notify")
+        end
       }
 
       -- 中文文档

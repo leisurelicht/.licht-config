@@ -9,11 +9,13 @@ if not ok then
   return
 end
 
-notify.setup({
-  level = "info",
-  render = "default",
-  stages = "slide",
-  background_colour = "#000000"
-})
+notify.setup(
+  {
+    level = "info",
+    render = "default",
+    stages = "slide",
+    background_colour = "#000000"
+  }
+)
 
 vim.notify = notify
