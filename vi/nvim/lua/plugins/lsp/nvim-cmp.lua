@@ -14,7 +14,6 @@ if not lspkind_ok then
   vim.notify("Load lspkind Failed", "warn")
   return
 end
-
 local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_ok then
   vim.notify("Load cmp_nvim_lsp Failed", "warn")
@@ -45,6 +44,8 @@ cmp.setup {
     {
       {name = "nvim_lsp"},
       {name = "vsnip"},
+      {name = "tmux"},
+      {name = "cmp_tabnine"},
       {name = "nvim_lua"},
       {
         name = "look",
@@ -53,9 +54,7 @@ cmp.setup {
           convert_case = true,
           loud = true
         }
-      },
-      {name = "tmux"},
-      {name = "cmp_tabnine"}
+      }
       -- {name = "nvim_lsp_signature_help"}
     },
     {
