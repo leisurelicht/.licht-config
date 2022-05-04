@@ -65,11 +65,9 @@ local function info()
   local total_plugins = #vim.tbl_keys(packer_plugins)
   local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
   local version = vim.version()
-  local nvim_version_info =
-      "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+  local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
 
-  return datetime .. "   " .. total_plugins .. " plugins" ..
-             nvim_version_info
+  return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
 end
 
 local header = {
@@ -104,15 +102,13 @@ local function button(sc, txt, keybind, keybind_opts)
     hl_shortcut = "Keyword"
   }
   if keybind then
-    keybind_opts = vim.F.if_nil(keybind_opts,
-                                {noremap = true, silent = true, nowait = true})
+    keybind_opts = vim.F.if_nil(keybind_opts, {noremap = true, silent = true, nowait = true})
     opts.keymap = {"n", sc_, keybind, keybind_opts}
   end
 
   local function on_press()
     -- local key = vim.api.nvim_replace_termcodes(keybind .. "<Ignore>", true, false, true)
-    local key = vim.api.nvim_replace_termcodes(sc .. "<Ignore>", true, false,
-                                               true)
+    local key = vim.api.nvim_replace_termcodes(sc .. "<Ignore>", true, false, true)
     vim.api.nvim_feedkeys(key, "t", false)
   end
 
@@ -126,7 +122,7 @@ local buttons = {
     button("SPC f f", "  Find File"),
     button("SPC f o", "  Recently Opened Files"),
     button("SPC f w", "  Find Word"),
-    button("SPC p u", "  Update plugins"),
+    button("SPC P u", "  Update plugins"),
     button("q", "  Quit", ":qa<cr>")
   },
   opts = {spacing = 1}
@@ -141,9 +137,14 @@ local section = {
 
 local config = {
   layout = {
-    {type = "padding", val = 1}, section.header, {type = "padding", val = 1},
-    section.heading, {type = "padding", val = 1}, section.buttons,
-    {type = "padding", val = 1}, section.footer
+    {type = "padding", val = 1},
+    section.header,
+    {type = "padding", val = 1},
+    section.heading,
+    {type = "padding", val = 1},
+    section.buttons,
+    {type = "padding", val = 1},
+    section.footer
   },
   opts = {margin = 5}
 }
