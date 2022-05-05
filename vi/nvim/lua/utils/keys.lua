@@ -1,5 +1,5 @@
 -- =================
--- key.lua --- 函数别名
+-- key.lua --- 快捷键函数
 -- Author: MuCheng
 -- =================
 --
@@ -21,7 +21,7 @@ local function checkOpts(opts)
   elseif next(opts) == nil then
     opts = {}
   else
-    opts = vim.tbl_extend('force', keys.opts, opts)
+    opts = vim.tbl_extend("force", keys.opts, opts)
   end
   return opts
 end
@@ -33,17 +33,17 @@ end
 
 function keys.mapCmd(lhs, rhs, opts)
   opts = checkOpts(opts)
-  vim.api.nvim_set_keymap('n', lhs, ':' .. rhs .. '<cr>', opts)
+  vim.api.nvim_set_keymap("n", lhs, ":" .. rhs .. "<cr>", opts)
 end
 
 function keys.mapCmdWait(lhs, rhs, opts)
   opts = checkOpts(opts)
-  vim.api.nvim_set_keymap('n', lhs, ':' .. rhs .. ' ', opts)
+  vim.api.nvim_set_keymap("n", lhs, ":" .. rhs .. " ", opts)
 end
 
 function keys.mapLua(lhs, rhs, opts)
   opts = checkOpts(opts)
-  vim.api.nvim_set_keymap('n', lhs, ':lua ' .. rhs .. '<cr>', opts)
+  vim.api.nvim_set_keymap("n", lhs, ":lua " .. rhs .. "<cr>", opts)
 end
 
 function keys.mapBufKey(buf, mode, lhs, rhs, opts)
@@ -53,7 +53,7 @@ end
 
 function keys.mapBufLua(buf, lhs, rhs, opts)
   opts = checkOpts(opts)
-  vim.api.nvim_buf_set_keymap(buf, 'n', lhs, ':lua ' .. rhs .. '<cr>', opts)
+  vim.api.nvim_buf_set_keymap(buf, "n", lhs, ":lua " .. rhs .. "<cr>", opts)
 end
 
 return keys
