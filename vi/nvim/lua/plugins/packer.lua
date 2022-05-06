@@ -1,4 +1,5 @@
 -- =================
+after = {"nvim-lspconfig"}
 -- packer.lua --- packer file
 -- Author: MuCheng
 -- =================
@@ -33,6 +34,22 @@ local startup =
       -- Packer can manage itself
       use "wbthomason/packer.nvim"
 
+      -- 优化插件加载
+      use {
+        "lewis6991/impatient.nvim",
+        config = function()
+          require("impatient")
+        end
+      }
+
+      -- 优化filetype
+      use {
+        "nathom/filetype.nvim",
+        config = function()
+          require("filetype").setup {}
+        end
+      }
+
       -- 通知
       use {
         "rcarriga/nvim-notify",
@@ -42,7 +59,11 @@ local startup =
       }
 
       -- 中文文档
-      use "yianwillis/vimcdoc"
+      use {
+        "yianwillis/vimcdoc",
+        event = {"BufRead", "BufNewFile"},
+        after = {"impatient.nvim"}
+      }
 
       -- 主题皮肤
       -- use {
@@ -72,6 +93,26 @@ local startup =
         end
       }
 
+      -- Git
+      use {
+        "lewis6991/gitsigns.nvim",
+        requires = {"f-person/git-blame.nvim"},
+        config = function()
+          require("plugins.git")
+        end,
+        after = {"nvim-treesitter", "plenary.nvim"}
+      }
+
+      -- lualine 状态栏美化
+      use {
+        "nvim-lualine/lualine.nvim",
+        requires = {"kyazdani42/nvim-web-devicons", opt = true},
+        config = function()
+          require("plugins.lualine")
+        end,
+        after = {"gitsigns.nvim"}
+      }
+
       -- which-key 快捷键提示
       use {
         "folke/which-key.nvim",
@@ -97,7 +138,8 @@ local startup =
         requires = "JoosepAlviste/nvim-ts-context-commentstring",
         config = function()
           require("plugins.comment")
-        end
+        end,
+        event = {"BufRead", "BufNewFile"}
       }
 
       -- nvim-autopairs 自动配对括号
@@ -114,9 +156,9 @@ local startup =
         requires = {"famiu/bufdelete.nvim"},
         config = function()
           require("plugins.bufferline")
-        end
+        end,
+        event = {"BufRead", "BufNewFile"}
       }
-
       -- tabline
       -- use {
       --   'kdheepak/tabline.nvim',
@@ -128,15 +170,6 @@ local startup =
       -- }
 
       -- use 'moll/vim-bbye'
-
-      -- lualine 状态栏美化
-      use {
-        "nvim-lualine/lualine.nvim",
-        requires = {"kyazdani42/nvim-web-devicons", opt = true},
-        config = function()
-          require("plugins.lualine")
-        end
-      }
 
       -- 代码结构树
       use {
@@ -171,37 +204,12 @@ local startup =
       -- marks
       -- use 'chentau/marks.nvim'
 
-      -- 优化filetype
-      use {
-        "nathom/filetype.nvim",
-        config = function()
-          require("filetype").setup {}
-        end
-      }
-
-      -- 优化插件加载
-      use {
-        "lewis6991/impatient.nvim",
-        config = function()
-          require("impatient")
-        end
-      }
-
       -- markdown 预览
       use {
         "ellisonleao/glow.nvim",
         ft = {"markdown"},
         config = function()
           require("plugins.glow")
-        end
-      }
-
-      -- Git
-      use {
-        "lewis6991/gitsigns.nvim",
-        requires = {"f-person/git-blame.nvim"},
-        config = function()
-          require("plugins.git")
         end
       }
 
@@ -218,14 +226,18 @@ local startup =
         "lukas-reineke/indent-blankline.nvim",
         config = function()
           require("plugins.indent")
-        end
+        end,
+        event = {"BufRead", "BufNewFile"}
       }
 
       -- surround 快速修改
       -- cs : 修改包裹
       -- ds : 删除包裹
       -- ys : 增加包裹
-      use "tpope/vim-surround"
+      use {
+        "tpope/vim-surround",
+        event = {"BufRead", "BufNewFile"}
+      }
 
       -- 搜索时显示条目
       use {
@@ -284,29 +296,39 @@ local startup =
         requires = "nvim-lua/plenary.nvim",
         config = function()
           require("plugins.todo")
-        end
+        end,
+        event = {"BufRead, BufNewFile"}
       }
 
-      use "dstein64/vim-startuptime"
+      use {
+        "dstein64/vim-startuptime",
+        cmd = {"StartupTime"},
+        after = {"impatient.nvim"}
+      }
 
       -- lsp
       use {
         "neovim/nvim-lspconfig", -- lsp
         config = function()
           require("plugins.lsp.lsp-config")
-        end
+        end,
+        event = {"BufRead, BufNewFile"}
       }
+
       use {
         "williamboman/nvim-lsp-installer", -- lsp server install
         config = function()
           require("plugins.lsp.nvim-lsp-install")
-        end
+        end,
+        after = {"nvim-lspconfig"}
       }
+
       use {
         "tami5/lspsaga.nvim",
         config = function()
           require("plugins.lsp.lspsaga")
-        end
+        end,
+        after = {"nvim-lspconfig"}
       }
 
       -- lsp 进度可视化
@@ -318,7 +340,8 @@ local startup =
               window = {blend = 0}
             }
           )
-        end
+        end,
+        after = {"nvim-lspconfig"}
       }
 
       -- 参数提示
@@ -326,7 +349,8 @@ local startup =
         "ray-x/lsp_signature.nvim",
         config = function()
           require("plugins.lsp.signature")
-        end
+        end,
+        after = {"nvim-lspconfig"}
       }
 
       -- 小灯泡
@@ -334,7 +358,8 @@ local startup =
         "kosayoda/nvim-lightbulb",
         config = function()
           require("plugins.lsp.lightbulb")
-        end
+        end,
+        after = {"nvim-lspconfig"}
       }
 
       -- nvim-cmp 代码补全
@@ -366,8 +391,10 @@ local startup =
 
       -- nvim-lint
       use {
-        "mfussenegger/nvim-lint"
-        --   config = function () require("plugins.nvim-lint") end
+        "mfussenegger/nvim-lint",
+        config = function()
+          require("plugins.nvim-lint")
+        end
       }
 
       -- neoformat
@@ -383,7 +410,8 @@ local startup =
         "mfussenegger/nvim-dap",
         config = function()
           require("plugins.dap.nvim-dap")
-        end
+        end,
+        after = {"impatient.nvim"}
       }
 
       -- 为代码调试提供内联文本
@@ -394,7 +422,8 @@ local startup =
         },
         config = function()
           require("plugins.dap.nvim-dap-virtual-text")
-        end
+        end,
+        after = {"nvim-dap"}
       }
 
       -- 为代码调试提供 UI 界面
@@ -405,7 +434,8 @@ local startup =
         },
         config = function()
           require("plugins.dap.nvim-dap-ui")
-        end
+        end,
+        after = {"nvim-dap"}
       }
 
       -- 输入法自动切换
@@ -413,7 +443,8 @@ local startup =
         "brglng/vim-im-select",
         config = function()
           require("plugins.vim-im-select")
-        end
+        end,
+        after = {"impatient.nvim"}
       }
 
       -- code 增强 --

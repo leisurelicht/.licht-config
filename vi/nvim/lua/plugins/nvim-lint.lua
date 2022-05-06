@@ -16,9 +16,9 @@ lint.linters_by_ft = {
   go = {"golangcilint"}
 }
 
-local auto = require("utils.auto")
-auto.autocmd(
-  {"BufEnter", "BufWritePost", "InsertLeave", "TextChanged"},
+local api = require("utils.api")
+api.autocmd(
+  {"BufEnter", "BufNewFile", "BufWrite"},
   {
     pattern = {"*"},
     command = "lua require('lint').try_lint()"
