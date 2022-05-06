@@ -313,6 +313,14 @@ local startup =
         after = {"impatient.nvim"}
       }
 
+      -- 输入法自动切换
+      use {
+        "brglng/vim-im-select",
+        config = function()
+          require("plugins.vim-im-select")
+        end
+      }
+
       -- lsp
       use {
         "neovim/nvim-lspconfig", -- lsp
@@ -412,6 +420,8 @@ local startup =
       }
 
       -- 代码调试插件
+      --
+      -- dap
       use {
         "mfussenegger/nvim-dap",
         config = function()
@@ -442,14 +452,6 @@ local startup =
           require("plugins.dap.nvim-dap-ui")
         end,
         after = {"nvim-dap"}
-      }
-
-      -- 输入法自动切换
-      use {
-        "brglng/vim-im-select",
-        config = function()
-          require("plugins.vim-im-select")
-        end
       }
 
       -- code 增强 --
