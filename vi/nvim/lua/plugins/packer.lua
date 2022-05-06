@@ -321,6 +321,7 @@ local startup =
         end
       }
 
+      -- 平滑翻页
       use {
         "karb94/neoscroll.nvim",
         event = "VimEnter",
