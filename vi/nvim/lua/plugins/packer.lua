@@ -1,5 +1,4 @@
 -- =================
-after = {"nvim-lspconfig"}
 -- packer.lua --- packer file
 -- Author: MuCheng
 -- =================
@@ -319,6 +318,14 @@ local startup =
         "brglng/vim-im-select",
         config = function()
           require("plugins.vim-im-select")
+        end
+      }
+
+      use {
+        "karb94/neoscroll.nvim",
+        event = "VimEnter",
+        config = function()
+          require("plugins.neoscroll")
         end
       }
 
