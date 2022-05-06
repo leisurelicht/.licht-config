@@ -165,6 +165,7 @@ local startup =
         end,
         event = {"BufRead", "BufNewFile"}
       }
+
       -- tabline
       -- use {
       --   'kdheepak/tabline.nvim',
@@ -294,7 +295,12 @@ local startup =
       }
 
       -- undo tree
-      -- use {"mbbill/undotree", config = function() require("plugins.undotree") end}
+      -- use {
+      --   "mbbill/undotree",
+      --   config = function()
+      --     require("plugins.undotree")
+      --   end
+      -- }
 
       -- todo
       use {
@@ -388,28 +394,30 @@ local startup =
       -- nvim-cmp 代码补全
       use {
         "hrsh7th/nvim-cmp",
-        requires = {
-          -- 代码补全插件
-          "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
-          "hrsh7th/cmp-buffer", -- { name = 'buffer' },
-          "hrsh7th/cmp-path", -- { name = 'path' }
-          "hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
-          "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
-          "octaltree/cmp-look", -- { name = 'look' }
-          "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
-          "andersevenrud/cmp-tmux", -- { name = 'tmux'}
-          "f3fora/cmp-spell", -- { name = 'spell' }
-          {"tzachar/cmp-tabnine", run = "./install.sh"}, -- { name = "tabline" }
-          "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
-          -- vsnip 代码片段补全
-          "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
-          "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
-          "rafamadriz/friendly-snippets", -- 代码片段
-          "onsails/lspkind-nvim" -- lspkind 补全界面美化
-        },
+        requires = {},
         config = function()
           require("plugins.lsp.nvim-cmp")
         end
+      }
+
+      use {
+        "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
+        "hrsh7th/cmp-buffer", -- { name = 'buffer' },
+        "hrsh7th/cmp-path", -- { name = 'path' }
+        "hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
+        "hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
+        "octaltree/cmp-look", -- { name = 'look' }
+        "hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
+        "andersevenrud/cmp-tmux", -- { name = 'tmux'}
+        "f3fora/cmp-spell", -- { name = 'spell' }
+        {"tzachar/cmp-tabnine", run = "./install.sh"}, -- { name = "tabline" }
+        "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
+        -- vsnip 代码片段补全
+        "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
+        "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
+        "rafamadriz/friendly-snippets", -- 代码片段
+        "onsails/lspkind-nvim", -- lspkind 补全界面美化
+        after = {"nvim-cmp"}
       }
 
       -- nvim-lint
