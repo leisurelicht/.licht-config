@@ -47,11 +47,7 @@ local startup =
         "nathom/filetype.nvim",
         config = function()
           require("filetype").setup {}
-        end
-      }
-
-      use {
-        "nvim-lua/plenary.nvim",
+        end,
         after = {"impatient.nvim"}
       }
 
@@ -66,8 +62,7 @@ local startup =
         "rcarriga/nvim-notify",
         config = function()
           require("plugins.notify")
-        end,
-        after = {"impatient.nvim"}
+        end
       }
 
       -- 中文文档
@@ -323,8 +318,7 @@ local startup =
         "neovim/nvim-lspconfig", -- lsp
         config = function()
           require("plugins.lsp.lsp-config")
-        end,
-        event = {"BufRead, BufNewFile"}
+        end
       }
 
       use {
@@ -455,8 +449,7 @@ local startup =
         "brglng/vim-im-select",
         config = function()
           require("plugins.vim-im-select")
-        end,
-        after = {"impatient.nvim"}
+        end
       }
 
       -- code 增强 --
