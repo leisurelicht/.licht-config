@@ -254,12 +254,12 @@ local startup =
       }
 
       -- 多光标
-      use {
-        "mg979/vim-visual-multi",
-        config = function()
-          require("plugins.multi")
-        end
-      }
+      -- use {
+      --   "mg979/vim-visual-multi",
+      --   config = function()
+      --     require("plugins.multi")
+      --   end
+      -- }
 
       -- 快速跳转
       use {
