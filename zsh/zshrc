@@ -50,11 +50,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# export env
-[ -f ~/.config_file/zsh/export_env ] && source ~/.config_file/zsh/export_env
-
-# alias
-[ -f ~/.config_file/zsh/aliasrc ] && source ~/.config_file/zsh/aliasrc
+export PATH="$HOME/.local/bin/:$PATH"
 
 # ===== set g environment variables =====
 unalias g 2> /dev/null
@@ -74,3 +70,10 @@ eval "$(pyenv init -)"
 # pyenv virtualenv
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+# export env
+[ -f ~/.config_file/zsh/export_env ] && source ~/.config_file/zsh/export_env
+
+# alias
+[ -f ~/.config_file/zsh/aliasrc ] && source ~/.config_file/zsh/aliasrc
+

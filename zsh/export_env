@@ -1,2 +1,3 @@
-
-export PATH="$HOME/.local/bin/:$PATH"
+# 保存涉及隐私的值
+#
+export HOMEBREW_GITHUB_API_TOKEN=
