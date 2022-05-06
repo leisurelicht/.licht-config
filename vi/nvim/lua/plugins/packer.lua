@@ -307,6 +307,7 @@ local startup =
         event = {"BufRead, BufNewFile"}
       }
 
+      -- 启动时间统计
       use {
         "dstein64/vim-startuptime",
         cmd = {"StartupTime"},
