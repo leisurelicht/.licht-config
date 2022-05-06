@@ -50,12 +50,24 @@ local startup =
         end
       }
 
+      use {
+        "nvim-lua/plenary.nvim",
+        after = {"impatient.nvim"}
+      }
+
+      -- 图标
+      use {
+        "kyazdani42/nvim-web-devicons",
+        after = {"impatient.nvim"}
+      }
+
       -- 通知
       use {
         "rcarriga/nvim-notify",
         config = function()
           require("plugins.notify")
-        end
+        end,
+        after = {"impatient.nvim"}
       }
 
       -- 中文文档
