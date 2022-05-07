@@ -77,9 +77,10 @@ lsp_installer.on_server_ready(
       return
     end
 
+    opts.lsp.flags = {debounce_text_changes = 150}
+
     opts.lsp.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
-    ---@diagnostic disable-next-line: undefined-field
     server:setup(opts.lsp)
   end
 )

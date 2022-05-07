@@ -100,7 +100,7 @@ cmp.setup {
               look = "[LK]",
               vsnip = "[VS]",
               spell = "[SPELL]",
-              cmp_tabnine = "[TN]}"
+              cmp_tabnine = "[TN]"
             })[entry.source.name]
 
             if m == nil then
