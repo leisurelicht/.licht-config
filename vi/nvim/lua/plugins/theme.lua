@@ -69,3 +69,6 @@ if catppuccin_ok then
     }
   )
 end
+
+-- 设置所使用的主题
+vim.cmd([[colorscheme catppuccin]])

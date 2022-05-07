@@ -16,14 +16,20 @@ local function window_num()
 end
 
 lualine.setup {
-  -- options = { fmt = string.lower },
+  options = {theme = "catppuccin"},
   sections = {
     lualine_a = {
       {
         window_num,
         separator = {right = ""},
         color = {fg = "white", bg = "grey"}
-      }, {"mode", fmt = function(str) return str:sub(1, 1) end}
+      },
+      {
+        "mode",
+        fmt = function(str)
+          return str:sub(1, 1)
+        end
+      }
     },
     lualine_c = {"filename"}
   },
@@ -32,7 +38,7 @@ lualine.setup {
       {
         window_num,
         separator = {right = ""},
-        color = {fg = 'white', bg = "grey"}
+        color = {fg = "white", bg = "grey"}
       }
     }
   },

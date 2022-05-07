@@ -3,8 +3,6 @@
 -- Author: MuCheng
 -- =================
 --
--- 以下是neovim默认开启的配置
---
 -- 修复delete键
 -- set backspace=2
 -- 始终显示状态拦
@@ -17,7 +15,6 @@
 -- set autoread
 -- 让鼠标能使用
 -- set mouse=a
---
 -- 开启语法高亮
 vim.cmd([[syntax enable]])
 -- 开启文件类型检查
@@ -59,13 +56,13 @@ vim.o.swapfile = false
 vim.o.linebreak = true
 
 -- 即时预览命令效果
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 -- 系统剪贴板
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
 
 -- 长度表示线
-vim.wo.colorcolumn = '0'
+vim.wo.colorcolumn = "0"
 
 -- 右下角显示正在输入的命令
 vim.o.showcmd = true
@@ -122,11 +119,11 @@ vim.o.list = false
 -- vim.o.listchars = "space:·,tab:>-,"
 
 --
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10
 
 -- 行结尾可以跳到下一行
-vim.o.whichwrap = 'b,s,<,>,[,],h,l'
+vim.o.whichwrap = "b,s,<,>,[,],h,l"
 
 -- always show tabline
 vim.o.showtabline = 2
@@ -141,3 +138,8 @@ vim.o.spelllang = "en_us,cjk"
 
 -- 隐藏未保存的buffer
 -- vim.g.hidden = true
+
+-- set gui font
+vim.o.guifont = "Hack Nerd Font"
+
+vim.g.syntastic_vim_checkers = {"vint"}
