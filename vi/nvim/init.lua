@@ -11,6 +11,8 @@ vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
 vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
 
+vim.g.syntastic_vim_checkers = {"vint"}
+
 -- set font
 vim.o.guifont = "Hack Nerd Font"
 
