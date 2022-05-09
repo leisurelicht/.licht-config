@@ -12,19 +12,51 @@ config_path=$(
 
 echo "====> Config file root path is: ${config_path}"
 
-if [[ `uname` == 'Darwin'  ]]; then
-  # 安装包管理器
+if ! command -v tmux >/dev/null 2>&1; then
+  echo "====> Command [tmux] is not be installed."
+  tmux_need_intall=1
+else
+  echo "====> Command [tmux] is already installed"
+fi
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "====> Command [git] is not be installed. Start to install..."
+  git_need_install=1
+else
+  echo "====> Command [git] is already installed"
+fi
+if [[ `uname -s` == 'Darwin'  ]]; then
   if ! command -v brew >/dev/null 2>&1; then
     echo "====> Command [brew] is not be installed, Please install first."
   else
     echo "====> Commnad [brew] is already installed"
   fi
 
-  if ! command -v tmux >/dev/null 2>&1; then
-    echo "====> Command [tmux] is not be installed. Start to install..."
+  if [[ ${tmux_need_install} == 1 ]]; then
     brew install tmux
+  fi
+  if [[ ${git_need_install} == 1 ]]; then
+    brew install git
+  fi
+elif [[ `uname -s` == 'Linux' ]]; then
+  os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
+  if [[ ${os} == "ubuntu" ]]; then
+    if [[ ${tmux_need_install} == 1 ]]; then
+      sudo apt-get install tmux -y
+    fi
+    if [[ ${git_need_install} == 1 ]]; then
+      sudo apt-get install git -y
+    fi
+  elif [[ ${os} == "centos" ]]; then
+    if [[ ${tmux_need_install} == 1 ]]; then
+      sudo yum install tmux -y
+    fi
+    if [[ ${git_need_install} == 1 ]]; then
+      sudo yum install git -y
+    fi
   else
-    echo "=====> Command [tmux] is already installed"
+    echo "xxxx> Current operating system is not supported"
+    exit 1
   fi
 else
   echo "xxxx> Current operating system is not supported"
