@@ -23,7 +23,7 @@ else
 fi
 
 if ! command -v git >/dev/null 2>&1; then
-  echo "====> Command [git] is not be installed. Start to install..."
+  echo "====> Command [git] is not be installed."
   git_need_install=1
 else
   echo "====> Command [git] is already installed"
@@ -37,10 +37,12 @@ if [[ $(uname -s) == 'Darwin' ]]; then
   fi
 
   if [[ ${tmux_need_install} == 1 ]]; then
+    echo "====> Install Command [tmux]."
     brew install tmux
     tmux_need_install=0
   fi
   if [[ ${git_need_install} == 1 ]]; then
+    echo "====> Install Command [git]."
     brew install git
     git_need_install=0
   fi
@@ -48,19 +50,23 @@ elif [[ $(uname -s) == 'Linux' ]]; then
   os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
   if [[ ${os} == "ubuntu" ]]; then
     if [[ ${tmux_need_install} == 1 ]]; then
+      echo "====> Install Command [tmux]."
       sudo apt-get install tmux -y
       tmux_need_install=0
     fi
     if [[ ${git_need_install} == 1 ]]; then
+      echo "====> Install Command [git]."
       sudo apt-get install git -y
       git_need_install=0
     fi
   elif [[ ${os} == "centos" ]]; then
     if [[ ${tmux_need_install} == 1 ]]; then
+      echo "====> Install Command [tmux]."
       sudo yum install tmux -y
       tmux_need_install=0
     fi
     if [[ ${git_need_install} == 1 ]]; then
+      echo "====> Install Command [git]."
       sudo yum install git -y
       git_need_install=0
     fi
