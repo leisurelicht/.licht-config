@@ -21,7 +21,7 @@ lsp_installer.settings(
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 --
 local servers = {
-  sumneko_lua = "lua",
+  sumneko_lua = "lua"
 }
 
 -- 自动安装 language server
@@ -59,7 +59,7 @@ lsp_installer.on_server_ready(
     if opts.lsp == nil then
       return
     end
-    
+
     server:setup(opts.lsp)
   end
 )

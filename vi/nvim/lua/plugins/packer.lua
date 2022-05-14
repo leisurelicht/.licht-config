@@ -2,6 +2,7 @@
 -- packer.lua --- packer file
 -- Author: MuCheng
 -- =================
+--
 -- packer 未安装时自动安装
 local ok, packer = pcall(require, "packer")
 if not ok then
@@ -425,11 +426,19 @@ local startup =
         after = {"nvim-cmp"}
       }
 
-      -- nvim-lint
+      -- -- nvim-lint
+      -- use {
+      --   "mfussenegger/nvim-lint",
+      --   config = function()
+      --     require("plugins.nvim-lint")
+      --   end
+      -- }
+
+      -- null_ls
       use {
-        "mfussenegger/nvim-lint",
+        "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require("plugins.nvim-lint")
+          require("plugins.null-ls")
         end
       }
 

@@ -110,7 +110,8 @@ cmp.setup {
               look = "[LK]",
               vsnip = "[VS]",
               spell = "[SPELL]",
-              cmp_tabnine = "[TN]"
+              cmp_tabnine = "[TN]",
+              cmdlime = "[CMD]"
             })[entry.source.name]
 
             if m == nil then
@@ -143,6 +144,7 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSUpport = true
 
 local M = {}
 
