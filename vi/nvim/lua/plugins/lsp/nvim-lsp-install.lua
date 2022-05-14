@@ -28,9 +28,9 @@ lsp_installer.settings(
 local servers = {
   sumneko_lua = "lua",
   gopls = "go",
-  golangci_lint_ls = "go",
+  -- golangci_lint_ls = "go",
   pyright = "python",
-  pylsp = "python",
+  -- -- pylsp = "python",
   jedi_language_server = "python",
   zk = "markdown",
   jsonls = "json",

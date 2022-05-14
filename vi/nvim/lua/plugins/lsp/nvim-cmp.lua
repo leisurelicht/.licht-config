@@ -62,6 +62,18 @@ cmp.setup {
       -- {name = "nvim_lsp_signature_help"}
     }
   ),
+  window = {
+    completion = cmp.config.window.bordered(
+      {
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None"
+      }
+    ),
+    documentation = cmp.config.window.bordered(
+      {
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None"
+      }
+    )
+  },
   sorting = {
     comparators = {
       cmp.config.compare.offset,
@@ -107,24 +119,6 @@ cmp.setup {
 
             return m
           end)()
-
-          -- local types = require("cmp.types")
-          -- local str = require("cmp.utils.str")
-          --
-          -- local word = entry:get_insert_text()
-          -- if entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet then
-          -- 	word = vim.lsp.util.parse_snippet(word)
-          -- end
-          -- word = str.oneline(word)
-
-          -- if
-          -- 	entry.completion_item.insertTextFormat == types.lsp.InsertTextFormat.Snippet
-          -- 	and string.sub(vim_item.abbr, -1, -1) == "~"
-          -- then
-          -- 	word = word .. "~"
-          -- end
-          -- vim_item.abbr = word
-
           return vim_item
         end
       }
@@ -133,12 +127,15 @@ cmp.setup {
 }
 
 -- -- Use buffer source for `/`.
--- cmp.setup.cmdline('/', {sources = {{name = 'buffer'}}})
+cmp.setup.cmdline("/", {sources = {{name = "buffer"}}})
 
 -- -- Use cmdline & path source for ':'.
--- cmp.setup.cmdline(':', {
---   sources = cmp.config.sources({{name = 'path'}}, {{name = 'cmdline'}})
--- })
+cmp.setup.cmdline(
+  ":",
+  {
+    sources = cmp.config.sources({{name = "path"}}, {{name = "cmdline"}})
+  }
+)
 
 -- -- If you want insert `(` after select function or method item
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
