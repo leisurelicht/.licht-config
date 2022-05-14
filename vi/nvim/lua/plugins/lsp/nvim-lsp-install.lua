@@ -38,7 +38,8 @@ local servers = {
   clangd = "default",
   sqlls = "default",
   dockerls = "default",
-  cmake = "default"
+  cmake = "default",
+  vimls = "default"
 }
 
 -- 自动安装 language server

@@ -436,7 +436,11 @@ local startup =
         end
       }
 
-      -- 代码调试插件
+      --[[
+      =====================================
+      ----- debug adapter protocol ------
+      =====================================
+      --]]
       --
       -- dap
       use {
@@ -471,7 +475,11 @@ local startup =
         after = {"nvim-dap"}
       }
 
-      -- code 增强 --
+      --[[
+      =====================================
+      ------------- code 增强 -------------
+      =====================================
+      --]]
       --
       -- python indent
       use {"vim-scripts/indentpython.vim", ft = {"python", "djangohtml"}}

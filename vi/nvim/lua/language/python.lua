@@ -1,11 +1,18 @@
 -- =================
--- python.lua --- python lsp config file
+-- python.lua --- python config file
 -- Author: MuCheng
 -- =================
 --
 M = {}
 
 M.lsp = {
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
+  handlers = {
+    ["textDocument/publishDiagnostics"] = function(...)
+    end
+  },
   flags = {debounce_text_changes = 150},
   on_attach = function(client, bufnr)
     client.resolved_capabilities.document_formatting = false

@@ -47,6 +47,10 @@ cmp.setup {
       {name = "tmux"},
       {name = "cmp_tabnine"},
       {name = "nvim_lua"},
+      {name = "buffer"},
+      {name = "path"},
+      {name = "cmdline"},
+      {name = "spell"},
       {
         name = "look",
         keyword_length = 2,
@@ -56,12 +60,6 @@ cmp.setup {
         }
       }
       -- {name = "nvim_lsp_signature_help"}
-    },
-    {
-      {name = "buffer"},
-      {name = "path"},
-      {name = "cmdline"},
-      {name = "spell"}
     }
   ),
   sorting = {

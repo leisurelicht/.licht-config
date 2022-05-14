@@ -5,22 +5,17 @@
 --
 
 M = {}
--- vim.cmd([[
---   autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
--- ]])
-
--- local path = require 'nvim-lsp-installer.path'
--- local install_root_dir = path.concat {vim.fn.stdpath 'data', 'lsp_servers'}
-
--- require('go').setup({
---   gopls_cmd = {install_root_dir .. '/go/gopls'},
---   filstruct = 'gopls',
---   dap_debug = true,
---   dap_debug_gui = true,
---   lsp_cfg = {capabilities = require('lsp.nvim-cmp').capabilities}
--- })
 
 M.lsp = {
+  root_dir = function()
+    return vim.fn.getcwd()
+  end,
+  -- 禁用代码检查
+  handlers = {
+    ---@diagnostic disable-next-line: unused-vararg
+    ["textDocument/publishDiagnostics"] = function(...)
+    end
+  },
   flags = {debounce_text_changes = 150},
   on_attach = function(client, bufnr)
     -- 关闭lsp 的自动格式化
@@ -30,7 +25,6 @@ M.lsp = {
     require("plugins.lsp.keybindings").register(client, bufnr)
 
     -- 保存时使用lsp的自动格式化
-    -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
   end
 }
 

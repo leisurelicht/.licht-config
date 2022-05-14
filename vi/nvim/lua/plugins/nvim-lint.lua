@@ -26,7 +26,7 @@ lint.linters_by_ft = {
 
 local api = require("utils.api")
 api.autocmd(
-  {"BufEnter", "BufNewFile", "TextChanged"},
+  {"BufEnter", "TextChanged", "BufWritePost"},
   {
     pattern = {"*"},
     command = "lua require('lint').try_lint()"
