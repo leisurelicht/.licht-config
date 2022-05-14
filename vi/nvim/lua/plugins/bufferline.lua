@@ -9,15 +9,21 @@ if not ok then
   return
 end
 
+local icons = require("utils.icons")
+
 vim.opt.termguicolors = true
 bufferline.setup {
   options = {
-    numbers = function(opts)
-      return string.format("%s.%s", opts.ordinal, opts.lower(opts.id))
-    end,
-    -- 左侧让出nvim-tree的位置
+    numbers = "ordinal",
+    indicator_icon = "▎",
+    buffer_close_icon = "",
+    modified_icon = "●",
+    close_icon = "",
+    left_trunc_marker = "",
+    right_trunc_marker = "",
     offsets = {
       {
+        -- 左侧让出nvim-tree的位置
         filetype = "NvimTree",
         text = "File Explorer",
         highlight = "Directory",
@@ -26,14 +32,21 @@ bufferline.setup {
     },
     -- 使用 nvim 内置 lsp
     diagnostics = "nvim_lsp",
+    separator_style = "thin",
     -- 显示 LSP 报错图标
+    ---@diagnostic disable-next-line: unused-local
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      local s = " "
-      for e, n in pairs(diagnostics_dict) do
-        local sym = e == "error" and "  " or (e == "warning" and "  " or " ")
-        s = s .. n .. sym
+      local c = ""
+      if diagnostics_dict.error then
+        c = c .. icons.diagnostics.Error .. diagnostics_dict.error
+      elseif diagnostics_dict.warning then
+        c = c .. icons.diagnostics.Warn .. diagnostics_dict.warning
+      elseif diagnostics_dict.info then
+        c = c .. icons.diagnostics.Info .. diagnostics_dict.info
+      elseif diagnostics_dict.hint then
+        c = c .. icons.diagnostics.Hint .. diagnostics_dict.hint
       end
-      return s
+      return c
     end
   }
 }
