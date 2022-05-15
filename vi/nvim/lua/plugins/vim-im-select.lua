@@ -10,38 +10,26 @@ local sys = require("utils.sys")
 local api = require("utils.api")
 
 if sys.IsMacOS() then
-  api.autocmd(
-    {"InsertLeave"},
-    {
-      pattern = {"*"},
-      command = "call system('im-select com.apple.keylayout.ABC')"
-    }
-  )
-  api.autocmd(
-    {"CmdlineLeave"},
-    {
-      pattern = {"*"},
-      command = "call system('im-select com.apple.keylayout.ABC')"
-    }
-  )
-  api.autocmd(
-    {"VimEnter"},
-    {
-      pattern = {"*"},
-      command = "call system('im-select com.apple.keylayout.ABC')"
-    }
-  )
+	api.autocmd({ "InsertLeave" }, {
+		pattern = { "*" },
+		command = "call system('im-select com.apple.keylayout.ABC')",
+	})
+	api.autocmd({ "CmdlineLeave" }, {
+		pattern = { "*" },
+		command = "call system('im-select com.apple.keylayout.ABC')",
+	})
+	api.autocmd({ "VimEnter" }, {
+		pattern = { "*" },
+		command = "call system('im-select com.apple.keylayout.ABC')",
+	})
 elseif sys.IsLinux() then
 end
 
 local wk = require("which-key")
-wk.register(
-  {
-    I = {
-      name = "+ImSelect",
-      e = {"<CMD>ImSelectEnable<CR>", "Im Select Enable"},
-      d = {"<CMD>ImSelectDisable<CR>", "Im Select Disable"}
-    }
-  },
-  {prefix = "<leader>"}
-)
+wk.register({
+	I = {
+		name = "+ImSelect",
+		e = { "<CMD>ImSelectEnable<CR>", "Im Select Enable" },
+		d = { "<CMD>ImSelectDisable<CR>", "Im Select Disable" },
+	},
+}, { prefix = "<leader>" })

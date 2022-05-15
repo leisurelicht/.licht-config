@@ -5,8 +5,8 @@
 --
 local ok, spell = pcall(require, "spellsitter")
 if not ok then
-  vim.notify("Load spell Failed", "warn")
-  return
+	vim.notify("Load spell Failed", "warn")
+	return
 end
 
-spell.setup({enable = true})
+spell.setup({ enable = true })

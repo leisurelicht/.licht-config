@@ -1,11 +1,10 @@
 return {
-  hooks = {
-    ---@diagnostic disable-next-line: unused-local
-    attach = function(client, bufnr)
-    end
-  },
-  options = {
-    cmd = {"vim-language-server", "--stdio"},
-    filetypes = {"vim"}
-  }
+	hooks = {
+		---@diagnostic disable-next-line: unused-local
+		attach = function(client, bufnr) end,
+	},
+	options = {
+		cmd = { "vim-language-server", "--stdio" },
+		filetypes = { "vim" },
+	},
 }

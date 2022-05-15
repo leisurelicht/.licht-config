@@ -142,4 +142,4 @@ vim.o.spelllang = "en_us,cjk"
 -- set gui font
 vim.o.guifont = "Hack Nerd Font"
 
-vim.g.syntastic_vim_checkers = {"vint"}
+vim.g.syntastic_vim_checkers = { "vint" }

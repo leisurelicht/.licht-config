@@ -9,5 +9,6 @@ vim.g.glow_use_pager = true
 vim.g.glow_style = "dark"
 
 local wk = require("which-key")
-wk.register({r = {name = "+Runner", m = {"<CMD>Glow<CR>", "markdown"}}},
-            {prefix = "<leader>"})
+wk.register({
+	r = { name = "+Runner", m = { "<CMD>Glow<CR>", "markdown" } },
+}, { prefix = "<leader>" })

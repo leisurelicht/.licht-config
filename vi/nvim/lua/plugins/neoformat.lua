@@ -22,15 +22,12 @@ vim.g.neoformat_only_msg_on_error = 1
 -- vim.g.neoformat_enabled_c = {"clang-format"}
 
 local api = require("utils.api")
-local format = api.augroup("Preat", {clear = true})
-api.autocmd(
-    {"BufWritePre"},
-    {
-        pattern = {"*"},
-        command = "undojoin | Neoformat",
-        group = format
-    }
-)
+local format = api.augroup("Preat", { clear = true })
+api.autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = "undojoin | Neoformat",
+	group = format,
+})
 
 local wk = require("which-key")
-wk.register({["nf"] = {"<CMD>Neoformat<CR>", "Format"}}, {prefix = "<leader>"})
+wk.register({ ["nf"] = { "<CMD>Neoformat<CR>", "Format" } }, { prefix = "<leader>" })

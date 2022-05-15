@@ -23,4 +23,4 @@ local keys = require("utils.keys")
 keys.mapCmd("<F6>", "UndotreeToggle")
 
 local wk = require("which-key")
-wk.register({U = {"<CMD>UndotreeToggle<CR>", "UndoTree"}}, {prefix = "<leader>"})
+wk.register({ U = { "<CMD>UndotreeToggle<CR>", "UndoTree" } }, { prefix = "<leader>" })
