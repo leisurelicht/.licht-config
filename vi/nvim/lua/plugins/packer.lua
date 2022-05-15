@@ -238,9 +238,6 @@ local startup =
       }
       use {
         "onsails/lspkind-nvim", -- lspkind 补全界面美化
-        after = {"nvim-cmp"}
-      }
-      use {
         "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
         after = {"nvim-cmp"}
       }
