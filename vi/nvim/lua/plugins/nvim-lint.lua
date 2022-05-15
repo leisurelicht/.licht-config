@@ -13,7 +13,7 @@ lint.linters_by_ft = {
 	-- /opt/homebrew/bin/python3 -m pip install pylint
 	-- python = {"pylint"},
 	-- brew install golangci-lint
-	-- go = {"golangcilint"},
+	-- go = { "golangcilint" },
 	-- luacheck install luacheck
 	-- lua = {"luacheck"},
 	-- brew install shellcheck

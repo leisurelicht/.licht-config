@@ -311,12 +311,12 @@ local startup = packer.startup({
         =====================================
         --]]
 		-- nvim-lint
-		-- use {
-		--   "mfussenegger/nvim-lint",
-		--   config = function()
-		--     require("plugins.nvim-lint")
-		--   end
-		-- }
+		use({
+			"mfussenegger/nvim-lint",
+			config = function()
+				require("plugins.nvim-lint")
+			end,
+		})
 		-- neoformat
 		-- use {
 		--     "sbdchd/neoformat",

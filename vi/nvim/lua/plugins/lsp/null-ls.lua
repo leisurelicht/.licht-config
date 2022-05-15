@@ -18,6 +18,7 @@ null_ls.setup({
 			"--indent-width=4",
 		}),
 		-- go
+		null_ls.builtins.diagnostics.golangci_lint,
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.goimports,
 		-- sql
@@ -35,9 +36,12 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.markdownlint,
 		-- shell
 		null_ls.builtins.code_actions.shellcheck,
+		null_ls.builtins.formatting.shfmt,
 		-- frontend
 		null_ls.builtins.formatting.prettier,
 		-- make
 		null_ls.builtins.diagnostics.checkmake,
+		-- vim
+		null_ls.builtins.diagnostics.vint,
 	},
 })
