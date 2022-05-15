@@ -169,7 +169,6 @@ local startup = packer.startup({
 		use({
 			"nvim-telescope/telescope.nvim",
 			requires = {
-				-- {"nvim-lua/plenary.nvim"},
 				{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 				{ "nvim-telescope/telescope-packer.nvim" },
 			},
@@ -178,6 +177,9 @@ local startup = packer.startup({
 			end,
 			after = { "plenary.nvim" },
 		})
+		-- TODO
+		-- AckslD/nvim-neoclip.lua
+		-- nvim-pack/nvim-spectre
 		--[[
         ====================================
          ---- Language Server Protocol ----
