@@ -11,32 +11,25 @@ vim.g.neoformat_basic_format_retab = 0
 -- 只提示错误消息
 vim.g.neoformat_only_msg_on_error = 1
 
--- vim.cmd([[
--- let g:neoformat_lua_luafmt = {
---   \ 'exe': 'luafmt',
---   \ 'args': ['-i 2', ],
---   \ }
--- ]])
+-- vim.g.neoformat_lua_luafmt = {
+--   exe = "luafmt",
+--   args = {"-i 2"}
+-- }
 
-vim.g.neoformat_lua_luafmt = {
-  exe = "luafmt",
-  args = {"-i 2"}
-}
-
-vim.g.neoformat_enabled_golang = {"gofumpt", "gofmt", "goimports"}
-vim.g.neoformat_enabled_lua = {"luafmt"}
-vim.g.neoformat_enabled_python = {"yapf", "autopep8", "isort"}
-vim.g.neoformat_enabled_c = {"clang-format"}
+-- vim.g.neoformat_enabled_golang = {"gofumpt", "gofmt", "goimports"}
+-- vim.g.neoformat_enabled_lua = {"luafmt"}
+-- vim.g.neoformat_enabled_python = {"yapf", "autopep8", "isort"}
+-- vim.g.neoformat_enabled_c = {"clang-format"}
 
 local api = require("utils.api")
 local format = api.augroup("Preat", {clear = true})
 api.autocmd(
-  {"BufWritePre"},
-  {
-    pattern = {"*"},
-    command = "undojoin | Neoformat",
-    group = format
-  }
+    {"BufWritePre"},
+    {
+        pattern = {"*"},
+        command = "undojoin | Neoformat",
+        group = format
+    }
 )
 
 local wk = require("which-key")

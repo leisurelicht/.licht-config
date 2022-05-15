@@ -3,26 +3,44 @@
 -- Author: MuCheng
 -- =================
 --
-local ok, null = pcall(require, "null-ls")
+local ok, null_ls = pcall(require, "null-ls")
 if not ok then
-  return
+    return
 end
 
-null.setup(
-  {
+null_ls.setup({
     sources = {
-      null.builtins.formatting.prettier,
-      null.builtins.formatting.gofmt,
-      null.builtins.formatting.autopep8,
-      null.builtins.formatting.sqlformat,
-      null.builtins.formatting.stylua.with(
-        {
-          extra_args = {
-            "--indent-type=Spaces",
-            "--indent-width=2"
-          }
-        }
-      )
+        null_ls.builtins.code_actions.refactoring,
+        -- lua
+        null_ls.builtins.diagnostics.luacheck,
+        null_ls.builtins.formatting.stylua.with({
+            extra_args = {
+                "--indent-type=Spaces",
+                "--indent-width=4"
+            }
+        }),
+
+        -- go
+        null_ls.builtins.formatting.goimports,
+        null_ls.builtins.formatting.gofumpt,
+        -- sql
+        null_ls.builtins.formatting.sqlformat,
+        -- python
+        null_ls.builtins.formatting.yapf,
+        null_ls.builtins.formatting.autopep8,
+        null_ls.builtins.diagnostics.curlylint,
+        null_ls.builtins.formatting.djlint,
+        -- git commit
+        null_ls.builtins.diagnostics.gitlint,
+        -- dockerfile
+        null_ls.builtins.diagnostics.hadolint,
+        -- markdown
+        null_ls.builtins.diagnostics.markdownlint,
+        -- shell
+        null_ls.builtins.code_actions.shellcheck,
+        -- frontend
+        null_ls.builtins.formatting.prettier,
+        -- make
+        null_ls.builtins.diagnostics.checkmake,
     }
-  }
-)
+})
