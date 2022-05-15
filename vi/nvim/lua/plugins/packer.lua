@@ -54,6 +54,9 @@ local startup =
       -- =====================================
       --  ------------ Depend ------------
       -- =====================================
+      use {
+        "nvim-lua/plenary.nvim"
+      }
       -- 图标
       use {
         "kyazdani42/nvim-web-devicons",
@@ -148,6 +151,29 @@ local startup =
           require("plugins.nvim-autopairs")
         end
       }
+      -- undo tree
+      -- use {
+      --   "mbbill/undotree",
+      --   config = function()
+      --     require("plugins.undotree")
+      --   end
+      -- }
+      -- =====================================
+      --  ----------- Fuzzy lookup ----------
+      -- =====================================
+      -- 搜索插件
+      use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+          -- {"nvim-lua/plenary.nvim"},
+          {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+          {"nvim-telescope/telescope-packer.nvim"}
+        },
+        config = function()
+          require("plugins.telescope")
+        end,
+        after = {"plenary.nvim"}
+      }
       -- =====================================
       --  --------------- lsp ---------------
       -- =====================================
@@ -209,7 +235,8 @@ local startup =
         requires = {},
         config = function()
           require("plugins.lsp.nvim-cmp")
-        end
+        end,
+        after = {"nvim-autopairs"}
       }
       use {
         "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
@@ -231,7 +258,7 @@ local startup =
         after = {"nvim-cmp"}
       }
       -- =====================================
-      -- ----- debug adapter protocol ------
+      --  ----- Debug Adapter Protocol ------
       -- =====================================
       --
       -- dap
@@ -242,7 +269,6 @@ local startup =
         end,
         after = {"impatient.nvim"}
       }
-
       -- 为代码调试提供内联文本
       use {
         "theHamsta/nvim-dap-virtual-text",
@@ -254,7 +280,6 @@ local startup =
         end,
         after = {"nvim-dap"}
       }
-
       -- 为代码调试提供 UI 界面
       use {
         "rcarriga/nvim-dap-ui",
@@ -269,8 +294,7 @@ local startup =
       -- =====================================
       --  ------------ code 增强 ------------
       -- =====================================
-      --
-      -- -- nvim-lint
+      -- nvim-lint
       -- use {
       --   "mfussenegger/nvim-lint",
       --   config = function()
@@ -315,25 +339,11 @@ local startup =
           require("plugins.glow")
         end
       }
-
       -- modern go neovim plugin
       -- use 'ray-x/go.nvim'
       -- =====================================
       -- ---------- Other function ---------
       -- =====================================
-      -- 搜索插件
-      use {
-        "nvim-telescope/telescope.nvim",
-        requires = {
-          {"nvim-lua/plenary.nvim"},
-          {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
-          {"nvim-telescope/telescope-packer.nvim"}
-        },
-        config = function()
-          require("plugins.telescope")
-        end
-      }
-
       -- dashboard
       use {
         "goolord/alpha-nvim",
@@ -342,10 +352,8 @@ local startup =
           require("plugins.alpha-nvim")
         end
       }
-
       -- marks
       -- use 'chentau/marks.nvim'
-
       -- 浮窗终端
       use {
         "akinsho/toggleterm.nvim",
@@ -353,7 +361,6 @@ local startup =
           require("plugins.toggleterm")
         end
       }
-
       -- indent
       use {
         "lukas-reineke/indent-blankline.nvim",
@@ -362,7 +369,6 @@ local startup =
         end,
         event = {"BufRead", "BufNewFile"}
       }
-
       -- surround 快速修改
       -- cs : 修改包裹
       -- ds : 删除包裹
@@ -371,7 +377,6 @@ local startup =
         "tpope/vim-surround",
         event = {"BufRead", "BufNewFile"}
       }
-
       -- 搜索时显示条目
       use {
         "kevinhwang91/nvim-hlslens",
@@ -379,7 +384,6 @@ local startup =
           require("plugins.hlslens")
         end
       }
-
       -- 多光标
       -- use {
       --   "mg979/vim-visual-multi",
@@ -387,7 +391,6 @@ local startup =
       --     require("plugins.multi")
       --   end
       -- }
-
       -- 快速跳转
       use {
         "phaazon/hop.nvim",
@@ -395,7 +398,6 @@ local startup =
           require("plugins.hop")
         end
       }
-
       -- 拼写检查
       use {
         "lewis6991/spellsitter.nvim",
@@ -403,7 +405,6 @@ local startup =
           require("plugins.spellsitter")
         end
       }
-
       -- 最后编辑位置保存
       use {
         "ethanholz/nvim-lastplace",
@@ -411,7 +412,6 @@ local startup =
           require("plugins.lastplace")
         end
       }
-
       -- 16进制颜色展示
       use {
         "norcalli/nvim-colorizer.lua",
@@ -419,32 +419,20 @@ local startup =
           require("colorizer").setup()
         end
       }
-
-      -- undo tree
-      -- use {
-      --   "mbbill/undotree",
-      --   config = function()
-      --     require("plugins.undotree")
-      --   end
-      -- }
-
       -- todo
       use {
         "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
         config = function()
           require("plugins.todo")
         end,
         event = {"BufRead, BufNewFile"}
       }
-
       -- 启动时间统计
       use {
         "dstein64/vim-startuptime",
         cmd = {"StartupTime"},
         after = {"impatient.nvim"}
       }
-
       -- 输入法自动切换
       use {
         "brglng/vim-im-select",
@@ -452,7 +440,6 @@ local startup =
           require("plugins.vim-im-select")
         end
       }
-
       -- 平滑翻页
       use {
         "karb94/neoscroll.nvim",
