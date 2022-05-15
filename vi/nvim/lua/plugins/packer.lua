@@ -112,8 +112,7 @@ local startup =
         "kyazdani42/nvim-tree.lua",
         config = function()
           require("plugins.nvim-tree")
-        end,
-        cmd = {"NvimTreeToggle", "NvimTreeFindFile"}
+        end
       }
       -- bufferline buffer美化
       use {
@@ -232,11 +231,18 @@ local startup =
       -- nvim-cmp 代码补全
       use {
         "hrsh7th/nvim-cmp",
-        requires = {},
         config = function()
           require("plugins.lsp.nvim-cmp")
         end,
         after = {"nvim-autopairs"}
+      }
+      use {
+        "onsails/lspkind-nvim", -- lspkind 补全界面美化
+        after = {"nvim-cmp"}
+      }
+      use {
+        "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
+        after = {"nvim-cmp"}
       }
       use {
         "hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
@@ -249,12 +255,10 @@ local startup =
         "andersevenrud/cmp-tmux", -- { name = 'tmux'}
         "f3fora/cmp-spell", -- { name = 'spell' }
         {"tzachar/cmp-tabnine", run = "./install.sh"}, -- { name = "tabline" }
-        "lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
         -- vsnip 代码片段补全
         "hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
         "hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
         "rafamadriz/friendly-snippets", -- 代码片段
-        "onsails/lspkind-nvim", -- lspkind 补全界面美化
         after = {"nvim-cmp"}
       }
       -- =====================================
