@@ -1,12 +1,36 @@
 -- ==============
--- lsp.lua --- lsp isntaller config file
+-- lsp.lua --- lsp config file
 -- Author: MuCheng
 -- =================
 --
+local ok, _ = pcall(require, "lspconfig")
+if not ok then
+  vim.notify("Load nvim-lspconfig Failed", "warn")
+  return
+end
+
 local install_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not install_ok then
   vim.notify("Load nvim-lsp-installer Failed", "warn")
   return
+end
+
+vim.diagnostic.config(
+  {
+    signs = true,
+    underline = true,
+    severity_sort = true,
+    update_in_insert = false,
+    float = {source = "always"},
+    virtual_text = {prefix = "●", source = "always"}
+  }
+)
+
+local icons = require("utils.icons")
+
+for tpe, icon in pairs(icons.diagnostics) do
+  local hl = "DiagnosticSign" .. tpe
+  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
 
 lsp_installer.settings(
@@ -105,22 +129,4 @@ for server_name, server_file in pairs(servers) do
     require("lspconfig")[server_name].setup(opts.lsp)
   end
   ::continue::
-end
-
-vim.diagnostic.config(
-  {
-    signs = true,
-    underline = true,
-    severity_sort = true,
-    update_in_insert = false,
-    float = {source = "always"},
-    virtual_text = {prefix = "●", source = "always"}
-  }
-)
-
-local icons = require("utils.icons")
-
-for tpe, icon in pairs(icons.diagnostics) do
-  local hl = "DiagnosticSign" .. tpe
-  vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end

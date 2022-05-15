@@ -178,15 +178,20 @@ local startup =
       -- =====================================
       -- lsp
       use {
-        "neovim/nvim-lspconfig", -- lsp
+        "neovim/nvim-lspconfig" -- lsp
+      }
+      -- null_ls
+      use {
+        "jose-elias-alvarez/null-ls.nvim",
         config = function()
-          require("plugins.lsp.lsp-config")
-        end
+          require("plugins.lsp.null-ls")
+        end,
+        after = {"plenary.nvim"}
       }
       use {
         "williamboman/nvim-lsp-installer", -- lsp server install
         config = function()
-          require("plugins.lsp.nvim-lsp-install")
+          require("plugins.lsp.nvim-lsp")
         end,
         after = {"nvim-lspconfig"}
       }
@@ -302,13 +307,6 @@ local startup =
       --     require("plugins.nvim-lint")
       --   end
       -- }
-      -- null_ls
-      use {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require("plugins.null-ls")
-        end
-      }
       -- neoformat
       use {
         "sbdchd/neoformat",

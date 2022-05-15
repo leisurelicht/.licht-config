@@ -36,4 +36,9 @@ lightbulb.setup(
   }
 )
 
+vim.fn.sign_define(
+  "LightBulbSign",
+  {text = icons.lsp_hover.Action, texthl = "DiagnosticSignWarn", linehl = "", numhl = ""}
+)
+
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
