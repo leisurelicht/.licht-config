@@ -9,15 +9,6 @@ return {
 		document_formatting = false,
 		formatting_on_save = true,
 	},
-	hooks = {
-		---@diagnostic disable-next-line: unused-local
-		attach = function(client, bufnr)
-			api.autocmd({ "BufWritePre" }, {
-				pattern = { "<buffer>" },
-				command = "lua vim.lsp.buf.formatting_sync()",
-			})
-		end,
-	},
 	options = {
 		-- cmd = { "lua-language-server", "--locale=zh-CN" },
 		cmd = { "lua-language-server" },

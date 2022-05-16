@@ -18,7 +18,7 @@ lspsaga.setup({
 	-- 正在写入的行提示
 	code_action_icon = " ",
 	finder_action_keys = {
-		open = "i",
+		open = "<CR>",
 		vsplit = "s",
 		split = "o",
 		quit = "<Esc>",

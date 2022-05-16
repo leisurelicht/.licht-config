@@ -123,19 +123,23 @@ for _, server_name in ipairs(servers) do
             vim.notify("Get LSP Config : " .. server_file .. " Failed.", "Warn")
             goto continue
         end
+        local settings = opts.settings
+        local options = opts.options
 
-        opts.options.flags = { debounce_text_changes = 150 }
+        options.flags = { debounce_text_changes = 150 }
 
-        opts.options.on_attach = function(client, bufnr)
-            opts.hooks.attach(client, bufnr)
+        options.on_attach = function(client, bufnr)
+            if opts.attach ~= nil then
+                opts.attach(client, bufnr)
+            end
             require("plugins.lsp.keybindings").register(client, bufnr)
 
-            if opts.settings.document_formatting ~= nil then
-                client.resolved_capabilities.document_formatting = opts.settings.document_formatting
-                client.resolved_capabilities.document_range_formatting = opts.settings.document_formatting
+            if settings.document_formatting ~= nil then
+                client.resolved_capabilities.document_formatting = settings.document_formatting
+                client.resolved_capabilities.document_range_formatting = settings.document_formatting
             end
 
-            if opts.settings.formatting_on_save ~= nil and opts.settings.formatting_on_save then
+            if settings.formatting_on_save ~= nil and settings.formatting_on_save then
                 api.autocmd({ "BufWritePre" }, {
                     pattern = { "<buffer>" },
                     command = "lua vim.lsp.buf.formatting_sync()",
@@ -143,18 +147,18 @@ for _, server_name in ipairs(servers) do
             end
         end
 
-        if opts.settings.document_diagnostics ~= nil and not opts.settings.document_diagnostics then
+        if settings.document_diagnostics ~= nil and not settings.document_diagnostics then
             local handler = {
                 ---@diagnostic disable-next-line: unused-vararg
                 ["textDocument/publishDiagnostics"] = function(...) end
             }
-            opts.options.handlers = vim.tbl_deep_extend("force", handler, opts.options.handlers or {})
+            options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
-        opts.options.handlers = vim.tbl_deep_extend("force", lsp_handlers, opts.options.handlers or {})
+        options.handlers = vim.tbl_deep_extend("force", lsp_handlers, options.handlers or {})
 
-        opts.options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
+        options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
-        require("lspconfig")[server_name].setup(opts.options)
+        require("lspconfig")[server_name].setup(options)
     end
     ::continue::
 end
