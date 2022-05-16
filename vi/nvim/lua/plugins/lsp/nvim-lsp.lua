@@ -132,6 +132,7 @@ for _, server_name in ipairs(servers) do
 
             if opts.settings.document_formatting ~= nil then
                 client.resolved_capabilities.document_formatting = opts.settings.document_formatting
+                client.resolved_capabilities.document_range_formatting = opts.settings.document_formatting
             end
 
             if opts.settings.formatting_on_save ~= nil and opts.settings.formatting_on_save then
