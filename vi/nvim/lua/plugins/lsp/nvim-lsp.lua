@@ -15,6 +15,11 @@ if not install_ok then
     return
 end
 
+local api = require("utils.api")
+
+local icons = require("utils.icons")
+
+
 lsp_installer.settings(
     {
     ui = {
@@ -41,7 +46,6 @@ vim.diagnostic.config(
 }
 )
 
-local icons = require("utils.icons")
 
 for tpe, icon in pairs(icons.diagnostics) do
     local hl = "DiagnosticSign" .. tpe
@@ -120,13 +124,35 @@ for _, server_name in ipairs(servers) do
             goto continue
         end
 
+        opts.options.flags = { debounce_text_changes = 150 }
+
         opts.options.on_attach = function(client, bufnr)
             opts.hooks.attach(client, bufnr)
             require("plugins.lsp.keybindings").register(client, bufnr)
+
+            if opts.settings.document_formatting ~= nil then
+                client.resolved_capabilities.document_formatting = opts.settings.document_formatting
+            end
+
+            if opts.settings.formatting_on_save ~= nil and opts.settings.formatting_on_save then
+                api.autocmd({ "BufWritePre" }, {
+                    pattern = { "<buffer>" },
+                    command = "lua vim.lsp.buf.formatting_sync()",
+                })
+            end
         end
-        opts.options.flags = { debounce_text_changes = 150 }
-        opts.options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
+
+        if opts.settings.document_diagnostics ~= nil and not opts.settings.document_diagnostics then
+            local handler = {
+                ---@diagnostic disable-next-line: unused-vararg
+                ["textDocument/publishDiagnostics"] = function(...) end
+            }
+            opts.options.handlers = vim.tbl_deep_extend("force", handler, opts.options.handlers or {})
+        end
         opts.options.handlers = vim.tbl_deep_extend("force", lsp_handlers, opts.options.handlers or {})
+
+        opts.options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
+
         require("lspconfig")[server_name].setup(opts.options)
     end
     ::continue::

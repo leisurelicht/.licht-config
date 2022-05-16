@@ -5,12 +5,14 @@
 --
 local ok, null_ls = pcall(require, "null-ls")
 if not ok then
+	vim.notify("Load null-ls Failed", "warn")
 	return
 end
 
 null_ls.setup({
 	sources = {
 		-- null_ls.builtins.code_actions.refactoring,
+
 		-- lua
 		null_ls.builtins.diagnostics.luacheck,
 		null_ls.builtins.formatting.stylua.with({
@@ -19,8 +21,8 @@ null_ls.setup({
 		}),
 		-- go
 		null_ls.builtins.diagnostics.golangci_lint,
-		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.goimports,
+		null_ls.builtins.formatting.gofumpt,
 		-- sql
 		null_ls.builtins.formatting.sqlformat,
 		-- python

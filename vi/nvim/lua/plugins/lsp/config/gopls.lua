@@ -1,23 +1,17 @@
-local api = require("utils.api")
 return {
+	settings = {
+		document_diagnostics = false,
+		document_formatting = false,
+		formatting_on_save = true,
+	},
 	hooks = {
 		---@diagnostic disable-next-line: unused-local
-		attach = function(client, bufnr)
-			-- disable gopls format
-			client.resolved_capabilities.document_formatting = false
-			api.autocmd({ "BufWritePre" }, {
-				pattern = { "<buffer>" },
-				command = "lua vim.lsp.buf.formatting_sync()",
-			})
-		end,
+		attach = function(client, bufnr) end,
 	},
 	options = {
 		root_dir = function()
 			return vim.fn.getcwd()
 		end,
-		handlers = {
-			---@diagnostic disable-next-line: unused-vararg
-			["textDocument/publishDiagnostics"] = function(...) end,
-		},
+		handlers = {},
 	},
 }

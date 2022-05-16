@@ -350,8 +350,15 @@ local startup = packer.startup({
 				require("plugins.glow")
 			end,
 		})
+		-- python indent
+		use({ "vim-scripts/indentpython.vim", ft = { "python", "djangohtml" } })
 		-- modern go neovim plugin
 		-- use 'ray-x/go.nvim'
+		-- use({
+		-- 	"ThePrimeagen/refactoring.nvim",
+		-- 	ft = { "go", "lua", "python", "c", "cpp", "php", "java", "javascript", "typescript" },
+		-- })
+
 		--[[
         =====================================
          ---------- Other function ---------

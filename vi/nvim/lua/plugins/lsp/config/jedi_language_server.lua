@@ -1,18 +1,17 @@
 return {
+	settings = {
+		document_diagnostics = false,
+		document_formatting = false,
+		formatting_on_save = false,
+	},
 	hooks = {
 		---@diagnostic disable-next-line: unused-local
-		attach = function(client, bufnr)
-			client.resolved_capabilities.document_formatting = false
-		end,
+		attach = function(client, bufnr) end,
 	},
 	options = {
 		root_dir = function()
 			return vim.fn.getcwd()
 		end,
-		handlers = {
-			-- If you want to disable pyright's diagnostic prompt, open the code below
-			---@diagnostic disable-next-line: unused-vararg
-			["textDocument/publishDiagnostics"] = function(...) end,
-		},
+		handlers = {},
 	},
 }

@@ -4,11 +4,14 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 return {
+	settings = {
+		document_diagnostics = true,
+		document_formatting = false,
+		formatting_on_save = true,
+	},
 	hooks = {
 		---@diagnostic disable-next-line: unused-local
 		attach = function(client, bufnr)
-			-- disable sumneko format
-			client.resolved_capabilities.document_formatting = false
 			api.autocmd({ "BufWritePre" }, {
 				pattern = { "<buffer>" },
 				command = "lua vim.lsp.buf.formatting_sync()",
