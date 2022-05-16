@@ -177,8 +177,16 @@ local startup = packer.startup({
 			end,
 			after = { "plenary.nvim" },
 		})
+		use({
+			"AckslD/nvim-neoclip.lua",
+			requires = {
+				{ "tami5/sqlite.lua", module = "sqlite" },
+			},
+			config = function()
+				require("plugins.nvim-neoclip")
+			end,
+		})
 		-- TODO
-		-- AckslD/nvim-neoclip.lua
 		-- nvim-pack/nvim-spectre
 		--[[
         ====================================

@@ -12,6 +12,7 @@ end
 telescope.load_extension("fzf")
 telescope.load_extension("notify")
 telescope.load_extension("packer")
+telescope.load_extension("neoclip")
 
 telescope.setup({
 	defaults = { prompt_prefix = "🔍" },
@@ -47,7 +48,7 @@ wk.register({
 		c = { "<CMD>Telescope commands<CR>", "Command" },
 		C = { "<CMD>Telescope autocommand<CR>", "AutoCommand" },
 		n = { "<CMD>Telescope notify theme=dropdown<CR>", "Notify" },
-		p = { "<CMD>Telescope packer<CR>", "Packer Installed" },
+		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
 		h = {
 			name = "+History",
 			c = { "<CMD>Telescope command_history<CR>", "Command" },
