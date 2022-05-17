@@ -177,6 +177,7 @@ local startup = packer.startup({
 			end,
 			after = { "plenary.nvim" },
 		})
+		-- 粘贴板
 		use({
 			"AckslD/nvim-neoclip.lua",
 			requires = {
@@ -186,8 +187,12 @@ local startup = packer.startup({
 				require("plugins.nvim-neoclip")
 			end,
 		})
-		-- TODO
-		-- nvim-pack/nvim-spectre
+		-- use({
+		-- 	"windwp/nvim-spectre",
+		-- 	config = function()
+		-- 		require("plugins.nvim-spectre")
+		-- 	end,
+		-- })
 		--[[
         ====================================
          ---- Language Server Protocol ----
