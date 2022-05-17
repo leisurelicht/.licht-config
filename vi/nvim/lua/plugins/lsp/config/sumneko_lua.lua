@@ -14,9 +14,6 @@ return {
 		cmd = { "lua-language-server" },
 		filetypes = { "lua" },
 		log_level = 2,
-		root_dir = function()
-			return vim.fn.getcwd()
-		end,
 		settings = {
 			Lua = {
 				runtime = {

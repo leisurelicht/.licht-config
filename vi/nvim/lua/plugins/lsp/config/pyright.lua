@@ -24,13 +24,7 @@ return {
 		formatting_on_save = true,
 	},
 	options = {
-		root_dir = function()
-			return vim.fn.getcwd()
-		end,
 		handlers = {
-			-- If you want to disable pyright's diagnostic prompt, open the code below
-			-- ["textDocument/publishDiagnostics"] = function(...) end,
-
 			-- If you want to disable pyright from diagnosing unused parameters, turn on the function below
 			["textDocument/publishDiagnostics"] = vim.lsp.with(filter_publish_diagnostics, {
 				filter_keywrod = {

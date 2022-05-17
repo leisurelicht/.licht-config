@@ -126,8 +126,8 @@ wk.register({
 		-- t = {"<CMD>ToggleTerm<CR>", "Toggle"},
 		f = { "<CMD>ToggleTerm direction=float<CR>", "Toggle In Float" },
 		t = { "<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab" },
-		h = { "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle" },
-		v = { "<CMD>ToggleTerm direction=vertical<CR>", "Toggle" },
+		h = { "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal" },
+		v = { "<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical" },
 		a = { "<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term" },
 		r = { "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
 		c = {
