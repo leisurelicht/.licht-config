@@ -17,8 +17,8 @@ wk.register({
 		f = { "<CMD>Lspsaga lsp_finder<CR>", "Finder" },
 		d = { "<CMD>Lspsaga preview_definition<CR>", "Preview Definition" },
 		l = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic" },
-		j = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic" },
-		k = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic" },
+		n = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic" },
+		p = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic" },
 	},
 }, { prefix = "<leader>" })
 wk.register({

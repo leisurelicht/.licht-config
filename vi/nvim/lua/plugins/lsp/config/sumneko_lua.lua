@@ -1,4 +1,3 @@
-local api = require("utils.api")
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -6,8 +5,8 @@ table.insert(runtime_path, "lua/?/init.lua")
 return {
 	settings = {
 		document_diagnostics = true,
-		document_formatting = false,
-		formatting_on_save = true,
+		document_formatting = true,
+		formatting_on_save = false,
 	},
 	options = {
 		-- cmd = { "lua-language-server", "--locale=zh-CN" },

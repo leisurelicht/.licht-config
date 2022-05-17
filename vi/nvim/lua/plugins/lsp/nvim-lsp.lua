@@ -20,31 +20,27 @@ local api = require("utils.api")
 local icons = require("utils.icons")
 
 
-lsp_installer.settings(
-    {
+lsp_installer.settings({
     ui = {
         icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
+            server_installed = "",
+            server_pending = "",
+            server_uninstalled = "ﮊ",
         }
     }
-}
-)
+})
 
 ---@diagnostic disable-next-line: missing-parameter
 lsp_installer.setup()
 
-vim.diagnostic.config(
-    {
+vim.diagnostic.config({
     signs = true,
     underline = true,
     severity_sort = true,
     update_in_insert = false,
     float = { source = "always" },
     virtual_text = { prefix = "●", source = "always" }
-}
-)
+})
 
 
 for tpe, icon in pairs(icons.diagnostics) do
@@ -91,16 +87,16 @@ local lsp_handlers = {
     ["textDocument/hover"] = vim.lsp.with(
         lsp_hover,
         {
-        border = "rounded",
-        filetype = "lsp-hover"
-    }
+            border = "rounded",
+            filetype = "lsp-hover"
+        }
     ),
     ["textDocument/signatureHelp"] = vim.lsp.with(
         lsp_signature_help,
         {
-        border = "rounded",
-        filetype = "lsp-signature-help"
-    }
+            border = "rounded",
+            filetype = "lsp-signature-help"
+        }
     )
 }
 
@@ -123,6 +119,7 @@ for _, server_name in ipairs(servers) do
             vim.notify("Get LSP Config : " .. server_file .. " Failed.", "Warn")
             goto continue
         end
+
         local settings = opts.settings
         local options = opts.options
 
@@ -132,6 +129,7 @@ for _, server_name in ipairs(servers) do
             if opts.attach ~= nil then
                 opts.attach(client, bufnr)
             end
+
             require("plugins.lsp.keybindings").register(client, bufnr)
 
             if settings.document_formatting ~= nil then
