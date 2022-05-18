@@ -379,8 +379,6 @@ local startup = packer.startup({
 				require("plugins.alpha-nvim")
 			end,
 		})
-		-- marks
-		-- use 'chentau/marks.nvim'
 		-- 浮窗终端
 		use({
 			"akinsho/toggleterm.nvim",
@@ -480,6 +478,13 @@ local startup = packer.startup({
 			"yianwillis/vimcdoc",
 			event = { "BufRead", "BufNewFile" },
 			after = { "impatient.nvim" },
+		})
+		--
+		use({
+			"beauwilliams/focus.nvim",
+			config = function()
+                require("plugins.focus")
+			end,
 		})
 
 		-- Automatically set up your configuration after cloning packer.nvim

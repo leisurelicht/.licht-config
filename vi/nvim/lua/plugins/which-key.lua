@@ -26,8 +26,8 @@ wk.register({
 	["9"] = "window 9",
 	s = {
 		name = "+Split",
-		v = "竖直分屏",
-		o = "水平分屏",
+		v = "Vertical",
+		o = "Horizontal",
 		d = "Close Current Window",
 		c = "Close Other Window",
 	},
