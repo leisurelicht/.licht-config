@@ -187,12 +187,6 @@ local startup = packer.startup({
 				require("plugins.nvim-neoclip")
 			end,
 		})
-		-- use({
-		-- 	"windwp/nvim-spectre",
-		-- 	config = function()
-		-- 		require("plugins.nvim-spectre")
-		-- 	end,
-		-- })
 		--[[
         ====================================
          ---- Language Server Protocol ----
