@@ -22,8 +22,8 @@ lspsaga.setup({
 		vsplit = "s",
 		split = "o",
 		quit = "<Esc>",
-		scroll_down = "<C-d>",
-		scroll_up = "<C-u>",
+		scroll_down = "<C-f>",
+		scroll_up = "<C-b>",
 	},
 	code_action_prompt = {
 		-- 显示写入行提示

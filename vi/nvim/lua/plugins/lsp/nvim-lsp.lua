@@ -62,39 +62,6 @@ local servers = {
     "vimls"
 }
 
-local function lsp_hover(_, result, ctx, config)
-    local bufnr, winner = vim.lsp.handlers.hover(_, result, ctx, config)
-    if bufnr and winner then
-        vim.api.nvim_buf_set_option(bufnr, "filetype", config.filetype)
-        return bufnr, winner
-    end
-end
-
-local function lsp_signature_help(_, result, ctx, config)
-    local bufnr, winner = vim.lsp.handlers.signature_help(_, result, ctx, config)
-    if bufnr and winner then
-        vim.api.nvim_buf_set_option(bufnr, "filetype", config.filetype)
-        return bufnr, winner
-    end
-end
-
-local lsp_handlers = {
-    ["textDocument/hover"] = vim.lsp.with(
-        lsp_hover,
-        {
-            border = "rounded",
-            filetype = "lsp-hover"
-        }
-    ),
-    ["textDocument/signatureHelp"] = vim.lsp.with(
-        lsp_signature_help,
-        {
-            border = "rounded",
-            filetype = "lsp-signature-help"
-        }
-    )
-}
-
 for _, server_name in ipairs(servers) do
     local server_ok, server = lsp_installer.get_server(server_name)
     if not server_ok then
@@ -147,7 +114,6 @@ for _, server_name in ipairs(servers) do
             }
             options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
-        options.handlers = vim.tbl_deep_extend("force", lsp_handlers, options.handlers or {})
 
         options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
