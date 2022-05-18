@@ -20,6 +20,8 @@ if not cmp_nvim_lsp_ok then
     return
 end
 
+local icons = require("utils.icons")
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -33,8 +35,8 @@ cmp.setup({
         ["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
         ["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
         ["<CR>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "s", "c" }),
-        ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), {"i", "s", "c"}),
-        ["<c-e>"] = cmp.mapping(cmp.mapping.abort(), {"i", "s", "c"}),
+        ["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
+        ["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
     },
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -67,11 +69,14 @@ cmp.setup({
     sorting = {
         comparators = {
             cmp.config.compare.offset,
+            cmp.under_compare,
             cmp.config.compare.exact,
+            cmp.config.compare.scopes,
             cmp.config.compare.score,
             cmp.config.compare.recently_used,
             require("cmp-under-comparator").under,
             require("cmp_tabnine.compare"),
+            cmp.config.compare.locality,
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
