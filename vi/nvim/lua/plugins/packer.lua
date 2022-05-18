@@ -360,7 +360,13 @@ local startup = packer.startup({
 		-- python indent
 		use({ "vim-scripts/indentpython.vim", ft = { "python", "djangohtml" } })
 		-- modern go neovim plugin
-		-- use 'ray-x/go.nvim'
+		use({
+			"ray-x/go.nvim",
+			config = function()
+				require("plugins.go")
+			end,
+		})
+		-- refactor action
 		-- use({
 		-- 	"ThePrimeagen/refactoring.nvim",
 		-- 	ft = { "go", "lua", "python", "c", "cpp", "php", "java", "javascript", "typescript" },
@@ -483,7 +489,7 @@ local startup = packer.startup({
 		use({
 			"beauwilliams/focus.nvim",
 			config = function()
-                require("plugins.focus")
+				require("plugins.focus")
 			end,
 		})
 
