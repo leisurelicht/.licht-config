@@ -3,7 +3,7 @@
 -- Author: MuCheng
 -- =================
 --
-local ok, _ = pcall(require, "lspconfig")
+local ok, lspconfig = pcall(require, "lspconfig")
 if not ok then
     vim.notify("Load nvim-lspconfig Failed", "warn")
     return
@@ -42,11 +42,6 @@ vim.diagnostic.config({
     virtual_text = { prefix = "●", source = "always" }
 })
 
-
-for tpe, icon in pairs(icons.diagnostics) do
-    local hl = "DiagnosticSign" .. tpe
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
 
 -- 语言安装列表
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
@@ -156,7 +151,7 @@ for _, server_name in ipairs(servers) do
 
         options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
-        require("lspconfig")[server_name].setup(options)
+        lspconfig[server_name].setup(options)
     end
     ::continue::
 end
