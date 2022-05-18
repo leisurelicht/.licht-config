@@ -479,7 +479,7 @@ local startup = packer.startup({
 			event = { "BufRead", "BufNewFile" },
 			after = { "impatient.nvim" },
 		})
-		--
+		-- 分屏
 		use({
 			"beauwilliams/focus.nvim",
 			config = function()
