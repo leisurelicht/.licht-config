@@ -114,6 +114,7 @@ for _, server_name in ipairs(servers) do
             }
             options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
+        
 
         options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 

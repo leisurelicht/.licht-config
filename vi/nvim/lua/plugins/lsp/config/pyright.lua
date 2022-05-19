@@ -39,7 +39,12 @@ return {
 					typeCheckingMode = "basic", -- off, basic, strict
 					useLibraryCodeForTypes = true,
 					autoImportCompletions = true,
+					diagnosticMode = "workspace",
 					diagnosticSeverityOverrides = {
+						strictListInference = true,
+						strictDictionaryInference = true,
+						strictSetInference = true,
+						strictParameterNoneValue = true,
 						reportUndefinedVariable = "error",
 						reportMissingTypeStubs = "none",
 						reportIncompleteStub = "none",

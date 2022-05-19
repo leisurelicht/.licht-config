@@ -24,9 +24,9 @@ comment.setup({
 		eol = "gcA", -- 在当前行行尾新增行注释
 	},
 	ignore = function()
-		if vim.bo.filetype == "lua" then
-			return "^$"
-		end
+		-- if vim.bo.filetype == "lua" then
+		-- 	return "^$"
+		-- end
 	end,
 	pre_hook = function(ctx)
 		local U = require("Comment.utils")
