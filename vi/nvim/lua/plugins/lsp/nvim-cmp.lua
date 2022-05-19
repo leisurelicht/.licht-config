@@ -20,7 +20,6 @@ if not cmp_nvim_lsp_ok then
 	return
 end
 
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -33,7 +32,7 @@ cmp.setup({
 		["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
 		["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
 		["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
-		["<CR>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "s", "c" }),
+		["<CR>"] = cmp.mapping(cmp.mapping.confirm({select = true}), { "i", "s", "c" }),
 		["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
 		["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
 	},
@@ -42,6 +41,12 @@ cmp.setup({
 		{ name = "vsnip" },
 		{ name = "cmp_tabnine" },
 		{ name = "nvim_lua" },
+		{ name = "buffer" },
+	}, {
+		{ name = "tmux" },
+		{ name = "path" },
+		{ name = "cmdline" },
+		{ name = "spell" },
 		{
 			name = "look",
 			keyword_length = 2,
@@ -50,12 +55,6 @@ cmp.setup({
 				loud = true,
 			},
 		},
-	}, {
-		{ name = "buffer" },
-		{ name = "tmux" },
-		{ name = "path" },
-		{ name = "cmdline" },
-		{ name = "spell" },
 	}),
 	window = {
 		completion = cmp.config.window.bordered({
@@ -99,7 +98,7 @@ cmp.setup({
 						vsnip = "[VS]",
 						spell = "[SPELL]",
 						cmp_tabnine = "[TN]",
-						cmdlime = "[CMD]",
+						cmdline = "[CMD]",
 						fuzzy_buffer = "[FUZZY]",
 					})[entry.source.name]
 

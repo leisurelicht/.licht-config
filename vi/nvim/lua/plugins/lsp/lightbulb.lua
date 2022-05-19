@@ -39,4 +39,10 @@ vim.fn.sign_define(
 	{ text = icons.lsp_hover.Action, texthl = "DiagnosticSignWarn", linehl = "", numhl = "" }
 )
 
-vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
+local api = require("utils.api")
+api.autocmd({ "CursorHold", "CursorHoldI" }, {
+	pattern = { "*" },
+	callback = function()
+		require("nvim-lightbulb").update_lightbulb()
+	end,
+})

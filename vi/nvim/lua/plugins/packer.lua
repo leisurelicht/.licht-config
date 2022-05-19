@@ -222,21 +222,21 @@ local startup = packer.startup({
 			end,
 			after = { "nvim-lspconfig" },
 		})
-		-- use({
-		-- 	"tami5/lspsaga.nvim",
-		-- 	config = function()
-		-- 		require("plugins.lsp.lspsaga")
-		-- 	end,
-		-- 	after = { "nvim-lspconfig" },
-		-- })
+		use({
+			"tami5/lspsaga.nvim",
+			config = function()
+				require("plugins.lsp.lspsaga")
+			end,
+			after = { "nvim-lspconfig" },
+		})
 		-- 小灯泡
-		-- use({
-		-- 	"kosayoda/nvim-lightbulb",
-		-- 	config = function()
-		-- 		require("plugins.lsp.lightbulb")
-		-- 	end,
-		-- 	after = { "nvim-lspconfig" },
-		-- })
+		use({
+			"kosayoda/nvim-lightbulb",
+			config = function()
+				require("plugins.lsp.lightbulb")
+			end,
+			after = { "nvim-lspconfig" },
+		})
 		--[[
         =====================================
          --------- Code Completion ---------
@@ -326,6 +326,7 @@ local startup = packer.startup({
 			config = function()
 				require("plugins.symbols-outline")
 			end,
+			after = { "nvim-lspconfig" },
 		})
 		-- markdown 预览
 		use({
@@ -367,13 +368,13 @@ local startup = packer.startup({
 			end,
 		})
 		-- indent
-		-- use({
-		-- 	"lukas-reineke/indent-blankline.nvim",
-		-- 	config = function()
-		-- 		require("plugins.indent")
-		-- 	end,
-		-- 	event = { "BufRead", "BufNewFile" },
-		-- })
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+			config = function()
+				require("plugins.indent")
+			end,
+			event = { "BufRead", "BufNewFile" },
+		})
 		-- surround 快速修改
 		-- cs : 修改包裹
 		-- ds : 删除包裹

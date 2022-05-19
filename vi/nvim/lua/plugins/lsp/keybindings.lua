@@ -29,14 +29,13 @@ M.register = function(_, bufnr)
 			["la"] = { "<CMD>Lspsaga code_action<CR>", "Code Action" },
 			["lh"] = { "<CMD>Lspsaga hover_doc<CR>", "Hover" },
 			["lH"] = { "<CMD>Lspsaga signature_help<CR>", "Signature Help" },
-			["lf"] = { "<CMD>Lspsaga lsp_finder<CR>", "Finder" },
-			["ld"] = { "<CMD>Lspsaga preview_definition<CR>", "Preview Definition" },
+			["lD"] = { "<CMD>Lspsaga preview_definition<CR>", "Preview Definition" },
 			["ll"] = { "<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic" },
 			["ln"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic" },
 			["lp"] = { "<CMD>Lspsaga diagnostic_jump_prev<CR>", "Previous Diagnostic" },
 		}, { prefix = "<leader>" })
 		wk.register({
-			["la"] = { "<CMD><C-U>Lspsaga range_code_action<CR>", "Code Action" },
+			["la"] = { ":<C-U>Lspsaga range_code_action<CR>", "Code Action" },
 		}, { mode = "v", prefix = "<leader>" })
 		wk.register({
 			["]d"] = { "<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic Info" },
@@ -59,16 +58,18 @@ M.register = function(_, bufnr)
 			["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info" },
 			["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info" },
 		})
-
+        wk.register({
+			["la"] = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" },
+		}, { mode = "v", prefix = "<leader>" })
 	end
 
 	local telescope_ok, _ = pcall(require, "telescope")
 	if telescope_ok then
 		wk.register({
-			["lf"] = { "<CMD>Telescope lsp_references theme=dropdown<CR>", "References" },
-			["lD"] = { "<CMD>Telescope lsp_definitions theme=dropdown<CR>", "Definition" },
-			["lt"] = { "<CMD>Telescope lsp_type_definitions theme=dropdown<CR>", "Type Definition" },
-			["li"] = { "<CMD>Telescope lsp_implementations theme=dropdown<CR>", "Implementation" },
+			["lf"] = { "<CMD>Telescope lsp_references<CR>", "References" },
+			["ld"] = { "<CMD>Telescope lsp_definitions<CR>", "Definition" },
+			["lt"] = { "<CMD>Telescope lsp_type_definitions<CR>", "Type Definition" },
+			["li"] = { "<CMD>Telescope lsp_implementations<CR>", "Implementation" },
 			["lg"] = { "<CMD>Telescope diagnostics theme=dropdown<CR>", "Diagnostic" },
 			["ls"] = {
 				name = "+Symbols",
@@ -96,6 +97,10 @@ M.register = function(_, bufnr)
 			l = { "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders" },
 		},
 	}, { prefix = "<leader>", buffer = bufnr })
+        wk.register({
+            ["lF"] = {"<CMD>lua vim.lsp.buf.range_formatting()<CR>", "Foramtting"}
+		}, { mode = "v", prefix = "<leader>" })
+
 end
 
 return M
