@@ -273,6 +273,7 @@ local startup = packer.startup({
 			"andersevenrud/cmp-tmux", -- { name = 'tmux'}
 			"f3fora/cmp-spell", -- { name = 'spell' }
 			{ "tzachar/cmp-tabnine", run = "./install.sh" }, -- { name = "tabline" }
+            {'tzachar/cmp-fuzzy-buffer', requires = {'tzachar/fuzzy.nvim'}},
 			-- vsnip 代码片段补全
 			"hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
 			"hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
@@ -360,12 +361,14 @@ local startup = packer.startup({
 		-- python indent
 		use({ "vim-scripts/indentpython.vim", ft = { "python", "djangohtml" } })
 		-- modern go neovim plugin
-		use({
-			"ray-x/go.nvim",
-			config = function()
-				require("plugins.go")
-			end,
-		})
+		-- use({
+		-- 	"ray-x/go.nvim",
+		-- 	config = function()
+		-- 		require("plugins.go")
+		-- 	end,
+  --           ft = {"go"},
+		-- 	after = { "nvim-cmp" },
+		-- })
 		-- refactor action
 		-- use({
 		-- 	"ThePrimeagen/refactoring.nvim",

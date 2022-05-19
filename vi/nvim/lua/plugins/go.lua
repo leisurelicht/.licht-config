@@ -11,6 +11,6 @@ end
 
 go.setup({
 	-- lsp_cfg = {
-		-- capabilities = require("plugins.lsp.nvim-cmp").capabilities,
+	-- 	capabilities = require("plugins.lsp.nvim-cmp").capabilities,
 	-- },
 })
