@@ -25,8 +25,8 @@ M.register = function(_, bufnr)
 	local lspsaga_ok, _ = pcall(require, "lspsaga")
 	if lspsaga_ok then
 		wk.register({
-			["lr"] = { "<CMD>Lspsaga rename<CR>", "Rename" },
-			["la"] = { "<CMD>Lspsaga code_action<CR>", "Code Action" },
+			-- ["lr"] = { "<CMD>Lspsaga rename<CR>", "Rename" },
+			-- ["la"] = { "<CMD>Lspsaga code_action<CR>", "Code Action" },
 			["lh"] = { "<CMD>Lspsaga hover_doc<CR>", "Hover" },
 			["lH"] = { "<CMD>Lspsaga signature_help<CR>", "Signature Help" },
 			["lD"] = { "<CMD>Lspsaga preview_definition<CR>", "Preview Definition" },
@@ -46,19 +46,17 @@ M.register = function(_, bufnr)
 		keys.mapKey("n", "<C-n>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
 	else
 		wk.register({
-			["lr"] = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
-			["la"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 			["lh"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover" },
 			["lH"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
 			["ll"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Line Diagnostic" },
 			["ln"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Next Diagnostic" },
 			["lp"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic" },
 		}, { prefix = "<leader>", buffer = bufnr })
-        wk.register({
+		wk.register({
 			["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info" },
 			["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info" },
 		})
-        wk.register({
+		wk.register({
 			["la"] = { "<CMD>lua vim.lsp.buf.range_code_action()<CR>", "Code Action" },
 		}, { mode = "v", prefix = "<leader>" })
 	end
@@ -89,6 +87,8 @@ M.register = function(_, bufnr)
 	end
 
 	wk.register({
+		["la"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+		["lr"] = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		["lF"] = { "<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting" },
 		["lw"] = {
 			name = "+WorkSpace",
@@ -97,10 +97,10 @@ M.register = function(_, bufnr)
 			l = { "<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders" },
 		},
 	}, { prefix = "<leader>", buffer = bufnr })
-        wk.register({
-            ["lF"] = {"<CMD>lua vim.lsp.buf.range_formatting()<CR>", "Foramtting"}
-		}, { mode = "v", prefix = "<leader>" })
 
+	wk.register({
+		["lF"] = { "<CMD>lua vim.lsp.buf.range_formatting()<CR>", "Foramtting" },
+	}, { mode = "v", prefix = "<leader>" })
 end
 
 return M

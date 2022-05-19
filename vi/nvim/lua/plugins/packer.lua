@@ -467,6 +467,14 @@ local startup = packer.startup({
 				require("plugins.focus")
 			end,
 		})
+        -- ui
+        use ({
+            "stevearc/dressing.nvim",
+            config = function()
+                require("plugins.dressing")
+            end,
+        })
+
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins
