@@ -24,10 +24,10 @@ keys.mapKey("n", "<localleader>sl", "viwue")
 keys.mapKey("n", "<ESC>", ":nohlsearch<CR>")
 
 -- 窗口切换组合快捷键
-keys.mapKey("n", "<C-J>", "<C-W><C-J>")
-keys.mapKey("n", "<C-K>", "<C-W><C-K>")
-keys.mapKey("n", "<C-L>", "<C-W><C-L>")
-keys.mapKey("n", "<C-H>", "<C-W><C-H>")
+-- keys.mapKey("n", "<C-J>", "<C-W><C-J>")
+-- keys.mapKey("n", "<C-K>", "<C-W><C-K>")
+-- keys.mapKey("n", "<C-L>", "<C-W><C-L>")
+-- keys.mapKey("n", "<C-H>", "<C-W><C-H>")
 
 -- 连续缩进
 keys.mapKey("v", "<", "<gv")

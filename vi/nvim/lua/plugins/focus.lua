@@ -10,23 +10,23 @@ if not ok then
 end
 
 focus.setup({
-    signcolumn = false,
-    excluded_filetypes = {"toggleterm"},
-    compatible_filetrees = {"nvimtree"},
+	signcolumn = false,
+	excluded_filetypes = { "toggleterm" },
+	compatible_filetrees = { "nvimtree" },
 })
 
 local wk = require("which-key")
 wk.register({
 	s = {
 		name = "+Split",
-        e = {"<CMD>FocusEnable<CR>", "Enable"},
-        s = {"<CMD>FocusDisable<CR>", "Disable"},
-		t = { "<CMD>FocusToggle<CR>", "Toggle Focus" },
-		h = { "<CMD>FocusSplitLeft<CR>", "Left" },
-		l = { "<CMD>FocusSplitRight<CR>", "Right" },
-		j = { "<CMD>FocusSplitDown<CR>", "Down" },
-		k = { "<CMD>FocusSplitUp<CR>", "Up" },
-		m = { "<CMD>FocusMaximise<CR>", "Max" },
-		n = { "<CMD>FocusEqualise<CR>", "Equal" },
+		E = { "<CMD>FocusEnable<CR>", "Focus Enable" },
+		D = { "<CMD>FocusDisable<CR>", "Focus Disable" },
+		t = { "<CMD>FocusToggle<CR>", "Focus Toggle" },
+		h = { "<CMD>FocusSplitLeft<CR>", "Focus Left" },
+		l = { "<CMD>FocusSplitRight<CR>", "Focus Right" },
+		j = { "<CMD>FocusSplitDown<CR>", "Focus Down" },
+		k = { "<CMD>FocusSplitUp<CR>", "Focus Up" },
+		m = { "<CMD>FocusMaximise<CR>", "Focus Max" },
+		n = { "<CMD>FocusEqualise<CR>", "Focus Equal" },
 	},
 }, { prefix = "<leader>" })

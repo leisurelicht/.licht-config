@@ -1,4 +1,15 @@
-require('dressing').setup({
+-- =================
+-- dressing.lua --- ui config
+-- Author: MuCheng
+-- =================
+--
+local ok, dressing = pcall(require, 'dressing')
+if not ok then
+    vim.notify("Load dressing Failed", "warn")
+    return
+end
+
+dressing.setup({
   input = {
     -- Set to false to disable the vim.ui.input implementation
     enabled = true,

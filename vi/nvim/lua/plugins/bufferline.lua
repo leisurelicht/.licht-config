@@ -51,9 +51,9 @@ bufferline.setup({
 	},
 })
 
-local keys = require("utils.keys")
-keys.mapCmd("<A-h>", ":BufferLineCyclePrev<CR>")
-keys.mapCmd("<A-l>", ":BufferLineCycleNext<CR>")
+-- local keys = require("utils.keys")
+-- keys.mapCmd("<A-h>", ":BufferLineCyclePrev<CR>")
+-- keys.mapCmd("<A-l>", ":BufferLineCycleNext<CR>")
 -- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
 -- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
 

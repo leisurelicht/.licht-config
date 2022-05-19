@@ -55,4 +55,4 @@ neoclip.setup({
 local wk = require("which-key")
 wk.register({
 	["fp"] = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
-})
+}, {prefix="<leader>"})
