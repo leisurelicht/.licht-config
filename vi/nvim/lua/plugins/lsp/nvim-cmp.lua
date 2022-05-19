@@ -32,7 +32,7 @@ cmp.setup({
 		["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
 		["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
 		["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
-		["<CR>"] = cmp.mapping(cmp.mapping.confirm({select = true}), { "i", "s", "c" }),
+		["<CR>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "s", "c" }),
 		["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
 		["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
 	},
