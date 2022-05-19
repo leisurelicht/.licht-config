@@ -10,7 +10,7 @@ if not ok then
 end
 
 wk.setup({
-	layout = { height = { min = 4, max = 25 }, align = "center" },
+	layout = { height = { min = 4, max = 20 }, align = "center" },
 	icons = { breadcrumb = "»", separator = "➜", group = "+" },
 })
 

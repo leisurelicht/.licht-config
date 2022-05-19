@@ -50,10 +50,9 @@ cmp.setup({
 				loud = true,
 			},
 		},
-		{ name = "tmux" },
-		-- {name = "nvim_lsp_signature_help"}
 	}, {
 		{ name = "buffer" },
+		{ name = "tmux" },
 		{ name = "path" },
 		{ name = "cmdline" },
 		{ name = "spell" },

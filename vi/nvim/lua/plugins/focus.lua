@@ -20,7 +20,7 @@ wk.register({
 	s = {
 		name = "+Split",
         e = {"<CMD>FocusEnable<CR>", "Enable"},
-        d = {"<CMD>FocusDisable<CR>", "Disable"},
+        s = {"<CMD>FocusDisable<CR>", "Disable"},
 		t = { "<CMD>FocusToggle<CR>", "Toggle Focus" },
 		h = { "<CMD>FocusSplitLeft<CR>", "Left" },
 		l = { "<CMD>FocusSplitRight<CR>", "Right" },
