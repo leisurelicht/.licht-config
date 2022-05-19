@@ -7,7 +7,7 @@ return {
 		document_formatting = false,
 		formatting_on_save = true,
 	},
-	attach = function(_, bufnr)
+	-- attach = function(_, bufnr)
 		-- wk.register({
 		-- 	y = {
 		-- 		name = "+Golang",
@@ -24,7 +24,7 @@ return {
 		-- 		m = { "<CMD>GoModTidy<CR>", "Go Mod Tidy" },
 		-- 	},
 		-- }, { prefix = "<leader>", buffer = bufnr })
-	end,
+	-- end,
 	options = {
 		cmd = { "gopls" },
 		single_file_support = true,

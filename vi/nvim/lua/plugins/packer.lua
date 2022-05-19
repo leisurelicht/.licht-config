@@ -153,13 +153,6 @@ local startup = packer.startup({
 				require("plugins.nvim-autopairs")
 			end,
 		})
-		-- undo tree
-		-- use {
-		--   "mbbill/undotree",
-		--   config = function()
-		--     require("plugins.undotree")
-		--   end
-		-- }
 		--[[
         =====================================
          ----------- Fuzzy lookup ----------
@@ -211,13 +204,6 @@ local startup = packer.startup({
 			end,
 			after = { "nvim-lspconfig" },
 		})
-		use({
-			"tami5/lspsaga.nvim",
-			config = function()
-				require("plugins.lsp.lspsaga")
-			end,
-			after = { "nvim-lspconfig" },
-		})
 		-- lsp 进度可视化
 		use({
 			"j-hui/fidget.nvim",
@@ -236,14 +222,21 @@ local startup = packer.startup({
 			end,
 			after = { "nvim-lspconfig" },
 		})
+		-- use({
+		-- 	"tami5/lspsaga.nvim",
+		-- 	config = function()
+		-- 		require("plugins.lsp.lspsaga")
+		-- 	end,
+		-- 	after = { "nvim-lspconfig" },
+		-- })
 		-- 小灯泡
-		use({
-			"kosayoda/nvim-lightbulb",
-			config = function()
-				require("plugins.lsp.lightbulb")
-			end,
-			after = { "nvim-lspconfig" },
-		})
+		-- use({
+		-- 	"kosayoda/nvim-lightbulb",
+		-- 	config = function()
+		-- 		require("plugins.lsp.lightbulb")
+		-- 	end,
+		-- 	after = { "nvim-lspconfig" },
+		-- })
 		--[[
         =====================================
          --------- Code Completion ---------
@@ -267,13 +260,11 @@ local startup = packer.startup({
 			"hrsh7th/cmp-buffer", -- { name = 'buffer' },
 			"hrsh7th/cmp-path", -- { name = 'path' }
 			"hrsh7th/cmp-cmdline", -- { name = 'cmdline' }
-			"hrsh7th/cmp-nvim-lsp-signature-help", -- { name = 'nvim_lsp_signature_help' }
 			"octaltree/cmp-look", -- { name = 'look' }
 			"hrsh7th/cmp-nvim-lua", -- { name = 'nvim-lua' }
 			"andersevenrud/cmp-tmux", -- { name = 'tmux'}
 			"f3fora/cmp-spell", -- { name = 'spell' }
 			{ "tzachar/cmp-tabnine", run = "./install.sh" }, -- { name = "tabline" }
-            {'tzachar/cmp-fuzzy-buffer', requires = {'tzachar/fuzzy.nvim'}},
 			-- vsnip 代码片段补全
 			"hrsh7th/cmp-vsnip", -- { name = 'vsnip' }
 			"hrsh7th/vim-vsnip", -- VSCode(LSP)'s snippet feature in vim
@@ -320,20 +311,6 @@ local startup = packer.startup({
          ------------ code 增强 ------------
         =====================================
         --]]
-		-- nvim-lint
-		use({
-			"mfussenegger/nvim-lint",
-			config = function()
-				require("plugins.nvim-lint")
-			end,
-		})
-		-- neoformat
-		-- use {
-		--     "sbdchd/neoformat",
-		--     config = function()
-		--         require("plugins.neoformat")
-		--     end
-		-- }
 		-- 智能注释
 		use({
 			"numToStr/Comment.nvim",
@@ -366,15 +343,9 @@ local startup = packer.startup({
 		-- 	config = function()
 		-- 		require("plugins.go")
 		-- 	end,
-  --           ft = {"go"},
+		--           ft = {"go"},
 		-- 	after = { "nvim-cmp" },
 		-- })
-		-- refactor action
-		-- use({
-		-- 	"ThePrimeagen/refactoring.nvim",
-		-- 	ft = { "go", "lua", "python", "c", "cpp", "php", "java", "javascript", "typescript" },
-		-- })
-
 		--[[
         =====================================
          ---------- Other function ---------
@@ -396,13 +367,13 @@ local startup = packer.startup({
 			end,
 		})
 		-- indent
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("plugins.indent")
-			end,
-			event = { "BufRead", "BufNewFile" },
-		})
+		-- use({
+		-- 	"lukas-reineke/indent-blankline.nvim",
+		-- 	config = function()
+		-- 		require("plugins.indent")
+		-- 	end,
+		-- 	event = { "BufRead", "BufNewFile" },
+		-- })
 		-- surround 快速修改
 		-- cs : 修改包裹
 		-- ds : 删除包裹

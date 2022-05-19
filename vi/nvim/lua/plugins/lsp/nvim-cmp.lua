@@ -56,7 +56,6 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "cmdline" },
-		{ name = "fuzzy_buffer" },
 		{ name = "spell" },
 	}),
 	window = {
@@ -74,7 +73,6 @@ cmp.setup({
 			cmp.config.compare.score,
 			require("cmp-under-comparator").under,
 			require("cmp_tabnine.compare"),
-			require("cmp_fuzzy_buffer.compare"),
 			cmp.config.compare.recently_used,
 			cmp.config.compare.kind,
 			cmp.config.compare.locality,

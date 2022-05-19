@@ -5,7 +5,7 @@
 --
 local ok, telescope = pcall(require, "telescope")
 if not ok then
-	vim.notify("Load symbols-outline Failed", "warn")
+	vim.notify("Load telescope Failed", "warn")
 	return
 end
 

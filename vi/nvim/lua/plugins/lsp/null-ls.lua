@@ -10,9 +10,8 @@ if not ok then
 end
 
 null_ls.setup({
+    debug = true,
 	sources = {
-		-- null_ls.builtins.code_actions.refactoring,
-
 		-- lua
 		null_ls.builtins.diagnostics.luacheck,
 		null_ls.builtins.formatting.stylua.with({
@@ -27,24 +26,21 @@ null_ls.setup({
 		-- sql
 		null_ls.builtins.formatting.sqlformat,
 		-- python
+		null_ls.builtins.diagnostics.curlylint,
 		null_ls.builtins.formatting.yapf,
 		null_ls.builtins.formatting.autopep8,
-		null_ls.builtins.diagnostics.curlylint,
-		null_ls.builtins.formatting.djlint,
-		-- git commit
-		null_ls.builtins.diagnostics.gitlint,
 		-- dockerfile
-		null_ls.builtins.diagnostics.hadolint,
+		-- null_ls.builtins.diagnostics.hadolint,
 		-- markdown
 		null_ls.builtins.diagnostics.markdownlint,
 		-- shell
 		null_ls.builtins.code_actions.shellcheck,
 		null_ls.builtins.formatting.shfmt,
 		-- frontend
-		null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.prettier,
 		-- make
-		null_ls.builtins.diagnostics.checkmake,
+		-- null_ls.builtins.diagnostics.checkmake,
 		-- vim
-		null_ls.builtins.diagnostics.vint,
+		-- null_ls.builtins.diagnostics.vint,
 	},
 })

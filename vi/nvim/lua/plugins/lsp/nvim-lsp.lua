@@ -50,6 +50,7 @@ vim.diagnostic.config({
 local servers = {
     "sumneko_lua",
     "gopls",
+    -- "golangci_lint_ls",
     "pyright",
     "jedi_language_server",
     "zk",
