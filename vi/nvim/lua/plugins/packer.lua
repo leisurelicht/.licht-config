@@ -250,11 +250,11 @@ local startup = packer.startup({
 			end,
 			after = { "nvim-autopairs" },
 		})
-        use ({
+		use({
 			"onsails/lspkind-nvim", -- lspkind 补全界面美化
 			"lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
 			after = { "nvim-cmp" },
-        })
+		})
 		use({
 			"hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
 			"hrsh7th/cmp-buffer", -- { name = 'buffer' },
@@ -467,21 +467,20 @@ local startup = packer.startup({
 				require("plugins.focus")
 			end,
 		})
-        -- ui
-        use ({
-            "stevearc/dressing.nvim",
-            config = function()
-                require("plugins.dressing")
-            end,
-        })
-        -- smart split
-        use({
-            'mrjones2014/smart-splits.nvim',
-            config = function()
-                require("plugins.smart-splits")
-            end,
-        })
-
+		-- ui
+		use({
+			"stevearc/dressing.nvim",
+			config = function()
+				require("plugins.dressing")
+			end,
+		})
+		-- smart split
+		use({
+			"mrjones2014/smart-splits.nvim",
+			config = function()
+				require("plugins.smart-splits")
+			end,
+		})
 
 		-- Automatically set up your configuration after cloning packer.nvim
 		-- Put this at the end after all plugins
@@ -501,16 +500,18 @@ api.autocmd({ "BufWritePost" }, {
 	group = puc,
 })
 
-local wk = require("which-key")
-wk.register({
-	P = {
-		name = "+插件管理",
-		i = { "<CMD>PackerInstall<CR>", "Install Plugins" },
-		u = { "<CMD>PackerUpdate<CR>", "Update Plugins" },
-		c = { "<CMD>PackerClean<CR>", "Clean Plugins" },
-		s = { "<CMD>PackerStatus<CR>", "Show Plugins Status" },
-		y = { "<CMD>PackerSync<CR>", "Sync Plugins" },
-	},
-}, { prefix = "<leader>" })
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		P = {
+			name = "+插件管理",
+			i = { "<CMD>PackerInstall<CR>", "Install Plugins" },
+			u = { "<CMD>PackerUpdate<CR>", "Update Plugins" },
+			c = { "<CMD>PackerClean<CR>", "Clean Plugins" },
+			s = { "<CMD>PackerStatus<CR>", "Show Plugins Status" },
+			y = { "<CMD>PackerSync<CR>", "Sync Plugins" },
+		},
+	}, { prefix = "<leader>" })
+end
 
 return startup
