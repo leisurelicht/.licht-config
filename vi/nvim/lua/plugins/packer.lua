@@ -252,9 +252,10 @@ local startup = packer.startup({
 		})
 		use({
 			"onsails/lspkind-nvim", -- lspkind 补全界面美化
+        })
+        use({
 			"lukas-reineke/cmp-under-comparator", -- 优化补全列表排序
-			after = { "nvim-cmp" },
-		})
+        })
 		use({
 			"hrsh7th/cmp-nvim-lsp", -- { name = nvim_lsp }
 			"hrsh7th/cmp-buffer", -- { name = 'buffer' },

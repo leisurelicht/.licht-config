@@ -17,4 +17,5 @@ require("core")
 require("plugins")
 
 -- 开发测试使用的精简插件配置
--- require("plugins_dev")
+-- require("plugins_dev.dev1")
+-- require("plugins_dev.dev2")

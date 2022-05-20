@@ -5,24 +5,24 @@
 --
 local ok, split = pcall(require, "smart-splits")
 if not ok then
-	vim.notify("Load smart-splits Failed", "warn")
-	return
+    vim.notify("Load smart-splits Failed", "warn")
+    return
 end
 
 split.setup({
-	-- Ignored filetypes (only while resizing)
-	ignored_filetypes = {
-		"nofile",
-		"quickfix",
-		"prompt",
-	},
-	-- Ignored buffer types (only while resizing)
-	ignored_buftypes = { "NvimTree" },
-	-- when moving cursor between splits left or right,
-	-- place the cursor on the same row of the *screen*
-	-- regardless of line numbers. False by default.
-	-- Can be overridden via function parameter, see Usage.
-	move_cursor_same_row = false,
+    -- Ignored filetypes (only while resizing)
+    ignored_filetypes = {
+        "nofile",
+        "quickfix",
+        "prompt",
+    },
+    -- Ignored buffer types (only while resizing)
+    ignored_buftypes = { "NvimTree" },
+    -- when moving cursor between splits left or right,
+    -- place the cursor on the same row of the *screen*
+    -- regardless of line numbers. False by default.
+    -- Can be overridden via function parameter, see Usage.
+    move_cursor_same_row = false,
 })
 
 local keys = require("utils.keys")
@@ -42,6 +42,6 @@ local wk = require("which-key")
 wk.register({
     s = {
         name = "+Split",
-	    r = { "<CMD>lua require('smart-splits').start_resize_mode()<CR>", "Resize Mode" },
-    }
+        r = { "<CMD>lua require('smart-splits').start_resize_mode()<CR>", "Resize Mode" },
+    },
 }, { prefix = "<leader>" })
