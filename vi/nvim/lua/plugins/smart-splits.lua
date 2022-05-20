@@ -38,7 +38,6 @@ keys.mapLua("<C-j>", "require('smart-splits').move_cursor_down()")
 keys.mapLua("<C-k>", "require('smart-splits').move_cursor_up()")
 keys.mapLua("<C-l>", "require('smart-splits').move_cursor_right()")
 
--- TODO 开启resize mode时自动关闭focus
 local wk = require("which-key")
 wk.register({
     s = {

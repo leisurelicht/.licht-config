@@ -113,7 +113,6 @@ function _SMART_ADD_TERM()
 		vim.cmd("exe b:toggle_number+1.'ToggleTerm direction=vertical'")
 		vim.g._term_direction = 1
 	elseif direction == "horizontal" then
-		dump(vim.b.toggle_number)
 		vim.cmd("exe b:toggle_number+1.'ToggleTerm direction=horizontal'")
 		vim.g._term_direction = 2
 	end
