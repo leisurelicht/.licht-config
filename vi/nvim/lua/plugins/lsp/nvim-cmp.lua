@@ -71,9 +71,9 @@ cmp.setup({
 			cmp.config.compare.score,
 			require("cmp-under-comparator").under,
 			require("cmp_tabnine.compare"),
-			cmp.config.compare.recently_used,
+			-- cmp.config.compare.recently_used,
 			cmp.config.compare.kind,
-			cmp.config.compare.locality,
+			-- cmp.config.compare.locality,
 			cmp.config.compare.length,
 			cmp.config.compare.order,
 		},
@@ -128,7 +128,6 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = 
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSUpport = true
 
 local M = {}
 

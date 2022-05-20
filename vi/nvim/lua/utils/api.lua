@@ -37,4 +37,6 @@ function M.hi.get(group, style)
 	return opts[style]
 end
 
+M.printError = vim.api.nvim_err_writeln
+
 return M

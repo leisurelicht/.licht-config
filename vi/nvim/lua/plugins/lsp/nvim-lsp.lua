@@ -17,9 +17,6 @@ end
 
 local api = require("utils.api")
 
-local icons = require("utils.icons")
-
-
 lsp_installer.settings({
     ui = {
         icons = {
@@ -41,7 +38,6 @@ vim.diagnostic.config({
     float = { source = "always" },
     virtual_text = { prefix = "●", source = "always" }
 })
-
 
 -- 语言安装列表
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
@@ -115,7 +111,6 @@ for _, server_name in ipairs(servers) do
             }
             options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
-        
 
         options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
 
