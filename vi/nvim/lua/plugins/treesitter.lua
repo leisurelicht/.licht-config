@@ -28,7 +28,6 @@ treesitter_config.setup({
 		"html",
 		"python",
 	},
-	ignore_install = { "java" },
 
 	highlight = { enable = true, additional_vim_regex_highlighting = false },
 	-- 范围选择

@@ -18,7 +18,7 @@ local dap_config = {
 }
 
 for _, name in ipairs(dap_config) do
-    local dap_file = "plugins.dap.config." .. name
+    local dap_file = "config.dap." .. name
     local opts_ok, opts = pcall(require, dap_file)
     if not opts_ok then
         vim.notify("Get DAP Config : " .. dap_file .. " Failed.", "Warn")

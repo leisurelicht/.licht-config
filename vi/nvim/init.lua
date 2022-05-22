@@ -11,7 +11,7 @@ vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
 vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
 
-vim.notify = print
+vim.notify = vim.pretty_print
 
 require("core")
 require("plugins")

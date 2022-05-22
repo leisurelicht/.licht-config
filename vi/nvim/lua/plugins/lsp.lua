@@ -72,7 +72,7 @@ for _, server_name in ipairs(servers) do
         ---@diagnostic disable-next-line: undefined-field
         server:install()
     else
-        local server_file = "plugins.lsp.config." .. server_name
+        local server_file = "config.lsp." .. server_name
         local opts_ok, opts = pcall(require, server_file)
         if not opts_ok then
             vim.notify("Get LSP Config : " .. server_file .. " Failed.", "Warn")
@@ -89,7 +89,7 @@ for _, server_name in ipairs(servers) do
                 opts.attach(client, bufnr)
             end
 
-            require("plugins.lsp.keybindings").register(client, bufnr)
+            require("config.lsp.keybindings").register(client, bufnr)
 
             if settings.document_formatting ~= nil then
                 client.resolved_capabilities.document_formatting = settings.document_formatting
@@ -112,7 +112,12 @@ for _, server_name in ipairs(servers) do
             options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
 
-        options.capabilities = require("plugins.lsp.nvim-cmp").capabilities
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+        if cmp_nvim_lsp_ok then
+          capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+        end
+        options.capabilities = capabilities
 
         lspconfig[server_name].setup(options)
     end
