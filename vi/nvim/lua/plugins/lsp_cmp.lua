@@ -3,8 +3,8 @@
 -- Author: MuCheng
 -- =================
 --
-local ok, cmp = pcall(require, "cmp")
-if not ok then
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
 	vim.notify("Load nvim-cmp Failed", "warn")
 	return
 end
@@ -14,7 +14,7 @@ if not lspkind_ok then
 	vim.notify("Load lspkind Failed", "warn")
 	return
 end
-local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local cmp_nvim_lsp_ok, _ = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_ok then
 	vim.notify("Load cmp_nvim_lsp Failed", "warn")
 	return
@@ -125,12 +125,3 @@ cmp.setup.cmdline(":", {
 -- -- If you want insert `(` after select function or method item
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
-local M = {}
-
-M.capabilities = capabilities
-
-return M

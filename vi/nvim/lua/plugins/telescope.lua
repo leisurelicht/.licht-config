@@ -9,6 +9,7 @@ if not ok then
 	return
 end
 
+
 telescope.load_extension("fzf")
 telescope.load_extension("notify")
 telescope.load_extension("packer")
@@ -63,5 +64,6 @@ wk.register({
 			s = { "<CMD>Telescope git_status<CR>", "Git Status" },
 			h = { "<CMD>Telescope git_stash<CR>", "Git Stash" },
 		},
+	    p = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
 	},
 }, { prefix = "<leader>" })

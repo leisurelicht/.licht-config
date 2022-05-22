@@ -38,6 +38,7 @@ wk.register({
 local ok, gitsigns = pcall(require, "gitsigns")
 if not ok then
 	vim.notify("Load gitsigns Failed", "warn")
+    return
 else
 	gitsigns.setup({
 		signs = {
