@@ -25,7 +25,7 @@ M.register = function(_, bufnr)
 	local lspsaga_ok, _ = pcall(require, "lspsaga")
 	if lspsaga_ok then
 		wk.register({
-			-- ["lr"] = { "<CMD>Lspsaga rename<CR>", "Rename" },
+			["lr"] = { "<CMD>Lspsaga rename<CR>", "Rename" },
 			-- ["la"] = { "<CMD>Lspsaga code_action<CR>", "Code Action" },
 			["lh"] = { "<CMD>Lspsaga hover_doc<CR>", "Hover" },
 			["lH"] = { "<CMD>Lspsaga signature_help<CR>", "Signature Help" },
@@ -46,6 +46,7 @@ M.register = function(_, bufnr)
 		keys.mapKey("n", "<C-n>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>")
 	else
 		wk.register({
+		    ["lr"] = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
 			["lh"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Hover" },
 			["lH"] = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
 			["ll"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Line Diagnostic" },
@@ -87,8 +88,7 @@ M.register = function(_, bufnr)
 	end
 
 	wk.register({
-		["la"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-		["lr"] = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
+        ["la"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
 		["lF"] = { "<CMD>lua vim.lsp.buf.formatting()<CR>", "Formatting" },
 		["lw"] = {
 			name = "+WorkSpace",

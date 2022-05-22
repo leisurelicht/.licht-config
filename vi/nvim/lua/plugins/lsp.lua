@@ -27,7 +27,6 @@ lsp_installer.settings({
     }
 })
 
----@diagnostic disable-next-line: missing-parameter
 lsp_installer.setup()
 
 vim.diagnostic.config({

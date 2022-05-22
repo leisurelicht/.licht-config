@@ -14,6 +14,8 @@ telescope.load_extension("fzf")
 telescope.load_extension("notify")
 telescope.load_extension("packer")
 telescope.load_extension("neoclip")
+telescope.load_extension("ui-select")
+telescope.load_extension('project')
 
 telescope.setup({
 	defaults = { prompt_prefix = "🔍" },
@@ -31,7 +33,11 @@ telescope.setup({
 		git_status = { theme = "ivy" },
 		git_stash = { theme = "ivy" },
 	},
-	extensions = {},
+	extensions = {
+        ["ui-select"] = {
+            require('telescope.themes').get_dropdown {},
+        },
+    },
 })
 
 local wk = require("which-key")

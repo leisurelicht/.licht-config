@@ -27,18 +27,18 @@ local function initialize_packer()
 	return packer, packer_bootstrap
 end
 
-local function auto_compile() 
-      -- 文件保存时自动更新插件信息
+local function auto_compile()
+	-- 文件保存时自动更新插件信息
 	local api = require("utils.api")
 	local puc = api.augroup("packer_user_config", { clear = true })
 	api.autocmd({ "BufWritePost" }, {
 		pattern = { "init.lua" },
-        callback = function()
-		    -- command = "source <afile> | PackerCompile",
-            vim.cmd("source <afile>")
-            vim.cmd("PackerCompile")
-            vim.notify("Recompile Plugins Successify...", "info")
-        end,
+		callback = function()
+			-- command = "source <afile> | PackerCompile",
+			vim.cmd("source <afile>")
+			vim.cmd("PackerCompile")
+			vim.notify("Recompile Plugins Successify...", "info")
+		end,
 		group = puc,
 	})
 end
@@ -77,20 +77,20 @@ function M.register_plugins(install_plugins)
 				local plugin_options = vim.tbl_extend("force", { plugin_name }, plugin_config)
 				if plugin_config.file ~= nil then
 					plugin_options.config = string.format([[require("plugins.%s")]], plugin_config.file)
-                    plugin_options.file = nil
-                end
-                -- dump(plugin_options)
+					plugin_options.file = nil
+				end
+				-- dump(plugin_options)
 				use(plugin_options)
 			end
 
 			if packer_bootstrap then
-                packer.sync()
+				packer.sync()
 			end
 		end,
 		config = { display = { open_fn = require("packer.util").float } },
 	})
- 
-    auto_compile()
+
+	auto_compile()
 	register_keybindings()
 end
 

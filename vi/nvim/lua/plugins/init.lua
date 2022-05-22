@@ -65,7 +65,6 @@ local install_plugins = {
 		file = "alpha-nvim",
 		after = { "nvim-web-devicons" },
 	}, -- dashboard
-	["stevearc/dressing.nvim"] = { file = "dressing" },
 	--[[
     ====================================
     ---- Language Server Protocol ----
@@ -132,7 +131,7 @@ local install_plugins = {
 	----------- Fuzzy lookup ----------
 	=====================================
 	]]
-    ["AckslD/nvim-neoclip.lua"] = {
+	["AckslD/nvim-neoclip.lua"] = {
 		requires = {
 			{ "tami5/sqlite.lua", module = "sqlite" },
 		},
@@ -142,10 +141,12 @@ local install_plugins = {
 		requires = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-packer.nvim" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
+			{ "nvim-telescope/telescope-project.nvim" },
 		},
 		file = "telescope",
-		after = { "plenary.nvim", "nvim-neoclip.lua"},
-	},	
+		after = { "plenary.nvim", "nvim-neoclip.lua" },
+	},
 	--[[
 	--=====================================
 	------- Debug Adapter Protocol ------
