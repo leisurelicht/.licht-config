@@ -9,7 +9,13 @@ vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
 -- set nvim python interpreter
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
-vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
+
+local sys = require("utils.sys")
+if sys.IsMacOS then
+    vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
+elseif sys.IsLinux then
+    vim.api.nvim_set_var("python3_host_prog", "python3")
+end
 
 vim.notify = vim.pretty_print
 
