@@ -25,7 +25,7 @@ local install_plugins = {
     ------------- Depend --------------
     =====================================
     --]]
-	["nvim-lua/plenary.nvim"] = { after = { "impatient" } }, --
+	["nvim-lua/plenary.nvim"] = { after = { "impatient.nvim" } }, --
 	["kyazdani42/nvim-web-devicons"] = { after = { "impatient.nvim" } }, -- icons
 	--[[
     =====================================
@@ -34,7 +34,7 @@ local install_plugins = {
     --]]
 	["rcarriga/nvim-notify"] = { file = "notify" }, -- fancy notification message
 	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
-	["windwp/nvim-autopairs"] = { file = "nvim-autopairs" }, -- 自动配对括号
+	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
 	["famiu/bufdelete.nvim"] = { cmd = { "Bdelete" } }, -- buffer 删除
 	["kyazdani42/nvim-tree.lua"] = { file = "nvim-tree" }, -- 文件树
