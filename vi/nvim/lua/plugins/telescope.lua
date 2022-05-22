@@ -10,21 +10,74 @@ if not ok then
 end
 
 
-telescope.load_extension("fzf")
-telescope.load_extension("notify")
-telescope.load_extension("packer")
-telescope.load_extension("neoclip")
-telescope.load_extension("ui-select")
-telescope.load_extension('project')
+
+local Job = require("plenary.job")
+local actions = require("telescope.actions")
+local previewers = require("telescope.previewers")
+local themes = require("telescope.themes")
+
+local new_maker = function(filepath, bufnr, opts)
+	filepath = vim.fn.expand(filepath)
+	Job
+		:new({
+			command = "file",
+			args = { "--mime-type", "-b", filepath },
+			on_exit = function(j)
+				local mime_type = vim.split(j:result()[1], "/")[1]
+				if mime_type == "text" then
+					previewers.buffer_previewer_maker(filepath, bufnr, opts)
+				else
+					-- maybe we want to write something to the buffer here
+					vim.schedule(function()
+						vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY" })
+					end)
+				end
+			end,
+		})
+		:sync()
+end
+
+function _No_Preview()
+  return themes.get_dropdown({
+    borderchars = {
+      { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+      prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
+      results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
+      preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
+    },
+    width = 0.8,
+    previewer = false,
+    prompt_title = false
+  })
+end
 
 telescope.setup({
-	defaults = { prompt_prefix = "🔍" },
+	defaults = {
+		prompt_prefix = "🔍",
+		file_sorter = require("telescope.sorters").get_fuzzy_file,
+		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+		path_display = { "truncate" },
+		winblend = 0,
+		border = {},
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		use_less = true,
+		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+		-- buffer_previewer_maker = new_maker, -- Dont preview binaries
+		mappings = {
+			i = {
+				["<esc>"] = actions.close,
+			},
+		},
+	},
 	pickers = {
 		find_files = { theme = "dropdown" },
 		oldfiles = { theme = "dropdown" },
 		buffers = { theme = "dropdown" },
 		marks = { theme = "dropdown" },
-		commands = { theme = "ivy" },
+		commands = { theme = "dropdown" },
 		command_history = { theme = "ivy" },
 		search_history = { theme = "ivy" },
 		git_commits = { theme = "ivy" },
@@ -33,43 +86,64 @@ telescope.setup({
 		git_status = { theme = "ivy" },
 		git_stash = { theme = "ivy" },
 	},
+    load_extension = ({
+        "fzf",
+        "notify",
+        "packer",
+        "neoclip",
+        "ui_select",
+        "project",
+        "urlview",
+    }),
 	extensions = {
-        ["ui-select"] = {
-            require('telescope.themes').get_dropdown {},
-        },
-    },
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({}),
+		},
+		["notify"] = {
+            theme = "dropdown",
+		},
+	},
 })
+
+-- telescope.load_extension("fzf")
+-- telescope.load_extension("notify")
+-- telescope.load_extension("packer")
+-- telescope.load_extension("neoclip")
+-- telescope.load_extension("ui-select")
+-- telescope.load_extension("project")
+-- telescope.load_extension("urlview")
 
 local wk = require("which-key")
 wk.register({
 	f = {
 		name = "+Find",
 		t = { "<CMD>Telescope<CR>", "Telescope List" },
-		f = { "<CMD>Telescope find_files<CR>", "File" },
-		o = { "<CMD>Telescope oldfiles<CR>", "Recently Opened File" },
-		w = { "<CMD>Telescope grep_string<CR>", "Word" },
-		s = { "<CMD>Telescope live_grep<CR>", "String" },
-		b = { "<CMD>Telescope buffers<CR>", "Buffer" },
-		m = { "<CMD>Telescope marks<CR>", "Marks" },
-		O = { "<CMD>Telescope vim_options<CR>", "Vim Option" },
-		c = { "<CMD>Telescope commands<CR>", "Command" },
-		C = { "<CMD>Telescope autocommand<CR>", "AutoCommand" },
-		n = { "<CMD>Telescope notify theme=dropdown<CR>", "Notify" },
-		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
+		f = { "<CMD>lua require('telescope.builtin').find_files()<CR>", "File" },
+		o = { "<CMD>lua require('telescope.builtin').oldfiles()<CR>", "Recently Opened File" },
+		w = { "<CMD>lua require('telescope.builtin').grep_string()<CR>", "Word" },
+		s = { "<CMD>lua require('telescope.builtin').live_grep()<CR>", "String" },
+		b = { "<CMD>lua require('telescope.builtin').buffers()<CR>", "Buffer" },
+		m = { "<CMD>lua require('telescope.builtin').marks()<CR>", "Marks" },
+		O = { "<CMD>lua require('telescope.builtin').vim_options<CR>", "Vim Option" },
+		c = { "<CMD>lua require('telescope.builtin').commands()<CR>", "Command" },
+		C = { "<CMD>lua require('telescope.builtin').AutoCommand()<CR>", "AutoCommand" },
 		h = {
 			name = "+History",
-			c = { "<CMD>Telescope command_history<CR>", "Command" },
-			s = { "<CMD>Telescope search_history<CR>", "Search" },
+			c = { "<CMD>lua require('telescope.builtin').command_history()<CR>", "Command" },
+			s = { "<CMD>lua require('telescope.builtin').search_history()<CR>", "Search" },
 		},
-		H = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
+		H = { "<CMD>lua require('telescope.builtin').help_tags()<CR>", "Help Tags" },
 		g = {
 			name = "+Git",
-			c = { "<CMD>Telescope git_commits<CR>", "Git Commits" },
-			b = { "<CMD>Telescope git_bcommits<CR>", "Git Buffer's Commits" },
-			r = { "<CMD>Telescope git_branches<CR>", "Git Branches" },
-			s = { "<CMD>Telescope git_status<CR>", "Git Status" },
-			h = { "<CMD>Telescope git_stash<CR>", "Git Stash" },
+			f = { "<CMD>lua require('telescope.builtin').git_files()<CR>", "Files" },
+			c = { "<CMD>lua require('telescope.builtin').git_commits()<CR>", "Commits" },
+			b = { "<CMD>lua require('telescope.builtin').git_bcommits()<CR>", "Buffer's Commits" },
+			r = { "<CMD>lua require('telescope.builtin').git_branches()<CR>", "Branches" },
+			s = { "<CMD>lua require('telescope.builtin').git_status()<CR>", "Status" },
+			h = { "<CMD>lua require('telescope.builtin').git_stash()<CR>", "Stash" },
 		},
-	    p = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
+		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
+		n = { "<CMD>lua require('telescope').extensions.notify.notify()<CR>", "Notify" },
+		p = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
 	},
 }, { prefix = "<leader>" })

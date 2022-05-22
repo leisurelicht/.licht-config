@@ -9,6 +9,7 @@ local install_plugins = {
 	 -------------- basic --------------
 	=====================================
 	--]]
+    -- https://github.com/octaltree/cmp-look
 	["wbthomason/packer.nvim"] = {}, -- package manager
 	["lewis6991/impatient.nvim"] = { -- speed up startup
 		config = function()
@@ -144,6 +145,7 @@ local install_plugins = {
 			{ "nvim-telescope/telescope-packer.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-project.nvim" },
+			{ "axieax/urlview.nvim" },
 		},
 		file = "telescope",
 		after = { "plenary.nvim", "nvim-neoclip.lua" },
@@ -250,7 +252,7 @@ local install_plugins = {
 	["mrjones2014/smart-splits.nvim"] = { -- 智能分屏调整
 		file = "smart-splits",
 		cmd = { "FocusDisable" },
-        after = {"focus.nvim"}
+		after = { "focus.nvim" },
 	},
 }
 

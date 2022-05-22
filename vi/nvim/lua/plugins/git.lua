@@ -87,7 +87,7 @@ else
 						"<cmd>lua require'gitsigns'.blame_line{full=true}<CR>",
 						"Show Blame Line",
 					},
-					t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle Gitsigns" },
+					-- t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle Gitsigns" },
 					c = { "<CMD>>Gitsigns toggle_deleted<CR>", "Toggle Deleted" },
 				},
 			}, { prefix = "<leader>", buffer = bufnr })
