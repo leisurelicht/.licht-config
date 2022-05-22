@@ -10,16 +10,16 @@ local install_plugins = {
 	=====================================
 	--]]
 	["wbthomason/packer.nvim"] = {}, -- package manager
-	["lewis6991/impatient.nvim"] = {
+	["lewis6991/impatient.nvim"] = { -- speed up startup
 		config = function()
 			require("impatient")
 		end,
-	}, -- speed up startup
-	["nathom/filetype.nvim"] = {
+	},
+	["nathom/filetype.nvim"] = { -- speed up startup
 		config = function()
 			require("filetype").setup({})
 		end,
-	}, -- speed up startup
+	},
 	--[[
     =====================================
     ------------- Depend --------------
@@ -42,35 +42,36 @@ local install_plugins = {
 		file = "neoscroll",
 		event = { "VimEnter" },
 	},
-
 	--[[
     =====================================
      -------------- 美化 ---------------
     =====================================
     --]]
-	["catppuccin/nvim"] = {
+	["catppuccin/nvim"] = { -- 主题
 		as = "catppuccin",
 		file = "theme",
 	},
-	["nvim-lualine/lualine.nvim"] = {
+	["nvim-lualine/lualine.nvim"] = { -- statusline 美化
 		file = "lualine",
 		after = { "gitsigns.nvim" },
 	}, -- 状态栏
-	["akinsho/bufferline.nvim"] = {
+	["akinsho/bufferline.nvim"] = { -- buffer 美化
 		file = "bufferline",
 		after = "bufdelete.nvim",
 		event = { "BufEnter" },
 	}, -- buffer 美化
-	["goolord/alpha-nvim"] = {
+	["goolord/alpha-nvim"] = { -- dashboard
 		file = "alpha-nvim",
 		after = { "nvim-web-devicons" },
-	}, -- dashboard
+	},
 	--[[
     ====================================
     ---- Language Server Protocol ----
     ====================================
     --]]
-	["neovim/nvim-lspconfig"] = { after = { "impatient.nvim" } },
+	["neovim/nvim-lspconfig"] = {
+		after = { "impatient.nvim" },
+	},
 	["williamboman/nvim-lsp-installer"] = {
 		file = "lsp",
 		after = { "nvim-lspconfig" },
@@ -131,13 +132,13 @@ local install_plugins = {
 	----------- Fuzzy lookup ----------
 	=====================================
 	]]
-	["AckslD/nvim-neoclip.lua"] = {
+	["AckslD/nvim-neoclip.lua"] = { -- 粘贴板
 		requires = {
 			{ "tami5/sqlite.lua", module = "sqlite" },
 		},
 		file = "neoclip",
 	},
-	["nvim-telescope/telescope.nvim"] = {
+	["nvim-telescope/telescope.nvim"] = { -- 搜索
 		requires = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-packer.nvim" },
@@ -194,13 +195,13 @@ local install_plugins = {
 		file = "indent",
 		event = { "BufRead", "BufNewFile" },
 	},
-	["tpope/vim-surround"] = { -- 呃...
+	["tpope/vim-surround"] = { -- 快速修改
 		event = { "BufRead", "BufNewFile" },
 	},
 	["vim-scripts/indentpython.vim"] = { -- python indent
 		ft = { "python", "djangohtml" },
 	},
-	["ellisonleao/glow.nvim"] = {
+	["ellisonleao/glow.nvim"] = { -- markdown 预览
 		file = "glow",
 		ft = { "markdown" },
 	},
@@ -209,8 +210,10 @@ local install_plugins = {
 	------------ Other function ---------
 	--=====================================
 	----]]
-	["yianwillis/vimcdoc"] = { event = { "BufRead", "BufNewFile" } },
-	["folke/todo-comments.nvim"] = {
+	["yianwillis/vimcdoc"] = { -- 中文vim
+		event = { "BufRead", "BufNewFile" },
+	},
+	["folke/todo-comments.nvim"] = { -- todo 标记
 		file = "todo",
 		event = { "BufRead", "BufNewFile" },
 	},
@@ -222,25 +225,32 @@ local install_plugins = {
 		file = "hlslens",
 		event = { "CmdlineEnter" },
 	},
-	["phaazon/hop.nvim"] = {
+	["phaazon/hop.nvim"] = { -- 快速跳转
 		file = "hop",
 		event = { "BufRead", "BufNewFile" },
 	},
-	["lewis6991/spellsitter.nvim"] = {
+	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
 		after = "nvim-treesitter",
 	},
-	["ethanholz/nvim-lastplace"] = { file = "lastplace" },
-	["norcalli/nvim-colorizer.lua"] = {
+	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
+		file = "lastplace",
+	},
+	["norcalli/nvim-colorizer.lua"] = { -- 颜色显示
 		config = function()
 			require("colorizer").setup()
 		end,
 	},
-	["dstein64/vim-startuptime"] = { cmd = { "StartupTime" } },
-	["beauwilliams/focus.nvim"] = { file = "focus" },
-	["mrjones2014/smart-splits.nvim"] = {
+	["dstein64/vim-startuptime"] = { -- 启动时间统计
+		cmd = { "StartupTime" },
+	},
+	["beauwilliams/focus.nvim"] = { -- 动态分屏调整
+		file = "focus",
+	},
+	["mrjones2014/smart-splits.nvim"] = { -- 智能分屏调整
 		file = "smart-splits",
 		cmd = { "FocusDisable" },
+        after = {"focus.nvim"}
 	},
 }
 
