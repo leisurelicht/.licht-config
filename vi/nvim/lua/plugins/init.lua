@@ -237,6 +237,10 @@ local install_plugins = {
 		file = "numb",
 		event = { "CmdlineEnter" },
 	},
+    ["itchyny/vim-cursorword"] = {
+        event = {"BufRead", "BufNewFile"},
+        -- ft = {"lua", "python", "go"},
+    },
 	--[[
 	=====================================
 	 ---------- Other function ---------
