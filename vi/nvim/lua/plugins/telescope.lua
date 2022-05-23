@@ -9,8 +9,6 @@ if not ok then
 	return
 end
 
-
-
 local Job = require("plenary.job")
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
@@ -38,18 +36,28 @@ local new_maker = function(filepath, bufnr, opts)
 end
 
 function _No_Preview()
-  return themes.get_dropdown({
-    borderchars = {
-      { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-      prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-      results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-      preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-    },
-    width = 0.8,
-    previewer = false,
-    prompt_title = false
-  })
+	return themes.get_dropdown({
+		borderchars = {
+			{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+			prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+			results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+			preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		},
+		width = 0.8,
+		previewer = false,
+		prompt_title = false,
+	})
 end
+
+telescope.load_extension("fzf")
+telescope.load_extension("notify")
+telescope.load_extension("packer")
+telescope.load_extension("neoclip")
+telescope.load_extension("ui-select")
+telescope.load_extension("project")
+telescope.load_extension("projects")
+-- telescope.load_extension("urlview")
+telescope.load_extension("file_browser")
 
 telescope.setup({
 	defaults = {
@@ -86,32 +94,18 @@ telescope.setup({
 		git_status = { theme = "ivy" },
 		git_stash = { theme = "ivy" },
 	},
-    load_extension = ({
-        "fzf",
-        "notify",
-        "packer",
-        "neoclip",
-        "ui_select",
-        "project",
-        "urlview",
-    }),
 	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
+		projects = {
+			theme = "dropdown",
 		},
-		["notify"] = {
-            theme = "dropdown",
+		file_browser = {
+			theme = "ivy",
+		},
+		["ui-select"] = {
+			_No_Preview(),
 		},
 	},
 })
-
--- telescope.load_extension("fzf")
--- telescope.load_extension("notify")
--- telescope.load_extension("packer")
--- telescope.load_extension("neoclip")
--- telescope.load_extension("ui-select")
--- telescope.load_extension("project")
--- telescope.load_extension("urlview")
 
 local wk = require("which-key")
 wk.register({
@@ -144,6 +138,8 @@ wk.register({
 		},
 		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
 		n = { "<CMD>lua require('telescope').extensions.notify.notify()<CR>", "Notify" },
-		p = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
+		j = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
+		p = { "<CMD>Telescope projects theme=dropdown<CR>", "Paster" },
+		B = { "<CMD>Telescope file_browser<CR>", "File Browser" },
 	},
 }, { prefix = "<leader>" })

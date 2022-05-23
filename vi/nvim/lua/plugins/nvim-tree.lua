@@ -15,6 +15,9 @@ if not config_ok then
 	return
 end
 
+vim.g.nvim_tree_add_trailing = 1
+vim.g.nvim_tree_respect_buf_cwd = 1
+
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function print_node_path(node)
@@ -37,9 +40,13 @@ nvim_tree.setup({
 		},
 		number = true,
 	},
+    update_cwd =true,
+    update_focused_file = {
+        enable = true,
+        update_cwd = true,
+    }
 })
 
-vim.g.nvim_tree_add_trailing = 1
 
 local keys = require("utils.keys")
 keys.mapCmd("<F4>", "NvimTreeFindFileToggle")

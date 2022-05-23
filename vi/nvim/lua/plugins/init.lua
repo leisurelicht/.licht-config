@@ -139,16 +139,18 @@ local install_plugins = {
 		},
 		file = "neoclip",
 	},
+    ["ahmedkhalf/project.nvim"] = {file = "project"},
 	["nvim-telescope/telescope.nvim"] = { -- 搜索
 		requires = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-packer.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-telescope/telescope-project.nvim" },
-			{ "axieax/urlview.nvim" },
+            { "nvim-telescope/telescope-file-browser.nvim" },
+            -- { "nvim-telescope/telescope-project.nvim" },
+			-- { "axieax/urlview.nvim" },
 		},
 		file = "telescope",
-		after = { "plenary.nvim", "nvim-neoclip.lua" },
+		after = { "plenary.nvim", "nvim-neoclip.lua", "project.nvim" },
 	},
 	--[[
 	--=====================================
@@ -206,7 +208,7 @@ local install_plugins = {
 	["ellisonleao/glow.nvim"] = { -- markdown 预览
 		file = "glow",
 		ft = { "markdown" },
-	},
+	}, 
 	----[[
 	--=====================================
 	------------ Other function ---------
