@@ -9,7 +9,7 @@ local install_plugins = {
 	 -------------- basic --------------
 	=====================================
 	--]]
-    -- https://github.com/octaltree/cmp-look
+	-- https://github.com/octaltree/cmp-look
 	["wbthomason/packer.nvim"] = {}, -- package manager
 	["lewis6991/impatient.nvim"] = { -- speed up startup
 		config = function()
@@ -139,19 +139,23 @@ local install_plugins = {
 		},
 		file = "neoclip",
 	},
-    ["ahmedkhalf/project.nvim"] = {file = "project"},
+	["ahmedkhalf/project.nvim"] = { file = "project" },
 	["nvim-telescope/telescope.nvim"] = { -- 搜索
 		requires = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
 			{ "nvim-telescope/telescope-packer.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-            { "nvim-telescope/telescope-file-browser.nvim" },
-            -- { "nvim-telescope/telescope-project.nvim" },
+			{ "nvim-telescope/telescope-file-browser.nvim" },
+			-- { "nvim-telescope/telescope-project.nvim" },
 			-- { "axieax/urlview.nvim" },
 		},
 		file = "telescope",
 		after = { "plenary.nvim", "nvim-neoclip.lua", "project.nvim" },
 	},
+    -- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
+    --     file = "spectre",
+    --     after = { "plenary.nvim" },
+    -- },
 	--[[
 	--=====================================
 	------- Debug Adapter Protocol ------
@@ -208,15 +212,35 @@ local install_plugins = {
 	["ellisonleao/glow.nvim"] = { -- markdown 预览
 		file = "glow",
 		ft = { "markdown" },
-	}, 
-	----[[
-	--=====================================
-	------------ Other function ---------
-	--=====================================
-	----]]
+	},
+	--[[
+	=====================================
+	 ----------- Vim Enhance -----------
+	=====================================
+	--]]
 	["yianwillis/vimcdoc"] = { -- 中文vim
 		event = { "BufRead", "BufNewFile" },
 	},
+	["phaazon/hop.nvim"] = { -- 快速跳转
+		file = "hop",
+		event = { "BufRead", "BufNewFile" },
+	},
+	["kevinhwang91/nvim-hlslens"] = { -- 搜索时显示条目
+		file = "hlslens",
+		event = { "CmdlineEnter" },
+	},
+	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
+		file = "lastplace",
+	},
+	["nacro90/numb.nvim"] = {
+		file = "numb",
+		event = { "CmdlineEnter" },
+	},
+	--[[
+	=====================================
+	 ---------- Other function ---------
+	=====================================
+	--]]
 	["folke/todo-comments.nvim"] = { -- todo 标记
 		file = "todo",
 		event = { "BufRead", "BufNewFile" },
@@ -225,25 +249,9 @@ local install_plugins = {
 		file = "toggleterm",
 		cmd = { "ToggleTerm" },
 	},
-	["kevinhwang91/nvim-hlslens"] = { -- 搜索时显示条目
-		file = "hlslens",
-		event = { "CmdlineEnter" },
-	},
-	["phaazon/hop.nvim"] = { -- 快速跳转
-		file = "hop",
-		event = { "BufRead", "BufNewFile" },
-	},
 	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
 		after = "nvim-treesitter",
-	},
-	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
-		file = "lastplace",
-	},
-	["norcalli/nvim-colorizer.lua"] = { -- 颜色显示
-		config = function()
-			require("colorizer").setup()
-		end,
 	},
 	["dstein64/vim-startuptime"] = { -- 启动时间统计
 		cmd = { "StartupTime" },
@@ -255,6 +263,11 @@ local install_plugins = {
 		file = "smart-splits",
 		cmd = { "FocusDisable" },
 		after = { "focus.nvim" },
+	},
+	["norcalli/nvim-colorizer.lua"] = { -- 颜色显示
+		config = function()
+			require("colorizer").setup()
+		end,
 	},
 }
 

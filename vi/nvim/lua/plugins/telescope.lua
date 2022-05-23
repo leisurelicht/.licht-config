@@ -49,16 +49,6 @@ function _No_Preview()
 	})
 end
 
-telescope.load_extension("fzf")
-telescope.load_extension("notify")
-telescope.load_extension("packer")
-telescope.load_extension("neoclip")
-telescope.load_extension("ui-select")
--- telescope.load_extension("project")
-telescope.load_extension("projects")
--- telescope.load_extension("urlview")
-telescope.load_extension("file_browser")
-
 telescope.setup({
 	defaults = {
 		prompt_prefix = "🔍",
@@ -95,9 +85,6 @@ telescope.setup({
 		git_stash = { theme = "ivy" },
 	},
 	extensions = {
-		projects = {
-			theme = "dropdown",
-		},
 		file_browser = {
 			theme = "ivy",
 		},
@@ -106,6 +93,16 @@ telescope.setup({
 		},
 	},
 })
+
+telescope.load_extension("fzf")
+telescope.load_extension("notify")
+telescope.load_extension("packer")
+telescope.load_extension("neoclip")
+telescope.load_extension("ui-select")
+-- telescope.load_extension("project")
+telescope.load_extension("projects")
+-- telescope.load_extension("urlview")
+telescope.load_extension("file_browser")
 
 local wk = require("which-key")
 wk.register({
@@ -136,10 +133,10 @@ wk.register({
 			s = { "<CMD>lua require('telescope.builtin').git_status()<CR>", "Status" },
 			h = { "<CMD>lua require('telescope.builtin').git_stash()<CR>", "Stash" },
 		},
-		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
-		n = { "<CMD>lua require('telescope').extensions.notify.notify()<CR>", "Notify" },
-		j = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
 		p = { "<CMD>Telescope projects theme=dropdown<CR>", "Paster" },
+		n = { "<CMD>Telescope neoclip a extra=star,plus,b theme=dropdown<CR>", "Paster" },
+		P = { "<CMD>Telescope packer<CR>", "Packer Installed" },
+		N = { "<CMD>lua require('telescope').extensions.notify.notify()<CR>", "Notify" },
 		B = { "<CMD>Telescope file_browser<CR>", "File Browser" },
 	},
 }, { prefix = "<leader>" })

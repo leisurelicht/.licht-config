@@ -67,7 +67,7 @@ function M.register_plugins(install_plugins)
 	packer.init({
 		git = {
 			-- default_url_format = "https://hub.fastgit.xyz/%s",
-			default_url_format = "https://github.com/%s",
+			-- default_url_format = "https://github.com/%s",
 		},
 	})
 
