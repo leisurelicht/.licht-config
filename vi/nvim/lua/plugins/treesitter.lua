@@ -59,6 +59,10 @@ treesitter_config.setup({
 
 	-- comment
 	context_commentstring = { enable = true },
+	-- match % g% [% ]% z%
+	matchup = {
+		enable = true,
+	},
 })
 
 local wk = require("which-key")
@@ -70,6 +74,7 @@ wk.register({
 		r = { "递增" },
 		c = { "递减" },
 		m = { "块递增" },
+        w = {"<CMD>MatchupWhereAmI??<CR>", "Match Up"},
 		U = { "<CMD>TSUpdate all<CR>", "Update All" },
 		S = { "<CMD>TSModuleInfo<CR>", "Module Info" },
 	},
