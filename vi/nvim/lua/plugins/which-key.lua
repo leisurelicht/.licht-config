@@ -24,7 +24,8 @@ wk.register({
 		name = "+Tab Manager",
 		o = { name = "+Close Only" },
 	},
-}, { prefix = "<leader>" })
+	P = { name = "+Plugins Manager" },
+}, { mode = "n", prefix = "<leader>" })
 
 wk.register({
 	s = { name = "+Shift String" },
