@@ -12,37 +12,22 @@ end
 local icons = require("utils.icons")
 
 lightbulb.setup({
-	ignore = {},
-	sign = {
+	autocmd = {
 		enabled = true,
-		priority = 15,
-	},
-	float = {
-		enabled = false,
-		text = icons.lsp_hover.Action,
-		win_opts = {},
-	},
-	virtual_text = {
-		enabled = false,
-		text = icons.lsp_hover.Action,
-		hl_mode = "replace",
-	},
-	status_text = {
-		enabled = false,
-		text = icons.lsp_hover.Action,
-		text_unavailable = "",
+		pattern = { "*" },
+		events = { "CursorHold", "CursorHoldI" },
 	},
 })
 
-vim.fn.sign_define(
-	"LightBulbSign",
-	{ text = icons.lsp_hover.Action, texthl = "DiagnosticSignWarn", linehl = "", numhl = "" }
-)
+-- vim.fn.sign_define(
+-- 	"LightBulbSign",
+-- 	{ text = icons.lsp_hover.Action, texthl = "DiagnosticSignWarn", linehl = "", numhl = "" }
+-- )
 
-local api = require("utils.api")
-api.autocmd({ "CursorHold", "CursorHoldI" }, {
-	pattern = { "*" },
-	callback = function()
-		require("nvim-lightbulb").update_lightbulb()
-	end,
-})
+-- local api = require("utils.api")
+-- api.autocmd({ "CursorHold", "CursorHoldI" }, {
+-- 	pattern = { "*" },
+-- 	callback = function()
+-- 		require("nvim-lightbulb").update_lightbulb()
+-- 	end,
+-- })

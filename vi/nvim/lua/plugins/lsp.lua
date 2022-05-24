@@ -27,7 +27,7 @@ lsp_installer.settings({
     }
 })
 
-lsp_installer.setup()
+lsp_installer.setup({})
 
 vim.diagnostic.config({
     signs = true,
@@ -114,7 +114,7 @@ for _, server_name in ipairs(servers) do
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
         if cmp_nvim_lsp_ok then
-          capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+            capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
         end
         options.capabilities = capabilities
 
