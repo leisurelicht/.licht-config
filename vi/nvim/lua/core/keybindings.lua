@@ -3,92 +3,90 @@
 -- Author: MuCheng
 -- =================
 --
-local keys = require("utils.keys")
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+
+local map = require("utils.mapping")
 
 -- 强制保存
-keys.mapKey("c", "w!!", "w !sudo tee > /dev/null %")
+map.set("c", "w!!", "w !sudo tee > /dev/null %", "Saved")
 
 -- 一键大写
-keys.mapKey("i", "<C-U>", "<ESC>viwUea")
-keys.mapKey("n", "<localleader>su", "viwUe")
+map.set("i", "<C-U>", "<ESC>viwUea", "Upper Word")
+map.set("n", "<localleader>su", "viwUe", "Upper Word")
 
 -- 一键小写
-keys.mapKey("i", "<C-L>", "<ESC>viwuea")
-keys.mapKey("n", "<localleader>sl", "viwue")
+map.set("i", "<C-L>", "<ESC>viwuea", "Lower Word")
+map.set("n", "<localleader>sl", "viwue", "Lower Word")
 
 -- 首字母大写
--- keys.mapKey('i', '<C-O>', "<ESC>bvi'Uea")
--- keys.mapKey('n', '<localleader>so', "bvi'Uea")
+-- map.set('i', '<C-O>', "<ESC>bvi'Uea")
+-- map.set('n', '<localleader>so', "bvi'Uea")
 
 -- 正常模式下按 ESC 取消高亮显示
-keys.mapKey("n", "<ESC>", ":nohlsearch<CR>")
+map.set("n", "<ESC>", "<CMD>nohlsearch<CR>", "No Highlight")
 
 -- 窗口切换组合快捷键
-keys.mapKey("n", "<C-J>", "<C-W><C-J>")
-keys.mapKey("n", "<C-K>", "<C-W><C-K>")
-keys.mapKey("n", "<C-L>", "<C-W><C-L>")
-keys.mapKey("n", "<C-H>", "<C-W><C-H>")
+map.set("n", "<C-J>", "<C-W><C-J>", "Down Window")
+map.set("n", "<C-K>", "<C-W><C-K>", "Up Window")
+map.set("n", "<C-L>", "<C-W><C-L>", "Left Window")
+map.set("n", "<C-H>", "<C-W><C-H>", "Right Window")
 
 -- 连续缩进
-keys.mapKey("v", "<", "<gv")
-keys.mapKey("v", ">", ">gv")
+map.set("v", "<", "<gv", "Move Left Continuously")
+map.set("v", ">", ">gv", "Move Right Continuously")
 
--- 分屏
 -- 水平分屏
-keys.mapCmdWait("<leader>sv", ":vsp<CR>")
+map.set("n", "<leader>sv", "<CMD>vsp<CR>", "Split Window Horizontally")
 -- 垂直分屏
-keys.mapCmdWait("<leader>so", ":sp<CR>")
+map.set("n", "<leader>so", "<CMD>sp<CR>", "Split Window Vertically")
 -- 关闭当前分屏
-keys.mapKey("n", "<leader>sd", "<C-w>c")
+map.set("n", "<leader>sd", "<C-w>c", "Close Current Window")
 -- 关闭其他分屏
-keys.mapKey("n", "<leader>sc", "<C-w>o")
-
--- 开启关闭代码
--- keys.mapKey('n', '<localleader>za', 'za')
-
--- tab页
-keys.mapCmd("<leader>tt", "tab")
-keys.mapCmd("<leader>td", "tabdo")
-keys.mapCmd("<leader>ta", "tabnew")
-keys.mapCmdWait("<leader>te", "tabedit")
-keys.mapCmd("<leader>tc", "tabclose")
-keys.mapCmd("<leader>tb", "tabs")
-keys.mapCmd("<leader>tf", "tabfirst")
-keys.mapCmd("<leader>tl", "tablast")
-keys.mapCmd("<leader>tp", "tabp")
-keys.mapCmd("<leader>tn", "tabn")
-keys.mapCmdWait("<leader>ts", "tab split")
--- 关闭tab页
-keys.mapCmdWait("<leader>too", "tabonly")
-keys.mapCmd("<leader>toa", "tabonly")
-keys.mapCmd("<leader>to1", "tabonly 1")
-keys.mapCmd("<leader>to2", "tabonly 2")
-keys.mapCmd("<leader>to3", "tabonly 3")
-keys.mapCmd("<leader>to4", "tabonly 4")
-keys.mapCmd("<leader>to5", "tabonly 5")
-keys.mapCmd("<leader>to6", "tabonly 6")
-keys.mapCmd("<leader>to7", "tabonly 7")
-keys.mapCmd("<leader>to8", "tabonly 8")
-keys.mapCmd("<leader>to9", "tabonly 9")
-keys.mapCmd("<leader>to$", "tabonly $")
--- tab页快速切换
-keys.mapKey("n", "<leader>t1", "1gt")
-keys.mapKey("n", "<leader>t2", "2gt")
-keys.mapKey("n", "<leader>t3", "3gt")
-keys.mapKey("n", "<leader>t4", "4gt")
-keys.mapKey("n", "<leader>t5", "5gt")
-keys.mapKey("n", "<leader>t6", "6gt")
-keys.mapKey("n", "<leader>t7", "7gt")
-keys.mapKey("n", "<leader>t8", "8gt")
-keys.mapKey("n", "<leader>t9", "9gt")
+map.set("n", "<leader>sc", "<C-w>o", "Close Other Window")
 
 -- 窗口快速跳转
-keys.mapCmd("<leader>1", "1wincmd w")
-keys.mapCmd("<leader>2", "2wincmd w")
-keys.mapCmd("<leader>3", "3wincmd w")
-keys.mapCmd("<leader>4", "4wincmd w")
-keys.mapCmd("<leader>5", "5wincmd w")
-keys.mapCmd("<leader>6", "6wincmd w")
-keys.mapCmd("<leader>7", "7wincmd w")
-keys.mapCmd("<leader>8", "8wincmd w")
-keys.mapCmd("<leader>9", "9wincmd w")
+map.set("n", "<leader>1", "<CMD>1wincmd w<CR>", "Win 1")
+map.set("n", "<leader>2", "<CMD>2wincmd w<CR>", "Win 2")
+map.set("n", "<leader>3", "<CMD>3wincmd w<CR>", "Win 3")
+map.set("n", "<leader>4", "<CMD>4wincmd w<CR>", "Win 4")
+map.set("n", "<leader>5", "<CMD>5wincmd w<CR>", "Win 5")
+map.set("n", "<leader>6", "<CMD>6wincmd w<CR>", "Win 6")
+map.set("n", "<leader>7", "<CMD>7wincmd w<CR>", "Win 7")
+map.set("n", "<leader>8", "<CMD>8wincmd w<CR>", "Win 8")
+map.set("n", "<leader>9", "<CMD>9wincmd w<CR>", "Win 9")
+
+-- tab页
+map.set("n", "<leader>tt", "<CMD>tab<CR>", "Tab")
+map.set("n", "<leader>td", "<CMD>tabdo<CR>", "Tabdo")
+map.set("n", "<leader>ta", "<CMD>tabnew<CR>", "New Tab")
+map.set("n", "<leader>te", "<CMD>tabedit<CR>", "Edit Tab")
+map.set("n", "<leader>tc", "<CMD>tabclose<CR>", "Close Tab")
+map.set("n", "<leader>tw", "<CMD>tabs<CR>", "Show Tabs")
+map.set("n", "<leader>tf", "<CMD>tabfirst<CR>", "First Tab")
+map.set("n", "<leader>tl", "<CMD>tablast<CR>", "Last Tab")
+map.set("n", "<leader>tp", "<CMD>tabp<CR>", "Previous Tab")
+map.set("n", "<leader>tn", "<CMD>tabn<CR>", "Next Tab")
+map.set("n", "<leader>ts", ":tab split ", "Split Tab")
+-- 关闭tab页
+map.set("n", "<leader>too", "<CMD>tabonly<CR>", "Close All")
+map.set("n", "<leader>to1", "<CMD>tabonly 1<CR>", "Close All Except 1")
+map.set("n", "<leader>to2", "<CMD>tabonly 2<CR>", "Close All Except 2")
+map.set("n", "<leader>to3", "<CMD>tabonly 3<CR>", "Close All Except 3")
+map.set("n", "<leader>to4", "<CMD>tabonly 4<CR>", "Close All Except 4")
+map.set("n", "<leader>to5", "<CMD>tabonly 5<CR>", "Close All Except 5")
+map.set("n", "<leader>to6", "<CMD>tabonly 6<CR>", "Close All Except 6")
+map.set("n", "<leader>to7", "<CMD>tabonly 7<CR>", "Close All Except 7")
+map.set("n", "<leader>to8", "<CMD>tabonly 8<CR>", "Close All Except 8")
+map.set("n", "<leader>to9", "<CMD>tabonly 9<CR>", "Close All Except 9")
+map.set("n", "<leader>to$", "<CMD>tabonly $<CR>", "Close All Except Last")
+-- tab页快速切换
+map.set("n", "<leader>t1", "1gt", "Tab 1")
+map.set("n", "<leader>t2", "2gt", "Tab 2")
+map.set("n", "<leader>t3", "3gt", "Tab 3")
+map.set("n", "<leader>t4", "4gt", "Tab 4")
+map.set("n", "<leader>t5", "5gt", "Tab 5")
+map.set("n", "<leader>t6", "6gt", "Tab 6")
+map.set("n", "<leader>t7", "7gt", "Tab 7")
+map.set("n", "<leader>t8", "8gt", "Tab 8")
+map.set("n", "<leader>t9", "9gt", "Tab 9")

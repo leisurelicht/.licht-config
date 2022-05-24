@@ -20,9 +20,6 @@ vim.cmd([[syntax enable]])
 -- 开启文件类型检查
 vim.cmd([[filetype plugin indent on]])
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
