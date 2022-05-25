@@ -3,42 +3,28 @@
 -- Author: MuCheng
 -- =================
 --
-local keys = require("utils.keys")
-local wk = require("which-key")
+local map = require("utils.mapping")
 
-local git_key_name = "+Git"
+local shortcut = require("utils.shortcut")
 
 -- lazygit
-wk.register({
-	g = {
-		name = git_key_name,
-		l = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-	},
-}, { prefix = "<leader>" })
+map.set("n", "<leader>gl", function() shortcut._Lazygit() end, "Lazygit")
 
 -- git-blame
 -- 默认关闭 git blame
 vim.g.gitblame_enabled = 0
 
-wk.register({
-	g = {
-		name = git_key_name,
-		b = {
-			name = "+Blame",
-			t = { "<CMD>GitBlameToggle<CR>", "Toggle" },
-			e = { "<CMD>GitBlameEnable<CR>", "Enable" },
-			d = { "<CMD>GitBlameDisable<CR>", "Disable" },
-			c = { "<CMD>GitBlameCopySHA<CR>", "Copy SHA" },
-			u = { "<CMD>GitBlameOpenCommitURL<CR>", "Open URL" },
-		},
-	},
-}, { prefix = "<leader>" })
+map.set("n", "<leader>gt", "<CMD>GitBlameToggle<CR>", "Toggle Blame")
+map.set("n", "<leader>ge", "<CMD>GitBlameEnable<CR>", "Enable Blame")
+map.set("n", "<leader>gd", "<CMD>GitBlameDisable<CR>", "Disable Blame")
+map.set("n", "<leader>gy", "<CMD>GitBlameCopySHA<CR>", "Copy Blame SHA")
+map.set("n", "<leader>go", "<CMD>GitBlameOpenCommitURL<CR>", "Open Commit URL")
 
 -- gitsigns
 local ok, gitsigns = pcall(require, "gitsigns")
 if not ok then
 	vim.notify("Load gitsigns Failed", "warn")
-    return
+	return
 else
 	gitsigns.setup({
 		signs = {
@@ -68,41 +54,38 @@ else
 			},
 		},
 		on_attach = function(bufnr)
-			keys.mapBufKey(bufnr, "n", "]g", "&diff ? ']g' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-			keys.mapBufKey(bufnr, "n", "[g", "&diff ? '[g' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-			wk.register({ ["]g"] = { "Next Git Hunk" }, ["[g"] = { "Previous Git Hunk" } }, { buffer = bufnr })
+			map.set("n", "<leader>ga", "<CMD>Gitsigns stage_hunk<CR>", "Add Hunk", { buffer = bufnr })
+			map.set("n", "<leader>gA", "<CMD>Gitsigns stage_buffer<CR>", "Add Buffer", { buffer = bufnr })
+			map.set("n", "<leader>gr", "<CMD>Gitsigns reset_hunk<CR>", "Reset Hunk", { buffer = bufnr })
+			map.set("n", "<leader>gR", "<CMD>Gitsigns reset_buffer<CR>", "Reset Buffer", { buffer = bufnr })
+			map.set("n", "<leader>gu", "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo Stage Hunk", { buffer = bufnr })
+			map.set("n", "<leader>gp", "<CMD>Gitsigns preview_hunk<CR>", "Preview Hunk", { buffer = bufnr })
+			map.set("n", "<leader>gs", function()
+				gitsigns.blame_line({ full = true })
+			end, "Show Blame Line", { buffer = bufnr })
+			map.set("n", "<leader>gc", "<CMD>>Gitsigns toggle_deleted<CR>", "Toggle Deleted", { buffer = bufnr })
 
-			-- keys.mapBufKey(bufnr, 'n', '<leader>gd', '<cmd>Gitsigns diffthis<CR>')
-			-- keys.mapBufKey(bufnr, 'n', '<leader>gD', '<cmd>lua require"gitsigns".diffthis("~")<CR>')
-			wk.register({
-				g = {
-					name = git_key_name,
-					a = { "<CMD>Gitsigns stage_hunk<CR>", "Add Hunk" },
-					A = { "<CMD>Gitsigns stage_buffer<CR>", "Add Buffer" },
-					r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset Hunk" },
-					R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset Buffer" },
-					u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo Stage Hunk" },
-					p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview Hunk" },
-					s = {
-						"<cmd>lua require'gitsigns'.blame_line{full=true}<CR>",
-						"Show Blame Line",
-					},
-					-- t = { "<CMD>Gitsigns toggle_current_line_blame<CR>", "Toggle Gitsigns" },
-					c = { "<CMD>>Gitsigns toggle_deleted<CR>", "Toggle Deleted" },
-				},
-			}, { prefix = "<leader>", buffer = bufnr })
+			map.set("v", "<leader>ga", "<CMD>Gitsigns stage_hunk<CR>", "Add Hunk", { buffer = bufnr })
+			map.set("v", "<leader>gr", "<CMD>Gitsigns reset_hunk<CR>", "Reset Hunk", { buffer = bufnr })
 
-			wk.register({
-				g = {
-					name = git_key_name,
-					a = { "<CMD>Gitsigns stage_hunk<CR>", "Add Hunk" },
-					r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset Hunk" },
-				},
-			}, { mode = "v", prefix = "<leader>", buffer = bufnr })
+			map.set(
+				"n",
+				"g]",
+				"&diff ? ']g' : '<cmd>Gitsigns next_hunk<CR>'",
+				"Next Git Hunk",
+				{ buffer = bufnr, expr = true }
+			)
+			map.set(
+				"n",
+				"g[",
+				"&diff ? '[g' : '<cmd>Gitsigns prev_hunk<CR>'",
+				"Previous Git Hunk",
+				{ buffer = bufnr, expr = true }
+			)
 
 			-- Text object
-			keys.mapBufKey(bufnr, "o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-			keys.mapBufKey(bufnr, "x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+			map.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>", "Select Hunk", { buffer = bufnr })
+			map.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>", "Select Hunk", { buffer = bufnr })
 		end,
 	})
 end

@@ -24,6 +24,7 @@ wk.register({
 		c = { name = "+Close" },
 		s = { name = "+Sort" },
 	},
+	g = { name = "+Git" },
 	s = { name = "+Window Split" },
 	t = {
 		name = "+Tab Manage",
@@ -33,6 +34,7 @@ wk.register({
 }, { mode = "n", prefix = "<leader>" })
 
 wk.register({
+	g = { name = "+Git" },
 	s = { name = "+Shift String" },
 }, { mode = "v", prefix = "<leader>" })
 

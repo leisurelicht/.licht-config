@@ -58,35 +58,6 @@ api.autocmd({ "TermOpen" }, {
 	command = "lua _set_terminal_keymaps()",
 })
 
-local Terminal = require("toggleterm.terminal").Terminal
-
-local lazygit = Terminal:new({
-	cmd = "lazygit",
-	dir = "git_dir",
-	direction = "float",
-	float_opts = {
-		border = "curved", -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-	},
-	-- function to run on opening the terminal
-	on_open = function(term)
-		vim.cmd("startinsert!")
-		keys.mapBufKey(term.bufnr, "n", "q", "<CMD>close<CR>", { noremap = true, silent = true })
-	end,
-	-- function to run on closing the terminal
-	-- on_close = function(term)
-	--   vim.cmd("Closing terminal")
-	-- end
-})
-function _LAZYGIT_TOGGLE()
-	---@diagnostic disable-next-line: missing-parameter
-	lazygit:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-function _HTOP_TOGGLE()
-	---@diagnostic disable-next-line: missing-parameter
-	htop:toggle()
-end
 
 function _SMART_ADD_TERM()
 	local direction = require("toggleterm.ui").guess_direction()

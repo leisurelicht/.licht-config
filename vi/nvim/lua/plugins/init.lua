@@ -252,7 +252,7 @@ local install_plugins = {
 	},
 	["akinsho/toggleterm.nvim"] = { -- 浮窗终端
 		file = "toggleterm",
-		cmd = { "ToggleTerm" },
+		-- cmd = { "ToggleTerm" },
 	},
 	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
