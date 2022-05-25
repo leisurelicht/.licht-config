@@ -15,27 +15,48 @@ wk.setup({
 })
 
 wk.register({
-	["w!"] = { name = "+Mandatory Save" },
-}, { mode = "c" })
-
-wk.register({
 	b = {
 		name = "+Buffer Manage",
 		c = { name = "+Close" },
 		s = { name = "+Sort" },
 	},
+	F = { name = "+FileTree" },
+	h = {
+		name = "+Hop",
+		a = { name = "+All Windows" },
+	},
 	g = { name = "+Git" },
+    n = { name = "+Shortcut"},
+	o = { name = "+Term" },
+	p = { name = "+Tools" },
+	P = { name = "+Plugin Manage" },
+	r = { name = "+Runner" },
 	s = { name = "+Window Split" },
+	S = { name = "+Symbols Outline" },
 	t = {
 		name = "+Tab Manage",
 		o = { name = "+Close Only" },
 	},
-	P = { name = "+Plugin Manage" },
+	T = {
+		name = "+Treesitter",
+		n = { "代码选择" },
+		r = { "递增" },
+		c = { "递减" },
+		m = { "块递增" },
+	},
 }, { mode = "n", prefix = "<leader>" })
 
 wk.register({
 	g = { name = "+Git" },
 	s = { name = "+Shift String" },
+	o = { name = "+Term" },
+	T = {
+		name = "+Treesitter",
+		n = { "代码选择" },
+		r = { "递增" },
+		c = { "递减" },
+		m = { "块递增" },
+	},
 }, { mode = "v", prefix = "<leader>" })
 
 wk.register({

@@ -18,10 +18,10 @@ keys.mapCmd("<F5>", "SymbolsOutline")
 local wk = require("which-key")
 
 wk.register({
-	S = {
-		name = "+代码结构树",
-		t = { "<CMD>SymbolsOutline<CR>", "Toggle" },
-		o = { "<CMD>SymbolsOutlineOpen<CR>", "Open" },
-		c = { "<CMD>SymbolsOutlineClose<CR>", "Close" },
-	},
 }, { prefix = "<leader>" })
+
+local map = require("utils.mapping")
+map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Toggle")
+map.set("n", "<leader>St", "<CMD>SymbolsOutline<CR>", "Toggle")
+map.set("n", "<leader>So", "<CMD>SymbolsOutlineOpen<CR>", "Open")
+map.set("n", "<leader>Sc", "<CMD>SymbolsOutlineClose<CR>", "Close")

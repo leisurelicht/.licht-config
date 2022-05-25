@@ -9,8 +9,6 @@ if not ok then
 	return
 end
 
-local icons = require("utils.icons")
-
 lightbulb.setup({
 	autocmd = {
 		enabled = true,

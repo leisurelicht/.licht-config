@@ -89,27 +89,14 @@ function _SMART_ADD_TERM()
 	end
 end
 
-local wk = require("which-key")
-wk.register({
-	o = {
-		name = "+Term",
-		-- t = {"<CMD>ToggleTerm<CR>", "Toggle"},
-		f = { "<CMD>ToggleTerm direction=float<CR>", "Toggle In Float" },
-		t = { "<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab" },
-		h = { "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal" },
-		v = { "<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical" },
-		a = { "<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term" },
-		r = { "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-		c = {
-			name = "+Call",
-			h = { "<CMD>lua _HTOP_TOGGLE()<CR>", "Htop" },
-		},
-	},
-}, { prefix = "<leader>" })
-wk.register({
-	o = {
-		name = "+Term",
-		r = { "<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
-		s = { "<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" },
-	},
-}, { mode = "v", prefix = "<leader>" })
+local map = require("utils.mapping")
+map.set("n", "<leader>of","<CMD>ToggleTerm direction=float<CR>", "Toggle In Float" )
+map.set("n", "<leader>ot","<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab" )
+map.set("n", "<leader>oh","<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal" )
+map.set("n", "<leader>ov","<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical" )
+map.set("n", "<leader>oa","<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term" )
+map.set("n", "<leader>or","<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line" )
+
+map.set("v", "<leader>or","<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines" )
+map.set("v", "<leader>os","<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" )
+

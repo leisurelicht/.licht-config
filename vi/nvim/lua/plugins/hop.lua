@@ -11,60 +11,52 @@ end
 
 hop.setup()
 
-local keys = require("utils.keys")
-keys.mapKey(
+local map = require("utils.mapping")
+
+map.set(
 	"n",
 	"f",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
-	{}
+    "Jump Forward"
 )
-keys.mapKey(
+map.set(
 	"n",
 	"F",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
-	{}
+	"Jump BackWard"
 )
-keys.mapKey(
+map.set(
 	"o",
 	"f",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>",
-	{}
+    "Jump Forward"
 )
-keys.mapKey(
+map.set(
 	"o",
 	"F",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>",
-	{}
+	"Jump BackWard"
 )
-keys.mapKey(
+map.set(
 	"",
 	"t",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
-	{}
+    "Jump Forward"
 )
-keys.mapKey(
+map.set(
 	"",
 	"T",
 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
-	{}
+	"Jump BackWard"
 )
+map.set("n", "<leader>hw","<CMD>HopWord<CR>", "Word" )
+map.set("n", "<leader>hl", "<CMD>HopLine<CR>", "Line")
+map.set("n", "<leader>hc", "<CMD>HopChar1<CR>", "Char")
+map.set("n", "<leader>hp", "<CMD>HopPattern<CR>", "Pattern")
+map.set("n", "<leader>hs", "<CMD>HopLineStart<CR>", "Line Start")
+map.set("n", "<leader>haw", "<CMD>HopWordMW<CR>", "Word")
+map.set("n", "<leader>hal", "<CMD>HopLineMW<CR>", "Line")
+map.set("n", "<leader>hac", "<CMD>HopChar1MW<CR>", "Char")
+map.set("n", "<leader>hap", "<CMD>HopPatternMW<CR>", "Pattern")
+map.set("n", "<leader>has", "<CMD>HopLineStartMW<CR>", "Line Start")
 
-local wk = require("which-key")
-wk.register({
-	h = {
-		name = "+Hop",
-		w = { "<CMD>HopWord<CR>", "Word" },
-		l = { "<CMD>HopLine<CR>", "Line" },
-		c = { "<CMD>HopChar1<CR>", "Char" },
-		p = { "<CMD>HopPattern<CR>", "Pattern" },
-		s = { "<CMD>HopLineStart<CR>", "Line Start" },
-		a = {
-			name = "+All Windows",
-			w = { "<CMD>HopWordMW<CR>", "Word" },
-			l = { "<CMD>HopLineMW<CR>", "Line" },
-			c = { "<CMD>HopChar1MW<CR>", "Char" },
-			p = { "<CMD>HopPatternMW<CR>", "Pattern" },
-			s = { "<CMD>HopLineStartMW<CR>", "Line Start" },
-		},
-	},
-}, { prefix = "<leader>" })

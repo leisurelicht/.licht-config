@@ -65,27 +65,7 @@ treesitter_config.setup({
 	},
 })
 
-local wk = require("which-key")
-
-wk.register({
-	T = {
-		name = "+Treesitter",
-		n = { "代码选择" },
-		r = { "递增" },
-		c = { "递减" },
-		m = { "块递增" },
-        w = {"<CMD>MatchupWhereAmI??<CR>", "Match Up"},
-		U = { "<CMD>TSUpdate all<CR>", "Update All" },
-		S = { "<CMD>TSModuleInfo<CR>", "Module Info" },
-	},
-}, { prefix = "<leader>" })
-
-wk.register({
-	T = {
-		name = "+Treesitter",
-		n = { "代码选择" },
-		r = { "递增" },
-		c = { "递减" },
-		m = { "块递增" },
-	},
-}, { mode = "v", prefix = "<leader>" })
+local map = require("utils.mapping")
+map.set("n", "<leader>Tw", "<CMD>MatchupWhereAmI??<CR>", "Match Up")
+map.set("n", "<leader>Tu", "<CMD>TSUpdate all<CR>", "Update All" )
+map.set("n", "<leader>Ts", "<CMD>TSModuleInfo<CR>", "Module Info" )

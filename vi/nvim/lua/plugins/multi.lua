@@ -9,7 +9,5 @@ vim.cmd([[
   let g:VM_maps["Add Cursor Up"]      = '<M-k>'   " new cursor up
 ]])
 
-local wk = require("which-key")
-wk.register({
-	["tab"] = { ":call b:VM_Selection.Global.change_mode(1)<cr>" },
-})
+local map = require("utils.mapping")
+map.set("n", "<Tab>", "<CMD>call b:VIM_Selection.Global.change_mode(1)<CR>")

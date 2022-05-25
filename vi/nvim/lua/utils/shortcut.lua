@@ -43,5 +43,7 @@ function M._Htop()
 	htop:toggle({})
 end
 
-return M
 
+-- map.set("n", "<leader>nh", function() M._Htop() end, "Htop")
+
+return M

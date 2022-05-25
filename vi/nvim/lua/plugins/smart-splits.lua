@@ -25,23 +25,16 @@ split.setup({
     move_cursor_same_row = false,
 })
 
-local keys = require("utils.keys")
+local map = require("utils.mapping")
+map.set("n", "<leader>sr", function() require("smart-splits").start_resize_mode() end, "Resize Mode")
+
+-- moving between splits
+map.set("n", "<C-h>", "require('smart-splits').move_cursor_left()")
+map.set("n", "<C-j>", "require('smart-splits').move_cursor_down()")
+map.set("n", "<C-k>", "require('smart-splits').move_cursor_up()")
+map.set("n", "<C-l>", "require('smart-splits').move_cursor_right()")
 
 -- keys.mapLua("<A-h>", "require('smart-splits').resize_left()")
 -- keys.mapLua("<A-j>", "require('smart-splits').resize_down()")
 -- keys.mapLua("<A-k>", "require('smart-splits').resize_up()")
 -- keys.mapLua("<A-l>", "require('smart-splits').resize_right()")
-
--- moving between splits
-keys.mapLua("<C-h>", "require('smart-splits').move_cursor_left()")
-keys.mapLua("<C-j>", "require('smart-splits').move_cursor_down()")
-keys.mapLua("<C-k>", "require('smart-splits').move_cursor_up()")
-keys.mapLua("<C-l>", "require('smart-splits').move_cursor_right()")
-
-local wk = require("which-key")
-wk.register({
-    s = {
-        name = "+Split",
-        r = { "<CMD>lua require('smart-splits').start_resize_mode()<CR>", "Resize Mode" },
-    },
-}, { prefix = "<leader>" })

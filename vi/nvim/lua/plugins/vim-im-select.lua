@@ -3,11 +3,12 @@
 -- Author: MuCheng
 -- =================
 --
-vim.g.im_select_enable_focus_eventsF = 1
--- vim.g.im_select_default = "com.apple.keylayout.ABC"
-
 local sys = require("utils.sys")
 local api = require("utils.api")
+local map = require("utils.mapping")
+
+vim.g.im_select_enable_focus_eventsF = 1
+-- vim.g.im_select_default = "com.apple.keylayout.ABC"
 
 if sys.IsMacOS() then
 	api.autocmd({ "InsertLeave" }, {
@@ -25,11 +26,5 @@ if sys.IsMacOS() then
 elseif sys.IsLinux() then
 end
 
-local wk = require("which-key")
-wk.register({
-	I = {
-		name = "+ImSelect",
-		e = { "<CMD>ImSelectEnable<CR>", "Im Select Enable" },
-		d = { "<CMD>ImSelectDisable<CR>", "Im Select Disable" },
-	},
-}, { prefix = "<leader>" })
+map.set("n", "<leader>ue", "<CMD>ImSelectEnable<CR>", "ImSelect Enable")
+map.set("n", "<leader>uw", "<CMD>ImSelectDisable<CR>", "ImSelect Disable")

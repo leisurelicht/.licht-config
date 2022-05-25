@@ -13,5 +13,5 @@ spectre.setup({
 
 })
 
-local keys = require("utils.keys")
-keys.mapLua("<leader>r", "require('spectre').open()")
+local map = require("utils.mapping")
+map.set("n", "<leader>hr", "require('spectre').open()", "Replace")

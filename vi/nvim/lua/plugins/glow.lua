@@ -8,7 +8,5 @@ vim.g.glow_border = "rounded"
 vim.g.glow_use_pager = true
 vim.g.glow_style = "dark"
 
-local wk = require("which-key")
-wk.register({
-	r = { name = "+Runner", m = { "<CMD>Glow<CR>", "markdown" } },
-}, { prefix = "<leader>" })
+local map = require("utils.mapping")
+map.set("n", "<leader>rm", "<CMD>Glow<CR>", "markdown")
