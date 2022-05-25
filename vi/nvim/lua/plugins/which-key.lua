@@ -20,6 +20,11 @@ wk.register({
 		c = { name = "+Close" },
 		s = { name = "+Sort" },
 	},
+    f = {
+		name = "+Find",
+		h = { name = "+History" },
+		g = { name = "+Git" },
+	},
 	F = { name = "+FileTree" },
 	h = {
 		name = "+Hop",
