@@ -19,12 +19,17 @@ wk.register({
 }, { mode = "c" })
 
 wk.register({
+	b = {
+		name = "+Buffer Manage",
+		c = { name = "+Close" },
+		s = { name = "+Sort" },
+	},
 	s = { name = "+Window Split" },
 	t = {
-		name = "+Tab Manager",
+		name = "+Tab Manage",
 		o = { name = "+Close Only" },
 	},
-	P = { name = "+Plugins Manager" },
+	P = { name = "+Plugin Manage" },
 }, { mode = "n", prefix = "<leader>" })
 
 wk.register({

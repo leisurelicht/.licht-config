@@ -59,38 +59,30 @@ bufferline.setup({
 
 local wk = require("which-key")
 wk.register({
-	b = {
-		name = "+Buffer",
-		["1"] = { "<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1" },
-		["2"] = { "<CMD>BufferLineGoToBuffer 2<CR>", "Buffer 2" },
-		["3"] = { "<CMD>BufferLineGoToBuffer 3<CR>", "Buffer 3" },
-		["4"] = { "<CMD>BufferLineGoToBuffer 4<CR>", "Buffer 4" },
-		["5"] = { "<CMD>BufferLineGoToBuffer 5<CR>", "Buffer 5" },
-		["6"] = { "<CMD>BufferLineGoToBuffer 6<CR>", "Buffer 6" },
-		["7"] = { "<CMD>BufferLineGoToBuffer 7<CR>", "Buffer 7" },
-		["8"] = { "<CMD>BufferLineGoToBuffer 8<CR>", "Buffer 8" },
-		["9"] = { "<CMD>BufferLineGoToBuffer 9<CR>", "Buffer 9" },
-		[","] = { "<CMD>BufferLineMovePrev<CR>", "Move Buffer Previous" },
-		["."] = { "<CMD>BufferLineMoveNext<CR>", "Move Buffer Next" },
-		n = { "<CMD>BufferLineCycleNext<CR>", "Next Buffer" },
-		p = { "<CMD>BufferLineCyclePrev<CR>", "Previous Buffer" },
-		k = { "<CMD>BufferLinePick<CR>", "Buffer Pick" },
-		c = {
-			name = "+Close",
-			c = { "<CMD>Bdelete!<CR>", "Current Buffer" },
-			p = { "<CMD>BufferLinePickClose<CR>", "Pick Buffer" },
-			l = { "<CMD>BufferLineCloseLeft<CR>", "Left Buffer" },
-			r = { "<CMD>BufferLineCloseRight<CR>", "Right Buffer" },
-		},
-		s = {
-			name = "+Sort",
-			t = { "<CMD>BufferSortByTabs<CR>", "Sort By Tabs" },
-			d = { "<CMD>BufferSortByDirecory<CR>", "Sort By Direcory" },
-			e = { "<CMD>BufferLineSortByExtension<CR>", "Sort By Extension" },
-			r = {
-				"<CMD>BufferLineSortByRelativeDirectory<CR>",
-				"Sort By RelativeDirectory ",
-			},
-		},
-	},
+	
 }, { prefix = "<leader>" })
+
+local map = require("utils.mapping")
+map.set("n", "<leader>b1", "<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1")
+map.set("n", "<leader>b2", "<CMD>BufferLineGoToBuffer 2<CR>", "Buffer 2")
+map.set("n", "<leader>b3", "<CMD>BufferLineGoToBuffer 3<CR>", "Buffer 3")
+map.set("n", "<leader>b4", "<CMD>BufferLineGoToBuffer 4<CR>", "Buffer 4")
+map.set("n", "<leader>b5", "<CMD>BufferLineGoToBuffer 5<CR>", "Buffer 5")
+map.set("n", "<leader>b6", "<CMD>BufferLineGoToBuffer 6<CR>", "Buffer 6")
+map.set("n", "<leader>b7", "<CMD>BufferLineGoToBuffer 7<CR>", "Buffer 7")
+map.set("n", "<leader>b8", "<CMD>BufferLineGoToBuffer 8<CR>", "Buffer 8")
+map.set("n", "<leader>b9", "<CMD>BufferLineGoToBuffer 9<CR>", "Buffer 9")
+map.set("n", "<leader>b[", "<CMD>BufferLineMovePrev<CR>", "Move Buffer Previous")
+map.set("n", "<leader>b]", "<CMD>BufferLineMoveNext<CR>", "Move Buffer Next")
+
+map.set("n", "<leader>bn", "<CMD>BufferLineCycleNext<CR>", "Next Buffer")
+map.set("n", "<leader>bp", "<CMD>BufferLineCyclePrev<CR>", "Previous Buffer")
+map.set("n", "<leader>bk", "<CMD>BufferLinePick<CR>", "Buffer Pick")
+map.set("n", "<leader>bd", "<CMD>BDelete!<CR>", "Buffer Delete")
+map.set("n", "<leader>bcp", "<CMD>BufferLinePickClose<CR>", "Pick Buffer")
+map.set("n", "<leader>bcl", "<CMD>BufferLineCloseLeft<CR>", "Left Buffer")
+map.set("n", "<leader>bcr", "<CMD>BufferLineCloseRight<CR>", "Right Buffer")
+map.set("n", "<leader>bst", "<CMD>BufferSortByTabs<CR>", "Sort By Tabs")
+map.set("n", "<leader>bsd", "<CMD>BufferSortByDirecory<CR>", "Sort By Direcory")
+map.set("n", "<leader>bse", "<CMD>BufferLineSortByExtension<CR>", "Sort By Extension")
+map.set("n", "<leader>bsr", "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort By RelativeDirectory")
