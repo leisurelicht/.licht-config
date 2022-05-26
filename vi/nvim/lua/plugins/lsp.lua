@@ -38,6 +38,41 @@ vim.diagnostic.config({
     virtual_text = { prefix = "●", source = "always" }
 })
 
+-- 设置浮动样式
+
+
+
+-- 为 lsp hover 添加文件类型
+local function lsp_hover(_, result, ctx, config)
+    -- Add file type for LSP hover
+    local bufnr, winner = vim.lsp.handlers.hover(_, result, ctx, config)
+    if bufnr and winner then
+        vim.api.nvim_buf_set_option(bufnr, "filetype", config.filetype)
+        return bufnr, winner
+    end
+end
+
+-- 为 lsp 签名帮助添加文件类型
+local function lsp_signature_help(_, result, ctx, config)
+    -- Add file type for LSP signature help
+    local bufnr, winner = vim.lsp.handlers.signature_help(_, result, ctx, config)
+    if bufnr and winner then
+        vim.api.nvim_buf_set_option(bufnr, "filetype", config.filetype)
+        return bufnr, winner
+    end
+end
+
+local lsp_handlers = {
+    ["textDocument/hover"] = vim.lsp.with(lsp_hover, {
+        border = "rounded",
+        filetype = "lsp-hover",
+    }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(lsp_signature_help, {
+        border = "rounded",
+        filetype = "lsp-signature-help",
+    }),
+}
+
 -- 语言安装列表
 -- https://github.com/williamboman/nvim-lsp-installer#available-lsps
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -68,7 +103,6 @@ for _, server_name in ipairs(servers) do
     ---@diagnostic disable-next-line: undefined-field
     if not server:is_installed() then
         vim.notify("Installing LSP Server : " .. server_name, "info")
-        ---@diagnostic disable-next-line: undefined-field
         server:install()
     else
         local server_file = "config.lsp." .. server_name
@@ -110,6 +144,7 @@ for _, server_name in ipairs(servers) do
             }
             options.handlers = vim.tbl_deep_extend("force", handler, options.handlers or {})
         end
+        options.handlers = vim.tbl_extend("force", lsp_handlers, options.handlers or {})
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         local cmp_nvim_lsp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
