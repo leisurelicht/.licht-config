@@ -69,19 +69,18 @@ else
 
             map.set(
                 "n",
-                "g]",
+                "<leader>]g",
                 "&diff ? ']g' : '<cmd>Gitsigns next_hunk<CR>'",
                 "Next Git Hunk",
                 { buffer = bufnr, expr = true }
             )
             map.set(
                 "n",
-                "g[",
+                "<leader>[g",
                 "&diff ? '[g' : '<cmd>Gitsigns prev_hunk<CR>'",
                 "Previous Git Hunk",
                 { buffer = bufnr, expr = true }
             )
-
             -- Text object
             map.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>", "Select Hunk", { buffer = bufnr })
             map.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>", "Select Hunk", { buffer = bufnr })

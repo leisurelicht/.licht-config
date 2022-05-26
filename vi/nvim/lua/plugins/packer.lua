@@ -50,6 +50,7 @@ local function register_keybindings()
     map.set("n", "<leader>Pc", "<CMD>PackerClean<CR>", "Plugins Clean")
     map.set("n", "<leader>Ps", "<CMD>PackerStatus<CR>", "Plugins Status")
     map.set("n", "<leader>Py", "<CMD>PackerSync<CR>", "Plugins Sync")
+    -- map.set("n", "<leader>Pl", "<CMD>Telescope packer<CR>", "Find Installed Plugins")
 end
 
 local M = {}

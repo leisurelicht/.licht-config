@@ -38,26 +38,26 @@ toggleterm.setup({
 	},
 })
 
-local keys = require("utils.keys")
-keys.mapKey("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>")
-keys.mapKey("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>")
+local map = require("utils.mapping")
+local api = require("utils.api")
 
-function _G._set_terminal_keymaps()
+map.set("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>", "Term Toggle")
+map.set("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>", "Term Toggle")
+
+function _G._Set_terminal_keymaps()
 	-- keys.mapBufKey(0, "t", "<ESC>", [[<C-\><C-n>]])
-	keys.mapBufKey(0, "t", "<SPACE><ESC>", [[<C-\><C-n>]])
-	keys.mapBufKey(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]])
-	keys.mapBufKey(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]])
-	keys.mapBufKey(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]])
-	keys.mapBufKey(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]])
+	map.set("t", "<SPACE><ESC>", [[<C-\><C-n>]], "Esc", { buffer = 0 })
+	map.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], "Up", { buffer = 0 })
+	map.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], "Down", { buffer = 0 })
+	map.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], "Left", { buffer = 0 })
+	map.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], "Right", { buffer = 0 })
 end
 
 -- vim.cmd("autocmd TermOpen term://* lua _Set_terminal_keymaps()")
-local api = require("utils.api")
 api.autocmd({ "TermOpen" }, {
 	pattern = { "term://*" },
-	command = "lua _set_terminal_keymaps()",
+	command = "lua _Set_terminal_keymaps()",
 })
-
 
 function _SMART_ADD_TERM()
 	local direction = require("toggleterm.ui").guess_direction()
@@ -89,14 +89,12 @@ function _SMART_ADD_TERM()
 	end
 end
 
-local map = require("utils.mapping")
-map.set("n", "<leader>of","<CMD>ToggleTerm direction=float<CR>", "Toggle In Float" )
-map.set("n", "<leader>ot","<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab" )
-map.set("n", "<leader>oh","<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal" )
-map.set("n", "<leader>ov","<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical" )
-map.set("n", "<leader>oa","<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term" )
-map.set("n", "<leader>or","<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line" )
+map.set("n", "<leader>of", "<CMD>ToggleTerm direction=float<CR>", "Toggle In Float")
+map.set("n", "<leader>ot", "<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab")
+map.set("n", "<leader>oh", "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal")
+map.set("n", "<leader>ov", "<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical")
+map.set("n", "<leader>oa", "<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term")
+map.set("n", "<leader>or", "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line")
 
-map.set("v", "<leader>or","<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines" )
-map.set("v", "<leader>os","<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" )
-
+map.set("v", "<leader>or", "<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines")
+map.set("v", "<leader>os", "<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection")

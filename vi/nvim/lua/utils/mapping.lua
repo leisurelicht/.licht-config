@@ -24,4 +24,34 @@ function M.set(mode, lhs, rhs, desc, opts)
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+function M.mapKey(mode, lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
+end
+
+function M.mapCmd(lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_set_keymap("n", lhs, ":" .. rhs .. "<cr>", opts)
+end
+
+function M.mapCmdWait(lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_set_keymap("n", lhs, ":" .. rhs .. " ", opts)
+end
+
+function M.mapLua(lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_set_keymap("n", lhs, ":lua " .. rhs .. "<cr>", opts)
+end
+
+function M.mapBufKey(buf, mode, lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_buf_set_keymap(buf, mode, lhs, rhs, opts)
+end
+
+function M.mapBufLua(buf, lhs, rhs, opts)
+	opts = check_opts(opts)
+	vim.api.nvim_buf_set_keymap(buf, "n", lhs, ":lua " .. rhs .. "<cr>", opts)
+end
+
 return M

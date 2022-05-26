@@ -11,16 +11,10 @@ end
 
 outline.setup({ show_numbers = false })
 
-local keys = require("utils.keys")
-
-keys.mapCmd("<F5>", "SymbolsOutline")
-
-local wk = require("which-key")
-
-wk.register({
-}, { prefix = "<leader>" })
-
 local map = require("utils.mapping")
+
+map.set("n", "<F5>", "SymbolsOutline", "SymbolsOutline")
+
 map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Toggle")
 map.set("n", "<leader>St", "<CMD>SymbolsOutline<CR>", "Toggle")
 map.set("n", "<leader>So", "<CMD>SymbolsOutlineOpen<CR>", "Open")
