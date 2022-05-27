@@ -10,6 +10,11 @@ if not ok then
 end
 
 lightbulb.setup({
+    sign = {
+        enabled = true,
+        -- Priority of the gutter sign
+        priority = 10,
+    },
 	autocmd = {
 		enabled = true,
 		pattern = { "*" },
