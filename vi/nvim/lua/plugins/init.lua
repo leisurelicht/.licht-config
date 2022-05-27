@@ -77,10 +77,10 @@ local install_plugins = {
 		file = "lsp",
 		after = { "nvim-lspconfig" },
 	},
-	-- ["ray-x/lsp_signature.nvim"] = {
-	-- 	file = "lsp_signature",
-	-- 	after = { "nvim-lspconfig" },
-	-- },
+	["ray-x/lsp_signature.nvim"] = {
+		file = "lsp_signature",
+		after = { "nvim-lspconfig" },
+	},
 	["tami5/lspsaga.nvim"] = {
 		file = "lsp_lspsaga",
 		after = { "nvim-lspconfig" },

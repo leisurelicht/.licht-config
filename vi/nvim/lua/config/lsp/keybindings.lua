@@ -52,7 +52,7 @@ M.register = function(_, bufnr)
 
 		map.set(
 			"n",
-			"<C-b>",
+			"<C-u>",
 			"<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>",
 			"Scroll Up",
 			{ buffer = bufnr }
@@ -104,19 +104,19 @@ M.register = function(_, bufnr)
 		map.set("n", "<leader>lg", vim.diagnostic.setloclist, "Diagnostic", { buffer = bufnr })
 	end
 
-	map.set("i", "<c-j>", function()
-		-- When the signature is visible, pressing <c-j> again will close the window
-		local wins = vim.api.nvim_list_wins()
-		for _, win_id in ipairs(wins) do
-			local buf_id = vim.api.nvim_win_get_buf(win_id)
-			local ft = vim.api.nvim_buf_get_option(buf_id, "filetype")
-			if ft == "lsp-signature-help" then
-				vim.api.nvim_win_close(win_id, false)
-				return
-			end
-		end
-		vim.lsp.buf.signature_help()
-	end, "Toggle Signature help", { buffer = bufnr })
+	-- map.set("i", "<c-j>", function()
+	-- 	-- When the signature is visible, pressing <c-j> again will close the window
+	-- 	local wins = vim.api.nvim_list_wins()
+	-- 	for _, win_id in ipairs(wins) do
+	-- 		local buf_id = vim.api.nvim_win_get_buf(win_id)
+	-- 		local ft = vim.api.nvim_buf_get_option(buf_id, "filetype")
+	-- 		if ft == "lsp-signature-help" then
+	-- 			vim.api.nvim_win_close(win_id, false)
+	-- 			return
+	-- 		end
+	-- 	end
+	-- 	vim.lsp.buf.signature_help()
+	-- end, "Toggle Signature help", { buffer = bufnr })
 	map.set({ "i", "n" }, "<c-f>", function()
 		local scroll_floating_filetype = { "lsp-signature-help", "lsp-hover" }
 		-- 获取所有窗口

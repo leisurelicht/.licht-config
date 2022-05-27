@@ -14,7 +14,6 @@ signature.setup({
 	handler_opts = {
 		border = "rounded",
 	},
-	floating_window = false,
+    floating_window = true,
 	toggle_key = "<C-k>",
-    hint_enable = false,
 })
