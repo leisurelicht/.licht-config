@@ -5,7 +5,7 @@
 --
 local map = require("utils.mapping")
 local lspsaga_ok, _ = pcall(require, "lspsaga")
--- local telescope_ok, _ = pcall(require, "telescope")
+local telescope_ok, _ = pcall(require, "telescope")
 
 map.set("n", "<leader>lI", "<CMD>LspInstallInfo<CR>", "Install Info")
 if lspsaga_ok then
@@ -68,7 +68,6 @@ M.register = function(_, bufnr)
 		map.set("n", "<leader>lr", vim.lsp.buf.rename, "Rename", { buffer = bufnr })
 	end
 
-	local telescope_ok, _ = pcall(require, "telescope")
 	if telescope_ok then
 		map.set("n", "<leader>lf", "<CMD>Telescope lsp_references<CR>", "References", { buffer = bufnr })
 		map.set("n", "<leader>ld", "<CMD>Telescope lsp_definitions<CR>", "Definition", { buffer = bufnr })

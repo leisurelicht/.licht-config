@@ -38,10 +38,6 @@ vim.diagnostic.config({
     virtual_text = { prefix = "●", source = "always" }
 })
 
--- 设置浮动样式
-
-
-
 -- 为 lsp hover 添加文件类型
 local function lsp_hover(_, result, ctx, config)
     -- Add file type for LSP hover
@@ -62,6 +58,7 @@ local function lsp_signature_help(_, result, ctx, config)
     end
 end
 
+-- 设置浮动样式
 local lsp_handlers = {
     ["textDocument/hover"] = vim.lsp.with(lsp_hover, {
         border = "rounded",

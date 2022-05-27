@@ -15,5 +15,5 @@ signature.setup({
 		border = "rounded",
 	},
     floating_window = true,
-	toggle_key = "<C-k>",
+	toggle_key = "<C-j>",
 })
