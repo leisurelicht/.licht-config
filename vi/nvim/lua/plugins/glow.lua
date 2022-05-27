@@ -9,4 +9,5 @@ vim.g.glow_use_pager = true
 vim.g.glow_style = "dark"
 
 local map = require("utils.mapping")
+
 map.set("n", "<leader>rm", "<CMD>Glow<CR>", "markdown")

@@ -9,7 +9,10 @@ if not ok then
 	return
 end
 
+hlslens.setup({})
+
 local map = require("utils.mapping")
+
 map.set(
 	"n",
 	"n",

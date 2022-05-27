@@ -51,18 +51,8 @@ bufferline.setup({
 	},
 })
 
--- local keys = require("utils.keys")
--- keys.mapCmd("<A-h>", ":BufferLineCyclePrev<CR>")
--- keys.mapCmd("<A-l>", ":BufferLineCycleNext<CR>")
--- keys.mapCmd('<A-<>',':BufferLineMovePrev<CR>')
--- keys.mapCmd('<A->>',':BufferLineMoveNext<CR>')
-
-local wk = require("which-key")
-wk.register({
-	
-}, { prefix = "<leader>" })
-
 local map = require("utils.mapping")
+
 map.set("n", "<leader>b1", "<CMD>BufferLineGoToBuffer 1<CR>", "Buffer 1")
 map.set("n", "<leader>b2", "<CMD>BufferLineGoToBuffer 2<CR>", "Buffer 2")
 map.set("n", "<leader>b3", "<CMD>BufferLineGoToBuffer 3<CR>", "Buffer 3")
