@@ -31,13 +31,6 @@ for _, name in ipairs(dap_config) do
     ::continue::
 end
 
-local wk = require("which-key")
-wk.register(
-    {
-    },
-    { prefix = "<leader>" }
-)
-
 local map = require("utils.mapping")
 
 map.set("n", "<leader>da", require 'dap'.toggle_breakpoint, "Add Break Point")
