@@ -100,6 +100,7 @@ for _, server_name in ipairs(servers) do
     ---@diagnostic disable-next-line: undefined-field
     if not server:is_installed() then
         vim.notify("Installing LSP Server : " .. server_name, "info")
+        ---@diagnostic disable-next-line: undefined-field
         server:install()
     else
         local server_file = "config.lsp." .. server_name

@@ -148,7 +148,7 @@ M.register = function(_, bufnr)
 
 				-- 判定当前所在行是否小于窗口最后一行，如果是，则直接向下翻 1 页 + 5 行
 				if cursor_line < win_last_line then
-					vim.api.nvim_win_set_cursor(win_id, { win_last_line + 5, 0 })
+					vim.api.nvim_win_set_cursor(win_id, { win_last_line, 0 })
 					-- 判定当前所在行 + 5 行是否大于窗口中总行数，如果大于则直接到最后一行
 				elseif cursor_line + 5 > buf_total_line then
 					vim.api.nvim_win_set_cursor(win_id, { win_last_line, 0 })
@@ -187,7 +187,7 @@ M.register = function(_, bufnr)
 				end
 
 				if cursor_line > win_first_line then
-					vim.api.nvim_win_set_cursor(win_id, { win_first_line - 5, 0 })
+					vim.api.nvim_win_set_cursor(win_id, { win_first_line, 0 })
 				elseif cursor_line - 5 < 1 then
 					vim.api.nvim_win_set_cursor(win_id, { 1, 0 })
 				else

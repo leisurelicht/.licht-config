@@ -11,11 +11,19 @@ end
 
 focus.setup({
 	signcolumn = false,
-	excluded_filetypes = { "toggleterm" },
-	compatible_filetrees = { "nvimtree" },
+	excluded_filetypes = {
+		"toggleterm",
+		"undotree",
+		"Outline",
+		"help",
+	},
+	compatible_filetrees = {
+		"nvimtree",
+	},
 })
 
 local map = require("utils.mapping")
+
 map.set("n", "<leader>sE", "<CMD>FocusEnable<CR>", "Focus Enable")
 map.set("n", "<leader>sD", "<CMD>FocusDisable<CR>", "Focus Disable")
 map.set("n", "<leader>st", "<CMD>FocusToggle<CR>", "Focus Toggle")

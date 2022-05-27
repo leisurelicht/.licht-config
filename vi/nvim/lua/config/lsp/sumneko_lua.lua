@@ -19,6 +19,9 @@ return {
 					version = "LuaJIT",
 					path = runtime_path,
 				},
+                hover = {
+                    previewFields = 999,
+                },
 				diagnostics = {
 					globals = { "vim" },
 				},

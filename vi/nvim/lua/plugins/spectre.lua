@@ -14,4 +14,4 @@ spectre.setup({
 })
 
 local map = require("utils.mapping")
-map.set("n", "<leader>hr", "require('spectre').open()", "Replace")
+map.set("n", "<leader>ur", "require('spectre').open()", "Replace")

@@ -22,6 +22,7 @@ wk.register({
 		c = { name = "+Close" },
 		s = { name = "+Sort" },
 	},
+    d = { name = "+DAP" },
 	f = {
 		name = "+Find",
 		h = { name = "+History" },
@@ -40,11 +41,9 @@ wk.register({
 	},
 	n = { name = "+Shortcut" },
 	o = { name = "+Term" },
-	p = { name = "+Tools" },
 	P = { name = "+Plugin Manage" },
 	r = { name = "+Runner" },
 	s = { name = "+Window Split" },
-	S = { name = "+Symbols Outline" },
 	t = {
 		name = "+Tab Manage",
 		o = { name = "+Close Only" },
@@ -56,6 +55,7 @@ wk.register({
 		c = { "递减" },
 		m = { "块递增" },
 	},
+	u = { name = "+Tools" },
 }, { mode = "n", prefix = "<leader>" })
 
 wk.register({

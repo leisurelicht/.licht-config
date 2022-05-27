@@ -27,4 +27,4 @@ elseif sys.IsLinux() then
 end
 
 map.set("n", "<leader>ue", "<CMD>ImSelectEnable<CR>", "ImSelect Enable")
-map.set("n", "<leader>uw", "<CMD>ImSelectDisable<CR>", "ImSelect Disable")
+map.set("n", "<leader>ud", "<CMD>ImSelectDisable<CR>", "ImSelect Disable")

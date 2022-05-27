@@ -274,6 +274,9 @@ local install_plugins = {
 			require("colorizer").setup()
 		end,
 	},
+    ["mbbill/undotree"] = {
+        file = "undotree"
+    },
 }
 
 require("plugins.packer").register_plugins(install_plugins)

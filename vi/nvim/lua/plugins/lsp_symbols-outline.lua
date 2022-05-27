@@ -13,9 +13,7 @@ outline.setup({ show_numbers = false })
 
 local map = require("utils.mapping")
 
-map.set("n", "<F5>", "SymbolsOutline", "SymbolsOutline")
-
-map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Toggle")
-map.set("n", "<leader>St", "<CMD>SymbolsOutline<CR>", "Toggle")
-map.set("n", "<leader>So", "<CMD>SymbolsOutlineOpen<CR>", "Open")
-map.set("n", "<leader>Sc", "<CMD>SymbolsOutlineClose<CR>", "Close")
+map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
+map.set("n", "<leader>us", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
+-- map.set("n", "<leader>uo", "<CMD>SymbolsOutlineOpen<CR>", "Open")
+-- map.set("n", "<leader>uc", "<CMD>SymbolsOutlineClose<CR>", "Close")
