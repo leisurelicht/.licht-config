@@ -3,24 +3,28 @@
 -- Author: MuCheng
 -- =================
 --
-vim.cmd([[
-if has("presistent_undo")
-  let target_path = expand('~/.undodir')
+local path = require("utils.path")
 
-  echo target_path
-  " create the directory and any parent directories
-  " if the location does not exist.
-  if !isdirectory(target_path)
-      call mkdir(target_path, "p", 0700)
-  endif
-  let &undodir=target_path
-  set undofile
-]])
+local undotree_dir = path.join(vim.fn.stdpath("cache"), "undodir")
 
-vim.g.undotree_WindowLayout = 3
+if vim.fn.has("presistent_undo") then
+	-- style: default 1, optional: 1 2 3 4
+	vim.g.undotree_WindowLayout = 4
 
-local keys = require("utils.keys")
-keys.mapCmd("<F6>", "UndotreeToggle")
+	-- auto focus default 0
+	vim.g.undotree_SetFocusWhenToggle = 1
 
-local wk = require("which-key")
-wk.register({ U = { "<CMD>UndotreeToggle<CR>", "UndoTree" } }, { prefix = "<leader>" })
+	local target_path = vim.fn.expand(undotree_dir)
+
+	if vim.fn.isdirectory(target_path) then
+		vim.fn.mkdir(target_path, "p", 0700)
+	end
+
+	vim.o.undodir = target_path
+	vim.o.undofile = true
+end
+
+local map = require("utils.mapping")
+
+map.set("n", "<F6>", "<CMD>UndotreeToggle<CR>", "UndoTree")
+

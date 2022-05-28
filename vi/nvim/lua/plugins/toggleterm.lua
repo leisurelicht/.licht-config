@@ -38,55 +38,26 @@ toggleterm.setup({
 	},
 })
 
-local keys = require("utils.keys")
-keys.mapKey("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>")
-keys.mapKey("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>")
+local map = require("utils.mapping")
+local api = require("utils.api")
 
-function _G._set_terminal_keymaps()
+map.set("n", "<C-T>", "<CMD>exe v:count1 . 'ToggleTerm'<CR>", "Term Toggle")
+map.set("i", "<C-T>", "<ESC><CMD>exe v:count1 . 'ToggleTerm'<CR>", "Term Toggle")
+
+function _G._Set_terminal_keymaps()
 	-- keys.mapBufKey(0, "t", "<ESC>", [[<C-\><C-n>]])
-	keys.mapBufKey(0, "t", "<SPACE><ESC>", [[<C-\><C-n>]])
-	keys.mapBufKey(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]])
-	keys.mapBufKey(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]])
-	keys.mapBufKey(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]])
-	keys.mapBufKey(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]])
+	map.set("t", "<SPACE><ESC>", [[<C-\><C-n>]], "Esc", { buffer = 0 })
+	map.set("t", "<C-h>", [[<C-\><C-n><C-W>h]], "Up", { buffer = 0 })
+	map.set("t", "<C-j>", [[<C-\><C-n><C-W>j]], "Down", { buffer = 0 })
+	map.set("t", "<C-k>", [[<C-\><C-n><C-W>k]], "Left", { buffer = 0 })
+	map.set("t", "<C-l>", [[<C-\><C-n><C-W>l]], "Right", { buffer = 0 })
 end
 
 -- vim.cmd("autocmd TermOpen term://* lua _Set_terminal_keymaps()")
-local api = require("utils.api")
 api.autocmd({ "TermOpen" }, {
 	pattern = { "term://*" },
-	command = "lua _set_terminal_keymaps()",
+	command = "lua _Set_terminal_keymaps()",
 })
-
-local Terminal = require("toggleterm.terminal").Terminal
-
-local lazygit = Terminal:new({
-	cmd = "lazygit",
-	dir = "git_dir",
-	direction = "float",
-	float_opts = {
-		border = "curved", -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-	},
-	-- function to run on opening the terminal
-	on_open = function(term)
-		vim.cmd("startinsert!")
-		keys.mapBufKey(term.bufnr, "n", "q", "<CMD>close<CR>", { noremap = true, silent = true })
-	end,
-	-- function to run on closing the terminal
-	-- on_close = function(term)
-	--   vim.cmd("Closing terminal")
-	-- end
-})
-function _LAZYGIT_TOGGLE()
-	---@diagnostic disable-next-line: missing-parameter
-	lazygit:toggle()
-end
-
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-function _HTOP_TOGGLE()
-	---@diagnostic disable-next-line: missing-parameter
-	htop:toggle()
-end
 
 function _SMART_ADD_TERM()
 	local direction = require("toggleterm.ui").guess_direction()
@@ -118,27 +89,12 @@ function _SMART_ADD_TERM()
 	end
 end
 
-local wk = require("which-key")
-wk.register({
-	o = {
-		name = "+Term",
-		-- t = {"<CMD>ToggleTerm<CR>", "Toggle"},
-		f = { "<CMD>ToggleTerm direction=float<CR>", "Toggle In Float" },
-		t = { "<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab" },
-		h = { "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal" },
-		v = { "<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical" },
-		a = { "<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term" },
-		r = { "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line" },
-		c = {
-			name = "+Call",
-			h = { "<CMD>lua _HTOP_TOGGLE()<CR>", "Htop" },
-		},
-	},
-}, { prefix = "<leader>" })
-wk.register({
-	o = {
-		name = "+Term",
-		r = { "<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines" },
-		s = { "<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection" },
-	},
-}, { mode = "v", prefix = "<leader>" })
+map.set("n", "<leader>of", "<CMD>ToggleTerm direction=float<CR>", "Toggle In Float")
+map.set("n", "<leader>ot", "<CMD>ToggleTerm direction=tab<CR>", "Toggle In Tab")
+map.set("n", "<leader>oh", "<CMD>ToggleTerm direction=horizontal<CR>", "Toggle In Horizontal")
+map.set("n", "<leader>ov", "<CMD>ToggleTerm direction=vertical<CR>", "Toggle In Vertical")
+map.set("n", "<leader>oa", "<CMD>lua _SMART_ADD_TERM()<CR>", "Add New Term")
+map.set("n", "<leader>or", "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current Line")
+
+map.set("v", "<leader>or", "<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines")
+map.set("v", "<leader>os", "<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection")

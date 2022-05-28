@@ -21,7 +21,7 @@ local function initialize_packer()
 		end
 		ok, packer = pcall(require, "packer")
 		if not ok then
-			error("Failed to load packer at:" .. install_path .. "\n\n" .. packer)
+			error("Failed To Load Packer At: [" .. install_path .. "]\n\n" .. packer)
 		end
 	end
 	return packer, packer_bootstrap
@@ -37,26 +37,20 @@ local function auto_compile()
 			-- command = "source <afile> | PackerCompile",
 			vim.cmd("source <afile>")
 			vim.cmd("PackerCompile")
-			vim.notify("Recompile Plugins Successify...", "info")
+			vim.notify("Recompile Plugins Successfully...", "info")
 		end,
 		group = puc,
 	})
 end
 
 local function register_keybindings()
-	local wk_ok, wk = pcall(require, "which-key")
-	if wk_ok then
-		wk.register({
-			P = {
-				name = "+插件管理",
-				i = { "<CMD>PackerInstall<CR>", "Install Plugins" },
-				u = { "<CMD>PackerUpdate<CR>", "Update Plugins" },
-				c = { "<CMD>PackerClean<CR>", "Clean Plugins" },
-				s = { "<CMD>PackerStatus<CR>", "Show Plugins Status" },
-				y = { "<CMD>PackerSync<CR>", "Sync Plugins" },
-			},
-		}, { prefix = "<leader>" })
-	end
+    local map = require("utils.mapping")
+    map.set("n", "<leader>Pi", "<CMD>PackerInstall<CR>", "Plugins Install")
+    map.set("n", "<leader>Pu", "<CMD>PackerUpdate<CR>", "Plugins Update")
+    map.set("n", "<leader>Pc", "<CMD>PackerClean<CR>", "Plugins Clean")
+    map.set("n", "<leader>Ps", "<CMD>PackerStatus<CR>", "Plugins Status")
+    map.set("n", "<leader>Py", "<CMD>PackerSync<CR>", "Plugins Sync")
+    -- map.set("n", "<leader>Pl", "<CMD>Telescope packer<CR>", "Find Installed Plugins")
 end
 
 local M = {}
@@ -66,7 +60,7 @@ function M.register_plugins(install_plugins)
 
 	packer.init({
 		git = {
-			-- default_url_format = "https://hub.fastgit.xyz/%s",
+			default_url_format = "https://hub.fastgit.xyz/%s",
 			-- default_url_format = "https://github.com/%s",
 		},
 	})

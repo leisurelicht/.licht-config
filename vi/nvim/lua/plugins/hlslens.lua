@@ -9,30 +9,23 @@ if not ok then
 	return
 end
 
--- local keys = require("utils.keys")
--- keys.mapKey("n", "n",
---             [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
--- keys.mapKey("n", "N",
---             [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
+hlslens.setup({})
 
-local wk = require("which-key")
-wk.register({
-	n = {
-		[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		"Next",
-	},
-	N = {
-		[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-		"Previous",
-	},
-	["*"] = { [[*<Cmd>lua require('hlslens').start()<CR>]], "Forward Search" },
-	["#"] = { [[#<Cmd>lua require('hlslens').start()<CR>]], "Backward Search" },
-	["g*"] = {
-		[[g*<Cmd>lua require('hlslens').start()<CR>]],
-		"Weak Forward Search",
-	},
-	["g#"] = {
-		[[g#<Cmd>lua require('hlslens').start()<CR>]],
-		"Weak Backward Search",
-	},
-})
+local map = require("utils.mapping")
+
+map.set(
+	"n",
+	"n",
+	[[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+	"Next Hlslens"
+)
+map.set(
+	"n",
+	"N",
+	[[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+	"Previous Hlslens"
+)
+map.set("n", "*", [[*<Cmd>lua require('hlslens').start()<CR>]], "Forward Search")
+map.set("n", "#", [[#<Cmd>lua require('hlslens').start()<CR>]], "Backward Search")
+map.set("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], "Weak Forward Search")
+map.set("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], "Weak Backward Search")

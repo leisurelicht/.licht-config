@@ -11,22 +11,25 @@ end
 
 focus.setup({
 	signcolumn = false,
-	excluded_filetypes = { "toggleterm" },
-	compatible_filetrees = { "nvimtree" },
+	excluded_filetypes = {
+		"toggleterm",
+		"undotree",
+		"Outline",
+		"help",
+	},
+	compatible_filetrees = {
+		"nvimtree",
+	},
 })
 
-local wk = require("which-key")
-wk.register({
-	s = {
-		name = "+Split",
-		E = { "<CMD>FocusEnable<CR>", "Focus Enable" },
-		D = { "<CMD>FocusDisable<CR>", "Focus Disable" },
-		t = { "<CMD>FocusToggle<CR>", "Focus Toggle" },
-		h = { "<CMD>FocusSplitLeft<CR>", "Focus Left" },
-		l = { "<CMD>FocusSplitRight<CR>", "Focus Right" },
-		j = { "<CMD>FocusSplitDown<CR>", "Focus Down" },
-		k = { "<CMD>FocusSplitUp<CR>", "Focus Up" },
-		m = { "<CMD>FocusMaximise<CR>", "Focus Max" },
-		n = { "<CMD>FocusEqualise<CR>", "Focus Equal" },
-	},
-}, { prefix = "<leader>" })
+local map = require("utils.mapping")
+
+map.set("n", "<leader>sE", "<CMD>FocusEnable<CR>", "Focus Enable")
+map.set("n", "<leader>sD", "<CMD>FocusDisable<CR>", "Focus Disable")
+map.set("n", "<leader>st", "<CMD>FocusToggle<CR>", "Focus Toggle")
+map.set("n", "<leader>sh", "<CMD>FocusSplitLeft<CR>", "Focus Left")
+map.set("n", "<leader>sl", "<CMD>FocusSplitRight<CR>", "Focus Right")
+map.set("n", "<leader>sj", "<CMD>FocusSplitDown<CR>", "Focus Down")
+map.set("n", "<leader>sk", "<CMD>FocusSplitUp<CR>", "Focus Up")
+map.set("n", "<leader>sm", "<CMD>FocusMaximise<CR>", "Focus Max")
+map.set("n", "<leader>sn", "<CMD>FocusEqualise<CR>", "Focus Equal")

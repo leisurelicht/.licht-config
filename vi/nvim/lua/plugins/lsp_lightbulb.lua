@@ -9,9 +9,12 @@ if not ok then
 	return
 end
 
-local icons = require("utils.icons")
-
 lightbulb.setup({
+    sign = {
+        enabled = true,
+        -- Priority of the gutter sign
+        priority = 10,
+    },
 	autocmd = {
 		enabled = true,
 		pattern = { "*" },

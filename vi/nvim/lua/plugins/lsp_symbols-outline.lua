@@ -11,17 +11,9 @@ end
 
 outline.setup({ show_numbers = false })
 
-local keys = require("utils.keys")
+local map = require("utils.mapping")
 
-keys.mapCmd("<F5>", "SymbolsOutline")
-
-local wk = require("which-key")
-
-wk.register({
-	S = {
-		name = "+代码结构树",
-		t = { "<CMD>SymbolsOutline<CR>", "Toggle" },
-		o = { "<CMD>SymbolsOutlineOpen<CR>", "Open" },
-		c = { "<CMD>SymbolsOutlineClose<CR>", "Close" },
-	},
-}, { prefix = "<leader>" })
+map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
+map.set("n", "<leader>us", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
+-- map.set("n", "<leader>uo", "<CMD>SymbolsOutlineOpen<CR>", "Open")
+-- map.set("n", "<leader>uc", "<CMD>SymbolsOutlineClose<CR>", "Close")

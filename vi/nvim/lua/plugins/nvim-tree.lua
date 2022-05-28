@@ -47,23 +47,17 @@ nvim_tree.setup({
     }
 })
 
+local map = require("utils.mapping")
 
-local keys = require("utils.keys")
-keys.mapCmd("<F4>", "NvimTreeFindFileToggle")
+map.set("n", "<F4>", "<CMD>NvimTreeFindFileToggle<CR>", "NvimTree Toggle")
+map.set("n", "<leader>F3","<CMD>NvimTreeResize 30<CR>", "Resize To 30" )
+map.set("n", "<leader>F4","<CMD>NvimTreeResize 40<CR>", "Resize To 40" )
+map.set("n", "<leader>F5","<CMD>NvimTreeResize 50<CR>", "Resize To 50" )
+map.set("n", "<leader>F6","<CMD>NvimTreeResize 60<CR>", "Resize To 60" )
+map.set("n", "<leader>Ft","<CMD>NvimTreeToggle<CR>", "Toggle" )
+map.set("n", "<leader>Ff","<CMD>NvimTreeFocus<CR>", "Focus" )
+map.set("n", "<leader>Fo","<CMD>NvimTreeOpen<CR>", "Open" )
+map.set("n", "<leader>Fc","<CMD>NvimTreeClose<CR>", "Close" )
+map.set("n", "<leader>Fn","<CMD>NvimTreeFindFileToggle<CR>", "Find File Toggle" )
+map.set("n", "<leader>Fj","<CMD>NvimTreeFindFile<CR>", "Find File" )
 
-local wk = require("which-key")
-wk.register({
-	F = {
-		name = "+FileTree",
-		["3"] = { "<CMD>NvimTreeResize 30<CR>", "Resize To 30" },
-		["4"] = { "<CMD>NvimTreeResize 40<CR>", "Resize To 40" },
-		["5"] = { "<CMD>NvimTreeResize 50<CR>", "Resize To 50" },
-		["6"] = { "<CMD>NvimTreeResize 60<CR>", "Resize To 60" },
-		t = { "<CMD>NvimTreeToggle<CR>", "Toggle" },
-		f = { "<CMD>NvimTreeFocus<CR>", "Focus" },
-		o = { "<CMD>NvimTreeOpen<CR>", "Open" },
-		c = { "<CMD>NvimTreeClose<CR>", "Close" },
-		n = { "<CMD>NvimTreeFindFileToggle<CR>", "Find File Toggle" },
-		j = { "<CMD>NvimTreeFindFile<CR>", "Find File" },
-	},
-}, { prefix = "<leader>" })

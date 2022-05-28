@@ -32,7 +32,7 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<c-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }),
+		["<c-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }),
 		["<c-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s", "c" }),
 		["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
 		["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),

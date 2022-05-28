@@ -10,7 +10,7 @@ if not ok then
 end
 
 local api = require("utils.api")
-api.hi.set("debugger", {fg = "red"})
+api.hi.set("debugger", { fg = "red" })
 
 local dap_config = {
     "python",
@@ -31,20 +31,13 @@ for _, name in ipairs(dap_config) do
     ::continue::
 end
 
-local wk = require("which-key")
-wk.register(
-    {
-        d = {
-            name = "+DAP",
-            a = {"<CMD>lua require'dap'.toggle_breakpoint()<CR>", "Add Break Point"},
-            c = {"<CMD>lua require'dap'.clear_breakpoints()<CR>", "Clear Break Point"},
-            d = {"<CMD>lua require'dap'.continue()<CR>", "Continue"},
-            j = {"<CMD>lua require'dap'.step_over()<CR>", "Setp Over"},
-            n = {"<CMD>lua require'dap'.step_into()<CR>", "Setp Into"},
-            o = {"<CMD>lua require'dap'.step_out()<CR>", "Setp Out"},
-            r = {"<CMD>lua require'dap'.run_last()<CR>", "Run Last"},
-            t = {"<CMD>lua require'dap'.terminate()<CR>", "Terminate"}
-        }
-    },
-    {prefix = "<leader>"}
-)
+local map = require("utils.mapping")
+
+map.set("n", "<leader>da", require 'dap'.toggle_breakpoint, "Add Break Point")
+map.set("n", "<leader>dc", require 'dap'.clear_breakpoints, "Clear Break Point")
+map.set("n", "<leader>dd", require 'dap'.continue, "Continue")
+map.set("n", "<leader>dj", require 'dap'.step_over, "Setp Over")
+map.set("n", "<leader>dn", require 'dap'.step_into, "Setp Into")
+map.set("n", "<leader>do", require 'dap'.step_out, "Setp Out")
+map.set("n", "<leader>dr", require 'dap'.run_last, "Run Last")
+map.set("n", "<leader>dt", require 'dap'.terminate, "Terminate")
