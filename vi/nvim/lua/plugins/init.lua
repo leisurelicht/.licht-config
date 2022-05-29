@@ -241,6 +241,9 @@ local install_plugins = {
         event = {"BufRead", "BufNewFile"},
         -- ft = {"lua", "python", "go"},
     },
+    ["mbbill/undotree"] = {
+        file = "undotree"
+    },
 	--[[
 	=====================================
 	 ---------- Other function ---------
@@ -274,12 +277,9 @@ local install_plugins = {
 			require("colorizer").setup()
 		end,
 	},
-    ["mbbill/undotree"] = {
-        file = "undotree"
-    },
     ["uga-rosa/translate.nvim"] = {
         file = "translate",
-        -- cmd = {"Translate"},
+        cmd = {"Translate"},
     }
 }
 
