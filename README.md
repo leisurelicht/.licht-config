@@ -23,6 +23,6 @@
 
 - [zsh 说明](./zsh/README.md)
 
-- [vim 说明](./vim/README.md)
+- [vim && Neovim 说明](./vi/README.md)
 
 - [安装的软件](./install/README.md)

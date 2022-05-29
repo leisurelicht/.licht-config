@@ -59,7 +59,8 @@ local M = {}
 function M.register_plugins(install_plugins)
 	local packer, packer_bootstrap = initialize_packer()
 
-	-- packer.init({
+	packer.init({
+        auto_clean = false,
 	-- 	git = {
 	-- 		-- default_url_format = "https://mirror.ghproxy.com/%s",
 	-- 		-- default_url_format = "https://hub.fastgit.xyz/%s",
@@ -68,7 +69,7 @@ function M.register_plugins(install_plugins)
 	--      -- default_url_format = "https://hub.fastgit.org/%s",
 	--      -- default_url_format = "https://gitclone.com/%s",
 	-- 	},
-	-- })
+	})
 
 	packer.startup({
 		function(use)
