@@ -185,7 +185,9 @@ local install_plugins = {
 	["p00f/nvim-ts-rainbow"] = { -- 彩虹括号
 		event = { "BufRead", "BufNewFile" },
 	},
-    ["andymass/vim-matchup"] = {},
+    ["andymass/vim-matchup"] = {
+        file = ""
+    },
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",

@@ -41,8 +41,8 @@ wk.register({
 	},
 	m = {
 		name = "+Translate",
-		c = "+To Chinese",
-		e = "+To English",
+		c = "+English To Chinese",
+		e = "+Chinese To English",
 	},
 	n = { name = "+Shortcut" },
 	o = { name = "+Term" },

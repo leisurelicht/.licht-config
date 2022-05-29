@@ -27,4 +27,6 @@ end
 local map = require("utils.mapping")
 
 map.set("n", "<F6>", "<CMD>UndotreeToggle<CR>", "UndoTree")
+map.set("n", "<leader>uu", "<CMD>UndotreeToggle<CR>", "UndoTree")
+
 
