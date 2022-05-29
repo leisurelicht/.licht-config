@@ -277,6 +277,10 @@ local install_plugins = {
     ["mbbill/undotree"] = {
         file = "undotree"
     },
+    ["uga-rosa/translate.nvim"] = {
+        file = "translate",
+        -- cmd = {"Translate"},
+    }
 }
 
 require("plugins.packer").register_plugins(install_plugins)

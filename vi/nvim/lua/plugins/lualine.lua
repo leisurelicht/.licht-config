@@ -21,8 +21,7 @@ end
 
 lualine.setup({
 	options = { theme = "catppuccin" },
-	sections = {
-		lualine_a = {
+	sections = { lualine_a = {
 			{
 				"tabs",
 				separator = { right = "" },
@@ -73,6 +72,10 @@ lualine.setup({
 	},
 	inactive_sections = {
 		lualine_a = {
+            {
+				"tabs",
+				separator = { right = "" },
+			},
 			{
 				window_num,
 				separator = { right = "" },

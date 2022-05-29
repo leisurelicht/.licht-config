@@ -22,7 +22,7 @@ wk.register({
 		c = { name = "+Close" },
 		s = { name = "+Sort" },
 	},
-    d = { name = "+DAP" },
+	d = { name = "+DAP" },
 	f = {
 		name = "+Find",
 		h = { name = "+History" },
@@ -37,7 +37,12 @@ wk.register({
 	l = {
 		name = "+LSP",
 		w = { name = "+WorkSpace" },
-        s = { name = "+Synbols" },
+		s = { name = "+Synbols" },
+	},
+	m = {
+		name = "+Translate",
+		c = "+To Chinese",
+		e = "+To English",
 	},
 	n = { name = "+Shortcut" },
 	o = { name = "+Term" },

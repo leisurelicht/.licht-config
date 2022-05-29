@@ -1,5 +1,6 @@
 -- =================
--- packer.lua --- packer file Author: MuCheng
+-- packer.lua --- packer file
+-- Author: MuCheng
 -- =================
 --
 
@@ -58,14 +59,16 @@ local M = {}
 function M.register_plugins(install_plugins)
 	local packer, packer_bootstrap = initialize_packer()
 
-	packer.init({
-		git = {
-			-- default_url_format = "https://mirror.ghproxy.com/%s",
-			-- default_url_format = "https://hub.fastgit.xyz/%s",
-			-- default_url_format = "https://github.com/%s",
-            -- default_url_format = "https://ghproxy.com/%s",
-		},
-	})
+	-- packer.init({
+	-- 	git = {
+	-- 		-- default_url_format = "https://mirror.ghproxy.com/%s",
+	-- 		-- default_url_format = "https://hub.fastgit.xyz/%s",
+	-- 		-- default_url_format = "https://github.com/%s",
+	--      -- default_url_format = "https://ghproxy.com/%s",
+	--      -- default_url_format = "https://hub.fastgit.org/%s",
+	--      -- default_url_format = "https://gitclone.com/%s",
+	-- 	},
+	-- })
 
 	packer.startup({
 		function(use)
