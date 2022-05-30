@@ -3,9 +3,9 @@ local util = require("lspconfig.util")
 
 return {
 	settings = {
-		document_diagnostics = false,
-		document_formatting = false,
-		formatting_on_save = true,
+		document_diagnostics = true,
+		document_formatting = true,
+		formatting_on_save = false,
 	},
 	-- attach = function(_, bufnr)
 		-- wk.register({

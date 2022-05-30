@@ -99,7 +99,7 @@ local install_plugins = {
 	},
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		file = "lsp_null-ls",
-		after = { "nvim-lspconfig" },
+		after = {"plenary.nvim", "nvim-lspconfig"},
 	},
 	["simrat39/symbols-outline.nvim"] = {
 		file = "lsp_symbols-outline",
