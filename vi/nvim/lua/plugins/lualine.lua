@@ -17,11 +17,10 @@ local function window_num()
 	return "[" .. num .. "]"
 end
 
-
-
 lualine.setup({
 	options = { theme = "catppuccin" },
-	sections = { lualine_a = {
+	sections = {
+		lualine_a = {
 			{
 				"tabs",
 				separator = { right = "" },
@@ -38,10 +37,15 @@ lualine.setup({
 				end,
 			},
 		},
-		lualine_c = { "filename" },
+		lualine_c = {
+			{
+				require("utils.shortcut").get_project_name,
+			},
+			"filename",
+		},
 		lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_y = {
-            {
+		lualine_y = {
+			{
 				"diagnostics",
 				-- Table of diagnostic sources, available sources are:
 				--   'nvim_lsp', 'nvim_diagnostic', 'coc', 'ale', 'vim_lsp'.
@@ -64,15 +68,15 @@ lualine.setup({
 				update_in_insert = false, -- Update diagnostics in insert mode.
 				always_visible = false, -- Show diagnostics even if there are none.
 			},
-            {
-                "progress",
-                separator = { left = "" }
-            }
-        }
+			{
+				"progress",
+				separator = { left = "" },
+			},
+		},
 	},
 	inactive_sections = {
 		lualine_a = {
-            {
+			{
 				"tabs",
 				separator = { right = "" },
 			},

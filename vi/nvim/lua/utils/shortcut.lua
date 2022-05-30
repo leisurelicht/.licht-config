@@ -60,6 +60,12 @@ function M._buf_full_path()
 	return path
 end
 
+function M.get_project_name()
+    local project_path = require("project_nvim.project").get_project_root()
+    local project_name = Split(project_path, "/")
+    return project_name[#project_name]
+end
+
 map.set("n", "<leader>nh", M._Htop, "Htop")
 map.set("n", "<leader>np", M._buf_path, "Buffer Path")
 map.set("n", "<leader>no", M._buf_full_path, "Buffer Full Path")
