@@ -31,10 +31,10 @@ else
 fi
 
 if ! command -v fzf >/dev/null 2>&1; then
-	echo "====> Install Command [fzf]"
+	echo "====> Command [fzf] is not be installed."
 	fzf_need_install=1
 else
-	echo "====> Fzf is already install"
+	echo "====> Command [fzf] is already installed."
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
