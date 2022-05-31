@@ -74,12 +74,12 @@ if [[ $(uname) == 'Darwin' ]]; then
 	fi
 	if [[ ${rg_need_install} == 1 ]]; then
 		echo "====> Install Command [rg]"
-		brew install rg
+		brew install ripgrep
 		rg_need_install=0
 	fi
 	if [[ ${fd_need_install} == 1 ]]; then
 		echo "====> Install Command [fd]"
-		brew install fd
+		brew install fd-find
 		$(brew --prefix)/opt/fd/install
 		fd_need_install=0
 	fi
@@ -103,12 +103,12 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 		fi
 		if [[ ${rg_need_install} == 1 ]]; then
 			echo "====> Install Command [rg]."
-			sudo apt-get install rg -y
+			sudo apt-get install ripgrep -y
 			rg_need_install=0
 		fi
 		if [[ ${fd_need_install} == 1 ]]; then
 			echo "====> Install Command [fd]."
-			sudo apt-get install fd -y
+			sudo apt install fd-find -y
 			fd_need_install=0
 		fi
 	elif [[ ${os} == "centos" ]]; then
@@ -129,12 +129,12 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 		fi
 		if [[ ${rg_need_install} == 1 ]]; then
 			echo "====> Install Command [rg]."
-			sudo yum install rg -y
+			sudo yum install ripgrep -y
 			rg_need_install=0
 		fi
 		if [[ ${fd_need_install} == 1 ]]; then
 			echo "====> Install Command [fd]."
-			sudo yum install fd -y
+			sudo yum install fd-find -y
 			fd_need_install=0
 		fi
 	fi
