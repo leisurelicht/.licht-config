@@ -99,7 +99,7 @@ local install_plugins = {
 	},
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		file = "lsp_null-ls",
-		after = { "nvim-lspconfig" },
+		after = {"plenary.nvim", "nvim-lspconfig"},
 	},
 	["simrat39/symbols-outline.nvim"] = {
 		file = "lsp_symbols-outline",
@@ -185,7 +185,9 @@ local install_plugins = {
 	["p00f/nvim-ts-rainbow"] = { -- 彩虹括号
 		event = { "BufRead", "BufNewFile" },
 	},
-    ["andymass/vim-matchup"] = {},
+    ["andymass/vim-matchup"] = {
+        file = ""
+    },
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",
@@ -241,6 +243,9 @@ local install_plugins = {
         event = {"BufRead", "BufNewFile"},
         -- ft = {"lua", "python", "go"},
     },
+    ["mbbill/undotree"] = {
+        file = "undotree"
+    },
 	--[[
 	=====================================
 	 ---------- Other function ---------
@@ -274,9 +279,10 @@ local install_plugins = {
 			require("colorizer").setup()
 		end,
 	},
-    ["mbbill/undotree"] = {
-        file = "undotree"
-    },
+    ["uga-rosa/translate.nvim"] = {
+        file = "translate",
+        cmd = {"Translate"},
+    }
 }
 
 require("plugins.packer").register_plugins(install_plugins)

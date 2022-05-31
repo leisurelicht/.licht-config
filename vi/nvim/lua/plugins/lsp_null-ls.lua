@@ -22,7 +22,7 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.golangci_lint,
 		null_ls.builtins.formatting.gofumpt,
 		null_ls.builtins.formatting.goimports,
-        null_ls.builtins.formatting.golines,
+        -- null_ls.builtins.formatting.golines,
 		-- sql
 		null_ls.builtins.formatting.sqlformat,
 		-- python
@@ -34,7 +34,7 @@ null_ls.setup({
 		-- markdown
 		null_ls.builtins.diagnostics.markdownlint,
 		-- shell
-		null_ls.builtins.code_actions.shellcheck,
+		-- null_ls.builtins.code_actions.shellcheck, -- Don't need
 		null_ls.builtins.formatting.shfmt,
 		-- frontend
 		-- null_ls.builtins.formatting.prettier,

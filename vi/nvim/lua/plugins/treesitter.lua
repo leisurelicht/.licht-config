@@ -66,6 +66,6 @@ treesitter_config.setup({
 })
 
 local map = require("utils.mapping")
-map.set("n", "<leader>Tw", "<CMD>MatchupWhereAmI??<CR>", "Match Up")
 map.set("n", "<leader>Tu", "<CMD>TSUpdate all<CR>", "Update All" )
 map.set("n", "<leader>Ts", "<CMD>TSModuleInfo<CR>", "Module Info" )
+

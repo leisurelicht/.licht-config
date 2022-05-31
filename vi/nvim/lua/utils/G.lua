@@ -9,11 +9,11 @@ function _G.dump(...)
 	print(unpack(objects))
 end
 
-function _G.tableMerge(t1, t2)
+function _G.TableMerge(t1, t2)
 	for k, v in pairs(t2) do
 		if type(v) == "table" then
 			if type(t1[k] or false) == "table" then
-				tableMerge(t1[k] or {}, t2[k] or {})
+				TableMerge(t1[k] or {}, t2[k] or {})
 			else
 				t1[k] = v
 			end
@@ -22,4 +22,11 @@ function _G.tableMerge(t1, t2)
 		end
 	end
 	return t1
+end
+
+function _G.Split(str, sep)
+    local sep, fields = sep or ":", {}
+    local pattern = string.format("([^%s]+)", sep)
+    str:gsub(pattern, function (c) fields[#fields + 1] = c end)
+    return fields
 end

@@ -1,5 +1,6 @@
 -- =================
--- packer.lua --- packer file Author: MuCheng
+-- packer.lua --- packer file
+-- Author: MuCheng
 -- =================
 --
 
@@ -44,13 +45,13 @@ local function auto_compile()
 end
 
 local function register_keybindings()
-    local map = require("utils.mapping")
-    map.set("n", "<leader>Pi", "<CMD>PackerInstall<CR>", "Plugins Install")
-    map.set("n", "<leader>Pu", "<CMD>PackerUpdate<CR>", "Plugins Update")
-    map.set("n", "<leader>Pc", "<CMD>PackerClean<CR>", "Plugins Clean")
-    map.set("n", "<leader>Ps", "<CMD>PackerStatus<CR>", "Plugins Status")
-    map.set("n", "<leader>Py", "<CMD>PackerSync<CR>", "Plugins Sync")
-    -- map.set("n", "<leader>Pl", "<CMD>Telescope packer<CR>", "Find Installed Plugins")
+	local map = require("utils.mapping")
+	map.set("n", "<leader>Pi", "<CMD>PackerInstall<CR>", "Plugins Install")
+	map.set("n", "<leader>Pu", "<CMD>PackerUpdate<CR>", "Plugins Update")
+	map.set("n", "<leader>Pc", "<CMD>PackerClean<CR>", "Plugins Clean")
+	map.set("n", "<leader>Ps", "<CMD>PackerStatus<CR>", "Plugins Status")
+	map.set("n", "<leader>Py", "<CMD>PackerSync<CR>", "Plugins Sync")
+	-- map.set("n", "<leader>Pl", "<CMD>Telescope packer<CR>", "Find Installed Plugins")
 end
 
 local M = {}
@@ -59,10 +60,15 @@ function M.register_plugins(install_plugins)
 	local packer, packer_bootstrap = initialize_packer()
 
 	packer.init({
-		git = {
-			default_url_format = "https://hub.fastgit.xyz/%s",
-			-- default_url_format = "https://github.com/%s",
-		},
+        auto_clean = false,
+	-- 	git = {
+	-- 		-- default_url_format = "https://mirror.ghproxy.com/%s",
+	-- 		-- default_url_format = "https://hub.fastgit.xyz/%s",
+	-- 		-- default_url_format = "https://github.com/%s",
+	--      -- default_url_format = "https://ghproxy.com/%s",
+	--      -- default_url_format = "https://hub.fastgit.org/%s",
+	--      -- default_url_format = "https://gitclone.com/%s",
+	-- 	},
 	})
 
 	packer.startup({

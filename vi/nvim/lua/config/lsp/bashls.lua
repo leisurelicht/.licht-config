@@ -4,5 +4,7 @@ return {
 		document_formatting = false,
 		formatting_on_save = true,
 	},
-	options = {},
+	options = {
+		ignoredRootPaths = { "~" },
+	},
 }
