@@ -10,15 +10,6 @@ config_path=$(
 )
 echo "====> Config file root path is: ${config_path}"
 
-if ! command -v brew >/dev/null 2>&1; then
-	echo "====> Command brew is not be installed, start to install"
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-	echo "====> Commnad brew is already installed"
-fi
-
-git_need_install=0
-
 if ! command -v vim >/dev/null 2>&1; then
 	echo "====> [vim] is not be installed."
 	exit 1
@@ -28,6 +19,8 @@ if ! command -v nvim >/dev/null 2>&1; then
 	echo "====> [neovim] is not be installed."
 	exit 1
 fi
+
+git_need_install=0
 
 if ! command -v git >/dev/null 2>&1; then
 	echo "====> Command [git] is not be installed."

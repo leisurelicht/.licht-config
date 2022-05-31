@@ -29,6 +29,7 @@ brew install fd
 brew install htop
 brew instal fzf
 brew install lua
+brew install exa
 
 brew install shellcheck
 brew install golangci-lint
