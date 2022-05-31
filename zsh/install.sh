@@ -16,25 +16,23 @@ zsh_need_install=0
 git_need_install=0
 fzf_need_install=0
 
+if ! command -v lua >/dev/null 2>&1; then
+	echo "====> [lua] is not be installed. Please install first"
+fi
+
 if ! command -v zsh >/dev/null 2>&1; then
 	echo "====> [zsh] is not be installed."
 	zsh_need_install=1
-else
-	echo "====> [zsh] is already installed."
 fi
 
 if ! command -v git >/dev/null 2>&1; then
 	echo "====> Command [git] is not be installed."
 	git_need_install=1
-else
-	echo "====> Command [git] is already installed."
 fi
 
 if ! command -v fzf >/dev/null 2>&1; then
 	echo "====> Command [fzf] is not be installed."
 	fzf_need_install=1
-else
-	echo "====> Command [fzf] is already installed."
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then

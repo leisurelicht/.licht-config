@@ -17,3 +17,5 @@ brew install --cask itsycal
 brew install --cask browserosaurus
 brew install --caks wireshark
 brew install --cask thor
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font

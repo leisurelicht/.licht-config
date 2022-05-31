@@ -18,15 +18,11 @@ git_need_install=0
 if ! command -v tmux >/dev/null 2>&1; then
 	echo "====> Command [tmux] is not be installed."
 	tmux_need_install=1
-else
-	echo "====> Command [tmux] is already installed."
 fi
 
 if ! command -v git >/dev/null 2>&1; then
 	echo "====> Command [git] is not be installed."
 	git_need_install=1
-else
-	echo "====> Command [git] is already installed."
 fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
