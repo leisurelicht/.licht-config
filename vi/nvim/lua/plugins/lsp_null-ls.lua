@@ -34,7 +34,7 @@ null_ls.setup({
 		-- markdown
 		null_ls.builtins.diagnostics.markdownlint,
 		-- shell
-		-- null_ls.builtins.code_actions.shellcheck, -- Don't need
+		null_ls.builtins.code_actions.shellcheck,
 		null_ls.builtins.formatting.shfmt,
 		-- frontend
 		-- null_ls.builtins.formatting.prettier,
