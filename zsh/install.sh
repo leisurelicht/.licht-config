@@ -15,6 +15,8 @@ echo "====> Config file root path is: ${config_path}"
 zsh_need_install=0
 git_need_install=0
 fzf_need_install=0
+fd_need_install=0
+rg_need_install=0
 
 if ! command -v lua >/dev/null 2>&1; then
 	echo "====> [lua] is not be installed. Please install first"
@@ -33,6 +35,16 @@ fi
 if ! command -v fzf >/dev/null 2>&1; then
 	echo "====> Command [fzf] is not be installed."
 	fzf_need_install=1
+fi
+
+if ! command -v rg >/dev/null 2>&1; then
+	echo "====> Command [rg] is not be installed."
+	rg_need_install=1
+fi
+
+if ! command -v fd >/dev/null 2>&1; then
+	echo "====> Command [fd] is not be installed."
+	fd_need_install=1
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -60,6 +72,17 @@ if [[ $(uname) == 'Darwin' ]]; then
 		$(brew --prefix)/opt/fzf/install
 		fzf_need_install=0
 	fi
+	if [[ ${rg_need_install} == 1 ]]; then
+		echo "====> Install Command [rg]"
+		brew install rg
+		rg_need_install=0
+	fi
+	if [[ ${fd_need_install} == 1 ]]; then
+		echo "====> Install Command [fd]"
+		brew install fd
+		$(brew --prefix)/opt/fd/install
+		fd_need_install=0
+	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
 	if [[ ${os} == "ubuntu" ]]; then
@@ -78,6 +101,16 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			sudo apt-get install fzf -y
 			fzf_need_install=0
 		fi
+		if [[ ${rg_need_install} == 1 ]]; then
+			echo "====> Install Command [rg]."
+			sudo apt-get install rg -y
+			rg_need_install=0
+		fi
+		if [[ ${fd_need_install} == 1 ]]; then
+			echo "====> Install Command [fd]."
+			sudo apt-get install fd -y
+			fd_need_install=0
+		fi
 	elif [[ ${os} == "centos" ]]; then
 		if [[ ${zsh_need_install} == 1 ]]; then
 			echo "====> Install Command [zsh]."
@@ -93,6 +126,16 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			echo "====> Install Command [fzf]."
 			sudo yum install fzf -y
 			fzf_need_install=0
+		fi
+		if [[ ${rg_need_install} == 1 ]]; then
+			echo "====> Install Command [rg]."
+			sudo yum install rg -y
+			rg_need_install=0
+		fi
+		if [[ ${fd_need_install} == 1 ]]; then
+			echo "====> Install Command [fd]."
+			sudo yum install fd -y
+			fd_need_install=0
 		fi
 	fi
 fi
