@@ -11,54 +11,98 @@ config_path=$( cd $install_path/..
 
 echo "====> Config file root path is: ${config_path}"
 
+zsh_need_install=0
+git_need_install=0
+fzf_need_install=0
+
+if ! command -v zsh >/dev/null 2>&1; then
+  echo "====> [zsh] is not be installed."
+  zsh_need_install=1
+else
+  echo "====> [zsh] is already installed."
+fi
+
+if ! command -v git >/dev/null 2>&1; then
+	echo "====> Command [git] is not be installed."
+	git_need_install=1
+else
+	echo "====> Command [git] is already installed."
+fi
+
+if ! command -v fzf >/dev/null 2>&1; then
+  echo "====> Install Command [fzf]"
+  fzf_need_install=1
+else
+  echo "====> Fzf is already install"
+fi
+
+
 if [[ `uname` == 'Darwin'  ]]; then
   # 安装包管理器
   if ! command -v brew >/dev/null 2>&1; then
-      echo "====> Homebrew is not be installed, start to install"
+      echo "====> Install Command [brew]"
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   else
-      echo "----> Homebrew is already install"
+      echo "====> Homebrew is already installed."
   fi
-
   # 安装软件
-  if ! command -v zsh >/dev/null 2>&1; then
-      echo "====> Zsh is not be installed, start to install"
+  if [[ ${zsh_need_install} == 1 ]]; then
+      echo "====> Install Command [zsh]"
       brew install zsh
-  else
-      echo "----> Zsh is already install"
+      zsh_need_install=0
   fi
-
-  if ! command -v fzf >/dev/null 2>&1; then
-      echo "====> Fzf is not be installed, start to install"
+  if [[ ${git_need_install} == 1 ]]; then
+		echo "====> Install Command [git]."
+		brew install git
+		git_need_install=0
+	fi
+  if [[ ${fzf_need_install} == 1 ]]; then
+      echo "====> Install Command [fzf]"
       brew install fzf
       $(brew --prefix)/opt/fzf/install
-  else
-      echo "----> Fzf is already install"
+      fzf_need_install=0
   fi
+elif [[ $(uname -s) == 'Linux' ]]; then
+	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
+	if [[ ${os} == "ubuntu" ]]; then
+		if [[ ${zsh_need_install} == 1 ]]; then
+			echo "====> Install Command [zsh]."
+			sudo apt-get install zsh -y
+		  zsh_need_install=0
+		fi
+		if [[ ${git_need_install} == 1 ]]; then
+			echo "====> Install Command [git]."
+			sudo apt-get install git -y
+			git_need_install=0
+		fi
+    if [[ ${fzf_need_install} == 1 ]]; then
+			echo "====> Install Command [fzf]."
+			sudo apt-get install fzf -y
+			fzf_need_install=0
+		fi
+	elif [[ ${os} == "centos" ]]; then
+		if [[ ${zsh_need_install} == 1 ]]; then
+			echo "====> Install Command [zsh]."
+			sudo yum install zsh -y
+			zsh_need_install=0
+		fi
+		if [[ ${git_need_install} == 1 ]]; then
+			echo "====> Install Command [git]."
+			sudo yum install git -y
+			git_need_install=0
+		fi
+    if [[ ${fzf_need_install} == 1 ]]; then
+			echo "====> Install Command [fzf]."
+			sudo yum install fzf -y
+			fzf_need_install=0
+		fi
+	fi
+fi
 
-  if ! command -v rg >/dev/null 2>&1; then
-      echo "====> Ripgrep is not be installed, start to install"
-      brew install Ripgrep
-  else
-      echo "----> Ripgrep is already install"
-  fi
-  
-  if ! command -v fd >/dev/null 2>&1; then
-      echo "====> Fd is not be installed, start to install"
-      brew install fd
-  else
-      echo "----> fd is already install"
-  fi
-
-  if ! command -v bat >/dev/null 2>&1; then
-      echo "====> Bat is not be installed, start to install"
-      brew install bat
-  else
-      echo "----> Bat is already install"
-  fi
-else
-  echo "xxxx> Currenty operating system is not supported"
-  exit 1
+if [[ ${zsh_need_install} == 1 ]] ||
+	[[ ${git_need_install} == 1 ]]; then
+	echo "====> Need Install Command [zsh] [git] First"
+	exit 1
 fi
 
 # 安装zinit
@@ -72,17 +116,13 @@ if [ ! -e "$ZINIT_HOME" ]; then
     exit 1
   fi
 else
-  echo "----> Zinit is already install"
+  echo "====> Zinit is already install"
 fi
-
-# echo "====> Use Gem to install necessary"
-# gem install rough
 
 # 创建备份文件地址
 if [ ! -d $config_path/bak ]; then
   mkdir -p $config_path/bak
-fi
-echo "====> Back up dir path is: ${config_path}/bak"
+fi echo "====> Back up dir path is: ${config_path}/bak"
 
 # 备份已有的zshrc文件
 if [ -f ~/.zshrc ]; then
