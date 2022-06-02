@@ -104,6 +104,7 @@ telescope.load_extension("ui-select")
 telescope.load_extension("projects")
 -- telescope.load_extension("urlview")
 telescope.load_extension("file_browser")
+telescope.load_extension("frecency")
 
 -- keybindings
 local map = require("utils.mapping")

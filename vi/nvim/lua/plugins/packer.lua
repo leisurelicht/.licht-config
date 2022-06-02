@@ -71,6 +71,8 @@ function M.register_plugins(install_plugins)
 	-- 	},
 	})
 
+    vim.api.nvim_command('packadd packer.nvim')
+
 	packer.startup({
 		function(use)
 			for plugin_name, plugin_config in pairs(install_plugins) do

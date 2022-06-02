@@ -63,6 +63,9 @@ treesitter_config.setup({
 	matchup = {
 		enable = true,
 	},
+    endwise = {
+        enable = true,
+    },
 })
 
 local map = require("utils.mapping")

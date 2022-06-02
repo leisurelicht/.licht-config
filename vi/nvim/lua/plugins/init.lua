@@ -99,7 +99,7 @@ local install_plugins = {
 	},
 	["jose-elias-alvarez/null-ls.nvim"] = {
 		file = "lsp_null-ls",
-		after = {"plenary.nvim", "nvim-lspconfig"},
+		after = { "plenary.nvim", "nvim-lspconfig" },
 	},
 	["simrat39/symbols-outline.nvim"] = {
 		file = "lsp_symbols-outline",
@@ -133,11 +133,10 @@ local install_plugins = {
 	----------- Fuzzy lookup ----------
 	=====================================
 	]]
+	["tami5/sqlite.lua"] = {},
 	["AckslD/nvim-neoclip.lua"] = { -- 粘贴板
-		requires = {
-			{ "tami5/sqlite.lua", module = "sqlite" },
-		},
 		file = "neoclip",
+		after = { "sqlite.lua" },
 	},
 	["ahmedkhalf/project.nvim"] = { file = "project" },
 	["nvim-telescope/telescope.nvim"] = { -- 搜索
@@ -146,16 +145,17 @@ local install_plugins = {
 			{ "nvim-telescope/telescope-packer.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-telescope/telescope-file-browser.nvim" },
+			{ "nvim-telescope/telescope-frecency.nvim" },
 			-- { "nvim-telescope/telescope-project.nvim" },
 			-- { "axieax/urlview.nvim" },
 		},
 		file = "telescope",
-		after = { "plenary.nvim", "nvim-neoclip.lua", "project.nvim" },
+		after = { "plenary.nvim", "sqlite.lua", "nvim-neoclip.lua", "project.nvim" },
 	},
-    -- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
-    --     file = "spectre",
-    --     after = { "plenary.nvim" },
-    -- },
+	-- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
+	--     file = "spectre",
+	--     after = { "plenary.nvim" },
+	-- },
 	--[[
 	--=====================================
 	------- Debug Adapter Protocol ------
@@ -185,13 +185,14 @@ local install_plugins = {
 	["p00f/nvim-ts-rainbow"] = { -- 彩虹括号
 		event = { "BufRead", "BufNewFile" },
 	},
-    ["andymass/vim-matchup"] = {
-        file = ""
-    },
+	["andymass/vim-matchup"] = {
+		file = "matchup",
+	},
+	["RRethy/nvim-treesitter-endwise"] = {},
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",
-		after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup" },
+		after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" },
 	},
 	["lewis6991/gitsigns.nvim"] = { -- git 显示
 		requires = { "f-person/git-blame.nvim" },
@@ -239,13 +240,13 @@ local install_plugins = {
 		file = "numb",
 		event = { "CmdlineEnter" },
 	},
-    ["itchyny/vim-cursorword"] = {
-        event = {"BufRead", "BufNewFile"},
-        -- ft = {"lua", "python", "go"},
-    },
-    ["mbbill/undotree"] = {
-        file = "undotree"
-    },
+	["itchyny/vim-cursorword"] = {
+		event = { "BufRead", "BufNewFile" },
+		-- ft = {"lua", "python", "go"},
+	},
+	["mbbill/undotree"] = {
+		file = "undotree",
+	},
 	--[[
 	=====================================
 	 ---------- Other function ---------
@@ -279,10 +280,10 @@ local install_plugins = {
 			require("colorizer").setup()
 		end,
 	},
-    ["uga-rosa/translate.nvim"] = {
-        file = "translate",
-        cmd = {"Translate"},
-    }
+	["uga-rosa/translate.nvim"] = {
+		file = "translate",
+		cmd = { "Translate" },
+	},
 }
 
 require("plugins.packer").register_plugins(install_plugins)
