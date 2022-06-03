@@ -123,8 +123,8 @@ for _, server_name in ipairs(servers) do
             require("config.lsp.keybindings").register(client, bufnr)
 
             if settings.document_formatting ~= nil then
-                client.resolved_capabilities.document_formatting = settings.document_formatting
-                client.resolved_capabilities.document_range_formatting = settings.document_formatting
+                client.server_capabilities.document_formatting = settings.document_formatting
+                client.server_capabilities.document_range_formatting = settings.document_formatting
             end
 
             if settings.formatting_on_save ~= nil and settings.formatting_on_save then
