@@ -27,9 +27,10 @@ brew install wget
 brew install rg
 brew install fd
 brew install htop
-brew instal fzf
+brew install fzf
 brew install lua
 brew install exa
+brew install sqlite
 
 brew install shellcheck
 brew install golangci-lint
