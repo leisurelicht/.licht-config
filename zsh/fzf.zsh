@@ -19,6 +19,18 @@ if [[ `uname` == "Darwin" ]]; then
     fi
     # Reinforce 'cd' command
     source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
+else if [[ `uname` == "Linux" ]]; then
+    # Setup fzf
+    # ---------
+    if [[ ! "$PATH" == */${HOME}/.fzf/bin* ]]; then
+        export PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
+    fi
+    # Auto-completion
+    # ---------------
+    [[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
+    # Key bindings
+    # ------------
+    source "${HOME}/.fzf/shell/key-bindings.zsh"
 fi
 
 # Alias
