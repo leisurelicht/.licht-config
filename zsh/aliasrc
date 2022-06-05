@@ -42,7 +42,9 @@ alias set_socks5="all_proxy=socks5://127.0.0.1:10080"
 alias unset_socks5="unset all_proxy"
 
 # 可恢复删除
-alias rm="trash"
+if [[ `uname` == "Darwin" ]]; then
+    alias rm="trash"
+fi
 
 # 清屏
 alias c="clear"

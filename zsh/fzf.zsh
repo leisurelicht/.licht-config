@@ -1,4 +1,4 @@
-if [[ `uname` == "Darwin" ]]; then
+if [[ $(uname -s) == "Darwin" ]]; then
     # Setup fzf
     # ---------
     if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
@@ -19,7 +19,7 @@ if [[ `uname` == "Darwin" ]]; then
     fi
     # Reinforce 'cd' command
     source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
-else if [[ `uname` == "Linux" ]]; then
+elif [[ $(uname -s) == "Linux" ]]; then
     # Setup fzf
     # ---------
     if [[ ! "$PATH" == */${HOME}/.fzf/bin* ]]; then
