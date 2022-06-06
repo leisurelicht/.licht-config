@@ -30,10 +30,20 @@ if [[ `uname` == "Darwin" ]]; then
     # socks5
     alias set_socks5="all_proxy=socks5://127.0.0.1:10080"
     alias unset_socks5="unset all_proxy"
+fi
+
+if type "$exa" >/dev/null; then
+    # ls && ll
+    alias ls="exa"
+    alias ll="exa --all --long --header --inode --git --color-scale --icons"
+    
+    # tree
+    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
 else
     # tree
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
+
 
 # 展示python文件
 alias lp="ls *.py"
