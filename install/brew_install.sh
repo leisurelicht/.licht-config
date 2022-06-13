@@ -31,6 +31,7 @@ brew install fzf
 brew install lua
 brew install exa
 brew install sqlite
+brew install autojump
 
 brew install shellcheck
 brew install golangci-lint
