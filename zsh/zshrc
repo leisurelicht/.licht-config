@@ -19,6 +19,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # 快速目录跳转
 zinit ice lucid wait='1'; zinit light skywind3000/z.lua
+export _ZL_MATCH_MODE=1
 
 # 语法高亮
 zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
