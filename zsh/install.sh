@@ -85,6 +85,11 @@ if [[ $(uname) == 'Darwin' ]]; then
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
+	if [[ ${fzf_need_install} ]]; then
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+		~/.fzf/install
+		fzf_need_install=0
+	fi
 	if [[ ${os} == "ubuntu" ]]; then
 		if [[ ${zsh_need_install} == 1 ]]; then
 			echo "====> Install Command [zsh]."
@@ -95,11 +100,6 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			echo "====> Install Command [git]."
 			sudo apt-get install git -y
 			git_need_install=0
-		fi
-		if [[ ${fzf_need_install} == 1 ]]; then
-			echo "====> Install Command [fzf]."
-			sudo apt-get install fzf -y
-			fzf_need_install=0
 		fi
 		if [[ ${rg_need_install} == 1 ]]; then
 			echo "====> Install Command [rg]."
@@ -121,11 +121,6 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			echo "====> Install Command [git]."
 			sudo yum install git -y
 			git_need_install=0
-		fi
-		if [[ ${fzf_need_install} == 1 ]]; then
-			echo "====> Install Command [fzf]."
-			sudo yum install fzf -y
-			fzf_need_install=0
 		fi
 		if [[ ${rg_need_install} == 1 ]]; then
 			echo "====> Install Command [rg]."
