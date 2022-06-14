@@ -25,6 +25,3 @@ let g:mkdp_auto_close = 0
 
 " ---> ale fixer
 " let g:ale_fixers.markdown = ['prettier']
-
-" ---> coc
-let g:coc_global_extensions += ['coc-markdownlint']

@@ -38,34 +38,6 @@ let g:which_key_map.g = {
 
 let g:which_key_map.m = {'name': '+BookMarks'}
 
-let g:which_key_map.c = {
-      \ 'name': '+Coc',
-      \ 'l': {
-      \ 'name': '+CocList',
-        \ 'a': 'Diagnostics',
-        \ 'e': 'Extensions',
-        \ 'c': 'Commands',
-        \ 'o': 'Outline',
-        \ 's': 'Symbols',
-        \ 'n': 'CocNext',
-        \ 'p': 'CocPrev',
-        \ 'r': 'CocListResume',
-        \},
-        \ 'r': {
-        \ 'name': '+Refactoring',
-          \ 'n': 'Rename',
-          \ 'f': 'Refactor',
-        \},
-        \ 'k': 'Document',
-        \ 'g': {
-        \ 'name': '+Goto',
-          \ 'd': 'Definition',
-          \ 'y': 'TypeDefinition',
-          \ 'i': 'Implementation',
-          \ 'r': 'References',
-        \}
-      \}
-
 let g:which_key_map.a = {
       \ 'name': '+ALE',
       \ 'a': 'AutoFixSwitch',

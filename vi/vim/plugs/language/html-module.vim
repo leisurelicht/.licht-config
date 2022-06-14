@@ -23,6 +23,3 @@ Plug 'othree/html5.vim', {'for': 'html'}
 
 " ---> ale fixer
 let g:ale_fixers.html = ['prettier',]
-
-" ---> coc
-let g:coc_global_extensions += ['coc-html', 'coc-css']

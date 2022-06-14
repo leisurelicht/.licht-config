@@ -21,6 +21,3 @@ augroup end
 
 " ---> ale fixer
 let g:ale_fixers.go = ['goimports', 'gofmt']
-
-" ---> coc
-let g:coc_global_extensions += ['coc-go']
