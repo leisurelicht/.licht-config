@@ -36,8 +36,6 @@ let g:which_key_map.g = {
       \ 'm': 'GitMessenger',
       \}
 
-let g:which_key_map.m = {'name': '+BookMarks'}
-
 let g:which_key_map.a = {
       \ 'name': '+ALE',
       \ 'a': 'AutoFixSwitch',
@@ -45,23 +43,6 @@ let g:which_key_map.a = {
 
 let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
-
-let g:which_key_map.f = {
-      \ 'name': '+Format',
-      \ 't': 'Tab',
-      \ '=': 'Tab=',
-      \ '+': 'Tab=zs',
-      \ ':': 'Tab:',
-      \ ';': 'Tab:zs',
-      \}
-
-let g:which_key_map.p = {
-      \ 'name': '+Plugs',
-      \ 'n': 'NerdTree',
-      \ 't': 'TagBar',
-      \ 'u': 'UndoTree',
-      \ 'g': 'Goyo',
-      \}
 
 let g:which_key_map.t = {
       \ 'name': '+Tabs',

@@ -18,13 +18,5 @@ nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gf :Gdiff<CR>
 nnoremap <leader>gd :Gdelete<CR>
 
-" ---> Commit browser
-Plug 'junegunn/gv.vim'
-
-nnoremap <leader>gv :Gv<CR>
-
 " ---> Git Message
 Plug 'rhysd/git-messenger.vim'
-
-" ---> Coc git
-let g:coc_global_extensions = ["coc-git"]

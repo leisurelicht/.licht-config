@@ -61,14 +61,13 @@ function M.register_plugins(install_plugins)
 
 	packer.init({
         auto_clean = false,
-	-- 	git = {
-	-- 		-- default_url_format = "https://mirror.ghproxy.com/%s",
-	-- 		-- default_url_format = "https://hub.fastgit.xyz/%s",
-	-- 		-- default_url_format = "https://github.com/%s",
-	--      -- default_url_format = "https://ghproxy.com/%s",
-	--      -- default_url_format = "https://hub.fastgit.org/%s",
-	--      -- default_url_format = "https://gitclone.com/%s",
-	-- 	},
+        -- git = {
+          -- default_url_format = "https://mirror.ghproxy.com/%s",
+          -- default_url_format = "https://hub.fastgit.xyz/%s",
+          -- default_url_format = "https://ghproxy.com/%s",
+          -- default_url_format = "https://hub.fastgit.org/%s",
+          -- default_url_format = "https://gitclone.com/%s",
+        -- },
 	})
 
     vim.api.nvim_command('packadd packer.nvim')

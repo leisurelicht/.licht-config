@@ -26,8 +26,11 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-" ---> Python代码缩进
+" ---> Python 代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+
+" ---> Python 语法高亮
+Plug 'vim-python/python-syntax' , {'for': 'python'}
 
 " ---> ale fixer
 let g:ale_fixers.python = ['add_blank_lines_for_python_control_statements', 'isort', 'yapf', 'autopep8',]
