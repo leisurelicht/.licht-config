@@ -19,9 +19,5 @@ augroup end
 " ---> 自动生成目录
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 
-" ---> 实时预览
-Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install', 'for': 'markdown'}
-let g:mkdp_auto_close = 0
-
 " ---> ale fixer
 " let g:ale_fixers.markdown = ['prettier']
