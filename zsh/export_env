@@ -1,4 +1,6 @@
 # 保存涉及隐私的值
 #
 export HOMEBREW_GITHUB_API_TOKEN=
-export PATH="$HOME/Code/venus/tools:$PATH"
+
+[ -d $HOME/Code/venus/tools ] && export PATH="$HOME/Code/venus/tools:$PATH"
+[ -d $HOME/code/tools ] && export PATH="$HOME/code/tools:$PATH"
