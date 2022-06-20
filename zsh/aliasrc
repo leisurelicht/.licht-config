@@ -103,3 +103,6 @@ alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")
 # 禁止休眠 
 alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
 alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
+
+alias ubuntu='ssh root@10.206.1.237'
+alias dev='ssh root@172.18.35.207'
