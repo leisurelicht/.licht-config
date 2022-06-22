@@ -16,13 +16,12 @@ if not lspkind_ok then
 end
 
 local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-
 local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
 cmp.setup({
@@ -51,18 +50,19 @@ cmp.setup({
 			else
 				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
 			end
-		end, { "i", "s", "c"}),
+		end, { "i", "s", "c" }),
 		["<S-Tab>"] = cmp.mapping(function()
 			if cmp.visible() then
 				cmp.select_prev_item()
 			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
 				feedkey("<Plug>(vsnip-jump-prev)", "")
 			end
-		end, { "i", "s", "c"}),
+		end, { "i", "s", "c" }),
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "vsnip" },
+		{ name = "copilot" },
 		{ name = "cmp_tabnine" },
 		{ name = "nvim_lua" },
 		{ name = "buffer" },
@@ -124,6 +124,7 @@ cmp.setup({
 						cmp_tabnine = "[TN]",
 						cmdline = "[CMD]",
 						fuzzy_buffer = "[FUZZY]",
+                        copilot = "[COPILOT]",
 					})[entry.source.name]
 
 					if m == nil then

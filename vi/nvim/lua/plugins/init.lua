@@ -110,6 +110,8 @@ local install_plugins = {
 	--------- Code Completion ---------
 	=====================================
 	--]]
+	["github/copilot.vim"] = {},
+
 	["onsails/lspkind-nvim"] = {}, -- lspkind 补全界面美化
 	["lukas-reineke/cmp-under-comparator"] = {}, -- 优化补全列表排序
 	["hrsh7th/cmp-nvim-lsp"] = {},
@@ -121,6 +123,7 @@ local install_plugins = {
 	["octaltree/cmp-look"] = {},
 	["hrsh7th/cmp-nvim-lua"] = {},
 	["tzachar/cmp-tabnine"] = { run = "./install.sh" },
+	["hrsh7th/cmp-copilot"] = {},
 	["hrsh7th/nvim-cmp"] = {
 		file = "lsp_cmp",
 		after = { "nvim-autopairs" },
