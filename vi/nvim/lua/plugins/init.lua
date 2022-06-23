@@ -145,9 +145,7 @@ local install_plugins = {
 	["nvim-telescope/telescope.nvim"] = { -- 搜索
 		requires = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
-			{ "nvim-telescope/telescope-packer.nvim" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-telescope/telescope-file-browser.nvim" },
 			{ "nvim-telescope/telescope-frecency.nvim" },
 			-- { "nvim-telescope/telescope-project.nvim" },
 			-- { "axieax/urlview.nvim" },

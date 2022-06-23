@@ -5,7 +5,7 @@
 --
 local ok, notify = pcall(require, "notify")
 if not ok then
-	vim.notify("Load notify Failed")
+	vim.notify("Load notify Failed", "warn")
 	return
 end
 

@@ -45,7 +45,7 @@ nvim_tree.setup({
     respect_buf_cwd = true,
     renderer = {
         add_trailing = true,
-        highlight_git = true,
+        -- highlight_git = true,
     },
 })
 
