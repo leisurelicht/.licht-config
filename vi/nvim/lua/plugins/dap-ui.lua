@@ -5,13 +5,31 @@
 --
 local ok, dapui = pcall(require, "dapui")
 if not ok then
-	vim.notify("Load dap-ui Failed", "warn")
+	vim.notify("Load dap-ui Failed")
 	return
 end
 
 dapui.setup({
-	sidebar = {
-		position = "right",
+	layouts = {
+		{
+			elements = {
+				-- Elements can be strings or table with id and size keys.
+				{ id = "scopes", size = 0.25 },
+				"breakpoints",
+				"stacks",
+				"watches",
+			},
+			size = 40,
+			position = "right",
+		},
+		{
+			elements = {
+				"repl",
+				"console",
+			},
+			size = 10,
+			position = "bottom",
+		},
 	},
 })
 
