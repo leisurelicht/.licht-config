@@ -39,7 +39,7 @@ local install_plugins = {
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
 	["famiu/bufdelete.nvim"] = { cmd = { "Bdelete" } }, -- buffer 删除
 	["kyazdani42/nvim-tree.lua"] = { file = "nvim-tree" }, -- 文件树
-	["karb94/neoscroll.nvim"] = {
+	["karb94/neoscroll.nvim"] = { -- 流畅滚动
 		file = "neoscroll",
 		event = { "VimEnter" },
 	},
@@ -97,14 +97,14 @@ local install_plugins = {
 		end,
 		after = { "nvim-lspconfig" },
 	},
-	["jose-elias-alvarez/null-ls.nvim"] = {
+	["jose-elias-alvarez/null-ls.nvim"] = { -- 语法检查及格式化
 		file = "lsp_null-ls",
 		after = { "plenary.nvim", "nvim-lspconfig" },
 	},
-	["simrat39/symbols-outline.nvim"] = {
+	["simrat39/symbols-outline.nvim"] = { -- 代码结构树
 		file = "lsp_symbols-outline",
 		after = { "nvim-lspconfig" },
-	}, -- 代码结构树
+	},
 	--[[
 	=====================================
 	--------- Code Completion ---------
@@ -153,10 +153,6 @@ local install_plugins = {
 		file = "telescope",
 		after = { "plenary.nvim", "sqlite.lua", "nvim-neoclip.lua", "project.nvim" },
 	},
-	-- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
-	--     file = "spectre",
-	--     after = { "plenary.nvim" },
-	-- },
 	--[[
 	--=====================================
 	------- Debug Adapter Protocol ------
@@ -223,9 +219,6 @@ local install_plugins = {
 	 ----------- Vim Enhance -----------
 	=====================================
 	--]]
-	["yianwillis/vimcdoc"] = { -- 中文vim
-		event = { "BufRead", "BufNewFile" },
-	},
 	["phaazon/hop.nvim"] = { -- 快速跳转
 		file = "hop",
 		event = { "BufRead", "BufNewFile" },
@@ -237,7 +230,7 @@ local install_plugins = {
 	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
 		file = "lastplace",
 	},
-	["nacro90/numb.nvim"] = {
+	["nacro90/numb.nvim"] = { -- 数字跳转增强
 		file = "numb",
 		event = { "CmdlineEnter" },
 	},
@@ -250,7 +243,7 @@ local install_plugins = {
 	},
 	--[[
 	=====================================
-	 ---------- Other function ---------
+	 -------------- Others -------------
 	=====================================
 	--]]
 	["folke/todo-comments.nvim"] = { -- todo 标记
@@ -265,9 +258,6 @@ local install_plugins = {
 		file = "spellsitter",
 		after = "nvim-treesitter",
 	},
-	["dstein64/vim-startuptime"] = { -- 启动时间统计
-		cmd = { "StartupTime" },
-	},
 	["beauwilliams/focus.nvim"] = { -- 动态分屏调整
 		file = "focus",
 	},
@@ -281,10 +271,25 @@ local install_plugins = {
 			require("colorizer").setup()
 		end,
 	},
-	["uga-rosa/translate.nvim"] = {
+	["uga-rosa/translate.nvim"] = { -- 翻译
 		file = "translate",
-		cmd = { "Translate" },
+		cmd = { "CmdlineEnter" },
 	},
+	--[[
+	=====================================
+	 ------------ Sometimes ------------
+	=====================================
+	--]]
+	-- ["dstein64/vim-startuptime"] = { -- 启动时间统计
+	-- 	cmd = { "StartupTime" },
+	-- },
+	-- ["yianwillis/vimcdoc"] = { -- 中文vim
+	-- 	event = { "BufRead", "BufNewFile" },
+	-- },
+	-- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
+	--     file = "spectre",
+	--     after = { "plenary.nvim" },
+	-- },
 }
 
 require("plugins.packer").register_plugins(install_plugins)
