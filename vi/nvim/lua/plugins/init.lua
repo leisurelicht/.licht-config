@@ -213,7 +213,7 @@ local install_plugins = {
 	["ellisonleao/glow.nvim"] = { -- markdown 预览
 		file = "glow",
 		ft = { "markdown" },
-	},
+	}, 
 	--[[
 	=====================================
 	 ----------- Vim Enhance -----------
@@ -238,21 +238,21 @@ local install_plugins = {
 		event = { "BufRead", "BufNewFile" },
 		-- ft = {"lua", "python", "go"},
 	},
-	["mbbill/undotree"] = {
-		file = "undotree",
+    ["akinsho/toggleterm.nvim"] = { -- 浮窗终端
+		file = "toggleterm",
+		-- cmd = { "ToggleTerm" },
 	},
 	--[[
 	=====================================
 	 -------------- Others -------------
 	=====================================
 	--]]
+	["mbbill/undotree"] = { -- undotree
+		file = "undotree",
+	},
 	["folke/todo-comments.nvim"] = { -- todo 标记
 		file = "todo",
 		event = { "BufRead", "BufNewFile" },
-	},
-	["akinsho/toggleterm.nvim"] = { -- 浮窗终端
-		file = "toggleterm",
-		-- cmd = { "ToggleTerm" },
 	},
 	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
