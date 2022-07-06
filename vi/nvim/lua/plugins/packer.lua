@@ -61,6 +61,7 @@ function M.register_plugins(install_plugins)
 
 	packer.init({
         auto_clean = false,
+        max_jobs=10,
         -- git = {
           -- default_url_format = "https://mirror.ghproxy.com/%s",
           -- default_url_format = "https://hub.fastgit.xyz/%s",
