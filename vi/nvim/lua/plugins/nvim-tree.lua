@@ -24,7 +24,7 @@ end
 nvim_tree.setup({
 	open_on_setup = true,
 	ignore_ft_on_setup = {},
-	open_on_tab = true,
+	open_on_tab = false,
 	system_open = { cmd = nil, args = {} },
 	view = {
 		mappings = {

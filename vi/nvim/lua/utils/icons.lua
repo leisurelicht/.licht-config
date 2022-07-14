@@ -3,20 +3,20 @@
 -- Author: MuCheng
 -- =================
 --
-local icons = {}
+local Icons = {}
 
-icons.lsp_hover = {
+Icons.lsp_hover = {
 	Action = "💡",
 }
 
-icons.diagnostics = {
+Icons.diagnostics = {
 	Error = " ",
 	Warn = " ",
 	Info = "ﬤ ",
 	Hint = " ",
 }
 
-icons.kind = {
+Icons.kind = {
 	Text = "",
 	Method = "פּ",
 	Function = "",
@@ -44,7 +44,7 @@ icons.kind = {
 	TypeParameter = "",
 }
 
-icons.vscode = {
+Icons.vscode = {
 	Text = " ",
 	Method = " ",
 	Function = " ",
@@ -72,4 +72,4 @@ icons.vscode = {
 	TypeParameter = " ",
 }
 
-return icons
+return Icons

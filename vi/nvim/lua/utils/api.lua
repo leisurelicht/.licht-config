@@ -1,18 +1,18 @@
 -- =================
--- auto.lua --- 函数别名
+-- api.lua --- 函数别名
 -- Author: MuCheng
 -- =================
 --
-local M = {}
+local Api = {}
 
 local api = vim.api
 
-M.augroup = api.nvim_create_augroup
-M.autocmd = api.nvim_create_autocmd
+Api.augroup = api.nvim_create_augroup
+Api.autocmd = api.nvim_create_autocmd
 
-M.hi = {}
+Api.hi = {}
 
-function M.hi.set(name, opts)
+function Api.hi.set(name, opts)
 	local command = "highlight " .. name
 	for k, v in pairs(opts) do
 		if k ~= "gui" then
@@ -24,7 +24,7 @@ function M.hi.set(name, opts)
 	vim.cmd(command)
 end
 
-function M.hi.get(group, style)
+function Api.hi.get(group, style)
 	local opts = {}
 	local output = vim.fn.execute("highlight " .. group)
 	local lines = vim.fn.trim(output)
@@ -37,6 +37,6 @@ function M.hi.get(group, style)
 	return opts[style]
 end
 
-M.printError = vim.api.nvim_err_writeln
+Api.printError = vim.api.nvim_err_writeln
 
-return M
+return Api

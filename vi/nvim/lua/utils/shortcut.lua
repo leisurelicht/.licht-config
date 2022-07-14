@@ -13,7 +13,7 @@ local Terminal = terminal.Terminal
 
 local map = require("utils.mapping")
 
-M = {}
+Scut = {}
 
 local lazygit = Terminal:new({
 	cmd = "lazygit",
@@ -25,7 +25,7 @@ local lazygit = Terminal:new({
 	-- function to run on opening the terminal
 	on_open = function(term)
 		vim.cmd("startinsert!")
-		map.set("n", "q", "<CMD>close<CR>", "Close Lazygit", { buffer = term.bufnr, silent = true })
+		map.set("n", "q", "<CScutD>close<CR>", "Close Lazygit", { buffer = term.bufnr, silent = true })
 	end,
 	-- function to run on closing the terminal
 	-- on_close = function(term)
@@ -33,42 +33,42 @@ local lazygit = Terminal:new({
 	-- end
 })
 
-function M._Lazygit()
+function Scut._Lazygit()
 	lazygit:toggle({})
 end
 
 local htop = Terminal:new({ cmd = "htop", hidden = true })
 
-function M._Htop()
+function Scut._Htop()
 	htop:toggle({})
 end
 
-function M._buf_path()
+function Scut._buf_path()
 	local path = vim.fn.expand("%")
 	print(path)
 	return path
 end
 
-function M._project_path()
+function Scut._project_path()
 	print(vim.fn.getcwd())
 	return vim.fn.getcwd()
 end
 
-function M._buf_full_path()
+function Scut._buf_full_path()
 	local path = vim.fn.fnamemodify(vim.fn.expand("%"), ":p")
 	print(path)
 	return path
 end
 
-function M.get_project_name()
+function Scut.get_project_name()
     local project_path = require("project_nvim.project").get_project_root()
-    local project_name = Split(project_path, "/")
+    local project_name = Str.split(project_path, "/")
     return project_name[#project_name]
 end
 
-map.set("n", "<leader>nh", M._Htop, "Htop")
-map.set("n", "<leader>np", M._buf_path, "Buffer Path")
-map.set("n", "<leader>no", M._buf_full_path, "Buffer Full Path")
+map.set("n", "<leader>nh", Scut._Htop, "Htop")
+map.set("n", "<leader>np", Scut._buf_path, "Buffer Path")
+map.set("n", "<leader>no", Scut._buf_full_path, "Buffer Full Path")
 
 
-return M
+return Scut

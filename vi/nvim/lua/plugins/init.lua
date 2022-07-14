@@ -37,7 +37,6 @@ local install_plugins = {
 	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
 	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
-	["famiu/bufdelete.nvim"] = { cmd = { "Bdelete" } }, -- buffer 删除
 	["kyazdani42/nvim-tree.lua"] = { file = "nvim-tree" }, -- 文件树
 	["karb94/neoscroll.nvim"] = { -- 流畅滚动
 		file = "neoscroll",
@@ -62,11 +61,16 @@ local install_plugins = {
 		file = "lualine",
 		after = { "gitsigns.nvim" },
 	}, -- 状态栏
-	["akinsho/bufferline.nvim"] = { -- buffer 美化
-		file = "bufferline",
-		after = "bufdelete.nvim",
+    ["nanozuki/tabby.nvim"] = { -- tabline
+        file = "tabby",
 		event = { "BufEnter" },
-	}, -- buffer 美化
+    },
+	-- ["famiu/bufdelete.nvim"] = { cmd = { "Bdelete" } }, -- buffer 删除
+	-- ["akinsho/bufferline.nvim"] = { -- buffer 美化
+	-- 	file = "bufferline",
+	-- 	after = "bufdelete.nvim",
+	-- 	event = { "BufEnter" },
+	-- },
 	["goolord/alpha-nvim"] = { -- dashboard
 		file = "alpha-nvim",
 		after = { "nvim-web-devicons" },

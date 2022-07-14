@@ -3,24 +3,24 @@
 -- Author: MuCheng
 -- =================
 --
-M = {}
+Sys = {}
 
 local fn = vim.fn
 
-function M.IsMacOS()
+function Sys.IsMacOS()
 	return fn.has("mac")
 end
 
-function M.IsLinux()
+function Sys.IsLinux()
 	return fn.has("unix") and not fn.has("macunix") and not fn.has("win32unix")
 end
 
-function M.IsWindows()
+function Sys.IsWindows()
 	return fn.has("win16") or fn.has("win32") or fn.has("win64")
 end
 
-function M.IsGUI()
+function Sys.IsGUI()
 	return fn.has("gui_running")
 end
 
-return M
+return Sys

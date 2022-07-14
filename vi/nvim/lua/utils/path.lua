@@ -3,14 +3,14 @@
 -- Author: MuCheng
 -- =================
 --
-local M = {}
+local Path = {}
 
-M.join = function(...)
+Path.join = function(...)
     return table.concat(vim.tbl_flatten({...}), "/")
 end
 
-M.is_exists = function(p)
+Path.is_exists = function(p)
     return vim.fn.filereadable(p) == 1
 end
 
-return M
+return Path
