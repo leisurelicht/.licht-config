@@ -19,8 +19,8 @@ wk.register({
 	["]"] = { name = "+Next" },
 	b = {
 		name = "+Buffer Manage",
-		c = { name = "+Close" },
-		s = { name = "+Sort" },
+		-- c = { name = "+Close" },
+		-- s = { name = "+Sort" },
 	},
 	d = { name = "+DAP" },
 	f = {

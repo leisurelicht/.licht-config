@@ -223,7 +223,7 @@ local install_plugins = {
 	["ellisonleao/glow.nvim"] = { -- markdown 预览
 		file = "glow",
 		ft = { "markdown" },
-	}, 
+	},
 	--[[
 	=====================================
 	 ----------- Vim Enhance -----------
@@ -290,16 +290,16 @@ local install_plugins = {
 	 ------------ Sometimes ------------
 	=====================================
 	--]]
-	-- ["dstein64/vim-startuptime"] = { -- 启动时间统计
-	-- 	cmd = { "StartupTime" },
-	-- },
-	-- ["yianwillis/vimcdoc"] = { -- 中文vim
-	-- 	event = { "BufRead", "BufNewFile" },
-	-- },
-	-- ["windwp/nvim-spectre"] = { -- 搜索替换 TODO
-	--     file = "spectre",
-	--     after = { "plenary.nvim" },
-	-- },
+	["dstein64/vim-startuptime"] = { -- 启动时间统计
+		cmd = { "StartupTime" },
+	},
+	["yianwillis/vimcdoc"] = { -- 中文vim
+		event = { "BufRead", "BufNewFile" },
+	},
+	["windwp/nvim-spectre"] = { -- 搜索替换 TODO
+	    file = "spectre",
+	    after = { "plenary.nvim" },
+	},
 }
 
 require("plugins.packer").register_plugins(install_plugins)

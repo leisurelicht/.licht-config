@@ -18,13 +18,13 @@ local function window_num()
 end
 
 lualine.setup({
-	options = { theme = "catppuccin" },
+	options = { theme = "nightfox" },
 	sections = {
 		lualine_a = {
-			{
-				"tabs",
-				separator = { right = "" },
-			},
+			-- {
+			-- 	"tabs",
+			-- 	separator = { right = "" },
+			-- },
 			{
 				window_num,
 				separator = { right = "" },
@@ -67,6 +67,7 @@ lualine.setup({
 				colored = true, -- Displays diagnostics status in color if set to true.
 				update_in_insert = false, -- Update diagnostics in insert mode.
 				always_visible = false, -- Show diagnostics even if there are none.
+				separator = { left = "" },
 			},
 			{
 				"progress",
@@ -76,10 +77,10 @@ lualine.setup({
 	},
 	inactive_sections = {
 		lualine_a = {
-			{
-				"tabs",
-				separator = { right = "" },
-			},
+			-- {
+			-- 	"tabs",
+			-- 	separator = { right = "" },
+			-- },
 			{
 				window_num,
 				separator = { right = "" },

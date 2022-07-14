@@ -90,3 +90,15 @@ map.set("n", "<leader>t6", "6gt", "Tab 6")
 map.set("n", "<leader>t7", "7gt", "Tab 7")
 map.set("n", "<leader>t8", "8gt", "Tab 8")
 map.set("n", "<leader>t9", "9gt", "Tab 9")
+
+-- buffer
+map.set("n", "<leader>bl", "<CMD>buffers<CR>", "Buffers")
+map.set("n", "<leader>ba", "<CMD>ball<CR>", "Buffers All")
+map.set("n", "<leader>bv", "<CMD>vertical ball<CR>", "Buffers Vertical All")
+map.set("n", "<leader>bn", "<CMD>bnext<CR>", "Next Buffer")
+map.set("n", "<leader>bp", "<CMD>bprev<CR>", "Previous Buffer")
+map.set("n", "<leader>]b", "<CMD>bnext<CR>", "Next Buffer")
+map.set("n", "<leader>[b", "<CMD>bprev<CR>", "Previous Buffer")
+map.set("n", "<leader>bf", "<CMD>bfirst<CR>", "First Buffer")
+map.set("n", "<leader>bl", "<CMD>blast<CR>", "Last Buffer")
+
