@@ -3,13 +3,11 @@
 -- Author: MuCheng
 -- =================
 --
-local onedark_ok, onedark = pcall(require, "onedark")
-if onedark_ok then
-	onedark.setup({ style = "dark", ending_tildes = true })
-end
-
-local catppuccin_ok, catppuccin = pcall(require("catppuccin"))
+-- catppuccin
+--
+local catppuccin_ok, catppuccin = pcall(require, "catppuccin")
 if catppuccin_ok then
+	vim.g.catppuccin_flavour = "macchiato"
 	vim.g.background_transparency = true
 	catppuccin.setup({
 		-- 透明背景
@@ -62,11 +60,38 @@ if catppuccin_ok then
 					information = "underline",
 				},
 			},
-			-- 后面我们自己会手动设置
-			lsp_saga = false,
+			lsp_saga = true,
 		},
 	})
 end
 
--- 设置所使用的主题
-vim.cmd([[colorscheme catppuccin]])
+-- nord
+--
+local nord_ok, nord = pcall(require, "node")
+if nord_ok then
+    vim.g.nord_contrast = true
+    vim.g.nord_borders = false
+    vim.g.nord_disable_background = false
+    vim.g.nord_italic = false
+    nord.set()
+end
+
+-- nightfox
+--
+local nightfox_ok, nightfox = pcall(require, "nightfox")
+if nightfox_ok then
+	nightfox.setup({
+		options = {
+			styles = {
+				comments = "italic",
+				keywords = "bold",
+				types = "italic,bold",
+			},
+		},
+	})
+end
+
+-- vim.cmd([[colorscheme catppuccin]])
+-- vim.cmd[[colorscheme nord]]
+vim.cmd("colorscheme nightfox")
+

@@ -48,10 +48,16 @@ local install_plugins = {
      -------------- 美化 ---------------
     =====================================
     --]]
-	["catppuccin/nvim"] = { -- 主题
-		as = "catppuccin",
-		file = "theme",
-	},
+	-- ["catppuccin/nvim"] = { -- 主题
+	-- 	as = "catppuccin",
+	-- 	file = "theme",
+	-- },
+    -- ["shaunsingh/nord.nvim"] = {
+    --     file = "theme",
+    -- },
+    ["EdenEast/nightfox.nvim"] = {
+        file = "theme",
+    },
 	["nvim-lualine/lualine.nvim"] = { -- statusline 美化
 		file = "lualine",
 		after = { "gitsigns.nvim" },
