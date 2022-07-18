@@ -32,6 +32,7 @@ brew install lua
 brew install exa
 brew install sqlite
 brew install autojump
+brew install nvm
 
 brew install shellcheck
 brew install golangci-lint
