@@ -80,14 +80,14 @@ local servers = {
     -- "golangci_lint_ls",
     "pyright",
     "jedi_language_server",
-    "zk",
     "jsonls",
     "bashls",
     "clangd",
     "sqlls",
     "dockerls",
     "cmake",
-    "vimls"
+    "vimls",
+    "prosemd_lsp"
 }
 
 for _, server_name in ipairs(servers) do

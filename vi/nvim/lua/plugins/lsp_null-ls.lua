@@ -10,7 +10,7 @@ if not ok then
 end
 
 null_ls.setup({
-    debug = true,
+    debug = false,
 	sources = {
 		-- lua
 		null_ls.builtins.diagnostics.luacheck,
@@ -33,6 +33,7 @@ null_ls.setup({
 		-- null_ls.builtins.diagnostics.hadolint,
 		-- markdown
 		null_ls.builtins.diagnostics.markdownlint,
+        null_ls.builtins.formatting.markdownlint,
 		-- shell
 		null_ls.builtins.code_actions.shellcheck,
 		null_ls.builtins.formatting.shfmt,
