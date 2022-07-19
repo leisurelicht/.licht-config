@@ -1,6 +1,6 @@
 # 我的 Vim 及命令行配置
 
-* 基于 macos 平台
+- shi适用于 macos 及 ubuntu
 
 ----
 
@@ -8,14 +8,10 @@
 
 ## 效果图
 
-> tmux 及 vim
-
-![image](./screenshot/tmux-vim-entry.png)
-
-
-> vim 编辑 Python 文件
-
-![image](./screenshot/vim-python.png)
+![image](./screenshot/1.png)
+![image](./screenshot/2.png)
+![image](./screenshot/3.png)
+![image](./screenshot/4.png)
 
 ----
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 install_path=$(
-	cd $(dirname $0)
+	cd "$(dirname "$0")" || exit
 	pwd
 )
 config_path=$(
-	cd $install_path/..
+	cd "$install_path/.." || exit
 	pwd
 )
 echo "====> Config file root path is: ${config_path}"
@@ -58,48 +58,53 @@ fi
 echo "====> Create back up dir"
 
 echo "====> Back up dir path is: ${config_path}/bak"
-if [ ! -d $config_path/bak ]; then
-	mkdir -p $config_path/bak
+if [ ! -d "$config_path/bak" ]; then
+	mkdir -p "$config_path/bak"
 fi
 
-# 安装 vim 配置文件
-if [ -f $HOME/.vimrc ]; then
-	echo "====> Vim config file vimrc is exist, backup and delete it."
-	mv $HOME/.vimrc $config_path/bak/vimrc.bak
+if [[ ${1} == "" || ${1} == "vim" ]]; then
+	# 安装 vim 配置文件
+	if [ -f "$HOME/.vimrc" ]; then
+		echo "====> Vim config file vimrc is exist, backup and delete it."
+		mv "$HOME/.vimrc" "$config_path/bak/vimrc.bak"
+	fi
+
+	echo "====> Create vimrc link"
+	rm "$HOME/.vimrc" >/dev/null 2>&1
+	ln -s "$config_path/vi/vimrc" "$HOME/.vimrc"
+
+	# 安装vim插件
+	echo "====> Install vim PlugInstaller"
+	vim +PlugInstall +UpdateRemotePlugins +qa
 fi
 
-echo "====> Create vimrc link"
-rm $HOME/.vimrc >/dev/null 2>&1
-ln -s $config_path/vi/vimrc $HOME/.vimrc
+if [[ ${1} == "" || ${1} == "nvim" ]]; then
+	echo "nvim"
+	# 安装 neovim 配置文件
+	if [ ! -d "$HOME/.config/" ]; then
+		mkdir "$HOME/.config/"
+	fi
 
-# 安装vim插件
-# echo "====> Install vim PlugInstall"
-# vim +PlugInstall +UpdateRemotePlugins +qa
+	if [ -d "$HOME/.config/nvim" ]; then
+		echo "====> Neovim config dir nvim is exist, backup and delete it."
+		mv "$HOME/.config/nvim" "$config_path/bak/nvim_bak"
+	fi
 
-# 安装 neovim 配置文件
-if [ ! -d $HOME/.config/ ]; then
-	mkdir $HOME/.config/
+	echo "====> Create neovim config dir"
+	if [ -d "$HOME/.config/nvim" ]; then
+		rm -r "$HOME/.config/nvim" >/dev/null 2>&1
+	fi
+	mkdir -p "$HOME/.config/nvim"
+
+	echo "====> Create neovim init file links"
+	if [ -d "$HOME/.config/nvim/init.vim" ]; then
+		rm "$HOME/.config/nvim/init.vim" >/dev/null 2>&1
+	fi
+	ln -s "$config_path/vi/vimrc" "$HOME/.config/nvim/init.vim"
+
+	# 安装vim插件
+	echo "====> Install nvim PlugInstaller"
+	nvim +PackerInstall +qa
 fi
-
-if [ -d $HOME/.config/nvim ]; then
-	echo "====> Neovim config dir nvim is exist, backup and delete it."
-	mv $HOME/.config/nvim $config_path/bak/nvim_bak
-fi
-
-echo "====> Create neovim config dir"
-if [ -d $HOME/.config/nvim ]; then
-	rm -r $HOME/.config/nvim >/dev/null 2>&1
-fi
-mkdir -p $HOME/.config/nvim
-
-echo "====> Create neovim init file links"
-if [ -d $HOME/.config/nvim/init.vim ]; then
-	rm $HOME/.config/nvim/init.vim >/dev/null 2>&1
-fi
-ln -s $config_path/vi/vimrc $HOME/.config/nvim/init.vim
-
-# 安装vim插件
-# echo "====> Install vim PlugInstall"
-# nvim +PackerInstall +qa
 
 echo "**** Please change Non-ASCII Font to Hack Nerd Font ****"
