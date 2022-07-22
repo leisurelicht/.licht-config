@@ -79,7 +79,6 @@ if [[ ${1} == "" || ${1} == "vim" ]]; then
 fi
 
 if [[ ${1} == "" || ${1} == "nvim" ]]; then
-	echo "nvim"
 	# 安装 neovim 配置文件
 	if [ ! -d "$HOME/.config/" ]; then
 		mkdir "$HOME/.config/"

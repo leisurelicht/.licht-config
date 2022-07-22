@@ -70,7 +70,13 @@ M.register = function(_, bufnr)
 
 	if telescope_ok then
 		map.set("n", "<leader>lf", "<CMD>Telescope lsp_references<CR>", "References", { buffer = bufnr })
-		map.set("n", "<leader>ld", "<CMD>Telescope lsp_definitions theme=dropdown<CR>", "Definition", { buffer = bufnr })
+		map.set(
+			"n",
+			"<leader>ld",
+			"<CMD>Telescope lsp_definitions theme=dropdown<CR>",
+			"Definition",
+			{ buffer = bufnr }
+		)
 		map.set("n", "<leader>lt", "<CMD>Telescope lsp_type_definitions<CR>", "Type Definition", { buffer = bufnr })
 		map.set("n", "<leader>li", "<CMD>Telescope lsp_implementations<CR>", "Implementation", { buffer = bufnr })
 		map.set("n", "<leader>lg", "<CMD>Telescope diagnostics theme=dropdown<CR>", "Diagnostic", { buffer = bufnr })
