@@ -5,7 +5,6 @@ Plug 'scrooloose/nerdtree'
 
 let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
-" let g:NERDTreeShowBookmarks=1
 let g:NERDTreeStatusline='NERDTree'
 
 noremap <F4> :NERDTreeToggle<CR>
@@ -21,5 +20,5 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 
 " ---> enable vim devicons
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
+" let g:webdevicons_enable_nerdtree = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 1
