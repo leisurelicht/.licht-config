@@ -21,6 +21,7 @@ vim.notify = vim.pretty_print
 
 require("core")
 require("plugins")
+require("autoload")
 
 -- 开发测试使用的精简插件配置
 -- require("plugins_dev.dev1")

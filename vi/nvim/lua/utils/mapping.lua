@@ -20,7 +20,9 @@ end
 
 function Map.set(mode, lhs, rhs, desc, opts)
 	opts = check_opts(opts)
-	opts.desc = desc
+    if desc ~= nil then
+	    opts.desc = desc
+    end
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
 

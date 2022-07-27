@@ -3,10 +3,28 @@
 -- Author: MuCheng
 -- =================
 --
-vim.g.glow_border = "rounded"
-vim.g.glow_use_pager = true
-vim.g.glow_style = "dark"
+local ok, glow = pcall(require, "glow")
+if not ok then
+    vim.notify("Load glow Failed", "warn")
+    return
+end
 
-local map = require("utils.mapping")
+glow.setup({
+    style = "dark",
+    border = "rounded",
+    pager = true,
 
-map.set("n", "<leader>rm", "<CMD>Glow<CR>", "markdown")
+})
+
+local api = require("utils.api")
+
+-- map.set("n", "<leader>rm", "<CMD>Glow<CR>", "markdown")
+local runner = api.augroup("runner", { clear = true })
+api.autocmd({ "FileType" }, {
+	pattern = { "markdown" },
+	callback = function()
+        local map = require("utils.mapping")
+	    map.set("n", "<leader>r", "<CMD>Glow<CR>", nil, {buffer = vim.fn.bufnr()})
+	end,
+	group = runner,
+})
