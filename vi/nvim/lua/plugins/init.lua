@@ -195,7 +195,7 @@ local install_plugins = {
 	["andymass/vim-matchup"] = {
 		file = "matchup",
 	},
-	["RRethy/nvim-treesitter-endwise"] = {},
+	["RRethy/nvim-treesitter-endwise"] = {file = "treesitter"},
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",
