@@ -195,9 +195,10 @@ local install_plugins = {
 	["andymass/vim-matchup"] = {
 		file = "matchup",
 	},
-	["RRethy/nvim-treesitter-endwise"] = {file = "treesitter"},
+	["RRethy/nvim-treesitter-endwise"] = {},
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
+        --[[ run = ':TSUpdate', ]]
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 		after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" },
 	},

@@ -5,7 +5,7 @@
 --
 local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
 if not ok then
-	vim.notify("Load nvim-treesitter Failed", "warn")
+	vim.notify("Load nvim-treesitter configs Failed", "warn")
 	return
 end
 
@@ -84,6 +84,7 @@ vim.api.nvim_create_autocmd({'BufEnter','BufAdd','BufNew','BufNewFile','BufWinEn
   callback = function()
     vim.opt.foldmethod     = 'expr'
     vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+    vim.opt.foldlevelstart = 99
   end
 })
 
