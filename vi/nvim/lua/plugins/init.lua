@@ -198,9 +198,9 @@ local install_plugins = {
 	["RRethy/nvim-treesitter-endwise"] = {},
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
-        --[[ run = ':TSUpdate', ]]
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-		after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" },
+        run = ':TSUpdate',
+        --[[ run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, ]]
+		--[[ after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" }, ]]
 	},
 	["lewis6991/gitsigns.nvim"] = { -- git 显示
 		requires = { "f-person/git-blame.nvim" },
