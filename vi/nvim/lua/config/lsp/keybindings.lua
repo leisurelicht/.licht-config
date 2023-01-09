@@ -42,7 +42,7 @@ M.register = function(_, bufnr)
 	map.set("n", "<leader>lH", vim.lsp.buf.signature_help, "Signature Help", { buffer = bufnr })
 
 	map.set("v", "<leader>lF", vim.lsp.buf.format, "Foramtting", { buffer = bufnr })
-	map.set("v", "<leader>la", vim.lsp.buf.range_code_action, "Code Action", { buffer = bufnr })
+	--[[ map.set("v", "<leader>la", vim.lsp.buf.range_code_action, "Code Action", { buffer = bufnr }) ]]
 
 	if lspsaga_ok then
 		map.set("n", "<leader>lr", "<CMD>Lspsaga rename<CR>", "Rename", { buffer = bufnr })
