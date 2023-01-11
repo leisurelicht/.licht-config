@@ -130,7 +130,7 @@ for _, server_name in ipairs(servers) do
             if settings.formatting_on_save ~= nil and settings.formatting_on_save then
                 api.autocmd({ "BufWritePre" }, {
                     pattern = { "<buffer>" },
-                    command = "lua vim.lsp.buf.formatting{ async = true }",
+                    command = "lua vim.lsp.buf.format({ async = true })",
                 })
             end
         end

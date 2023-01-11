@@ -41,7 +41,7 @@ M.register = function(_, bufnr)
 	map.set("n", "<leader>lh", vim.lsp.buf.hover, "Hover", { buffer = bufnr })
 	map.set("n", "<leader>lH", vim.lsp.buf.signature_help, "Signature Help", { buffer = bufnr })
 
-	map.set("v", "<leader>lF", vim.lsp.buf.format, "Foramtting", { buffer = bufnr })
+	map.set("v", "<leader>lF", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Code Foramt", { buffer = bufnr })
 	--[[ map.set("v", "<leader>la", vim.lsp.buf.range_code_action, "Code Action", { buffer = bufnr }) ]]
 
 	if lspsaga_ok then
