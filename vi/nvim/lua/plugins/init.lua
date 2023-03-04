@@ -234,6 +234,7 @@ local install_plugins = {
 	=====================================
 	--]]
 	["phaazon/hop.nvim"] = { -- 快速跳转
+        branch = "v2",
 		file = "hop",
 		event = { "BufRead", "BufNewFile" },
 	},
