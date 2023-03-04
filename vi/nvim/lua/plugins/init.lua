@@ -37,7 +37,10 @@ local install_plugins = {
 	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
 	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
-	["kyazdani42/nvim-tree.lua"] = { file = "nvim-tree" }, -- 文件树
+	["kyazdani42/nvim-tree.lua"] = { -- 文件树
+		file = "nvim-tree",
+		tag = "nightly",
+	},
 	["karb94/neoscroll.nvim"] = { -- 流畅滚动
 		file = "neoscroll",
 		event = { "VimEnter" },
@@ -51,20 +54,20 @@ local install_plugins = {
 	-- 	as = "catppuccin",
 	-- 	file = "theme",
 	-- },
-    -- ["shaunsingh/nord.nvim"] = {
-    --     file = "theme",
-    -- },
-    ["EdenEast/nightfox.nvim"] = {
-        file = "theme",
-    },
+	-- ["shaunsingh/nord.nvim"] = {
+	--     file = "theme",
+	-- },
+	["EdenEast/nightfox.nvim"] = {
+		file = "theme",
+	},
 	["nvim-lualine/lualine.nvim"] = { -- statusline 美化
 		file = "lualine",
 		after = { "gitsigns.nvim" },
 	}, -- 状态栏
-    ["nanozuki/tabby.nvim"] = { -- tabline
-        file = "tabby",
+	["nanozuki/tabby.nvim"] = { -- tabline
+		file = "tabby",
 		event = { "BufEnter" },
-    },
+	},
 	-- ["famiu/bufdelete.nvim"] = { cmd = { "Bdelete" } }, -- buffer 删除
 	-- ["akinsho/bufferline.nvim"] = { -- buffer 美化
 	-- 	file = "bufferline",
@@ -80,12 +83,12 @@ local install_plugins = {
     ---- Language Server Protocol ----
     ====================================
     --]]
+	["williamboman/mason-lspconfig.nvim"] = {},
+	["williamboman/mason.nvim"] = {},
+	["williamboman/nvim-lsp-installer"] = {},
 	["neovim/nvim-lspconfig"] = {
-		after = { "impatient.nvim" },
-	},
-	["williamboman/nvim-lsp-installer"] = {
 		file = "lsp",
-		after = { "nvim-lspconfig" },
+		after = { "impatient.nvim" },
 	},
 	["ray-x/lsp_signature.nvim"] = {
 		file = "lsp_signature",
@@ -121,7 +124,6 @@ local install_plugins = {
 	=====================================
 	--]]
 	["github/copilot.vim"] = {},
-
 	["onsails/lspkind-nvim"] = {}, -- lspkind 补全界面美化
 	["lukas-reineke/cmp-under-comparator"] = {}, -- 优化补全列表排序
 	["hrsh7th/cmp-nvim-lsp"] = {},
@@ -198,8 +200,8 @@ local install_plugins = {
 	["RRethy/nvim-treesitter-endwise"] = {},
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
-        run = ':TSUpdate',
-        --[[ run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, ]]
+		run = ":TSUpdate",
+		--[[ run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, ]]
 		--[[ after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" }, ]]
 	},
 	["lewis6991/gitsigns.nvim"] = { -- git 显示
@@ -249,7 +251,7 @@ local install_plugins = {
 		event = { "BufRead", "BufNewFile" },
 		-- ft = {"lua", "python", "go"},
 	},
-    ["akinsho/toggleterm.nvim"] = { -- 浮窗终端
+	["akinsho/toggleterm.nvim"] = { -- 浮窗终端
 		file = "toggleterm",
 		-- cmd = { "ToggleTerm" },
 	},
@@ -298,8 +300,8 @@ local install_plugins = {
 		event = { "BufRead", "BufNewFile" },
 	},
 	["windwp/nvim-spectre"] = { -- 搜索替换 TODO
-	    file = "spectre",
-	    after = { "plenary.nvim" },
+		file = "spectre",
+		after = { "plenary.nvim" },
 	},
 }
 
