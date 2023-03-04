@@ -42,11 +42,11 @@ nvim_tree.setup({
         enable = true,
         update_cwd = true,
     },
-    respect_buf_cwd = true,
-    renderer = {
-        add_trailing = true,
-        -- highlight_git = true,
-    },
+    --[[ respect_buf_cwd = true, ]]
+    --[[ renderer = { ]]
+    --[[     add_trailing = true, ]]
+    --[[     -- highlight_git = true, ]]
+    --[[ }, ]]
 })
 
 local map = require("utils.mapping")

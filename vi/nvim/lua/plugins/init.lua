@@ -38,8 +38,9 @@ local install_plugins = {
 	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
 	["kyazdani42/nvim-tree.lua"] = { -- 文件树
+        tag = "nightly",
 		file = "nvim-tree",
-		tag = "nightly",
+        requires = {"nvim-tree/nvim-web-devicons"},
 	},
 	["karb94/neoscroll.nvim"] = { -- 流畅滚动
 		file = "neoscroll",
