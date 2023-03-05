@@ -33,14 +33,20 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }),
-		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s", "c" }),
-		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
-		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
-		["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
-		["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<C-space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		--[[ ["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }), ]]
+		--[[ ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }), ]]
+		--[[ ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s", "c" }), ]]
+		--[[ ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }), ]]
+		--[[ ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }), ]]
+		--[[ ["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }), ]]
+		--[[ ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }), ]]
+		--[[ ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }), ]]
 		--[[ ["<Tab>"] = cmp.mapping(function(fallback) ]]
 		--[[ 	if cmp.visible() then ]]
 		--[[ 		cmp.select_next_item() ]]

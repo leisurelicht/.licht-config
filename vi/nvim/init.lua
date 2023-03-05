@@ -14,8 +14,6 @@ vim.g.loaded_ruby_provider = 0
 -- set nvim python interpreter
 -- vim.api.nvim_set_var('python2_host_prog', '/usr/local/bin/python2')
 
-require("utils.G")
-
 local sys = require("utils.sys")
 
 if sys.IsMacOS then
