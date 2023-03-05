@@ -1,11 +1,13 @@
--- ==============
--- lsp.lua --- lsp config file
+-- =================
+-- lsp.lua
+-- Note: lsp config file
 -- Author: MuCheng
+-- Link: https://github.com/neovim/nvim-lspconfig 
 -- =================
 --
-local mason_ok, mason = pcall(require, "mason")
-if not mason_ok then
-    vim.notify("Load mason Failed", "warn")
+local ok, lspconfig = pcall(require, "lspconfig")
+if not ok then
+    vim.notify("Load nvim-lspconfig Failed", "warn")
     return
 end
 
@@ -15,42 +17,8 @@ if not mason_lsp_ok then
     return
 end
 
-local ok, lspconfig = pcall(require, "lspconfig")
-if not ok then
-    vim.notify("Load nvim-lspconfig Failed", "warn")
-    return
-end
-
 local api = require("utils.api")
 
-mason.setup({
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗",
-        }
-    }
-})
-
--- 语言安装列表
--- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-mason_lsp.setup({
-    ensure_installed = {
-        "lua_ls",
-        "gopls",
-        "pyright",
-        "jedi_language_server",
-        "jsonls",
-        "bashls",
-        "clangd",
-        "sqlls",
-        "dockerls",
-        "cmake",
-        "vimls",
-        "prosemd_lsp"
-    }
-})
 
 vim.diagnostic.config({
     signs = true,
@@ -103,7 +71,6 @@ for _, server_name in ipairs(mason_lsp.get_installed_servers()) do
     end
     local settings = opts.settings
     local options = opts.options
-
     options.flags = { debounce_text_changes = 150 }
     options.on_attach = function(client, bufnr)
         if opts.attach ~= nil then

@@ -1,5 +1,6 @@
 -- ==============
--- lightbulb.lua --- 小灯泡
+-- lightbulb.lua 
+-- Note: 小灯泡
 -- Author: MuCheng
 -- =================
 --

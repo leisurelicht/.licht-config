@@ -1,6 +1,8 @@
--- ==============
--- lspsaga.lua --- lsp 提示美化
+-- =================
+-- lspsaga.lua 
+-- Note: lsp 提示美化
 -- Author: MuCheng
+-- Link: https://github.com/glepnir/lspsaga.nvim
 -- =================
 --
 local ok, lspsaga = pcall(require, "lspsaga")

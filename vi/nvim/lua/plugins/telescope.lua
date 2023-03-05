@@ -1,6 +1,9 @@
 -- =================
--- telescope.lua --- telescope init file
+-- telescope.lua
+-- Note: telescope & extensions config file
 -- Author: MuCheng
+-- Link: https://github.com/nvim-telescope/telescope.nvim
+-- Link: https://github.com/folke/todo-comments.nvim
 -- =================
 --
 local ok, telescope = pcall(require, "telescope")
@@ -8,6 +11,14 @@ if not ok then
 	vim.notify("Load telescope Failed", "warn")
 	return
 end
+
+local todo_ok, todo = pcall(require, "todo-comments")
+if not todo_ok then
+	vim.notify("Load todo-comments Failed", "warn")
+	return
+end
+
+todo.setup({})
 
 local Job = require("plenary.job")
 local actions = require("telescope.actions")
@@ -130,3 +141,4 @@ map.set("n", "<leader>fgf", require("telescope.builtin").git_files, "Files")
 map.set("n", "<leader>fgh", require("telescope.builtin").git_stash, "Stash")
 map.set("n", "<leader>fgr", require("telescope.builtin").git_branches, "Branches")
 map.set("n", "<leader>fgs", require("telescope.builtin").git_status, "Status")
+map.set("n", "<leader>fT", "<CMD>TodoTelescope<CR>", "Todo")

@@ -1,6 +1,8 @@
 -- =================
--- hop.lua --- 快速跳转插件配置
+-- hop.lua 
+-- Note:快速跳转插件配置
 -- Author: MuCheng
+-- Link: https://github.com/phaazon/hop.nvim
 -- =================
 --
 local ok, hop = pcall(require, "hop")

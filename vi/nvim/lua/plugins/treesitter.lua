@@ -1,6 +1,8 @@
 -- =================
--- nvim-treesitter.lua --- nvim-treesitter config file
--- https://github.com/nvim-treesitter/nvim-treesitter
+-- nvim-treesitter.lua 
+-- Note: nvim-treesitter config file
+-- Author: MuCheng
+-- Link: https://github.com/nvim-treesitter/nvim-treesitter
 -- =================
 --
 local ok, treesitter_config = pcall(require, "nvim-treesitter.configs")
@@ -27,6 +29,7 @@ treesitter_config.setup({
 		"json",
 		"yaml",
 		"markdown",
+        "markdown_inline",
 		"http",
 		"dockerfile",
 
