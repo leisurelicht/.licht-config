@@ -1,6 +1,8 @@
 -- ==============
--- nvim-cmp.lua --- 代码补全框架
+-- nvim-cmp.lua
+-- Note: 代码补全框架
 -- Author: MuCheng
+-- Link: https://github.com/hrsh7th/nvim-cmp
 -- =================
 --
 local cmp_ok, cmp = pcall(require, "cmp")
@@ -31,33 +33,32 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<c-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }),
-		["<c-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s", "c" }),
-		["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
-		["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
-		-- ["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
-		-- ["<CR>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "s", "c" }),
-		["<c-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
-		["<c-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
+		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "s", "c" }),
+		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "s", "c" }),
+		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s", "c" }),
+		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }),
+		["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s", "c" }),
+		["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "s", "c" }),
 		["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif vim.fn["vsnip#available"](1) == 1 then
-				feedkey("<Plug>(vsnip-expand-or-jump)", "")
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-			end
-		end, { "i", "s", "c" }),
-		["<S-Tab>"] = cmp.mapping(function()
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-				feedkey("<Plug>(vsnip-jump-prev)", "")
-			end
-		end, { "i", "s", "c" }),
+		--[[ ["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s", "c" }), ]]
+		--[[ ["<Tab>"] = cmp.mapping(function(fallback) ]]
+		--[[ 	if cmp.visible() then ]]
+		--[[ 		cmp.select_next_item() ]]
+		--[[ 	elseif vim.fn["vsnip#available"](1) == 1 then ]]
+		--[[ 		feedkey("<Plug>(vsnip-expand-or-jump)", "") ]]
+		--[[ 	elseif has_words_before() then ]]
+		--[[ 		cmp.complete() ]]
+		--[[ 	else ]]
+		--[[ 		fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`. ]]
+		--[[ 	end ]]
+		--[[ end, { "i", "s", "c" }), ]]
+		--[[ ["<S-Tab>"] = cmp.mapping(function() ]]
+		--[[ 	if cmp.visible() then ]]
+		--[[ 		cmp.select_prev_item() ]]
+		--[[ 	elseif vim.fn["vsnip#jumpable"](-1) == 1 then ]]
+		--[[ 		feedkey("<Plug>(vsnip-jump-prev)", "") ]]
+		--[[ 	end ]]
+		--[[ end, { "i", "s", "c" }), ]]
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
@@ -124,7 +125,7 @@ cmp.setup({
 						cmp_tabnine = "[TN]",
 						cmdline = "[CMD]",
 						fuzzy_buffer = "[FUZZY]",
-                        copilot = "[COPILOT]",
+						copilot = "[COPILOT]",
 					})[entry.source.name]
 
 					if m == nil then
@@ -140,11 +141,19 @@ cmp.setup({
 })
 
 -- -- Use buffer source for `/`.
-cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
+cmp.setup.cmdline({ "/", "?" }, {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = { { name = "buffer" } },
+})
 
 -- -- Use cmdline & path source for ':'.
 cmp.setup.cmdline(":", {
-	sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
 })
 
 -- -- If you want insert `(` after select function or method item
