@@ -4,12 +4,11 @@
 -- =================
 --
 local ok, bufferline = pcall(require, "bufferline")
-if not ok then
-	vim.notify("Load bufferline Failed", "warn")
+if not ok then vim.notify("Load bufferline Failed", "warn")
 	return
 end
 
-local icons = require("utils.icons")
+local icons = require("utils.ui.icons")
 
 vim.opt.termguicolors = true
 bufferline.setup({

@@ -5,10 +5,8 @@
 --
 local Api = {}
 
-local api = vim.api
-
-Api.augroup = api.nvim_create_augroup
-Api.autocmd = api.nvim_create_autocmd
+Api.augroup = vim.api.nvim_create_augroup
+Api.autocmd = vim.api.nvim_create_autocmd
 
 Api.hi = {}
 
@@ -26,7 +24,7 @@ end
 
 function Api.hi.get(group, style)
 	local opts = {}
-	local output = vim.fn.execute("highlight " .. group)
+	local output =  vim.fn.execute("highlight " .. group)
 	local lines = vim.fn.trim(output)
 	for k, v in lines:gmatch("(%a+)=(#?%w+)") do
 		opts[k] = v
@@ -36,7 +34,5 @@ function Api.hi.get(group, style)
 	end
 	return opts[style]
 end
-
-Api.printError = vim.api.nvim_err_writeln
 
 return Api

@@ -9,7 +9,8 @@ if not ok then
 	return
 end
 
-local icons_d = require("utils.icons").diagnostics
+local icons_d = require("utils.ui.icons").diagnostics
+local shortcut = require("utils.shortcut")
 
 local function window_num()
 	-- local num = vim.inspect([[%{tabpagewinnr(tabpagenr())}]])
@@ -39,7 +40,7 @@ lualine.setup({
 		},
 		lualine_c = {
 			{
-				require("utils.shortcut").get_project_name,
+				shortcut.get_project_name,
 			},
 			"filename",
 		},

@@ -5,7 +5,6 @@
 --
 local sys = require("utils.sys")
 local api = require("utils.api")
-local map = require("utils.mapping")
 
 vim.g.im_select_enable_focus_eventsF = 1
 -- vim.g.im_select_default = "com.apple.keylayout.ABC"
@@ -24,7 +23,10 @@ if sys.IsMacOS() then
 		command = "call system('im-select com.apple.keylayout.ABC')",
 	})
 elseif sys.IsLinux() then
+    -- Do nothing
 end
+
+local map = require("utils.mapping")
 
 map.set("n", "<leader>ue", "<CMD>ImSelectEnable<CR>", "ImSelect Enable")
 map.set("n", "<leader>ud", "<CMD>ImSelectDisable<CR>", "ImSelect Disable")

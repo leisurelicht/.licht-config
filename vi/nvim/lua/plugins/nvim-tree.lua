@@ -22,6 +22,8 @@ local function print_node_path(node)
 	print(node.absolute_path)
 end
 
+local file = require("utils.file")
+
 local function open_nvim_tree(data)
 	local alpha = vim.bo[data.buf].ft == "alpha"
 
@@ -30,10 +32,10 @@ local function open_nvim_tree(data)
 	end
 
 	-- buffer is a real file
-	local real_file = vim.fn.filereadable(data.file) == 1
+	local real_file = file.is_exist(data.file)
 
 	-- buffer is a directory
-	local directory = vim.fn.isdirectory(data.file) == 1
+	local directory = file.is_dir(data.file)
 
 	if not real_file and not directory then
 		return
@@ -70,8 +72,8 @@ nvim_tree.setup({
 	},
 })
 
-local napi = require("utils.api")
-napi.autocmd({ "VimEnter", "BufRead" }, { callback = open_nvim_tree })
+local api = require("utils.api")
+api.autocmd({ "VimEnter", "BufRead" }, { callback = open_nvim_tree })
 
 local map = require("utils.mapping")
 map.set("n", "<F4>", "<CMD>NvimTreeFindFileToggle<CR>", "NvimTree Toggle")

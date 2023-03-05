@@ -4,16 +4,16 @@
 -- =================
 --
 
-function _G.dump(...)
+function _G.Dump(...)
 	local objects = vim.tbl_map(vim.inspect, { ... })
 	print(unpack(objects))
 end
 
-function _G.tableMerge(t1, t2)
+function _G.TableMerge(t1, t2)
 	for k, v in pairs(t2) do
 		if type(v) == "table" then
 			if type(t1[k] or false) == "table" then
-				tableMerge(t1[k] or {}, t2[k] or {})
+				TableMerge(t1[k] or {}, t2[k] or {})
 			else
 				t1[k] = v
 			end

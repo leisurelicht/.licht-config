@@ -3,11 +3,10 @@
 -- Author: MuCheng
 -- =================
 --
-local path = require("utils.path")
 local sys = require("utils.sys")
+local path = require("utils.path")
 
-
-if sys.IsMacOS() == 1 and vim.fn.has("presistent_undo") then
+if sys.IsMacOS() and vim.fn.has("presistent_undo") then
     local undotree_dir = vim.fn.expand(path.join(vim.fn.stdpath("cache"), "undodir"))
 
     -- style: default 1, optional: 1 2 3 4
