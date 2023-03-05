@@ -28,7 +28,7 @@ local install_plugins = {
     =====================================
     --]]
         ["nvim-lua/plenary.nvim"] = { after = { "impatient.nvim" } }, --
-        ["kyazdani42/nvim-web-devicons"] = { after = { "impatient.nvim" } }, -- icons
+        ["nvim-tree/nvim-web-devicons"] = { after = { "impatient.nvim" } }, -- icons
     --[[
     =====================================
     ---------- Core function ----------
@@ -38,7 +38,7 @@ local install_plugins = {
         ["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
         ["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
         ["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
-        ["kyazdani42/nvim-tree.lua"] = {                -- 文件树
+        ["nvim-tree/nvim-tree.lua"] = {                -- 文件树
         tag = "nightly",
         file = "nvim-tree",
         requires = { "nvim-tree/nvim-web-devicons" },
