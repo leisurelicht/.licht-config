@@ -162,24 +162,6 @@ local install_plugins = {
 		file = "telescope",
 		after = { "plenary.nvim", "sqlite.lua", "nvim-neoclip.lua", "project.nvim" },
 	},
-	--[[
-	--=====================================
-	------- Debug Adapter Protocol ------
-	--=====================================
-	----]]
-	["mfussenegger/nvim-dap"] = { -- 代码调试
-		file = "dap",
-		after = { "impatient.nvim" },
-		event = { "BufRead", "BufNewFile" },
-	},
-	["theHamsta/nvim-dap-virtual-text"] = { -- 为代码调试提供内联文本
-		file = "dap-virtual-text",
-		after = { "nvim-dap" },
-	},
-	["rcarriga/nvim-dap-ui"] = { -- 为代码调试提供 UI 界面
-		file = "dap-ui",
-		after = { "nvim-dap" },
-	},
 	----[[
 	--=====================================
 	-------------- code 增强 ------------
@@ -198,8 +180,6 @@ local install_plugins = {
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",
-		--[[ run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, ]]
-		--[[ after = { "nvim-ts-rainbow", "nvim-ts-context-commentstring", "vim-matchup", "nvim-treesitter-endwise" }, ]]
 	},
 	["lewis6991/gitsigns.nvim"] = { -- git 显示
 		requires = { "f-person/git-blame.nvim" },
@@ -247,11 +227,9 @@ local install_plugins = {
 	},
 	["itchyny/vim-cursorword"] = {
 		event = { "BufRead", "BufNewFile" },
-		-- ft = {"lua", "python", "go"},
 	},
 	["akinsho/toggleterm.nvim"] = { -- 浮窗终端
 		file = "toggleterm",
-		-- cmd = { "ToggleTerm" },
 	},
 	--[[
 	=====================================
@@ -265,22 +243,14 @@ local install_plugins = {
 		file = "spellsitter",
 		after = "nvim-treesitter",
 	},
-	["beauwilliams/focus.nvim"] = { -- 动态分屏调整
-		file = "focus",
-	},
 	["mrjones2014/smart-splits.nvim"] = { -- 智能分屏调整
 		file = "smart-splits",
 		cmd = { "FocusDisable" },
-		after = { "focus.nvim" },
 	},
 	["norcalli/nvim-colorizer.lua"] = { -- 颜色显示
 		config = function()
 			require("colorizer").setup()
 		end,
-	},
-	["uga-rosa/translate.nvim"] = { -- 翻译
-		file = "translate",
-		cmd = { "CmdlineEnter" },
 	},
 	--[[
 	=====================================
@@ -289,13 +259,6 @@ local install_plugins = {
 	--]]
 	["dstein64/vim-startuptime"] = { -- 启动时间统计
 		cmd = { "StartupTime" },
-	},
-	["yianwillis/vimcdoc"] = { -- 中文vim
-		event = { "BufRead", "BufNewFile" },
-	},
-	["windwp/nvim-spectre"] = { -- 搜索替换 TODO
-		file = "spectre",
-		after = { "plenary.nvim" },
 	},
 }
 
