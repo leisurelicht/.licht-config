@@ -4,6 +4,7 @@ scriptencoding utf-8
 Plug 'lfv89/vim-interestingwords'
 
 nnoremap <silent> <leader>k :call InterestingWords('n')<CR>
+vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
 nnoremap <silent> <leader>K :call UncolorAllWords()<CR>
 
 nnoremap <silent> n :call WordNavigation('forward')<CR>

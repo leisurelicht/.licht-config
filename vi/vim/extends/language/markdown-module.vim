@@ -1,12 +1,6 @@
 scriptencoding utf-8
 " Markdown
 "
-" ---> run file
-augroup run_file
-  autocmd FileType markdown noremap <F12> :MarkdownPreview<CR>
-  autocmd BufWinLeave *.md call plugs#markdown#PreviewStop()
-augroup end
-
 " ---> 修改不同类型文件的设置
 augroup file_set
   autocmd FileType markdown
@@ -18,6 +12,12 @@ augroup end
 
 " ---> 自动生成目录
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+
+nnoremap <leader>mg :GenTocGFM<CR>
+nnoremap <leader>mr :GentocRedcarpet<CR>
+nnoremap <leader>md :RemoveToc<CR>
+nnoremap <leader>mu :UpdateToc<CR>
+
 
 " ---> ale fixer
 " let g:ale_fixers.markdown = ['prettier']

@@ -32,10 +32,10 @@ highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
 nnoremap <silent> <C-n> <Plug>(ale_previous_wrap)
 nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
 
-nnoremap <leader>ae :ALEEnable<CR>
-nnoremap <leader>ad :ALEDisable<CR>
-nnoremap <leader>aa :call plugs#ale#AutoFix()<CR>
-nnoremap <leader>af :ALEFix<CR>
-nnoremap <leader>aF :ALEFixSuggest<CR>
-nnoremap <leader>an :ALENext<CR>
-nnoremap <leader>ap :ALEPrevious<CR>
+nnoremap <leader>le :ALEEnable<CR>
+nnoremap <leader>ld :ALEDisable<CR>
+nnoremap <leader>la :call plugs#ale#AutoFix()<CR>
+nnoremap <leader>lf :ALEFix<CR>
+nnoremap <leader>lF :ALEFixSuggest<CR>
+nnoremap <leader>ln :ALENext<CR>
+nnoremap <leader>lp :ALEPrevious<CR>

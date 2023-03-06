@@ -24,25 +24,45 @@ let g:which_key_map.7 = 'window-7'
 let g:which_key_map.8 = 'window-8'
 let g:which_key_map.9 = 'window-9'
 
-let g:which_key_map.s = {
-      \ 'name': '+System',
-      \ 'n': ['setlocal invnumber', 'number'],
-      \ 'h': ['setlocal invhlsearch', 'hlsearch'],
-      \ 'p': ['setlocal invpaste', 'paste'],
-      \}
-
-let g:which_key_map.g = {
-      \'name': '+Git',
-      \ 'm': 'GitMessenger',
-      \}
-
-let g:which_key_map.a = {
-      \ 'name': '+ALE',
-      \ 'a': 'AutoFixSwitch',
-      \}
+let g:which_key_map.a = 'Fold'
 
 let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
+
+let g:which_key_map.n = 'NERDTree'
+
+let g:which_key_map.g = {
+      \ 'name': '+Git',
+      \ 'b': 'Blame',
+      \ 'c': 'Commit',
+      \ 'd': 'Delete',
+      \ 'e': 'edit',
+      \ 'f': 'Diff',
+      \ 'g': 'Status',
+      \ 'h': 'Push',
+      \ 'l': 'Pull',
+      \ 'm': 'Message',
+      \ 'r': 'Read',
+      \}
+
+let g:which_key_map.l = {
+      \ 'name': '+ALE',
+      \ 'a': 'AutoFixSwitch',
+      \ 'e': 'Enable',
+      \ 'd': 'Disable',
+      \ 'f': 'Fix',
+      \ 'F': 'FixSuggest',
+      \ 'n': 'Next',
+      \ 'p': 'Previous',
+      \}
+
+let g:which_key_map.m = {
+      \ 'name': '+Markdown',
+      \ 'g': 'Gen GFM Toc',
+      \ 'r': 'Gen Redcarpet Toc',
+      \ 'd': 'Delete Toc',
+      \ 'u': 'Update Toc',
+      \}
 
 let g:which_key_map.t = {
       \ 'name': '+Tabs',
@@ -82,7 +102,7 @@ let g:which_key_map.t = {
       \ '9': 'Tab9',
       \}
 
-let g:which_key_localmap.f = {
+let g:which_key_map.f = {
       \ 'name': '+Fzf',
       \ '<Tab>': 'Commands',
       \ 'a': 'Code',
@@ -108,12 +128,6 @@ let g:which_key_localmap.f = {
         \ 's': 'Search',
         \},
       \}
-
-let g:which_key_localmap.z = {
-      \ 'name': '+Fold',
-      \ 'a': 'fold',
-      \}
-
 
 " --->Create menus not based on existing mappings
 "

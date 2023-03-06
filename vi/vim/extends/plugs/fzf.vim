@@ -5,31 +5,31 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
-nnoremap <localleader>f<Tab> :FzfCommands<CR>
-nnoremap <localleader>fa :FzfAg<CR>
-nnoremap <localleader>fb :FzfBuffers<CR>
-nnoremap <localleader>fw :FzfWindows<CR>
-nnoremap <localleader>fs :FzfSnippets<CR>
-nnoremap <localleader>fp :FzfFiles<CR>
+nnoremap <leader>f<Tab> :FzfCommands<CR>
+nnoremap <leader>fa :FzfAg<CR>
+nnoremap <leader>fb :FzfBuffers<CR>
+nnoremap <leader>fw :FzfWindows<CR>
+nnoremap <leader>fs :FzfSnippets<CR>
+nnoremap <leader>fp :FzfFiles<CR>
 
-nnoremap <localleader>fg :FzfGFiles<CR>
-nnoremap <localleader>fG :FzfGFiles?<CR>
+nnoremap <leader>fg :FzfGFiles<CR>
+nnoremap <leader>fG :FzfGFiles?<CR>
 
-nnoremap <localleader>fhh :FzfHistory<CR>
-nnoremap <localleader>fhc :FzfHistory:<CR>
-nnoremap <localleader>fhs :FzfHistory/<CR>
+nnoremap <leader>fhh :FzfHistory<CR>
+nnoremap <leader>fhc :FzfHistory:<CR>
+nnoremap <leader>fhs :FzfHistory/<CR>
 
-nnoremap <localleader>ft :FzfTags<CR>
-nnoremap <localleader>fT :FzfBTags<CR>
-nnoremap <localleader>fl :FzfLines<CR>
-nnoremap <localleader>fL :FzfBLines<CR>
-nnoremap <localleader>fc :FzfCommit<CR>
-nnoremap <localleader>fC :FzfBCommit<CR>
+nnoremap <leader>ft :FzfTags<CR>
+nnoremap <leader>fT :FzfBTags<CR>
+nnoremap <leader>fl :FzfLines<CR>
+nnoremap <leader>fL :FzfBLines<CR>
+nnoremap <leader>fc :FzfCommit<CR>
+nnoremap <leader>fC :FzfBCommit<CR>
 
-nnoremap <localleader>fH :FzfHelptags<CR>
-nnoremap <localleader>fF :FzfFiletypes<CR>
-nnoremap <localleader>fO :FzfColors<CR>
-nnoremap <localleader>fM :FzfMaps<CR>
+nnoremap <leader>fH :FzfHelptags<CR>
+nnoremap <leader>fF :FzfFiletypes<CR>
+nnoremap <leader>fO :FzfColors<CR>
+nnoremap <leader>fM :FzfMaps<CR>
 
 command! -bang -nargs=? -complete=dir FzfGFiles
       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
