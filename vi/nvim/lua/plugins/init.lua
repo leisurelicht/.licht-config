@@ -185,11 +185,11 @@ local install_plugins = {
 		event = { "BufRead", "BufNewFile" },
 		after = { "nvim-ts-context-commentstring" },
 	},
-	["lukas-reineke/indent-blankline.nvim"] = { -- 高亮缩进
-		file = "indent",
+	["tpope/vim-surround"] = { -- 快速修改
 		event = { "BufRead", "BufNewFile" },
 	},
-	["tpope/vim-surround"] = { -- 快速修改
+	["lukas-reineke/indent-blankline.nvim"] = { -- 高亮缩进
+		file = "indent",
 		event = { "BufRead", "BufNewFile" },
 	},
 	["vim-scripts/indentpython.vim"] = { -- python indent
