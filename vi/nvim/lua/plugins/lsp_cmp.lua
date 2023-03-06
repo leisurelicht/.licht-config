@@ -111,12 +111,12 @@ cmp.setup({
 	},
 	formatting = {
 		fields = {
-			"abbr",
 			"kind",
+			"abbr",
 			"menu",
 		},
 		format = lspkind.cmp_format({
-			mode = "symbol_text",
+			mode = "symbol",
 			maxwidth = 50,
 			before = function(entry, vim_item)
 				vim_item.menu = (function()
