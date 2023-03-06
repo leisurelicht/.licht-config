@@ -75,21 +75,21 @@ local api = require("utils.api")
 api.autocmd({ "VimEnter", "BufRead" }, { callback = open_nvim_tree })
 
 local map = require("utils.mapping")
-map.set("n", "<F4>", "<CMD>NvimTreeFindFileToggle<CR>", "NvimTree Toggle")
-map.set("n", "<leader>F3", "<CMD>NvimTreeResize 30<CR>", "Resize To 30")
-map.set("n", "<leader>F4", "<CMD>NvimTreeResize 40<CR>", "Resize To 40")
-map.set("n", "<leader>F5", "<CMD>NvimTreeResize 50<CR>", "Resize To 50")
-map.set("n", "<leader>F6", "<CMD>NvimTreeResize 60<CR>", "Resize To 60")
-map.set("n", "<leader>Ft", "<CMD>NvimTreeToggle<CR>", "Toggle")
-map.set("n", "<leader>Ff", "<CMD>NvimTreeFocus<CR>", "Focus")
-map.set("n", "<leader>Fo", "<CMD>NvimTreeOpen<CR>", "Open")
-map.set("n", "<leader>Fc", "<CMD>NvimTreeClose<CR>", "Close")
-map.set("n", "<leader>Fn", "<CMD>NvimTreeFindFileToggle<CR>", "Find File Toggle")
-map.set("n", "<leader>Fj", "<CMD>NvimTreeFindFile<CR>", "Find File")
+map.set("n", "<leader>e", "<CMD>NvimTreeFindFileToggle<CR>", "Explorer")
+--[[ map.set("n", "<leader>E3", "<CMD>NvimTreeResize 30<CR>", "Resize To 30") ]]
+--[[ map.set("n", "<leader>E4", "<CMD>NvimTreeResize 40<CR>", "Resize To 40") ]]
+--[[ map.set("n", "<leader>E5", "<CMD>NvimTreeResize 50<CR>", "Resize To 50") ]]
+--[[ map.set("n", "<leader>E6", "<CMD>NvimTreeResize 60<CR>", "Resize To 60") ]]
+--[[ map.set("n", "<leader>Et", "<CMD>NvimTreeToggle<CR>", "Toggle") ]]
+--[[ map.set("n", "<leader>Ef", "<CMD>NvimTreeFocus<CR>", "Focus") ]]
+--[[ map.set("n", "<leader>Eo", "<CMD>NvimTreeOpen<CR>", "Open") ]]
+--[[ map.set("n", "<leader>Ec", "<CMD>NvimTreeClose<CR>", "Close") ]]
+--[[ map.set("n", "<leader>En", "<CMD>NvimTreeFindFileToggle<CR>", "Find File Toggle") ]]
+--[[ map.set("n", "<leader>Ej", "<CMD>NvimTreeFindFile<CR>", "Find File") ]]
 
-local wk_ok, wk = pcall(require, "which-key")
-if wk_ok then
-	wk.register({
-		F = { name = "+FileTree" },
-	}, { mode = "n", prefix = "<leader>" })
-end
+--[[ local wk_ok, wk = pcall(require, "which-key") ]]
+--[[ if wk_ok then ]]
+--[[ 	wk.register({ ]]
+--[[ 		E = { name = "+Explorer" }, ]]
+--[[ 	}, { mode = "n", prefix = "<leader>" }) ]]
+--[[ end ]]
