@@ -31,9 +31,6 @@ local function open_nvim_tree(data)
 		return
 	end
 
-	-- buffer is a real file
-	--[[ local real_file = file.is_exist(data.file) ]]
-
 	-- buffer is a directory
 	local directory = file.is_dir(data.file)
 
