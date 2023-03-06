@@ -108,6 +108,7 @@ local install_plugins = {
 	["simrat39/symbols-outline.nvim"] = { -- 代码结构树
 		file = "lsp_symbols-outline",
 		after = { "nvim-lspconfig" },
+        cmd = "SymbolsOutline",
 	},
 	--[[
 	=====================================

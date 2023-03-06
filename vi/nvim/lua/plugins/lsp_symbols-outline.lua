@@ -9,11 +9,10 @@ if not ok then
 	return
 end
 
-outline.setup({ show_numbers = false })
+outline.setup({ show_numbers = true })
 
-local map = require("utils.mapping")
+--[[ local map = require("utils.mapping") ]]
+--[[ map.set("n", "<leader>lo", "<CMD>SymbolsOutline<CR>", "Open Outline") ]]
+--[[ map.set("n", "<leader>uo", "<CMD>SymbolsOutlineOpen<CR>", "Open") ]]
+--[[ map.set("n", "<leader>uc", "<CMD>SymbolsOutlineClose<CR>", "Close") ]]
 
-map.set("n", "<F5>", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
-map.set("n", "<leader>us", "<CMD>SymbolsOutline<CR>", "Symbols Outline Toggle")
--- map.set("n", "<leader>uo", "<CMD>SymbolsOutlineOpen<CR>", "Open")
--- map.set("n", "<leader>uc", "<CMD>SymbolsOutlineClose<CR>", "Close")

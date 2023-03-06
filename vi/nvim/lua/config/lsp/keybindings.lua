@@ -9,6 +9,7 @@ local telescope_ok, _ = pcall(require, "telescope")
 local wk_ok, wk = pcall(require, "which-key")
 
 map.set("n", "<leader>lI", "<CMD>LspInstallInfo<CR>", "Install Info")
+map.set("n", "<leader>lo", "<CMD>SymbolsOutline<CR>", "Open Outline")
 if lspsaga_ok then
 	map.set("n", "<leader>ll", "<CMD>Lspsaga show_line_diagnostics<CR>", "Line Diagnostic")
 	map.set("n", "<leader>ln", "<CMD>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic")
