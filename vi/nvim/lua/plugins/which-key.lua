@@ -22,7 +22,6 @@ wk.register({
 		-- c = { name = "+Close" },
 		-- s = { name = "+Sort" },
 	},
-	d = { name = "+DAP" },
 	f = {
 		name = "+Find",
 		h = { name = "+History" },
@@ -39,12 +38,6 @@ wk.register({
 		w = { name = "+WorkSpace" },
 		s = { name = "+Synbols" },
 	},
-	m = {
-		name = "+Translate",
-		c = "+English To Chinese",
-		e = "+Chinese To English",
-	},
-	n = { name = "+Shortcut" },
 	o = { name = "+Term" },
 	P = { name = "+Plugin Manage" },
 	r = { name = "+Runner" },
@@ -60,7 +53,7 @@ wk.register({
 		c = { "递减" },
 		m = { "块递增" },
 	},
-	u = { name = "+Tools" },
+	u = { name = "+Utils" },
 }, { mode = "n", prefix = "<leader>" })
 
 wk.register({

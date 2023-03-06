@@ -34,9 +34,11 @@ local install_plugins = {
     ---------- Core function ----------
     =====================================
     --]]
-	["rcarriga/nvim-notify"] = { file = "notify" }, -- fancy notification message
+	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
+		file = "treesitter",
+		run = ":TSUpdate",
+	},
 	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
-	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
 	["nvim-tree/nvim-tree.lua"] = { -- 文件树
 		tag = "nightly",
@@ -52,8 +54,11 @@ local install_plugins = {
      -------------- 美化 ---------------
     =====================================
     --]]
-	["EdenEast/nightfox.nvim"] = {
-		file = "theme",
+	["rcarriga/nvim-notify"] = { file = "notify" }, -- fancy notification message
+	["EdenEast/nightfox.nvim"] = { file = "theme" },
+	["lewis6991/gitsigns.nvim"] = { -- git 显示
+		requires = { "f-person/git-blame.nvim" },
+		file = "git",
 	},
 	["nvim-lualine/lualine.nvim"] = { -- statusline 美化
 		file = "lualine",
@@ -167,23 +172,13 @@ local install_plugins = {
 	-------------- code 增强 ------------
 	--=====================================
 	----]]
+	["RRethy/nvim-treesitter-endwise"] = {},
 	["JoosepAlviste/nvim-ts-context-commentstring"] = { -- Provides context-based commenting behavior for Comment
 		event = { "BufRead", "BufNewFile" },
 	},
+	["windwp/nvim-autopairs"] = { file = "autopairs" }, -- 自动配对括号
 	["p00f/nvim-ts-rainbow"] = { -- 彩虹括号
 		event = { "BufRead", "BufNewFile" },
-	},
-	["andymass/vim-matchup"] = {
-		file = "matchup",
-	},
-	["RRethy/nvim-treesitter-endwise"] = {},
-	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
-		file = "treesitter",
-		run = ":TSUpdate",
-	},
-	["lewis6991/gitsigns.nvim"] = { -- git 显示
-		requires = { "f-person/git-blame.nvim" },
-		file = "git",
 	},
 	["numToStr/Comment.nvim"] = { -- 智能注释
 		file = "comment",
@@ -199,10 +194,6 @@ local install_plugins = {
 	},
 	["vim-scripts/indentpython.vim"] = { -- python indent
 		ft = { "python", "djangohtml" },
-	},
-	["ellisonleao/glow.nvim"] = { -- markdown 预览
-		file = "glow",
-		ft = { "markdown" },
 	},
 	--[[
 	=====================================
@@ -231,11 +222,6 @@ local install_plugins = {
 	["akinsho/toggleterm.nvim"] = { -- 浮窗终端
 		file = "toggleterm",
 	},
-	--[[
-	=====================================
-	 -------------- Others -------------
-	=====================================
-	--]]
 	["mbbill/undotree"] = { -- undotree
 		file = "undotree",
 	},
@@ -254,9 +240,18 @@ local install_plugins = {
 	},
 	--[[
 	=====================================
-	 ------------ Sometimes ------------
+	 -------------- Others -------------
 	=====================================
 	--]]
+	["ellisonleao/glow.nvim"] = { -- markdown 预览
+		file = "glow",
+		ft = { "markdown" },
+	},
+	["andymass/vim-matchup"] = {
+		setup = function()
+			vim.g.matchup_matchparen_offscreen = { method = "poopup" }
+		end,
+	},
 	["dstein64/vim-startuptime"] = { -- 启动时间统计
 		cmd = { "StartupTime" },
 	},

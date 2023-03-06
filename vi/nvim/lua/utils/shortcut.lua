@@ -66,9 +66,9 @@ function Scut.get_project_name()
     return project_name[#project_name]
 end
 
-map.set("n", "<leader>nh", Scut._Htop, "Htop")
-map.set("n", "<leader>np", Scut._buf_path, "Buffer Path")
-map.set("n", "<leader>no", Scut._buf_full_path, "Buffer Full Path")
+map.set("n", "<leader>uh", Scut._Htop, "Htop")
+map.set("n", "<leader>up", Scut._buf_path, "Buffer Path")
+map.set("n", "<leader>uo", Scut._buf_full_path, "Buffer Full Path")
 
 
 return Scut
