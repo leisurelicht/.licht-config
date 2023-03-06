@@ -46,7 +46,7 @@ local function open_nvim_tree(data)
 		vim.cmd.cd(data.file)
 	end
 
-	tree_api.toggle({ focus = false, find_file = true })
+	tree_api.open()
 end
 
 nvim_tree.setup({
