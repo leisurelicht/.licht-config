@@ -32,12 +32,13 @@ local function open_nvim_tree(data)
 	end
 
 	-- buffer is a real file
-	local real_file = file.is_exist(data.file)
+	--[[ local real_file = file.is_exist(data.file) ]]
 
 	-- buffer is a directory
 	local directory = file.is_dir(data.file)
 
-	if not real_file and not directory then
+	--[[ if not real_file and not directory then ]]
+    if not directory then
 		return
 	end
 
@@ -46,7 +47,8 @@ local function open_nvim_tree(data)
 		vim.cmd.cd(data.file)
 	end
 
-	tree_api.open()
+	--[[ tree_api.toggle({ focus = false, find_file = true, }) ]]
+    tree_api.open()
 end
 
 nvim_tree.setup({
