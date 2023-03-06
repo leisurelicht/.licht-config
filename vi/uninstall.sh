@@ -10,22 +10,32 @@ config_path=$(
 )
 echo "====> Config file root path is: ${config_path}"
 
-if [ -h ~/.vimrc ]; then
-	echo '====> Uninstall vim'
-else
-	echo '====> Do not need uninstall'
-	exit 0
+if [[ ${1} == "" || ${1} == "vim" ]]; then
+	if [ -h ~/.vimrc ]; then
+		echo '====> Uninstall vim'
+	else
+		echo '====> No vim'
+		exit 0
+	fi
+
+	echo '====> Remove vimrc'
+	rm ~/.vimrc >/dev/null 2>&1
+
+	echo '====> move vimrc file back'
+	mv $config_path/bak/vimrc.bak ~/.vimrc
 fi
 
-echo '====> Remove vimrc'
-rm ~/.vimrc >/dev/null 2>&1
+if [[ ${1} == "" || ${1} == "nvim" ]]; then
+	if [ -h ~/.config/nvim/init.vim ]; then
+		echo '====> Uninstall nvim'
+	else
+		echo '====> No nvim'
+		exit 0
+	fi
 
-echo '====> move vimrc file back'
-mv $config_path/bak/vimrc.bak ~/.vimrc
+	echo '====> Remove nvim'
+	rm -r ~/.config/nvim >/dev/null 2>&1
 
-echo '====> Remove nvim'
-rm -r ~/.config/nvim >/dev/null 2>&1
-rm -r ~/.vim/init.vim >/dev/null 2>&1
-
-echo '====> move nvim folder back'
-mv $config_path/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+	echo '====> move nvim folder back'
+	mv $config_path/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+fi
