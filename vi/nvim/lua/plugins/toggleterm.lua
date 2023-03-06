@@ -98,3 +98,14 @@ map.set("n", "<leader>or", "<CMD>ToggleTermSendCurrentLine<CR>", "Send Current L
 
 map.set("v", "<leader>or", "<CMD>ToggleTermSendVisualLines<CR>", "Send Visual Lines")
 map.set("v", "<leader>os", "<CMD>ToggleTermSendVisualSelection<CR>", "Send Visual Selection")
+
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		o = { name = "+Term" },
+	}, { mode = "n", prefix = "<leader>" })
+
+	wk.register({
+		o = { name = "+Term" },
+	}, { mode = "v", prefix = "<leader>" })
+end

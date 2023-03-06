@@ -1,5 +1,5 @@
 -- =================
--- nvim-treesitter.lua 
+-- nvim-treesitter.lua
 -- Note: nvim-treesitter config file
 -- Author: MuCheng
 -- Link: https://github.com/nvim-treesitter/nvim-treesitter
@@ -20,7 +20,7 @@ treesitter_config.setup({
 		"lua",
 		"go",
 		"gomod",
-        "gowork",
+		"gowork",
 		"html",
 		"python",
 		"php",
@@ -29,7 +29,7 @@ treesitter_config.setup({
 		"json",
 		"yaml",
 		"markdown",
-        "markdown_inline",
+		"markdown_inline",
 		"http",
 		"dockerfile",
 
@@ -39,7 +39,6 @@ treesitter_config.setup({
 		"gitignore",
 		"toml",
 	},
-
 	highlight = { enable = true, additional_vim_regex_highlighting = false },
 	-- 范围选择
 	incremental_selection = {
@@ -55,7 +54,6 @@ treesitter_config.setup({
 			scope_incremental = "<leader>Tm",
 		},
 	},
-
 	-- 关闭缩进，bug太多
 	indent = {
 		enable = true,
@@ -70,7 +68,6 @@ treesitter_config.setup({
 		-- colors = {}, -- table of hex strings
 		-- termcolors = {} -- table of colour name strings
 	},
-
 	-- comment
 	context_commentstring = { enable = true },
 	-- match % g% [% ]% z%
@@ -90,7 +87,28 @@ treesitter_config.setup({
 --[[     vim.opt.foldlevelstart = 99 ]]
 --[[   end ]]
 --[[ }) ]]
-
 local map = require("utils.mapping")
 map.set("n", "<leader>Tu", "<CMD>TSUpdate all<CR>", "Update All")
 map.set("n", "<leader>Ts", "<CMD>TSModuleInfo<CR>", "Module Info")
+
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		T = {
+			name = "+Treesitter",
+			n = { "代码选择" },
+			r = { "递增" },
+			c = { "递减" },
+			m = { "块递增" },
+		},
+	}, { mode = "n", prefix = "<leader>" })
+	wk.register({
+		T = {
+			name = "+Treesitter",
+			n = { "代码选择" },
+			r = { "递增" },
+			c = { "递减" },
+			m = { "块递增" },
+		},
+	}, { mode = "v", prefix = "<leader>" })
+end

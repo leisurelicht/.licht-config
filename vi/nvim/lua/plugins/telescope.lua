@@ -142,3 +142,14 @@ map.set("n", "<leader>fgh", require("telescope.builtin").git_stash, "Stash")
 map.set("n", "<leader>fgr", require("telescope.builtin").git_branches, "Branches")
 map.set("n", "<leader>fgs", require("telescope.builtin").git_status, "Status")
 map.set("n", "<leader>fT", "<CMD>TodoTelescope<CR>", "Todo")
+
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		f = {
+			name = "+Find",
+			h = { name = "+History" },
+			g = { name = "+Git" },
+		},
+	}, { mode = "n", prefix = "<leader>" })
+end

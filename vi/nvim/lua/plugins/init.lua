@@ -24,30 +24,20 @@ local install_plugins = {
 	},
 	--[[
     =====================================
-    ------------- Depend --------------
+    ------------ Core Plugins -----------
     =====================================
     --]]
-	["nvim-lua/plenary.nvim"] = { after = { "impatient.nvim" } }, --
+	["nvim-lua/plenary.nvim"] = { after = { "impatient.nvim" } },
 	["nvim-tree/nvim-web-devicons"] = { after = { "impatient.nvim" } }, -- icons
-	--[[
-    =====================================
-    ---------- Core function ----------
-    =====================================
-    --]]
+	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
 	["nvim-treesitter/nvim-treesitter"] = { -- nvim-treesitter 代码高亮
 		file = "treesitter",
 		run = ":TSUpdate",
 	},
-	["folke/which-key.nvim"] = { file = "which-key" }, -- 快捷键提示
-	["brglng/vim-im-select"] = { file = "vim-im-select" }, -- 输入法切换
 	["nvim-tree/nvim-tree.lua"] = { -- 文件树
 		tag = "nightly",
 		file = "nvim-tree",
 		requires = { "nvim-tree/nvim-web-devicons" },
-	},
-	["karb94/neoscroll.nvim"] = { -- 流畅滚动
-		file = "neoscroll",
-		event = { "VimEnter" },
 	},
 	--[[
     =====================================
@@ -211,6 +201,7 @@ local install_plugins = {
 	},
 	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
 		file = "lastplace",
+        event = { "BufRead", "BufNewFile" },
 	},
 	["nacro90/numb.nvim"] = { -- 数字跳转增强
 		file = "numb",
@@ -224,6 +215,7 @@ local install_plugins = {
 	},
 	["mbbill/undotree"] = { -- undotree
 		file = "undotree",
+        event = { "BufRead", "BufNewFile" },
 	},
 	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
@@ -237,6 +229,13 @@ local install_plugins = {
 		config = function()
 			require("colorizer").setup()
 		end,
+	},
+	["brglng/vim-im-select"] = { -- 输入法切换
+		file = "vim-im-select",
+	},
+	["karb94/neoscroll.nvim"] = { -- 流畅滚动
+		file = "neoscroll",
+		event = { "VimEnter" },
 	},
 	--[[
 	=====================================

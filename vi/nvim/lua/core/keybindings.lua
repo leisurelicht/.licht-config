@@ -12,12 +12,12 @@ local map = require("utils.mapping")
 map.set("c", "w!!", "w !sudo tee > /dev/null %", "Saved")
 
 -- 一键大写
-map.set("i", "<C-U>", "<ESC>viwUea", "Upper Word")
-map.set("n", "<localleader>su", "viwUe", "Upper Word")
+--[[ map.set("i", "<C-U>", "<ESC>viwUea", "Upper Word") ]]
+map.set("n", "<leader>su", "viwUe", "Upper Word")
 
 -- 一键小写
-map.set("i", "<C-L>", "<ESC>viwuea", "Lower Word")
-map.set("n", "<localleader>sl", "viwue", "Lower Word")
+--[[ map.set("i", "<C-L>", "<ESC>viwuea", "Lower Word") ]]
+map.set("n", "<leader>sl", "viwue", "Lower Word")
 
 -- 首字母大写
 -- map.set('i', '<C-O>', "<ESC>bvi'Uea")
@@ -37,13 +37,13 @@ map.set("v", "<", "<gv", "Move Left Continuously")
 map.set("v", ">", ">gv", "Move Right Continuously")
 
 -- 水平分屏
-map.set("n", "<leader>sv", "<CMD>vsp<CR>", "Split Window Horizontally")
+map.set("n", "<leader>wv", "<CMD>vsp<CR>", "Split Window Horizontally")
 -- 垂直分屏
-map.set("n", "<leader>so", "<CMD>sp<CR>", "Split Window Vertically")
+map.set("n", "<leader>wo", "<CMD>sp<CR>", "Split Window Vertically")
 -- 关闭当前分屏
-map.set("n", "<leader>sd", "<C-w>c", "Close Current Window")
+map.set("n", "<leader>wd", "<C-w>c", "Close Current Window")
 -- 关闭其他分屏
-map.set("n", "<leader>sc", "<C-w>o", "Close Other Window")
+map.set("n", "<leader>wc", "<C-w>o", "Close Other Window")
 
 -- 窗口快速跳转
 map.set("n", "<leader>1", "<CMD>1wincmd w<CR>", "Win 1")

@@ -35,7 +35,7 @@ local function open_nvim_tree(data)
 	local directory = file.is_dir(data.file)
 
 	--[[ if not real_file and not directory then ]]
-    if not directory then
+	if not directory then
 		return
 	end
 
@@ -45,7 +45,7 @@ local function open_nvim_tree(data)
 	end
 
 	--[[ tree_api.toggle({ focus = false, find_file = true, }) ]]
-    tree_api.open()
+	tree_api.open()
 end
 
 nvim_tree.setup({
@@ -86,3 +86,10 @@ map.set("n", "<leader>Fo", "<CMD>NvimTreeOpen<CR>", "Open")
 map.set("n", "<leader>Fc", "<CMD>NvimTreeClose<CR>", "Close")
 map.set("n", "<leader>Fn", "<CMD>NvimTreeFindFileToggle<CR>", "Find File Toggle")
 map.set("n", "<leader>Fj", "<CMD>NvimTreeFindFile<CR>", "Find File")
+
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		F = { name = "+FileTree" },
+	}, { mode = "n", prefix = "<leader>" })
+end

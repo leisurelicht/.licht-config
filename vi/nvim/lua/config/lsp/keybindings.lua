@@ -6,6 +6,7 @@
 local map = require("utils.mapping")
 local lspsaga_ok, _ = pcall(require, "lspsaga")
 local telescope_ok, _ = pcall(require, "telescope")
+local wk_ok, wk = pcall(require, "which-key")
 
 map.set("n", "<leader>lI", "<CMD>LspInstallInfo<CR>", "Install Info")
 if lspsaga_ok then
@@ -20,6 +21,16 @@ else
 	map.set("n", "<leader>lp", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic")
 	map.set("n", "<leader>]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic Info")
 	map.set("n", "<leader>[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic Info")
+end
+
+if wk_ok then
+	wk.register({
+		l = { name = "+Lsp" },
+	}, { mode = "n", prefix = "<leader>" })
+
+	wk.register({
+		l = { name = "+Lsp" },
+	}, { mode = "v", prefix = "<leader>" })
 end
 
 local M = {}
@@ -38,12 +49,19 @@ M.register = function(_, bufnr)
 		"List Folders",
 		{ buffer = bufnr }
 	)
+
+	if wk_ok then
+		wk.register({
+			lw = { name = "+WorkSpace" },
+			ls = { name = "+Synbols" },
+		}, { mode = "n", prefix = "<leader>" })
+	end
+
 	map.set("n", "<leader>lh", vim.lsp.buf.hover, "Hover", { buffer = bufnr })
 	map.set("n", "<leader>lH", vim.lsp.buf.signature_help, "Signature Help", { buffer = bufnr })
 
 	map.set("v", "<leader>lF", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Code Foramt", { buffer = bufnr })
 	--[[ map.set("v", "<leader>la", vim.lsp.buf.range_code_action, "Code Action", { buffer = bufnr }) ]]
-
 	if lspsaga_ok then
 		map.set("n", "<leader>lr", "<CMD>Lspsaga rename<CR>", "Rename", { buffer = bufnr })
 		-- map.set("n", "<leader>lh", "<CMD>Lspsaga hover_doc<CR>", "Hover", { buffer = bufnr })

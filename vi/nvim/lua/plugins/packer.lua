@@ -54,24 +54,31 @@ local function register_keybindings()
 	-- map.set("n", "<leader>Pl", "<CMD>Telescope packer<CR>", "Find Installed Plugins")
 end
 
+local wk_ok, wk = pcall(require, "which-key")
+if wk_ok then
+	wk.register({
+		P = { name = "+Packer" },
+	}, { mode = "n", prefix = "<leader>" })
+end
+
 local M = {}
 
 function M.register_plugins(install_plugins)
 	local packer, packer_bootstrap = initialize_packer()
 
 	packer.init({
-        auto_clean = false,
-        max_jobs=10,
-        -- git = {
-          -- default_url_format = "https://mirror.ghproxy.com/%s",
-          -- default_url_format = "https://hub.fastgit.xyz/%s",
-          -- default_url_format = "https://ghproxy.com/%s",
-          -- default_url_format = "https://hub.fastgit.org/%s",
-          -- default_url_format = "https://gitclone.com/%s",
-        -- },
+		auto_clean = false,
+		max_jobs = 10,
+		-- git = {
+		-- default_url_format = "https://mirror.ghproxy.com/%s",
+		-- default_url_format = "https://hub.fastgit.xyz/%s",
+		-- default_url_format = "https://ghproxy.com/%s",
+		-- default_url_format = "https://hub.fastgit.org/%s",
+		-- default_url_format = "https://gitclone.com/%s",
+		-- },
 	})
 
-    vim.api.nvim_command('packadd packer.nvim')
+	vim.api.nvim_command("packadd packer.nvim")
 
 	packer.startup({
 		function(use)
