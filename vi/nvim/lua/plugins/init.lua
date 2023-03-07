@@ -108,7 +108,7 @@ local install_plugins = {
 	["simrat39/symbols-outline.nvim"] = { -- 代码结构树
 		file = "lsp_symbols-outline",
 		after = { "nvim-lspconfig" },
-        cmd = "SymbolsOutline",
+		cmd = "SymbolsOutline",
 	},
 	--[[
 	=====================================
@@ -202,7 +202,7 @@ local install_plugins = {
 	},
 	["ethanholz/nvim-lastplace"] = { -- 最后修改位置
 		file = "lastplace",
-        event = { "BufRead", "BufNewFile" },
+		event = { "BufRead", "BufNewFile" },
 	},
 	["nacro90/numb.nvim"] = { -- 数字跳转增强
 		file = "numb",
@@ -216,7 +216,7 @@ local install_plugins = {
 	},
 	["mbbill/undotree"] = { -- undotree
 		file = "undotree",
-        event = { "BufRead", "BufNewFile" },
+		event = { "BufRead", "BufNewFile" },
 	},
 	["lewis6991/spellsitter.nvim"] = { -- 拼写检查
 		file = "spellsitter",
