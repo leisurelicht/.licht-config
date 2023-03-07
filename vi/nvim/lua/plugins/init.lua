@@ -89,10 +89,6 @@ local install_plugins = {
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	},
-	["kosayoda/nvim-lightbulb"] = {
-		file = "lsp_lightbulb",
-		after = { "nvim-lspconfig" },
-	},
 	["j-hui/fidget.nvim"] = {
 		config = function()
 			require("fidget").setup({
