@@ -29,7 +29,7 @@ let g:which_key_map.a = 'Fold'
 let g:which_key_map.k = 'InterestingWords'
 let g:which_key_map.K = 'UncolorAllWords'
 
-let g:which_key_map.n = 'NERDTree'
+let g:which_key_map.e = 'Explorer'
 
 let g:which_key_map.g = {
       \ 'name': '+Git',
@@ -101,7 +101,7 @@ let g:which_key_map.f = {
       \ 's': 'String',
       \ 'b': 'Buffers',
       \ 'w': 'Windows',
-      \ 's': 'Snippets',
+      \ 'n': 'Snippets',
       \ 'f': 'File',
       \ 'H': 'HelpTags',
       \ 'F': 'FileTypes',

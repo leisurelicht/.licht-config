@@ -7,8 +7,7 @@ let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeStatusline='NERDTree'
 
-noremap <F4> :NERDTreeToggle<CR>
-noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>e :NERDTreeToggle<CR>
 
 " ---> show git
 Plug 'Xuyuanp/nerdtree-git-plugin'

@@ -9,7 +9,7 @@ nnoremap <leader>f<Tab> :FzfCommands<CR>
 nnoremap <leader>fs :FzfAg<CR>
 nnoremap <leader>fb :FzfBuffers<CR>
 nnoremap <leader>fw :FzfWindows<CR>
-nnoremap <leader>fs :FzfSnippets<CR>
+nnoremap <leader>fn :FzfSnippets<CR>
 nnoremap <leader>ff :FzfFiles<CR>
 
 nnoremap <leader>fg :FzfGFiles<CR>
