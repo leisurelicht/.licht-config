@@ -34,15 +34,8 @@ let g:which_key_map.n = 'NERDTree'
 let g:which_key_map.g = {
       \ 'name': '+Git',
       \ 'b': 'Blame',
-      \ 'c': 'Commit',
-      \ 'd': 'Delete',
-      \ 'e': 'edit',
-      \ 'f': 'Diff',
       \ 'g': 'Status',
-      \ 'h': 'Push',
-      \ 'l': 'Pull',
       \ 'm': 'Message',
-      \ 'r': 'Read',
       \}
 
 let g:which_key_map.l = {
@@ -105,15 +98,15 @@ let g:which_key_map.t = {
 let g:which_key_map.f = {
       \ 'name': '+Fzf',
       \ '<Tab>': 'Commands',
-      \ 'a': 'Code',
+      \ 's': 'String',
       \ 'b': 'Buffers',
       \ 'w': 'Windows',
       \ 's': 'Snippets',
-      \ 'p': 'Files',
+      \ 'f': 'File',
       \ 'H': 'HelpTags',
       \ 'F': 'FileTypes',
       \ 'O': 'Colors',
-      \ 'M': 'Maps',
+      \ 'M': 'KeyMap',
       \ 'g': 'Gitfiles',
       \ 'G': 'Gitfiles?',
       \ 't': 'Tags',

@@ -6,11 +6,11 @@ Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
 nnoremap <leader>f<Tab> :FzfCommands<CR>
-nnoremap <leader>fa :FzfAg<CR>
+nnoremap <leader>fs :FzfAg<CR>
 nnoremap <leader>fb :FzfBuffers<CR>
 nnoremap <leader>fw :FzfWindows<CR>
 nnoremap <leader>fs :FzfSnippets<CR>
-nnoremap <leader>fp :FzfFiles<CR>
+nnoremap <leader>ff :FzfFiles<CR>
 
 nnoremap <leader>fg :FzfGFiles<CR>
 nnoremap <leader>fG :FzfGFiles?<CR>
