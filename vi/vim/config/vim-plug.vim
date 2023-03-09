@@ -34,6 +34,7 @@ call extends#load#Language('go-module')
 call extends#load#Language('javascript-module')
 call extends#load#Language('html-module')
 call extends#load#Language('raml-module')
+call extends#load#Language('lua-module')
 
 call extends#load#Plugs('indentline')
 
