@@ -1,8 +1,28 @@
 -- =================
--- basic.lua --- 基础配置文件
--- Author: MuCheng
+-- basic.lua
+-- Note: neovim 基础设置
 -- =================
 --
+local sys = require("utils").sys
+
+if sys.IsMacOS() then
+  vim.api.nvim_set_var("python3_host_prog", "/opt/homebrew/bin/python3")
+elseif sys.IsLinux() then
+  vim.api.nvim_set_var("python3_host_prog", "python3")
+end
+
+if sys.IsNeovide() then
+  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_input_use_logo = false
+  vim.g.neovide_no_idle = true
+  vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_scroll_animation_length = 0
+  vim.opt.guifont = {"FiraCode Nerd Font", ":h12"}
+end
+
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
 -- 修复delete键
 -- set backspace=2
 -- 始终显示状态拦

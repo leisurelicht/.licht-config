@@ -1,22 +1,20 @@
 -- =================
--- keybindings.lua --- 快捷键绑定设置文件
--- Author: MuCheng
+-- keybindings.lua
+-- Note: 基础快捷键绑定设置
 -- =================
 --
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-local map = require("utils.mapping")
-
 -- 强制保存
 map.set("c", "w!!", "w !sudo tee > /dev/null %", "Saved")
 
 -- 一键大写
---[[ map.set("i", "<C-U>", "<ESC>viwUea", "Upper Word") ]]
+map.set("i", "<C-U>", "<ESC>viwUea", "Upper Word")
 map.set("n", "<leader>su", "viwUe", "Upper Word")
 
 -- 一键小写
---[[ map.set("i", "<C-L>", "<ESC>viwuea", "Lower Word") ]]
+map.set("i", "<C-L>", "<ESC>viwuea", "Lower Word")
 map.set("n", "<leader>sl", "viwue", "Lower Word")
 
 -- 首字母大写
@@ -103,4 +101,3 @@ map.set("n", "<leader>bp", "<CMD>bprev<CR>", "Previous Buffer")
 map.set("n", "<leader>bn", "<CMD>bnext<CR>", "Next Buffer")
 map.set("n", "[b", "<CMD>bprev<CR>", "Previous Buffer")
 map.set("n", "]b", "<CMD>bnext<CR>", "Next Buffer")
-
