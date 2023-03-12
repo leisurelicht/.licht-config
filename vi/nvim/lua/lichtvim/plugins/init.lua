@@ -5,8 +5,8 @@
 return {
   {
     "nvim-lua/plenary.nvim",
-    lazy = true
-    cmd = {"PlenaryBustedFile", "PlenaryBustedDirectory"},
+    lazy = true,
+    cmd = {"PlenaryBustedFile", "PlenaryBustedDirectory"}
   },
   {"nvim-tree/nvim-web-devicons", lazy = true}, -- 图标
   {
