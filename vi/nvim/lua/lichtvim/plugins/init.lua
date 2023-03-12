@@ -62,6 +62,12 @@ return {
     end
   },
   {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup()
+    end
+  },
+  {
     "p00f/nvim-ts-rainbow",
     event = {"BufRead", "BufNewFile"}
   },
