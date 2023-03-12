@@ -5,6 +5,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " 一键大写
 inoremap <C-U> <ESC>viwUea
+inoremap <C-L> <ESC>viwuea
 
 " 窗口切换组合快捷键
 nnoremap <C-J> <C-W><C-J>
@@ -58,3 +59,6 @@ noremap <silent> <leader>8 :8wincmd w<CR>
 noremap <silent> <leader>9 :9wincmd w<CR>
 
 noremap <silent> <leader>a za<CR>
+
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
