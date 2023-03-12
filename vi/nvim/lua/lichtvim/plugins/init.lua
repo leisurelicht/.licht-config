@@ -62,6 +62,10 @@ return {
     end
   },
   {
+    "p00f/nvim-ts-rainbow",
+    event = {"BufRead", "BufNewFile"}
+  },
+  {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     opts = {
