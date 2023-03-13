@@ -28,6 +28,7 @@ end
 
 return {
   "nvim-tree/nvim-tree.lua",
+  vertions = "nightly",
   dependencies = {"ahmedkhalf/project.nvim"},
   cmd = {"NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle"},
   keys = {
