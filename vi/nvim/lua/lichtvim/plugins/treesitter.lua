@@ -70,13 +70,7 @@ return {
 
     local wk_ok, wk = pcall(require, "which-key")
     if wk_ok then
-      wk.register(
-        {
-          mode = "n",
-          prefix = "<leader>",
-          T = "+Treesitter"
-        }
-      )
+      wk.register({T = {name = "Treesitter"}, mode = "n", prefix = "<leader>"})
     end
   end
 }

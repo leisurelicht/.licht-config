@@ -38,30 +38,6 @@ return {
     end
   },
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts = {
-      layout = {height = {min = 4, max = 20}, align = "center"},
-      icons = {breadcrumb = "»", separator = "➜", group = "+"},
-      plugins = {spelling = true}
-    },
-    config = function(_, opts)
-      wk = require("which-key")
-      wk.setup(opts)
-      wk.register(
-        {
-          mode = "n",
-          prefix = "<leader>",
-          b = "Buffer",
-          w = "Window",
-          s = "Shift",
-          t = "Tab",
-          to = "Close Only"
-        }
-      )
-    end
-  },
-  {
     "ahmedkhalf/project.nvim",
     config = function()
       require("project_nvim").setup()
