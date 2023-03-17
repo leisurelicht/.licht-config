@@ -1,29 +1,35 @@
-local function print_node_path(node)
-  print(node.absolute_path)
+function open_nvim_tree_dir(data)
+  -- buffer is a directory
+  local directory = require("lichtvim.utils").file.is_dir(data.file)
+
+  if not directory then
+    return
+  end
+
+  if directory then
+    -- change to the directory
+    vim.cmd.cd(data.file)
+  end
+
+  require("nvim-tree.api").tree.open()
 end
 
-local function open_nvim_tree(data)
+function open_nvim_tree_file(data)
   local alpha = vim.bo[data.buf].ft == "alpha"
 
   if alpha then
     return
   end
 
-  -- buffer is a directory
-  local directory = require("utils.file").is_dir(data.file)
+  require("nvim-tree.api").tree.open()
+end
 
-  --[[ if not real_file and not directory then ]]
-  if not directory then
-    return
-  end
+api.autocmd({"VimEnter"}, {callback = open_nvim_tree_dir})
 
-  -- change to the directory
-  if directory then
-    vim.cmd.cd(data.file)
-  end
+-- api.autocmd({"BufReadPost"}, {callback = open_nvim_tree_file})
 
-  --[[ tree_api.toggle({ focus = false, find_file = true, }) ]]
-  require("nvim-tree.api").open()
+local function print_node_path(node)
+  print(node.absolute_path)
 end
 
 return {
@@ -67,6 +73,5 @@ return {
         }
       }
     )
-    api.autocmd({"VimEnter", "BufRead"}, {callback = open_nvim_tree})
   end
 }
