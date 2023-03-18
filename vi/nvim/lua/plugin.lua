@@ -17,14 +17,18 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup(
   {
     spec = {
-      -- add LazyVim and import its plugins
-      -- {"LazyVim/LazyVim", import = "lazyvim.plugins"},
-      -- import any extras modules here
-      -- { import = "lazyvim.plugins.extras.lang.typescript" },
-      -- { import = "lazyvim.plugins.extras.lang.json" },
-      -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-      -- import/override with your plugins
-      {import = "lichtvim.plugins"}
+      -- add LichtVim and import its plugins and config
+      {
+        "leisurelicht/LichtVim",
+        import = "lichtvim.plugins",
+        config = true
+      }
+      -- add LichtVim and import its plugins and config
+      -- {
+      --   dir = "~/Code/LichtVim",
+      --   import = "lichtvim.plugins",
+      --   config = true
+      -- }
     },
     defaults = {
       -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
