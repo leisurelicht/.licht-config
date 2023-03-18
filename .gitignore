@@ -1,5 +1,11 @@
 /tags
+
 bak/
+
 dev.vim
+
 .DS_Store
+
 .luarc.json
+
+lazy-lock.json

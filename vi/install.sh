@@ -89,21 +89,12 @@ if [[ ${1} == "" || ${1} == "nvim" ]]; then
 		mv "$HOME/.config/nvim" "$config_path/bak/nvim_bak"
 	fi
 
-	echo "====> Create neovim config dir"
-	if [ -d "$HOME/.config/nvim" ]; then
-		rm -r "$HOME/.config/nvim" >/dev/null 2>&1
-	fi
-	mkdir -p "$HOME/.config/nvim"
+	echo "====> Create nvim symbolic link to config directory"
+	ln -s "$config_path/vi/nvim" "$HOME/.config/nvim"
 
-	echo "====> Create neovim init file links"
-	if [ -d "$HOME/.config/nvim/init.vim" ]; then
-		rm "$HOME/.config/nvim/init.vim" >/dev/null 2>&1
-	fi
-	ln -s "$config_path/vi/vimrc" "$HOME/.config/nvim/init.vim"
-
-	# 安装vim插件
+	# 安装neovim插件
 	echo "====> Install nvim PlugInstaller"
-	nvim +PackerInstall +qa
+	nvim +Lazy +qa
 fi
 
 echo "**** Please change Non-ASCII Font to Hack Nerd Font ****"
