@@ -14,4 +14,4 @@ augroup end
 " let g:ale_fixers.lua = ['luafmt']
 " let g:ale_lua_luafmt_options = "--indent-count 2"
 let g:ale_fixers.lua = ['lua-format']
-let g:ale_lua_lua_format_options = "--indent-width=2 --no-use-tab --keep-simple-function-one-line --keep-simple-control-block-one-line"
+let g:ale_lua_lua_format_options = "--indent-width=2 --no-use-tab --keep-simple-function-one-line --keep-simple-control-block-one-line --chop-down-table"
