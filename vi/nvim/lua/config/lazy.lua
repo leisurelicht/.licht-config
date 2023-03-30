@@ -19,21 +19,27 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+local licht_vim = {}
+local dev = os.getenv("LICHT_VIM_DEV")
+if dev == "1" then
+	licht_vim = {
+		dir = "~/Code/LichtVim",
+		import = "lichtvim.plugins",
+		config = true,
+		lazy = false,
+	}
+else
+	licht_vim = {
+		"leisurelicht/LichtVim",
+		import = "lichtvim.plugins",
+		config = true,
+	}
+end
+
 require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
-		{
-			"leisurelicht/LichtVim",
-			import = "lichtvim.plugins",
-			config = true,
-		},
-		-- add local LichtVim
-		-- {
-		-- 	dir = "~/Code/LichtVim",
-		-- 	import = "lichtvim.plugins",
-		-- 	config = true,
-		-- 	lazy = false,
-		-- },
+		licht_vim,
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
