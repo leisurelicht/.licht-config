@@ -20,7 +20,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local licht_vim = {}
-local dev = os.getenv("LICHT_VIM_DEV")
+local dev = os.getenv("LICHTVIM_DEV")
 if dev == "1" then
 	licht_vim = {
 		dir = "~/Code/LichtVim",
