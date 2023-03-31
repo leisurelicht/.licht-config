@@ -8,6 +8,4 @@ dev.vim
 
 .luarc.json
 
-lazy.lua
-
 lazy-lock.json
