@@ -40,6 +40,8 @@ require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
 		licht_vim,
+		{ import = "lichtvim.plugins.extras.tabnine.cmp" },
+		{ import = "lichtvim.plugins.extras.copilot.attach" },
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
