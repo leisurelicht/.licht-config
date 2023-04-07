@@ -17,6 +17,7 @@ git_need_install=0
 fzf_need_install=0
 fd_need_install=0
 rg_need_install=0
+zoxide_need_install=0
 
 if ! command -v lua >/dev/null 2>&1; then
 	echo "====> [lua] is not be installed. Please install first"
@@ -83,6 +84,11 @@ if [[ $(uname) == 'Darwin' ]]; then
 		$(brew --prefix)/opt/fd/install
 		fd_need_install=0
 	fi
+	if [[ ${zoxide_need_install} == 1 ]]; then
+		echo "====> Install Command [zoxide]"
+		brew install zoxide
+		zoxide_need_install=0
+	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
 	if [[ ${fzf_need_install} ]]; then
@@ -111,6 +117,12 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			sudo apt install fd-find -y
 			fd_need_install=0
 		fi
+		if [[ ${zoxide_need_install} == 1 ]]; then
+			echo "====> Install Command [zoxide]"
+			sudo apt install zoxide -y
+			zoxide_need_install=0
+		fi
+
 	elif [[ ${os} == "centos" ]]; then
 		if [[ ${zsh_need_install} == 1 ]]; then
 			echo "====> Install Command [zsh]."
@@ -132,6 +144,13 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			sudo yum install fd-find -y
 			fd_need_install=0
 		fi
+		if [[ ${zoxide_need_install} == 1 ]]; then
+			echo "====> Install Command [zoxide]"
+			dnf copr enable atim/zoxide
+			dnf install zoxide
+			zoxide_need_install=0
+		fi
+
 	fi
 fi
 

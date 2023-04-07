@@ -17,10 +17,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Load powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# 快速目录跳转
-zinit ice lucid wait='1'; zinit light skywind3000/z.lua
-export _ZL_MATCH_MODE=1
-
 # 语法高亮
 zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -48,8 +44,8 @@ zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-# autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# 快速跳转
+eval "$(zoxide init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
