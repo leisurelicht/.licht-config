@@ -23,7 +23,7 @@ local licht_vim = {}
 local dev = os.getenv("LICHTVIM_DEV")
 if dev == "1" then
 	licht_vim = {
-		dir = "~/Code/LichtVim",
+		dir = "~/Code/neovim/LichtVim",
 		import = "lichtvim.plugins",
 		config = true,
 		lazy = false,
