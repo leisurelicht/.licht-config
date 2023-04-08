@@ -110,3 +110,5 @@ alias ubuntu='ssh root@10.206.1.237'
 alias dev='ssh root@172.18.35.207'
 
 alias lichtvim_dev="export export LICHTVIM_DEV=1"
+
+alias j="z"
