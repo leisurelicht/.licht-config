@@ -7,7 +7,7 @@ if [[ `uname` == "Darwin" ]]; then
     # ls && ll
     alias ls="exa"
     alias ll="exa --all --long --header --inode --git --color-scale --icons"
-    
+
     # tree
     alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
 
@@ -38,7 +38,7 @@ if type "$exa" >/dev/null; then
     # ls && ll
     alias ls="exa"
     alias ll="exa --all --long --header --inode --git --color-scale --icons"
-    
+
     # tree
     alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
 else
@@ -102,13 +102,15 @@ alias gdc="git diff --cached"
 alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
 alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
 
-# 禁止休眠 
+# 禁止休眠
 alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
 alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
 
 alias ubuntu='ssh root@10.206.1.237'
-alias dev='ssh root@172.18.35.207'
+alias dev='ssh root@172.18.37.240'
+alias cpe='ssh root@172.18.37.241'
 
-alias lichtvim_dev="export export LICHTVIM_DEV=1"
+alias lichtvim_dev="export LICHTVIM_DEV=1"
+alias lichtvim_go="unset LICHTVIM_DEV"
 
 alias j="z"
