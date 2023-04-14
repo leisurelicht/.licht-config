@@ -9,3 +9,4 @@
 -- vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
 require("config.lazy")
+-- require("config.mini")
