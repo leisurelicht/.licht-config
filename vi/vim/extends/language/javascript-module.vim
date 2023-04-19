@@ -10,8 +10,5 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-" ---> Makes your javascript files support React jsx correctly.
-Plug 'chemzqm/vim-jsx-improve', {'for': 'javascript.jsx'}
-
 " ---> ale fixer
 let g:ale_fixers.html = ['eslint',' importjs', 'prettier_eslint', 'prettier_standard']

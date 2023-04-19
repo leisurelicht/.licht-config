@@ -15,11 +15,5 @@ augroup file_set
         \ setlocal shiftwidth=2 |
 augroup end
 
-" ---> emmet
-Plug 'mattn/emmet-vim', {'for': 'html'}
-
-" ---> html5
-Plug 'othree/html5.vim', {'for': 'html'}
-
 " ---> ale fixer
 let g:ale_fixers.html = ['prettier',]
