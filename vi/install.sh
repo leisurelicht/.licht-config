@@ -10,22 +10,25 @@ config_path=$(
 )
 echo "====> Config file root path is: ${config_path}"
 
-if ! command -v vim >/dev/null 2>&1; then
-	echo "====> [vim] is not be installed."
-	exit 1
-fi
-
-if ! command -v nvim >/dev/null 2>&1; then
-	echo "====> [neovim] is not be installed."
-	exit 1
-fi
-
 git_need_install=0
+nvim_need_install=0
+vim_need_install=0
 
 if ! command -v git >/dev/null 2>&1; then
 	echo "====> Command [git] is not be installed."
 	git_need_install=1
 fi
+
+if ! command -v vim >/dev/null 2>&1; then
+	echo "====> [vim] is not be installed."
+	vim_need_install=1
+fi
+
+if ! command -v nvim >/dev/null 2>&1; then
+	echo "====> [neovim] is not be installed."
+	nvim_need_install=1
+fi
+
 
 if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
@@ -38,6 +41,16 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 		brew install git
 		git_need_install=0
 	fi
+	if [[ ${nvim_need_install} == 1 ]]; then
+		echo "====> Install Command [neovim]."
+		brew install neovim
+		nvim_need_install=0
+	fi
+	if [[ ${vim_need_install} == 1 ]]; then
+		echo "====> Install Command [vim]."
+		brew install vim
+		vim_need_install=0
+	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
 	if [[ ${os} == "ubuntu" ]]; then
@@ -46,12 +59,23 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 			sudo apt-get install git -y
 			git_need_install=0
 		fi
+    if [[ ${vim_need_install} == 1 ]]; then
+      echo "====> Install Command [vim]."
+      sudo apt-get install vim -y
+      vim_need_install=0
+    fi
+
 	elif [[ ${os} == "centos" ]]; then
 		if [[ ${git_need_install} == 1 ]]; then
 			echo "====> Install Command [git]."
 			sudo yum install git -y
 			git_need_install=0
 		fi
+    if [[ ${vim_need_install} == 1 ]]; then
+      echo "====> Install Command [vim]."
+      sudo yum install vim -y
+      vim_need_install=0
+    fi
 	fi
 fi
 
