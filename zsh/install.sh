@@ -12,15 +12,19 @@ config_path=$(
 
 echo "====> Config file root path is: ${config_path}"
 
+lua_need_install=0
 zsh_need_install=0
 git_need_install=0
 fzf_need_install=0
 fd_need_install=0
 rg_need_install=0
 zoxide_need_install=0
+exa_need_install=0
+bat_need_install=0
 
 if ! command -v lua >/dev/null 2>&1; then
 	echo "====> [lua] is not be installed. Please install first"
+	lua_need_install=1
 fi
 
 if ! command -v zsh >/dev/null 2>&1; then
@@ -48,6 +52,21 @@ if ! command -v fd >/dev/null 2>&1; then
 	fd_need_install=1
 fi
 
+if ! command -v zoxide >/dev/null 2>&1; then
+	echo "====> Command [zoxide] is not be installed."
+	zoxide_need_install=1
+fi
+
+if ! command -v exa >/dev/null 2>&1; then
+	echo "====> Command [exa] is not be installed."
+	exa_need_install=1
+fi
+
+if ! command -v bat >/dev/null 2>&1; then
+	echo "====> Command [bat] is not be installed."
+	bat_need_install=1
+fi
+
 if [[ $(uname) == 'Darwin' ]]; then
 	# 安装包管理器
 	if ! command -v brew >/dev/null 2>&1; then
@@ -55,6 +74,16 @@ if [[ $(uname) == 'Darwin' ]]; then
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	else
 		echo "====> Homebrew is already installed."
+	fi
+
+	brew tap homebrew/cask-fonts
+	brew install font-hack-nerd-font
+	brew install iterm2
+
+	if [[ ${lua_need_install} == 1 ]]; then
+		echo "===> Install Command [lua]"
+		brew install lua
+		lua_need_install=0
 	fi
 	# 安装软件
 	if [[ ${zsh_need_install} == 1 ]]; then
@@ -80,14 +109,23 @@ if [[ $(uname) == 'Darwin' ]]; then
 	fi
 	if [[ ${fd_need_install} == 1 ]]; then
 		echo "====> Install Command [fd]"
-		brew install fd-find
-		$(brew --prefix)/opt/fd/install
+		brew install fd
 		fd_need_install=0
 	fi
 	if [[ ${zoxide_need_install} == 1 ]]; then
 		echo "====> Install Command [zoxide]"
 		brew install zoxide
 		zoxide_need_install=0
+	fi
+	if [[ ${exa_need_install} == 1 ]]; then
+		echo "====> Install Command [exa]"
+		brew install exa
+		exa_need_install=0
+	fi
+	if [[ ${bat_need_install} == 1 ]]; then
+		echo "====> Install Command [bat]"
+		brew install bat
+		bat_need_install=0
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')

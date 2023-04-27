@@ -91,4 +91,4 @@ else
 fi
 
 # k8s
-commnad -v kubectl >/dev/null && source <(kubectl completion zsh)
+command -v kubectl >/dev/null && source <(kubectl completion zsh)
