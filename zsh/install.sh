@@ -21,6 +21,7 @@ rg_need_install=0
 zoxide_need_install=0
 exa_need_install=0
 bat_need_install=0
+trash_need_install=0
 
 if ! command -v lua >/dev/null 2>&1; then
 	echo "====> [lua] is not be installed. Please install first"
@@ -65,6 +66,11 @@ fi
 if ! command -v bat >/dev/null 2>&1; then
 	echo "====> Command [bat] is not be installed."
 	bat_need_install=1
+fi
+
+if ! command -v trash >/dev/null 2>&1; then
+	echo "====> Command [trash] is not be installed."
+	trash_need_install=1
 fi
 
 if [[ $(uname) == 'Darwin' ]]; then
@@ -126,6 +132,11 @@ if [[ $(uname) == 'Darwin' ]]; then
 		echo "====> Install Command [bat]"
 		brew install bat
 		bat_need_install=0
+	fi
+  if [[ ${trash_need_install} == 1 ]]; then
+		echo "====> Install Command [trash]"
+		brew install trash
+		trash_need_install=0
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
