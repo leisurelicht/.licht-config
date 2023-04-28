@@ -44,7 +44,7 @@ fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
-		echo "====> Command [brew] is not be installed, Start To install."
+		echo "====> Command [brew] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 	for ((i = 0; i < "${#installed[@]}"; )); do
@@ -52,7 +52,7 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 			echo "----> Install Command [${installed[$i + 1]}]."
 			brew install "${installed[$i + 1]}"
 		else
-			echo "====> Command [${installed[$i + 1]}] is installed."
+			echo "====> Command [${installed[$i + 1]}] have been installed."
 		fi
 		i=$((i + 2))
 	done
