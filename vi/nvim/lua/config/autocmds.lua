@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 	callback = function()
 		vim.cmd([[
             call setline(1, '#!/usr/bin/env python')
-            call setline(2, '#-*-coding: utf-8-*-')
+            call setline(2, '# -*-coding: utf-8-*-')
             normal! G
             normal! o
         ]])
