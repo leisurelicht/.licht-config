@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 install_path=$(
-	cd $(dirname $0)
+	cd "$(dirname "${0}")" || exit
 	pwd
 )
 config_path=$(
-	cd $install_path/..
+	cd "${install_path}/.." || exit
 	pwd
 )
 echo "====> Config file root path is: ${config_path}"
@@ -22,11 +22,11 @@ if [[ ${1} == "" || ${1} == "vim" ]]; then
 	rm ~/.vimrc >/dev/null 2>&1
 
 	echo '====> move vimrc file back'
-	mv $config_path/bak/vimrc.bak ~/.vimrc
+	mv "${config_path}"/bak/vimrc.bak ~/.vimrc
 fi
 
-if [[ ${1} == "" || ${1} == "nvim" ]]; then
-	if [ -h ~/.config/nvim/init.vim ]; then
+if [[ ${1} == "" || ${1} == "neovim" ]]; then
+	if [ -h ~/.config/nvim ]; then
 		echo '====> Uninstall nvim'
 	else
 		echo '====> No nvim'
@@ -37,5 +37,5 @@ if [[ ${1} == "" || ${1} == "nvim" ]]; then
 	rm -r ~/.config/nvim >/dev/null 2>&1
 
 	echo '====> move nvim folder back'
-	mv $config_path/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+	mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
 fi

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 install_path=$(
-	cd "$(dirname "$0")" || exit
+	cd "$(dirname "${0}")" || exit
 	pwd
 )
 config_path=$(
-	cd "$install_path/.." || exit
+	cd "${install_path}/.." || exit
 	pwd
 )
 echo "====> Config file root path is: ${config_path}"
@@ -22,7 +22,7 @@ install_neovim=0
 
 if [[ "${1}" == "vim" ]]; then
 	install_vim=1
-elif [[ "${1}" == "nvim" ]]; then
+elif [[ "${1}" == "neovim" ]]; then
 	install_neovim=1
 elif [[ "${1}" == "" ]]; then
 	install_vim=1
