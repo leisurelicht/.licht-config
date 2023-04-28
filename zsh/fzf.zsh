@@ -1,37 +1,11 @@
+
+# Reinforce 'cd' command
 if [[ $(uname -s) == "Darwin" ]]; then
-    # Setup fzf
-    # ---------
-    if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-        PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
-    fi
-
-
-    # Auto-completion
-    # ---------------
-    [[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-
-    # Key bindings
-    # ------------
-    source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-
     if [ ! -d /opt/homebrew/opt/fzf/shell/zsh-interactive-cd ]; then
         git clone --depth 1 https://github.com/changyuheng/zsh-interactive-cd \
             /opt/homebrew/opt/fzf/shell/zsh-interactive-cd
     fi
-    # Reinforce 'cd' command
     source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
-elif [[ $(uname -s) == "Linux" ]]; then
-    # Setup fzf
-    # ---------
-    if [[ ! "$PATH" == */${HOME}/.fzf/bin* ]]; then
-        export PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
-    fi
-    # Auto-completion
-    # ---------------
-    [[ $- == *i* ]] && source "${HOME}/.fzf/shell/completion.zsh" 2> /dev/null
-    # Key bindings
-    # ------------
-    source "${HOME}/.fzf/shell/key-bindings.zsh"
 fi
 
 # Alias

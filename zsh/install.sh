@@ -250,15 +250,16 @@ fi
 echo "====> Create p10k link"
 ln -s $config_path/zsh/p10k.zsh ~/.p10k.zsh
 
-# 备份已有的 fzf 文件
+# 更新的 fzf 配置文件
 if [ -f ~/.fzf.zsh ]; then
-	echo "====> fzf config file is .fzf.zsh exist, backup and delete it."
-	mv ~/.fzf.zsh $config_path/bak/fzf.zsh.bak
-	rm ~/.fzf.zsh >/dev/null 2>&1
+	echo "====> fzf config file is .fzf.zsh exist, update it"
+  fzf_config=$(cat "$config_path"/zsh/fzf.zsh)
+  if grep -F "$fzf_config" "$HOME/.fzf.zsh" >/dev/null; then
+    echo "====> fzf config is already insert to .fzf.zsh"
+  else
+    echo "$fzf_config" >> ~/.fzf.zsh
+  fi
 fi
-
-echo "====> Create fzf link"
-ln -s $config_path/zsh/fzf.zsh ~/.fzf.zsh
 
 # 切换到zsh
 echo "====> Change to zsh"
