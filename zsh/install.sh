@@ -79,7 +79,7 @@ if ! command -v g >/dev/null 2>&1; then
 fi
 
 if ! command -v nvm >/dev/null 2>&1; then
-	echo "====> Command [nvim] is not be installed."
+	echo "====> Command [nvm] is not be installed."
 	trash_need_install=1
 fi
 
