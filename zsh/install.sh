@@ -30,7 +30,6 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 		"zsh"
 		"git"
 		"fzf"
-		"rg"
 		"zoxid"
 		"ripgrep"
 		"bat"
