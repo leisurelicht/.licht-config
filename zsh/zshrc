@@ -55,6 +55,9 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 # ===== set g environment variables =====
 unalias g 2> /dev/null
+if [ -f "${HOME}/.g/env" ]; then
+    . "${HOME}/.g/env"
+fi
 export GOROOT="${HOME}/.g/go"
 export GOPATH="${HOME}/.g/path"
 export PATH="${HOME}/.g/bin:${HOME}/.g/go/bin:${HOME}/.g/path/bin:$PATH"
@@ -92,3 +95,4 @@ fi
 
 # k8s
 command -v kubectl >/dev/null && source <(kubectl completion zsh)
+
