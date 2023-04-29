@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 install_path=$(
-	cd $(dirname $0)
+	cd "$(dirname "${0}")" || exit
 	pwd
 )
 
 config_path=$(
-	cd $install_path/..
+	cd "${install_path}/.." || exit
 	pwd
 )
 
@@ -22,6 +22,7 @@ zoxide_need_install=0
 exa_need_install=0
 bat_need_install=0
 trash_need_install=0
+nvim_need_install=0
 
 if ! command -v lua >/dev/null 2>&1; then
 	echo "====> [lua] is not be installed. Please install first"
@@ -73,6 +74,15 @@ if ! command -v trash >/dev/null 2>&1; then
 	trash_need_install=1
 fi
 
+if ! command -v g >/dev/null 2>&1; then
+	curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+fi
+
+if ! command -v nvm >/dev/null 2>&1; then
+	echo "====> Command [nvim] is not be installed."
+	trash_need_install=1
+fi
+
 if [[ $(uname) == 'Darwin' ]]; then
 	# 安装包管理器
 	if ! command -v brew >/dev/null 2>&1; then
@@ -105,7 +115,7 @@ if [[ $(uname) == 'Darwin' ]]; then
 	if [[ ${fzf_need_install} == 1 ]]; then
 		echo "====> Install Command [fzf]"
 		brew install fzf
-		$(brew --prefix)/opt/fzf/install
+		"$(brew --prefix)"/opt/fzf/install
 		fzf_need_install=0
 	fi
 	if [[ ${rg_need_install} == 1 ]]; then
@@ -133,10 +143,15 @@ if [[ $(uname) == 'Darwin' ]]; then
 		brew install bat
 		bat_need_install=0
 	fi
-  if [[ ${trash_need_install} == 1 ]]; then
+	if [[ ${trash_need_install} == 1 ]]; then
 		echo "====> Install Command [trash]"
 		brew install trash
 		trash_need_install=0
+	fi
+  if [[ ${nvm_need_install} == 1 ]]; then
+		echo "====> Install Command [nvm]"
+		brew install nvm
+		nvm_need_install=0
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
@@ -213,7 +228,7 @@ fi
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -e "$ZINIT_HOME" ]; then
 	echo "====> Zinit is not be installed, start to install"
-	mkdir -p "$(dirname $ZINIT_HOME)"
+	mkdir -p "$(dirname "$ZINIT_HOME")"
 	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 	if [ $? -ne 0 ]; then
 		echo "xxxx> Install zinit failed, install stop"
@@ -224,41 +239,41 @@ else
 fi
 
 # 创建备份文件地址
-if [ ! -d $config_path/bak ]; then
-	mkdir -p $config_path/bak
+if [ ! -d "$config_path"/bak ]; then
+	mkdir -p "$config_path"/bak
 fi
-
-echo "====> Back up dir path is: ${config_path}/bak"
 
 # 备份已有的zshrc文件
 if [ -f ~/.zshrc ]; then
-	echo "====> Zsh config file zshrc is exist, backup and delete it."
-	mv ~/.zshrc $config_path/bak/zshrc.bak
+	echo "====> Zsh config file zshrc is exist."
+  echo "====> Backup to [${config_path/bak}] and delete it."
+	mv ~/.zshrc "$config_path"/bak/zshrc.bak
 	rm ~/.zshrc >/dev/null 2>&1
 fi
 
 echo "====> Create zshrc link"
-ln -s $config_path/zsh/zshrc ~/.zshrc
+ln -s "$config_path"/zsh/zshrc ~/.zshrc
 
 # 备份已有的p10k.zsh文件
 if [ -f ~/.p10k.zsh ]; then
-	echo "====> p10k config file .p10k.zsh is exist, backup and delete it."
-	mv ~/.p10k.zsh $config_path/bak/p10k.zsh.bak
+	echo "====> P10k config file .p10k.zsh is exist."
+  echo "====> Backup to [${config_path/bak}] and delete it."
+	mv ~/.p10k.zsh "$config_path"/bak/p10k.zsh.bak
 	rm ~/.p10k.zsh >/dev/null 2>&1
 fi
 
 echo "====> Create p10k link"
-ln -s $config_path/zsh/p10k.zsh ~/.p10k.zsh
+ln -s "$config_path"/zsh/p10k.zsh ~/.p10k.zsh
 
 # 更新的 fzf 配置文件
 if [ -f ~/.fzf.zsh ]; then
-	echo "====> fzf config file is .fzf.zsh exist, update it"
-  fzf_config=$(cat "$config_path"/zsh/fzf.zsh)
-  if grep -F "$fzf_config" "$HOME/.fzf.zsh" >/dev/null; then
-    echo "====> fzf config is already insert to .fzf.zsh"
-  else
-    echo "$fzf_config" >> ~/.fzf.zsh
-  fi
+	echo "====> Fzf config file is .fzf.zsh exist, update it"
+	fzf_config=$(cat "$config_path"/zsh/fzf.zsh)
+	if grep -F "$fzf_config" "$HOME/.fzf.zsh" >/dev/null; then
+		echo "====> Fzf config is already insert to .fzf.zsh"
+	else
+		echo "$fzf_config" >>~/.fzf.zsh
+	fi
 fi
 
 # 切换到zsh
@@ -266,4 +281,4 @@ echo "====> Change to zsh"
 chsh -s /bin/zsh
 zsh
 
-source ~/.zshrc
+source "${HOME}/.zshrc"

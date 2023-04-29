@@ -35,8 +35,6 @@ if [[ "${1}" == "neovim" ]]; then
 		"lua"
 		"luarocks"
 		"luarocks"
-		"go"
-		"go"
 		"npm"
 		"npm"
 	)
