@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 has() {
-  type "$1" >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 install_path=$(
@@ -42,14 +42,16 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 
 	brew_list=$(brew list)
 	for soft in "${installed[@]}"; do
-    if [[ ${brew_list} == *"${soft}"* ]]; then
+		if [[ ${brew_list} == *"${soft}"* ]]; then
 			echo "====> [ ${soft} ] has been installed."
 		else
 			echo "----> Install [${soft}]."
 			brew install "${soft}"
 		fi
 	done
-	"$(brew --prefix)"/opt/fzf/install
+	if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
+		"$(brew --prefix)"/opt/fzf/install
+	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	installed=(
 		"lua"
@@ -98,34 +100,24 @@ fi
 
 # golang version manager
 if ! has "g"; then
-  echo "----> Install [ g ]"
-	curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+  echo "----> Install [ g ]."
+  curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
 fi
 
 # nvm
-if ! has "nvm"; then
-  echo "====> [ nvm ] has been installed."
-else
-  echo "----> Install [ nvm ]"
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-fi
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 
 # zinit
-if ! has "zinit"; then
-  echo "====> [ zinit ] has been installed."
-else
-  echo "----> Install [ zinit ]"
-  bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-fi
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 # 更新的 fzf 配置文件
 if [ -f ~/.fzf.zsh ]; then
 	echo "====> Fzf config file is .fzf.zsh exist, update it"
-	fzf_config=$(cat "$config_path"/zsh/fzf.zsh)
-	if grep -F "$fzf_config" "$HOME/.fzf.zsh" >/dev/null; then
+	fzf_config=$(cat "${config_path}"/zsh/fzf.zsh)
+	if grep -F "${fzf_config}" "${HOME}/.fzf.zsh" >/dev/null; then
 		echo "====> Fzf config is already insert to .fzf.zsh"
 	else
-		echo "$fzf_config" >>~/.fzf.zsh
+		echo "$fzf_config" >>"${HOME}/.fzf.zsh"
 	fi
 fi
 

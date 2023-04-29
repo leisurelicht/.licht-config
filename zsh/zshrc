@@ -90,4 +90,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # k8s
 command -v kubectl >/dev/null && source <(kubectl completion zsh)
-
