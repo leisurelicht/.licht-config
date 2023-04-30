@@ -114,10 +114,10 @@ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuserco
 if [ -f ~/.fzf.zsh ]; then
 	echo "====> Fzf config file is .fzf.zsh exist, update it"
 	fzf_config=$(cat "${config_path}"/zsh/fzf.zsh)
-	if grep -F "${fzf_config}" "${HOME}/.fzf.zsh" >/dev/null; then
-		echo "====> Fzf config is already insert to .fzf.zsh"
+	if grep -F "${fzf_config}" "${HOME}"/.fzf.zsh >/dev/null; then
+		echo "====> Fzf config is already insert to ${HOME}/.fzf.zsh"
 	else
-		echo "$fzf_config" >>"${HOME}/.fzf.zsh"
+		echo "$fzf_config" >>"${HOME}"/.fzf.zsh
 	fi
 fi
 
