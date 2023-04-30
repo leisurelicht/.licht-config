@@ -111,8 +111,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 # 更新的 fzf 配置文件
-if [ -f ~/.fzf.zsh ]; then
-	echo "====> Fzf config file is .fzf.zsh exist, update it"
+if [ -f "${HOME}"/.fzf.zsh ]; then
+	echo "====> Fzf config file ${HOME}/.fzf.zsh exist, update it"
 	fzf_config=$(cat "${config_path}"/zsh/fzf.zsh)
 	if grep -F "${fzf_config}" "${HOME}"/.fzf.zsh >/dev/null; then
 		echo "====> Fzf config is already insert to [ ${HOME}/.fzf.zsh ]"
