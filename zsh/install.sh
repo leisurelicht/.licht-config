@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 has() {
-  command -v "$1" >/dev/null 2>&1
+	command -v "$1" >/dev/null 2>&1
 }
 
 install_path=$(
@@ -54,12 +54,12 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
 	installed=(
-		"lua"
-		"lua"
-		"zsh"
-		"zsh"
 		"git"
 		"git"
+		"zsh"
+		"zsh"
+		"lua"
+		"lua"
 		"rg"
 		"ripgrep"
 		"batcat"
@@ -100,8 +100,8 @@ fi
 
 # golang version manager
 if ! has "g"; then
-  echo "----> Install [ g ]."
-  curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+	echo "----> Install [ g ]."
+	curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
 fi
 
 # nvm
