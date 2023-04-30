@@ -37,6 +37,8 @@ if [[ "${1}" == "neovim" ]]; then
 		"luarocks"
 		"npm"
 		"npm"
+    "sqlite"
+    "sqlite"
 	)
 fi
 
