@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# 判断第一个命令行参数是否为 vim 或 neovim
+if [[ "${1}" == "vim" || "${1}" == "neovim" ]]; then
+	echo "====> Start to install ${1} config file."
+else
+	echo "====> Error: Unknown parameter: ${1}"
+	echo "====> Usage: ./uninstall.sh [vim|neovim]"
+	exit 1
+fi
+
+
 install_path=$(
 	cd "$(dirname "${0}")" || exit
 	pwd
