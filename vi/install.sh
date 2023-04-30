@@ -37,8 +37,6 @@ if [[ "${1}" == "neovim" ]]; then
 		"luarocks"
 		"npm"
 		"npm"
-		"im-select"
-		"im-select"
 	)
 fi
 
@@ -49,8 +47,13 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 	fi
 
 	if ! brew tap | grep -q "daipeihust/tap"; then
-		brew tap daipeihust/tap
+		brew tap leisurelicht/tap
 	fi
+
+	install+=(
+		"im-select"
+		"im-select"
+	)
 
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
