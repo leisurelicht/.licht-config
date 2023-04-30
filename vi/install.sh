@@ -35,8 +35,8 @@ if [[ "${1}" == "neovim" ]]; then
 		"lua"
 		"luarocks"
 		"luarocks"
-		"npm"
-		"npm"
+		"node"
+		"node"
     "sqlite"
     "sqlite"
 	)
@@ -57,12 +57,13 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 		"im-select"
 	)
 
+	brew_list=$(brew list)
 	for ((i = 0; i < "${#installed[@]}"; )); do
-		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
+		if [[ ${brew_list} == *"${installed[$i+1]}"* ]]; then
+			echo "====> Command [ ${installed[$i + 1]} ] have been installed."
+		else
 			echo "----> Install Command [ ${installed[$i + 1]} ]."
 			brew install "${installed[$i + 1]}"
-		else
-			echo "====> Command [ ${installed[$i + 1]} ] have been installed."
 		fi
 		i=$((i + 2))
 	done
