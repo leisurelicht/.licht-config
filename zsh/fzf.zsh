@@ -1,5 +1,9 @@
 
+# Fzf Custom Config
+# -----------------
+
 # Reinforce 'cd' command
+# ----------------------
 if [[ $(uname -s) == "Darwin" ]]; then
     if [ ! -d /opt/homebrew/opt/fzf/shell/zsh-interactive-cd ]; then
         git clone --depth 1 https://github.com/changyuheng/zsh-interactive-cd \
@@ -14,7 +18,7 @@ fi
 alias fzf='fzf --preview '"'"'[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -500'"'"
 
 # Export configure
-# ------
+# ----------------
 # export FZF_DEFAULT_OPTS='--height 60% --layout=reverse'
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 

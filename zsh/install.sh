@@ -111,13 +111,14 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
 # 更新的 fzf 配置文件
-if [ -f "${HOME}"/.fzf.zsh ]; then
-	echo "====> Fzf config file ${HOME}/.fzf.zsh exist, update it"
-	fzf_config=$(cat "${config_path}"/zsh/fzf.zsh)
-	if grep -F "${fzf_config}" "${HOME}"/.fzf.zsh >/dev/null; then
-		echo "====> Fzf config is already insert to [ ${HOME}/.fzf.zsh ]"
+if [[ -f "${HOME}"/.fzf.zsh ]]; then
+	echo "====> Fzf config file [ ${HOME}/.fzf.zsh ] exist, update it"
+	fzf_config=$(cat "${config_path}/zsh/fzf.zsh")
+	if grep -qxF "# Fzf Custom Config" "${HOME}/.fzf.zsh"; then
+		echo "====> Custom Fzf config is already insert to [ ${HOME}/.fzf.zsh ]"
 	else
-		echo "$fzf_config" >>"${HOME}"/.fzf.zsh
+    echo "====> Append Custom Fzf config to [ ${HOME}/.fzf.zsh ]"
+		echo "${fzf_config}" >> "${HOME}"/.fzf.zsh
 	fi
 fi
 
@@ -153,4 +154,5 @@ echo "====> Change to zsh"
 chsh -s /bin/zsh
 zsh
 
-source "${HOME}/.zshrc"
+# shellcheck disable=SC1090
+source ~/.zshrc
