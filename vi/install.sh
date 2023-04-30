@@ -37,20 +37,22 @@ if [[ "${1}" == "neovim" ]]; then
 		"luarocks"
 		"npm"
 		"npm"
+    "im-select"
+    "im-select"
 	)
 fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
-		echo "====> Command [brew] is not installed, Start To install."
+		echo "====> Command [ brew ] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
-			echo "----> Install Command [${installed[$i + 1]}]."
+			echo "----> Install Command [ ${installed[$i + 1]} ]."
 			brew install "${installed[$i + 1]}"
 		else
-			echo "====> Command [${installed[$i + 1]}] have been installed."
+			echo "====> Command [ ${installed[$i + 1]} ] have been installed."
 		fi
 		i=$((i + 2))
 	done
@@ -59,7 +61,7 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 	need_exit=0
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
-			echo "====> Please Install Command [${installed[$i + 1]}] Manually."
+			echo "====> Please Install Command [ ${installed[$i + 1]} ] Manually."
 			need_exit=1
 		fi
 		i=$((i + 2))
@@ -77,7 +79,7 @@ if [[ ${1} == "vim" ]]; then
 	# 安装 vim 配置文件
 	if [ -f "${HOME}/.vimrc" ]; then
 		echo "====> Vim config file the vimrc has exist"
-		echo "====> Backup to [${config_path}/bak] and delete it."
+		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.vimrc" "${config_path}/bak/vimrc.bak"
 	fi
 
@@ -86,7 +88,7 @@ if [[ ${1} == "vim" ]]; then
 	ln -s "${config_path}/vi/vimrc" "${HOME}/.vimrc"
 
 	# 安装vim插件
-	echo "====> Install vim PlugInstaller"
+	echo "====> Install vim Plugins"
 	vim +PlugInstall +UpdateRemotePlugins +qa
 fi
 
@@ -102,7 +104,7 @@ if [[ ${1} == "neovim" ]]; then
 			rm -r "${HOME}/.config/nvim"
 		else
 			echo "====> Neovim config dir the nvim has exist"
-			echo "====> Backup to [${config_path}/bak] and delete it."
+			echo "====> Backup to [ ${config_path}/bak ] and delete it."
 			mv "${HOME}/.config/nvim" "${config_path}/bak/nvim_bak"
 		fi
 	fi
@@ -111,7 +113,7 @@ if [[ ${1} == "neovim" ]]; then
 	ln -s "${config_path}/vi/nvim" "${HOME}/.config/nvim"
 
 	# 安装neovim插件
-	echo "====> Install nvim PlugInstaller"
+	echo "====> Install nvim Plugins"
 	nvim +Lazy +qa
 fi
 
