@@ -37,8 +37,8 @@ if [[ "${1}" == "neovim" ]]; then
 		"luarocks"
 		"npm"
 		"npm"
-    "im-select"
-    "im-select"
+		"im-select"
+		"im-select"
 	)
 fi
 
@@ -47,6 +47,11 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 		echo "====> Command [ brew ] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
+
+	if ! brew tap | grep -q "daipeihust/tap"; then
+		brew tap daipeihust/tap
+	fi
+
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
 			echo "----> Install Command [ ${installed[$i + 1]} ]."
