@@ -37,8 +37,8 @@ if [[ "${1}" == "neovim" ]]; then
 		"luarocks"
 		"node"
 		"node"
-    "sqlite"
-    "sqlite"
+		"sqlite"
+		"sqlite"
 	)
 fi
 
@@ -59,7 +59,7 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 
 	brew_list=$(brew list)
 	for ((i = 0; i < "${#installed[@]}"; )); do
-		if [[ ${brew_list} == *"${installed[$i+1]}"* ]]; then
+		if [[ ${brew_list} == *"${installed[$i + 1]}"* ]]; then
 			echo "====> Command [ ${installed[$i + 1]} ] have been installed."
 		else
 			echo "----> Install Command [ ${installed[$i + 1]} ]."
