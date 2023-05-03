@@ -1,6 +1,6 @@
 # Vim && Neovim 配置
 
-----
+## Usage
 
 * 安装方法
 
@@ -10,9 +10,8 @@
 
   * ./uninstall.sh [vim/neovim]
 
-----
 
-* 文件结构
+## 文件结构
   
   * nvim
   
