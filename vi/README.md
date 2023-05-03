@@ -4,11 +4,11 @@
 
 * 安装方法
 
-  * 运行 install.sh
+  * ./install.sh [vim/neovim]
 
 * 卸载方法
 
-  * 运行 uninstall.sh
+  * ./uninstall.sh [vim/neovim]
 
 ----
 
