@@ -23,9 +23,10 @@ require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
 		{ "leisurelicht/LichtVim", import = "lichtvim.plugins" },
-		{ import = "lichtvim.plugins.extras.lang" },
-		-- { import = "lichtvim.plugins.extras.tabnine.cmp" },
-		{ import = "lichtvim.plugins.extras.copilot.attach" },
+		-- { dir = "~/Code/neovim/LichtVim", import = "lichtvim.plugins" }, -- load local config to develop
+		{ import = "lichtvim.plugins.extras.lang" }, -- load language
+		{ import = "lichtvim.plugins.extras.tabnine.cmp" }, -- load tabnine to complete
+		{ import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
