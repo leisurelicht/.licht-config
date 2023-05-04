@@ -40,7 +40,8 @@ require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
 		licht_vim,
-		{ import = "lichtvim.plugins.extras.tabnine.cmp" },
+		{ import = "lichtvim.plugins.extras.lang" },
+		-- { import = "lichtvim.plugins.extras.tabnine.cmp" },
 		{ import = "lichtvim.plugins.extras.copilot.attach" },
 	},
 	defaults = {
@@ -57,16 +58,7 @@ require("lazy").setup({
 	performance = {
 		rtp = {
 			-- disable some rtp plugins
-			disabled_plugins = {
-				"gzip",
-				-- "matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
+			disabled_plugins = {},
 		},
 	},
 })
