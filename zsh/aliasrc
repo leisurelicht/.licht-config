@@ -110,8 +110,4 @@ alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
 alias freedom="export https_proxy=127.0.0.1:9910"
 alias unfreedom="unset https_proxy"
 
-# develop lichtvim
-alias lichtvim="export LICHTVIM_DEV=1"
-alias unlichtvim="unset LICHTVIM_DEV"
-
 alias j="z"
