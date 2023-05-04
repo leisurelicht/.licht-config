@@ -22,7 +22,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
-		{ "leisurelicht/LichtVim", import = "lichtvim.plugins", config = true },
+		{ "leisurelicht/LichtVim", import = "lichtvim.plugins" },
 		{ import = "lichtvim.plugins.extras.lang" },
 		-- { import = "lichtvim.plugins.extras.tabnine.cmp" },
 		{ import = "lichtvim.plugins.extras.copilot.attach" },
