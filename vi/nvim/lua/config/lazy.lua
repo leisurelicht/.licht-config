@@ -19,27 +19,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-local licht_vim = {}
-local dev = os.getenv("LICHTVIM_DEV")
-if dev == "1" then
-	licht_vim = {
-		dir = "~/Code/neovim/LichtVim",
-		import = "lichtvim.plugins",
-		config = true,
-		lazy = false,
-	}
-else
-	licht_vim = {
-		"leisurelicht/LichtVim",
-		import = "lichtvim.plugins",
-		config = true,
-	}
-end
-
 require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
-		licht_vim,
+		{ "leisurelicht/LichtVim", import = "lichtvim.plugins", config = true },
 		{ import = "lichtvim.plugins.extras.lang" },
 		-- { import = "lichtvim.plugins.extras.tabnine.cmp" },
 		{ import = "lichtvim.plugins.extras.copilot.attach" },
@@ -53,7 +36,7 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = { colorscheme = { "tokyonight", "habamax" } },
+	install = { colorscheme = { "tokyonight" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
