@@ -25,11 +25,18 @@ if [[ `uname` == "Darwin" ]]; then
     # 好看的man工具
     alias gman="tldr"
 
+    # 禁止休眠
+    alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
+    alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
+
+    # 代理
+    alias freedom="export https_proxy=127.0.0.1:9910"
+    alias unfreedom="unset https_proxy"
+
+
     alias neovide='$(brew --prefix)/bin/neovide'
 
-    # socks5
-    alias set_socks5="all_proxy=socks5://127.0.0.1:10080"
-    alias unset_socks5="unset all_proxy"
+    alias cnvim="NVIM_APPNAME=NvChad nvim"
 elif [[ $(uname -s) == "Linux" ]]; then
     alias cat="batcat"
 fi
@@ -101,13 +108,5 @@ alias gdc="git diff --cached"
 # docker 快捷删除
 alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
 alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
-
-# 禁止休眠
-alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
-alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
-
-# 代理
-alias freedom="export https_proxy=127.0.0.1:9910"
-alias unfreedom="unset https_proxy"
 
 alias j="z"
