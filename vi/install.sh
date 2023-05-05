@@ -49,7 +49,7 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 	fi
 
 	if ! brew tap | grep -q "daipeihust/tap"; then
-		brew tap leisurelicht/tap
+		brew tap daipeihust/tap
 	fi
 
 	install+=(
