@@ -44,7 +44,7 @@ fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
-		echo "====> Command [ brew ] is not installed, Start To install."
+		echo "====> [ brew ] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 
@@ -60,9 +60,9 @@ if [[ $(uname -s) == 'Darwin' ]]; then
 	brew_list=$(brew list)
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if [[ ${brew_list} == *"${installed[$i + 1]}"* ]]; then
-			echo "====> Command [ ${installed[$i + 1]} ] have been installed."
+			echo "====> [ ${installed[$i + 1]} ] have been installed."
 		else
-			echo "----> Install Command [ ${installed[$i + 1]} ]."
+			echo "----> Install [ ${installed[$i + 1]} ]."
 			brew install "${installed[$i + 1]}"
 		fi
 		i=$((i + 2))
@@ -72,7 +72,7 @@ elif [[ $(uname -s) == 'Linux' ]]; then
 	need_exit=0
 	for ((i = 0; i < "${#installed[@]}"; )); do
 		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
-			echo "====> Please Install Command [ ${installed[$i + 1]} ] Manually."
+			echo "====> Please Install [ ${installed[$i + 1]} ] Manually."
 			need_exit=1
 		fi
 		i=$((i + 2))
