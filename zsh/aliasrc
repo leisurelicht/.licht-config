@@ -107,14 +107,13 @@ if [[ `uname` == "Darwin" ]]; then
     alias neovide='$(brew --prefix)/bin/neovide'
 
     alias cnvim="NVIM_APPNAME=NvChad nvim"
-
-    if [[ "$TERM" == "xterm-kitty" ]]; then
-        alias icat="kitty +kitten icat"
-        alias gdf="kitty +kitten diff"
-        alias themes="kitty +kitten themes"
-    fi
-
-
 elif [[ $(uname -s) == "Linux" ]]; then
     alias cat="batcat"
 fi
+
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias icat="kitty +kitten icat"
+    alias gdf="kitty +kitten diff"
+    alias themes="kitty +kitten themes"
+fi
+
