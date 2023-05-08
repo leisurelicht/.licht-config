@@ -1,4 +1,4 @@
-# Vim && Neovim 配置
+# Vim && Neovim Config
 
 ## Usage
 

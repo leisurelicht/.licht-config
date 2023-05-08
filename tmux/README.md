@@ -1,5 +1,4 @@
-
-# Tmux 配置
+# Tmux Config
 
 ----
 
