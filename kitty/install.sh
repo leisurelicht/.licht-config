@@ -31,7 +31,7 @@ if [ ! -d "${HOME}/.config/" ]; then
 fi
 
 if [ -d "${HOME}/.config/kitty" ]; then
-	if [ -h "${HOME}/.config/kitty/" ]; then
+	if [ -h "${HOME}/.config/kitty" ]; then
 		echo "====> Kitty config dir is a link file, only delete it."
 		rm -r "${HOME}/.config/kitty"
 	else
