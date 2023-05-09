@@ -1,8 +1,0 @@
-# nvim-lint
-#
-/opt/homebrew/bin/python3 -m pip install pylint
-/opt/homebrew/bin/python3 -m pip install vim-vint
-luacheck install luacheck
-brew install golangci-lint
-brew install yamllint
-brew install shellcheck

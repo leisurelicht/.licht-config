@@ -3,4 +3,4 @@
 export HOMEBREW_GITHUB_API_TOKEN=
 
 [ -d $HOME/Code/venus/tools ] && export PATH="$HOME/Code/venus/tools:$PATH"
-[ -d $HOME/code/tools ] && export PATH="$HOME/code/tools:$PATH"
+[ -d $HOME/code/tools ] && export PATH="$HOME/Code/tools:$PATH"

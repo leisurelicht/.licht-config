@@ -1,13 +1,8 @@
 " =================
-" vimrc --- vim and neovim entry file
+" vimrc --- vim entry file
 " Author: MuCheng
 " License: GPLv3
 " =================
 "
-if has('nvim')
-  let g:_main = '/../../.config_file/vi/nvim/init.lua'
-else
-  let g:_main = '/.config_file/vi/vim/config/main.vim'
-endif
-
+let g:_main = '/.config_file/vi/vim/config/main.vim'
 execute 'source' fnamemodify(expand('<sfile>'), ':h').g:_main

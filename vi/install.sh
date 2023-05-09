@@ -1,109 +1,131 @@
 #!/usr/bin/env bash
 
+# 判断第一个命令行参数是否为 vim 或 neovim
+if [[ "${1}" == "vim" || "${1}" == "neovim" ]]; then
+	echo "====> Start to install ${1} config file."
+else
+	echo "====> Error: Unknown parameter: ${1}"
+	echo "====> Usage: ./install.sh [vim|neovim]"
+	exit 1
+fi
+
 install_path=$(
-	cd "$(dirname "$0")" || exit
+	cd "$(dirname "${0}")" || exit
 	pwd
 )
 config_path=$(
-	cd "$install_path/.." || exit
+	cd "${install_path}/.." || exit
 	pwd
 )
 echo "====> Config file root path is: ${config_path}"
 
-if ! command -v vim >/dev/null 2>&1; then
-	echo "====> [vim] is not be installed."
-	exit 1
+# 安装 vim 及 neovim 所需的依赖
+# 第一行是命令执行的名称，第二行是命令安装的名称
+installed=("git" "git")
+
+if [[ "${1}" == "vim" ]]; then
+	installed+=("vim" "vim")
 fi
 
-if ! command -v nvim >/dev/null 2>&1; then
-	echo "====> [neovim] is not be installed."
-	exit 1
-fi
-
-git_need_install=0
-
-if ! command -v git >/dev/null 2>&1; then
-	echo "====> Command [git] is not be installed."
-	git_need_install=1
+if [[ "${1}" == "neovim" ]]; then
+	installed+=(
+		"nvim"
+		"neovim"
+		"lua"
+		"lua"
+		"luarocks"
+		"luarocks"
+		"node"
+		"node"
+		"sqlite"
+		"sqlite"
+	)
 fi
 
 if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
-		echo "====> Command [brew] is not be installed, Start To install."
+		echo "====> [ brew ] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
 
-	if [[ ${git_need_install} == 1 ]]; then
-		echo "====> Install Command [git]."
-		brew install git
-		git_need_install=0
+	if ! brew tap | grep -q "daipeihust/tap"; then
+		brew tap daipeihust/tap
 	fi
+
+	install+=(
+		"im-select"
+		"im-select"
+	)
+
+	brew_list=$(brew list)
+	for ((i = 0; i < "${#installed[@]}"; )); do
+		if [[ ${brew_list} == *"${installed[$i + 1]}"* ]]; then
+			echo "====> [ ${installed[$i + 1]} ] have been installed."
+		else
+			echo "----> Install [ ${installed[$i + 1]} ]."
+			brew install "${installed[$i + 1]}"
+		fi
+		i=$((i + 2))
+	done
 elif [[ $(uname -s) == 'Linux' ]]; then
-	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
-	if [[ ${os} == "ubuntu" ]]; then
-		if [[ ${git_need_install} == 1 ]]; then
-			echo "====> Install Command [git]."
-			sudo apt-get install git -y
-			git_need_install=0
+	# os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
+	need_exit=0
+	for ((i = 0; i < "${#installed[@]}"; )); do
+		if ! command -v "${installed[$i]}" >/dev/null 2>&1; then
+			echo "====> Please Install [ ${installed[$i + 1]} ] Manually."
+			need_exit=1
 		fi
-	elif [[ ${os} == "centos" ]]; then
-		if [[ ${git_need_install} == 1 ]]; then
-			echo "====> Install Command [git]."
-			sudo yum install git -y
-			git_need_install=0
-		fi
+		i=$((i + 2))
+	done
+	if [[ ${need_exit} == 1 ]]; then
+		exit 1
 	fi
 fi
 
-echo "====> Create back up dir"
-
-echo "====> Back up dir path is: ${config_path}/bak"
-if [ ! -d "$config_path/bak" ]; then
-	mkdir -p "$config_path/bak"
+if [ ! -d "${config_path}/bak" ]; then
+	mkdir -p "${config_path}/bak"
 fi
 
-if [[ ${1} == "" || ${1} == "vim" ]]; then
+if [[ ${1} == "vim" ]]; then
 	# 安装 vim 配置文件
-	if [ -f "$HOME/.vimrc" ]; then
-		echo "====> Vim config file vimrc is exist, backup and delete it."
-		mv "$HOME/.vimrc" "$config_path/bak/vimrc.bak"
+	if [ -f "${HOME}/.vimrc" ]; then
+		echo "====> Vim config file the vimrc has exist"
+		echo "====> Backup to [ ${config_path}/bak ] and delete it."
+		mv "${HOME}/.vimrc" "${config_path}/bak/vimrc.bak"
 	fi
 
 	echo "====> Create vimrc link"
-	rm "$HOME/.vimrc" >/dev/null 2>&1
-	ln -s "$config_path/vi/vimrc" "$HOME/.vimrc"
+	rm "${HOME}/.vimrc" >/dev/null 2>&1
+	ln -s "${config_path}/vi/vimrc" "${HOME}/.vimrc"
 
 	# 安装vim插件
-	echo "====> Install vim PlugInstaller"
+	echo "====> Install vim Plugins"
 	vim +PlugInstall +UpdateRemotePlugins +qa
 fi
 
-if [[ ${1} == "" || ${1} == "nvim" ]]; then
+if [[ ${1} == "neovim" ]]; then
 	# 安装 neovim 配置文件
-	if [ ! -d "$HOME/.config/" ]; then
-		mkdir "$HOME/.config/"
+	if [ ! -d "${HOME}/.config/" ]; then
+		mkdir "${HOME}/.config/"
 	fi
 
-	if [ -d "$HOME/.config/nvim" ]; then
-		echo "====> Neovim config dir nvim is exist, backup and delete it."
-		mv "$HOME/.config/nvim" "$config_path/bak/nvim_bak"
+	if [ -d "${HOME}/.config/nvim" ]; then
+		if [ -h "${HOME}/.config/nvim" ]; then
+			echo "====> Neovim config dir is a link file, only delete it."
+			rm -r "${HOME}/.config/nvim"
+		else
+			echo "====> Neovim config dir the nvim has exist"
+			echo "====> Backup to [ ${config_path}/bak ] and delete it."
+			mv "${HOME}/.config/nvim" "${config_path}/bak/nvim_bak"
+		fi
 	fi
 
-	echo "====> Create neovim config dir"
-	if [ -d "$HOME/.config/nvim" ]; then
-		rm -r "$HOME/.config/nvim" >/dev/null 2>&1
-	fi
-	mkdir -p "$HOME/.config/nvim"
+	echo "====> Create nvim symbolic link to config directory"
+	ln -s "${config_path}/vi/nvim" "${HOME}/.config/nvim"
 
-	echo "====> Create neovim init file links"
-	if [ -d "$HOME/.config/nvim/init.vim" ]; then
-		rm "$HOME/.config/nvim/init.vim" >/dev/null 2>&1
-	fi
-	ln -s "$config_path/vi/vimrc" "$HOME/.config/nvim/init.vim"
-
-	# 安装vim插件
-	echo "====> Install nvim PlugInstaller"
-	nvim +PackerInstall +qa
+	# 安装neovim插件
+	echo "====> Install nvim Plugins"
+	nvim +Lazy +qa
 fi
 
 echo "**** Please change Non-ASCII Font to Hack Nerd Font ****"

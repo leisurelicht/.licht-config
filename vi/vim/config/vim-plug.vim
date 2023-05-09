@@ -3,25 +3,39 @@
 "
 call plug#begin('~/.vim/plugged')
 
-if utils#system#OSX()
-  call extends#load#Plugs('fcitx-vim-osx')
-endif
+" theme"
+Plug 'liuchengxu/space-vim-dark'
+let g:space_vim_dark_background = 233
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+hi Comment    ctermfg=99 guifg=#5C6370
+" 缩进指示线
+Plug 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
+" 括号、引号自动补全
+Plug 'jiangmiao/auto-pairs'
+" 注释
+Plug 'tpope/vim-commentary'
+" surround
+Plug 'tpope/vim-surround'
+" wakatime
+Plug 'wakatime/vim-wakatime'
+" ---> Python 代码缩进
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+" ---> Python 语法高亮
+Plug 'vim-python/python-syntax' , {'for': 'python'}
 
-call extends#load#Plugs('themes')
+
 call extends#load#Plugs('nerdtree')
-call extends#load#Plugs('commentary')
 call extends#load#Plugs('which-key')
 call extends#load#Plugs('airline')
-call extends#load#Plugs('auto-pairs')
-call extends#load#Plugs('interestingwords')
-call extends#load#Plugs('multiple-cursors')
 call extends#load#Plugs('git')
-call extends#load#Plugs('surround')
 call extends#load#Plugs('fzf')
-" just use to develop plugin
-call extends#load#Plugs('dev')
 
 call extends#load#Plugs('ale')
+
 
 call extends#load#Language('markdown-module')
 call extends#load#Language('yaml-module')
@@ -34,7 +48,7 @@ call extends#load#Language('go-module')
 call extends#load#Language('javascript-module')
 call extends#load#Language('html-module')
 call extends#load#Language('raml-module')
+call extends#load#Language('lua-module')
 
-call extends#load#Plugs('indentline')
 
 call plug#end()

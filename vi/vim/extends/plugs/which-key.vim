@@ -26,9 +26,6 @@ let g:which_key_map.9 = 'window-9'
 
 let g:which_key_map.a = 'Fold'
 
-let g:which_key_map.k = 'InterestingWords'
-let g:which_key_map.K = 'UncolorAllWords'
-
 let g:which_key_map.e = 'Explorer'
 
 let g:which_key_map.g = {

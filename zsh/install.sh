@@ -1,200 +1,158 @@
 #!/usr/bin/env bash
 
+has() {
+	command -v "$1" >/dev/null 2>&1
+}
+
 install_path=$(
-	cd $(dirname $0)
+	cd "$(dirname "${0}")" || exit
 	pwd
 )
 
 config_path=$(
-	cd $install_path/..
+	cd "${install_path}/.." || exit
 	pwd
 )
-
 echo "====> Config file root path is: ${config_path}"
 
-zsh_need_install=0
-git_need_install=0
-fzf_need_install=0
-fd_need_install=0
-rg_need_install=0
-
-if ! command -v lua >/dev/null 2>&1; then
-	echo "====> [lua] is not be installed. Please install first"
-fi
-
-if ! command -v zsh >/dev/null 2>&1; then
-	echo "====> [zsh] is not be installed."
-	zsh_need_install=1
-fi
-
-if ! command -v git >/dev/null 2>&1; then
-	echo "====> Command [git] is not be installed."
-	git_need_install=1
-fi
-
-if ! command -v fzf >/dev/null 2>&1; then
-	echo "====> Command [fzf] is not be installed."
-	fzf_need_install=1
-fi
-
-if ! command -v rg >/dev/null 2>&1; then
-	echo "====> Command [rg] is not be installed."
-	rg_need_install=1
-fi
-
-if ! command -v fd >/dev/null 2>&1; then
-	echo "====> Command [fd] is not be installed."
-	fd_need_install=1
-fi
-
-if [[ $(uname) == 'Darwin' ]]; then
-	# 安装包管理器
+if [[ $(uname -s) == 'Darwin' ]]; then
 	if ! command -v brew >/dev/null 2>&1; then
-		echo "====> Install Command [brew]"
+		echo "====> [ brew ] is not installed, Start To install."
 		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	else
-		echo "====> Homebrew is already installed."
 	fi
-	# 安装软件
-	if [[ ${zsh_need_install} == 1 ]]; then
-		echo "====> Install Command [zsh]"
-		brew install zsh
-		zsh_need_install=0
+
+	if ! brew tap | grep -q "homebrew/cask-fonts"; then
+		brew tap homebrew/cask-fonts
 	fi
-	if [[ ${git_need_install} == 1 ]]; then
-		echo "====> Install Command [git]."
-		brew install git
-		git_need_install=0
-	fi
-	if [[ ${fzf_need_install} == 1 ]]; then
-		echo "====> Install Command [fzf]"
-		brew install fzf
-		$(brew --prefix)/opt/fzf/install
-		fzf_need_install=0
-	fi
-	if [[ ${rg_need_install} == 1 ]]; then
-		echo "====> Install Command [rg]"
-		brew install ripgrep
-		rg_need_install=0
-	fi
-	if [[ ${fd_need_install} == 1 ]]; then
-		echo "====> Install Command [fd]"
-		brew install fd-find
-		$(brew --prefix)/opt/fd/install
-		fd_need_install=0
+
+	installed=(
+		"lua"
+		"zsh"
+		"git"
+		"fzf"
+		"zoxid"
+		"ripgrep"
+		"bat"
+		"trash"
+		"fd"
+		"font-hack-nerd-font"
+		"iterm2"
+		"browserosaurus"
+	)
+
+	brew_list=$(brew list)
+	for soft in "${installed[@]}"; do
+		if [[ ${brew_list} == *"${soft}"* ]]; then
+			echo "====> [ ${soft} ] has been installed."
+		else
+			echo "----> Install [${soft}]."
+			brew install "${soft}"
+		fi
+	done
+	if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
+		"$(brew --prefix)"/opt/fzf/install
 	fi
 elif [[ $(uname -s) == 'Linux' ]]; then
+	installed=(
+		"git"
+		"git"
+		"zsh"
+		"zsh"
+		"lua"
+		"lua"
+		"rg"
+		"ripgrep"
+		"batcat"
+		"batcat"
+		"fd"
+		"fd-find"
+	)
+
 	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
-	if [[ ${fzf_need_install} ]]; then
+	if [[ ${os} == "ubuntu" ]]; then
+		for ((i = 0; i < "${#installed[@]}"; )); do
+			if ! has "${installed[$i]}"; then
+				echo "----> Install [ ${installed[$i + 1]} ]."
+				sudo apt-get install "${installed[$i + 1]}" -y
+			else
+				echo "====> [ ${installed[$i + 1]} ] have been installed."
+			fi
+			i=$((i + 2))
+		done
+	elif [[ ${os} == "centos" ]]; then
+		dnf copr enable atim/zoxide
+		for ((i = 0; i < "${#installed[@]}"; )); do
+			if ! has "${installed[$i]}"; then
+				echo "----> Install [ ${installed[$i + 1]} ]."
+				sudo yum install "${installed[$i + 1]}" -y
+			else
+				echo "====> [ ${installed[$i + 1]} ] have been installed."
+			fi
+			i=$((i + 2))
+		done
+	fi
+
+	if ! command -v fzf >/dev/null 2>&1; then
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 		~/.fzf/install
-		fzf_need_install=0
-	fi
-	if [[ ${os} == "ubuntu" ]]; then
-		if [[ ${zsh_need_install} == 1 ]]; then
-			echo "====> Install Command [zsh]."
-			sudo apt-get install zsh -y
-			zsh_need_install=0
-		fi
-		if [[ ${git_need_install} == 1 ]]; then
-			echo "====> Install Command [git]."
-			sudo apt-get install git -y
-			git_need_install=0
-		fi
-		if [[ ${rg_need_install} == 1 ]]; then
-			echo "====> Install Command [rg]."
-			sudo apt-get install ripgrep -y
-			rg_need_install=0
-		fi
-		if [[ ${fd_need_install} == 1 ]]; then
-			echo "====> Install Command [fd]."
-			sudo apt install fd-find -y
-			fd_need_install=0
-		fi
-	elif [[ ${os} == "centos" ]]; then
-		if [[ ${zsh_need_install} == 1 ]]; then
-			echo "====> Install Command [zsh]."
-			sudo yum install zsh -y
-			zsh_need_install=0
-		fi
-		if [[ ${git_need_install} == 1 ]]; then
-			echo "====> Install Command [git]."
-			sudo yum install git -y
-			git_need_install=0
-		fi
-		if [[ ${rg_need_install} == 1 ]]; then
-			echo "====> Install Command [rg]."
-			sudo yum install ripgrep -y
-			rg_need_install=0
-		fi
-		if [[ ${fd_need_install} == 1 ]]; then
-			echo "====> Install Command [fd]."
-			sudo yum install fd-find -y
-			fd_need_install=0
-		fi
 	fi
 fi
 
-if [[ ${zsh_need_install} == 1 ]] ||
-	[[ ${git_need_install} == 1 ]]; then
-	echo "====> Need Install Command [zsh] [git] First"
-	exit 1
+# golang version manager
+if ! has "g"; then
+	echo "----> Install [ g ]."
+	curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
 fi
 
-# 安装zinit
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-if [ ! -e "$ZINIT_HOME" ]; then
-	echo "====> Zinit is not be installed, start to install"
-	mkdir -p "$(dirname $ZINIT_HOME)"
-	git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-	if [ $? -ne 0 ]; then
-		echo "xxxx> Install zinit failed, install stop"
-		exit 1
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+# zinit
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+
+# 更新的 fzf 配置文件
+if [[ -f "${HOME}"/.fzf.zsh ]]; then
+	echo "====> Fzf config file [ ${HOME}/.fzf.zsh ] exist, update it"
+	fzf_config=$(cat "${config_path}/zsh/fzf.zsh")
+	if grep -qxF "# Fzf Custom Config" "${HOME}/.fzf.zsh"; then
+		echo "====> Custom Fzf config is already insert to [ ${HOME}/.fzf.zsh ]"
+	else
+    echo "====> Append Custom Fzf config to [ ${HOME}/.fzf.zsh ]"
+		echo "${fzf_config}" >> "${HOME}"/.fzf.zsh
 	fi
-else
-	echo "====> Zinit is already install"
 fi
 
 # 创建备份文件地址
-if [ ! -d $config_path/bak ]; then
-	mkdir -p $config_path/bak
+if [ ! -d "$config_path"/bak ]; then
+	mkdir -p "$config_path"/bak
 fi
-
-echo "====> Back up dir path is: ${config_path}/bak"
 
 # 备份已有的zshrc文件
 if [ -f ~/.zshrc ]; then
-	echo "====> Zsh config file zshrc is exist, backup and delete it."
-	mv ~/.zshrc $config_path/bak/zshrc.bak
+	echo "====> Zsh config file zshrc is exist."
+	echo "====> Backup to [ ${config_path/bak/} ] and delete it."
+	mv ~/.zshrc "$config_path"/bak/zshrc.bak
 	rm ~/.zshrc >/dev/null 2>&1
 fi
 
 echo "====> Create zshrc link"
-ln -s $config_path/zsh/zshrc ~/.zshrc
+ln -s "$config_path"/zsh/zshrc ~/.zshrc
 
 # 备份已有的p10k.zsh文件
 if [ -f ~/.p10k.zsh ]; then
-	echo "====> p10k config file .p10k.zsh is exist, backup and delete it."
-	mv ~/.p10k.zsh $config_path/bak/p10k.zsh.bak
+	echo "====> P10k config file .p10k.zsh is exist."
+	echo "====> Backup to [ ${config_path/bak/} ] and delete it."
+	mv ~/.p10k.zsh "$config_path"/bak/p10k.zsh.bak
 	rm ~/.p10k.zsh >/dev/null 2>&1
 fi
 
 echo "====> Create p10k link"
-ln -s $config_path/zsh/p10k.zsh ~/.p10k.zsh
-
-# 备份已有的 fzf 文件
-if [ -f ~/.fzf.zsh ]; then
-	echo "====> fzf config file is .fzf.zsh exist, backup and delete it."
-	mv ~/.fzf.zsh $config_path/bak/fzf.zsh.bak
-	rm ~/.fzf.zsh >/dev/null 2>&1
-fi
-
-echo "====> Create fzf link"
-ln -s $config_path/zsh/fzf.zsh ~/.fzf.zsh
+ln -s "$config_path"/zsh/p10k.zsh ~/.p10k.zsh
 
 # 切换到zsh
 echo "====> Change to zsh"
 chsh -s /bin/zsh
 zsh
 
+# shellcheck disable=SC1090
 source ~/.zshrc

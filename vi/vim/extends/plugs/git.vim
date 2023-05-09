@@ -11,8 +11,6 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'tpope/vim-fugitive'
 
 nnoremap <leader>gb :Git blame<CR>
-" nnoremap <leader>gc :Git commit %<CR>
-" nnoremap <leader>gd :GDelete<CR>
 nnoremap <leader>ge :Gbedit<CR>
 nnoremap <leader>gf :Git diff<CR>
 nnoremap <leader>gg :Git<CR>

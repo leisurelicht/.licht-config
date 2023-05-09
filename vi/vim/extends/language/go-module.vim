@@ -3,7 +3,6 @@
 " ---> run file
 augroup run_file
   autocmd FileType go noremap <buffer> <F12> :call custom#run#Go()<CR>
-  autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 augroup end
 
 " ---> 修改不同类型文件的设置

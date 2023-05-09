@@ -1,23 +1,30 @@
-# Zsh 配置
-----
+# Zsh Config
 
-* 安装过程
+## Usage
 
-    * 运行zsh/install.sh
-    * 安装Powerline fonts
-    * iterm2 设置字体和符号都为Hack
+    1. 运行./install.sh
+    2. 修改 terminal 为 Hack Nerd Font
 
-----
 
-* 文件结构
+## 文件结构
+
+```
+└── zsh
+   ├── aliasrc // 命令别名
+   ├── export_env // 环境变量
+   ├── fzf.zsh // fzf 配置文件
+   ├── install.sh 
+   ├── p10k.zsh // p10k 配置文件
+   ├── README.md
+   └── zshrc // zsh 配置文件
+
+```
 
     * zshrc
 
-        zsh配置文件
 
     * aliasrc
 
-        别名文件
 
     * export_env
 

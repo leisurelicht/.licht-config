@@ -1,14 +1,9 @@
 scriptencoding utf-8
-" HTML and CSS
+" Bash
 "
-" ---> run file
-augroup run_file
-  autocmd FileType html noremap <buffer> <F12> :call custom#run#Html()<CR>
-augroup end
-
 " ---> 修改不同类型文件的设置
 augroup file_set
-  autocmd FileType html
+  autocmd FileType lua
         \ setlocal fileformat=unix |
         \ setlocal tabstop=2 |
         \ setlocal softtabstop=2 |
@@ -16,4 +11,5 @@ augroup file_set
 augroup end
 
 " ---> ale fixer
-let g:ale_fixers.html = ['prettier',]
+let g:ale_fixers.lua = ['lua-format']
+let g:ale_lua_lua_format_options = "--indent-width=2 --no-use-tab --keep-simple-function-one-line --keep-simple-control-block-one-line --chop-down-table"

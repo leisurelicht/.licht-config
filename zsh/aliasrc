@@ -1,52 +1,5 @@
 # alias file
 
-if [[ `uname` == "Darwin" ]]; then
-    # 可恢复删除
-    alias rm="trash"
-
-    # ls && ll
-    alias ls="exa"
-    alias ll="exa --all --long --header --inode --git --color-scale --icons"
-    
-    # tree
-    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
-
-    # cat
-    alias cat="bat"
-
-    # 文件隐藏和显示
-    alias showall="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
-    alias hidefile="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
-
-    # 终端字典工具
-    alias zdict="dict"
-
-
-    # 好看的man工具
-    alias gman="tldr"
-
-    alias neovide='/opt/homebrew/bin/neovide'
-
-    # socks5
-    alias set_socks5="all_proxy=socks5://127.0.0.1:10080"
-    alias unset_socks5="unset all_proxy"
-elif [[ $(uname -s) == "Linux" ]]; then
-    alias cat="batcat"
-fi
-
-if type "$exa" >/dev/null; then
-    # ls && ll
-    alias ls="exa"
-    alias ll="exa --all --long --header --inode --git --color-scale --icons"
-    
-    # tree
-    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
-else
-    # tree
-    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-fi
-
-
 # 展示python文件
 alias lp="ls *.py"
 
@@ -102,9 +55,65 @@ alias gdc="git diff --cached"
 alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
 alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
 
-# 禁止休眠 
-alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
-alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
+alias j="z"
 
-alias ubuntu='ssh root@10.206.1.237'
-alias dev='ssh root@172.18.35.207'
+if type "$exa" >/dev/null; then
+    # ls && ll
+    alias ls="exa"
+    alias ll="exa --all --long --header --inode --git --color-scale --icons"
+
+    # tree
+    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
+else
+    # tree
+    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
+
+
+if [[ `uname` == "Darwin" ]]; then
+    # 可恢复删除
+    alias rm="trash"
+
+    # ls && ll
+    alias ls="exa"
+    alias ll="exa --all --long --header --inode --git --color-scale --icons"
+
+    # tree
+    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
+
+    # cat
+    alias cat="bat"
+
+    # 文件隐藏和显示
+    alias showall="defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder"
+    alias hidefile="defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder"
+
+    # 终端字典工具
+    alias zdict="dict"
+
+
+    # 好看的man工具
+    alias gman="tldr"
+
+    # 禁止休眠
+    alias unsleep='sudo pmset -b sleep 0; sudo pmset -b disablesleep 1'
+    alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
+
+    # 代理
+    alias freedom="export all_proxy=socks5://127.0.0.1:9909"
+    alias unfreedom="unset https_proxy"
+
+
+    alias neovide='$(brew --prefix)/bin/neovide'
+
+    alias cnvim="NVIM_APPNAME=NvChad nvim"
+elif [[ $(uname -s) == "Linux" ]]; then
+    alias cat="batcat"
+fi
+
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias icat="kitty +kitten icat"
+    alias gdf="kitty +kitten diff"
+    alias themes="kitty +kitten themes"
+fi
+

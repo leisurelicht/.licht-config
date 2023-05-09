@@ -1,23 +1,38 @@
-# 我的 Vim 及命令行配置
+# 我的配置集合
 
-- shi适用于 macos 及 ubuntu
+## 这个项目是干什么的 
 
-----
+- 管理，保存我的环境和软件的配置
 
-- 包含 zsh、tmux、vim
+- 主要在 macos 上使用, 部分时间在 ubuntu 上使用
 
-## 效果图
+- 内部包含
+  - kitty 配置文件
+  - tmux 配置文件
+  - 一个简化的 vim 配置文件
+  - 一个 neovim 的启动器，用于启动 LichtVim 配置。
+  - zsh 配置文件
+  - 以上所有配置的安装及卸载脚本
 
-![image](./screenshot/1.png)
-![image](./screenshot/2.png)
-![image](./screenshot/3.png)
-![image](./screenshot/4.png)
+## 文件结构
 
-----
+```
+.
+├── bak
+├── install // brew 安装的软件列表
+├── kitty // kitty 配置
+├── LICENSE
+├── README.md
+├── tmux // tmux 配置
+├── vi // vim & neovim 配置
+└── zsh // zsh 配置
 
-- [tmux 说明](./tmux/README.md)
+```
 
-- [zsh 说明](./zsh/README.md)
+## 使用说明文档
 
-- [vim && Neovim 说明](./vi/README.md)
+- [kitty](./kitty.README.md)
+- [tmux](./tmux/README.md)
+- [zsh](./zsh/README.md)
+- [vim && neovim](./vi/README.md)
 - [安装的软件](./install/README.md)

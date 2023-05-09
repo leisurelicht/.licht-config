@@ -17,10 +17,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Load powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
-# 快速目录跳转
-zinit ice lucid wait='1'; zinit light skywind3000/z.lua
-export _ZL_MATCH_MODE=1
-
 # 语法高亮
 zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -42,14 +38,15 @@ zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::plugins/extract
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+# zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
 
 # homebrew
 # 禁止自动全局更新和全局清理
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 
-# autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# 快速跳转
+eval "$(zoxide init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -58,6 +55,9 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 # ===== set g environment variables =====
 unalias g 2> /dev/null
+if [ -f "${HOME}/.g/env" ]; then
+    . "${HOME}/.g/env"
+fi
 export GOROOT="${HOME}/.g/go"
 export GOPATH="${HOME}/.g/path"
 export PATH="${HOME}/.g/bin:${HOME}/.g/go/bin:${HOME}/.g/path/bin:$PATH"
@@ -85,10 +85,8 @@ fi
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-if [[ $(uname -s) == "Darwin" ]]; then
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-else 
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# k8s
+command -v kubectl >/dev/null && source <(kubectl completion zsh)
