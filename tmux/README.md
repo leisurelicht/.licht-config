@@ -41,6 +41,9 @@
 |*|session相关||
 ||pk-d|退出tmux但不关闭session|
 ||pk-w|总览所有session|
+||pk-r|重载 tmux 配置|
+||pk-I|安装 tmux 插件|
+||pk-i|显示 tmux 信息|
 |*|window相关||
 ||C-d|关闭当前window|
 ||pk-c|创建新的window|
