@@ -1,30 +1,35 @@
 # Tmux Config
 
-----
+## 预览
 
-* 安装方法
+![image](https://user-images.githubusercontent.com/8042345/237138258-77ff0ece-31fe-4113-9cfe-cb742fe44685.png)
 
-  * 运行tmux/install.sh
+## Usage
 
-----
+* 安装
+  ```
+  ./install.sh
+  ```
+ 
+* 卸载
+  ```
+  ./uninstall.sh
+  ```
 
-* 文件结构
+## 文件结构
 
-  * tmux.conf
+  ``` shell
+  .
+  ├── install.sh // 安装脚本
+  ├── README.md
+  ├── tmux.conf // tmux 配置文件
+  └── uninstall.sh // 卸载脚本
+  ```
 
-        tmux配置文件
+## 快捷键
 
-  * install.sh
-
-        安装脚本
-
-  * README.md
-
-----
-
-* 快捷键
-
-  * **Prefix-key = Ctrl-b**
+ * **C = Ctrl = Control**
+ * **pk = Prefix Key = \<Ctrl-b\>**
 
     |*|快捷键|功能|
     |-|------|----|
@@ -47,8 +52,8 @@
     ||C-d|关闭当前pane|
     ||pk-x|强制关闭当前pane|
     ||pk-"|水平分割创建pane|
-    ||pk-\|水平分割创建pane|
-    ||pk-||全局范围水平分割创建pane|
+    ||pk-\\ |水平分割创建pane|
+    ||pk-\||全局范围水平分割创建pane|
     ||pk-%|垂直分割创建pane|
     ||pk--|垂直分割创建pane|
     ||pk-_|全局范围垂直分割创建pane|
