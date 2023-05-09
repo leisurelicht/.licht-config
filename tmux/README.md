@@ -8,17 +8,17 @@
 
 * 安装
   1. 运行安装脚本
-  ```
-  >> ./install.sh
+  ```bash
+  ./install.sh
   ```
   2. 进入tmux，安装 tmux 插件
-  ```
-  >> tmux
-  >> <C-b>I
+  ```bash
+  tmux
+  <C-b>I
   ```
 * 卸载
-  ```
-  >> ./uninstall.sh
+  ```bash
+  ./uninstall.sh
   ```
 
 ## 文件结构
