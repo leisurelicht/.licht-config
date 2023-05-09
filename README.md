@@ -31,7 +31,7 @@
 
 ## 使用说明文档
 
-- [kitty](./kitty.README.md)
+- [kitty](./kitty/README.md)
 - [tmux](./tmux/README.md)
 - [zsh](./zsh/README.md)
 - [vim && neovim](./vi/README.md)
