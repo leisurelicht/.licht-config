@@ -139,9 +139,12 @@
 
 #### Usage
 
-    1. 运行`./install.sh zsh`
-    2. 修改 terminal 字体为 Hack Nerd Font
+* 安装
+  1. 运行`./install.sh zsh`
+  2. 修改 terminal 字体为 Hack Nerd Font
 
+* 卸载
+  * 运行 `./uninstall.sh zsh`
 
 #### 文件结构
 
@@ -154,4 +157,32 @@
    ├── p10k.zsh // p10k 配置文件
    ├── README.md
    └── zshrc // zsh 配置文件
+```
 
+### Vim && Neovima
+
+#### Usage
+
+* 安装
+  * `./install.sh [vim/neovim]`
+
+* 卸载
+  * `./uninstall.sh [vim/neovim]`
+  
+#### 文件结构
+
+```
+.
+├── nvim
+│  ├── ftplugin
+│  ├── init.lua
+│  ├── lazy-lock.json
+│  ├── lua
+│  └── plugin
+└── vim
+   ├── autoload
+   ├── config
+   ├── custom
+   ├── extends
+   └── vimrc
+```
