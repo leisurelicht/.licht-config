@@ -4,5 +4,5 @@
 " License: GPLv3
 " =================
 "
-let g:_main = '/.config_file/vi/vim/config/main.vim'
+let g:_main = '/.licht-config/vi/vim/config/main.vim'
 execute 'source' fnamemodify(expand('<sfile>'), ':h').g:_main
