@@ -3,17 +3,17 @@
 </h1>
 
 <div align="center"><p>
-    <a href="https://github.com/leisurelicht/.licht_config/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.licht_config?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    <a href="https://github.com/leisurelicht/.licht-config/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.licht-config?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
     </a>
-    <a href="https://github.com/leisurelicht/.licht_config/blob/main/LICENSE">
-      <img alt="License" src="https://img.shields.io/github/license/leisurelicht/.licht_config?style=flat-square&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht-config/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/leisurelicht/.licht-config?style=flat-square&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/leisurelicht/.licht_config/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/leisurelicht/.licht_config?style=flat-square&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht-config/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/leisurelicht/.licht-config?style=flat-square&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/leisurelicht/.licht_config">
-      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/leisurelicht/.licht_config?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=flat-square&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht-config">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/leisurelicht/.licht-config?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=flat-square&logoColor=D9E0EE&labelColor=302D41" />
     </a>
 </div>
 
