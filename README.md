@@ -137,13 +137,13 @@
 
 ### Zsh 
 
-## Usage
+#### Usage
 
     1. 运行`./install.sh zsh`
     2. 修改 terminal 字体为 Hack Nerd Font
 
 
-## 文件结构
+#### 文件结构
 
 ```
 └── zsh
