@@ -3,17 +3,17 @@
 </h1>
 
 <div align="center"><p>
-    <a href="https://github.com/leisurelicht/.config_file/pulse">
-      <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.config_file?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    <a href="https://github.com/leisurelicht/.licht_config/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.licht_config?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
     </a>
-    <a href="https://github.com/leisurelicht/.config_file/blob/main/LICENSE">
-      <img alt="License" src="https://img.shields.io/github/license/leisurelicht/.config_file?style=flat-square&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht_config/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/leisurelicht/.licht_config?style=flat-square&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/leisurelicht/.config_file/issues">
-      <img alt="Issues" src="https://img.shields.io/github/issues/leisurelicht/.config_file?style=flat-square&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht_config/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/leisurelicht/.licht_config?style=flat-square&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
     </a>
-    <a href="https://github.com/leisurelicht/.config_file">
-      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/leisurelicht/.config_file?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=flat-square&logoColor=D9E0EE&labelColor=302D41" />
+    <a href="https://github.com/leisurelicht/.licht_config">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/leisurelicht/.licht_config?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=flat-square&logoColor=D9E0EE&labelColor=302D41" />
     </a>
 </div>
 
