@@ -2,6 +2,16 @@
   我的配置集合
 </h1>
 
+<h4 align="center">
+  <a href="https://github.com/leisurelicht/.licht-config#kitty">Kitty</a>
+  ·
+  <a href="https://github.com/leisurelicht/.licht-config#tmux">Tmux</a>
+  ·
+  <a href="https://github.com/leisurelicht/.licht-config#zsh">Zsh</a>
+  ·
+  <a href="https://github.com/leisurelicht/.licht-config#vim--neovima">Vim&Neovim</a>
+</h4>
+
 <div align="center"><p>
     <a href="https://github.com/leisurelicht/.licht-config/pulse">
       <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.licht-config?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
