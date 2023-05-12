@@ -1,4 +1,21 @@
-# 我的配置集合
+<h1 align="center">
+  我的配置集合
+</h1>
+
+<div align="center"><p>
+    <a href="https://github.com/leisurelicht/.config_file/pulse">
+      <img alt="Last commit" src="https://img.shields.io/github/last-commit/leisurelicht/.config_file?style=flat-square&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
+    </a>
+    <a href="https://github.com/leisurelicht/.config_file/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/github/license/leisurelicht/.config_file?style=flat-square&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://github.com/leisurelicht/.config_file/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/leisurelicht/.config_file?style=flat-square&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+    <a href="https://github.com/leisurelicht/.config_file">
+      <img alt="Repo Size" src="https://img.shields.io/github/repo-size/leisurelicht/.config_file?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=flat-square&logoColor=D9E0EE&labelColor=302D41" />
+    </a>
+</div>
 
 ## 这个项目是干什么的 
 
