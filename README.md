@@ -58,6 +58,24 @@
 
 ## 使用说明文档
 
+### Kitty
+
+#### Usage
+
+* 安装
+  * `./install.sh kitty`
+
+* 卸载
+  * `./uninstall.sh kitty`
+
+#### 文件结构
+
+```
+.
+└── kitty.conf
+```
+
+
 ### Tmux
 
 #### 预览
