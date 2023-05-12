@@ -42,7 +42,7 @@ install_on_mac() {
 			brew install tmux
 		fi
 	elif [[ ${vim} == 1 ]]; then
-		installed+=("vim" "vim" "im-select" "im-select")
+		installed+=("vim" "vim" "im-select" "im-select" "curl" "curl")
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
 		fi
