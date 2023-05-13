@@ -22,10 +22,14 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
-		{ "leisurelicht/LichtVim", import = "lichtvim.plugins" },
-		-- { dir = "~/Code/neovim/LichtVim", import = "lichtvim.plugins", config = true }, -- load local config to develop
+		{ "leisurelicht/LichtVim", import = "lichtvim.plugins", opts = { colorscheme = "vscode" }, config = true },
+
+    -- stylua: ignore
+    -- load local config to develop
+		-- { dir = "~/Code/neovim/LichtVim", import = "lichtvim.plugins", opts = { colorscheme = "vscode" }, config = true, },
+
 		{ import = "lichtvim.plugins.extras.lang" }, -- load language
-		{ import = "lichtvim.plugins.extras.tabnine.cmp" }, -- load tabnine to complete
+		-- { import = "lichtvim.plugins.extras.tabnine.cmp" }, -- load tabnine to complete
 		{ import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
 	},
 	defaults = {
@@ -37,7 +41,6 @@ require("lazy").setup({
 		version = false, -- always use the latest git commit
 		-- version = "*", -- try installing the latest stable version for plugins that support semver
 	},
-	install = { colorscheme = { "tokyonight" } },
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
