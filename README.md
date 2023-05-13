@@ -58,15 +58,25 @@
 
 ## 使用说明文档
 
+### 克隆本项目
+
+```
+git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
+```
+
 ### Kitty
 
 #### Usage
 
 * 安装
-  * `./install.sh kitty`
+  ```
+  ./install.sh kitty
+  ```
 
 * 卸载
-  * `./uninstall.sh kitty`
+  ```
+  ./uninstall.sh kitty
+  ```
 
 #### 文件结构
 
@@ -82,11 +92,15 @@
 #### Usage
 
 * 安装
-  1. 运行`./install.sh zsh`
-  2. 修改 terminal 字体为 Hack Nerd Font
+  ```
+  ./install.sh zsh
+  ```
+  * 修改 terminal 字体为 Hack Nerd Font
 
 * 卸载
-  * 运行 `./uninstall.sh zsh`
+  ```
+  ./uninstall.sh zsh
+  ```
 
 #### 文件结构
 
@@ -197,10 +211,14 @@
 #### Usage
 
 * 安装
-  * `./install.sh [vim/neovim]`
+  ```
+  ./install.sh [vim/neovim]
+  ```
 
 * 卸载
-  * `./uninstall.sh [vim/neovim]`
+  ```
+  ./uninstall.sh [vim/neovim]
+  ```
   
 #### 文件结构
 
