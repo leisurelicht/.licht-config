@@ -23,7 +23,7 @@ require("lazy").setup({
 	spec = {
 		-- add LichtVim and import its plugins and config
 		{ "leisurelicht/LichtVim", import = "lichtvim.plugins" },
-		-- { dir = "~/Code/neovim/LichtVim", import = "lichtvim.plugins" }, -- load local config to develop
+		-- { dir = "~/Code/neovim/LichtVim", import = "lichtvim.plugins", config = true }, -- load local config to develop
 		{ import = "lichtvim.plugins.extras.lang" }, -- load language
 		{ import = "lichtvim.plugins.extras.tabnine.cmp" }, -- load tabnine to complete
 		{ import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion

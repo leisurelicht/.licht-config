@@ -78,10 +78,10 @@ if type pyenv >/dev/null 2>&1; then
 fi
 
 # export env
-[ -f ~/.config_file/zsh/export_env ] && source ~/.config_file/zsh/export_env
+[ -f ~/.licht-file/zsh/export_env ] && source ~/.licht-config/zsh/export_env
 
 # alias
-[ -f ~/.config_file/zsh/aliasrc ] && source ~/.config_file/zsh/aliasrc
+[ -f ~/.licht-config/zsh/aliasrc ] && source ~/.licht-config/zsh/aliasrc
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
