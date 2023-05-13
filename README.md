@@ -187,7 +187,7 @@
    └── zshrc // zsh 配置文件
 ```
 
-### Vim && Neovima
+### Vim && Neovim
 
 #### Usage
 
