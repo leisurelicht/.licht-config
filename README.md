@@ -5,9 +5,9 @@
 <h4 align="center">
   <a href="https://github.com/leisurelicht/.licht-config#kitty">Kitty</a>
   ·
-  <a href="https://github.com/leisurelicht/.licht-config#tmux">Tmux</a>
-  ·
   <a href="https://github.com/leisurelicht/.licht-config#zsh">Zsh</a>
+  ·
+  <a href="https://github.com/leisurelicht/.licht-config#tmux">Tmux</a>
   ·
   <a href="https://github.com/leisurelicht/.licht-config#vim--neovima">Vim&Neovim</a>
 </h4>
@@ -75,6 +75,33 @@
 └── kitty.conf
 ```
 
+----
+
+### Zsh 
+
+#### Usage
+
+* 安装
+  1. 运行`./install.sh zsh`
+  2. 修改 terminal 字体为 Hack Nerd Font
+
+* 卸载
+  * 运行 `./uninstall.sh zsh`
+
+#### 文件结构
+
+```
+└── zsh
+   ├── aliasrc // 命令别名
+   ├── export_env // 环境变量
+   ├── fzf.zsh // fzf 配置文件
+   ├── install.sh 
+   ├── p10k.zsh // p10k 配置文件
+   ├── README.md
+   └── zshrc // zsh 配置文件
+```
+
+----
 
 ### Tmux
 
@@ -163,29 +190,7 @@
 ||pk-t|全屏显示时间|
 ||pk-f|在所有window中查找指定文本|
 
-### Zsh 
-
-#### Usage
-
-* 安装
-  1. 运行`./install.sh zsh`
-  2. 修改 terminal 字体为 Hack Nerd Font
-
-* 卸载
-  * 运行 `./uninstall.sh zsh`
-
-#### 文件结构
-
-```
-└── zsh
-   ├── aliasrc // 命令别名
-   ├── export_env // 环境变量
-   ├── fzf.zsh // fzf 配置文件
-   ├── install.sh 
-   ├── p10k.zsh // p10k 配置文件
-   ├── README.md
-   └── zshrc // zsh 配置文件
-```
+----
 
 ### Vim && Neovim
 
