@@ -156,7 +156,7 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 * **pk = Prefix Key = \<Ctrl-b\>**
 
 | * | 快捷键      |                                                         功能 |
-| - | --          |                                                           -- |
+| :-: | :--:          |                                                           --: |
 | * | session相关 |                                                              |
 |   | pk-d        |                                      退出tmux但不关闭session |
 |   | pk-w        |                                              总览所有session |
@@ -180,7 +180,7 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 |   | pk-x        |                                             强制关闭当前pane |
 |   | pk-"        |                                             水平分割创建pane |
 |   | pk-\\       |                                             水平分割创建pane |
-|   | pk-\|       |                                     全局范围水平分割创建pane |
+|   | pk-&#124;       |                                     全局范围水平分割创建pane |
 |   | pk-%        |                                             垂直分割创建pane |
 |   | pk--        |                                             垂直分割创建pane |
 |   | pk-_        |                                     全局范围垂直分割创建pane |
