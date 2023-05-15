@@ -1,11 +1,9 @@
-vim.bo.tabstop = 2
-vim.bo.softtabstop = 2
-vim.bo.shiftwidth = 2
+vim.opt_local.tabstop = 2
+vim.opt_local.softtabstop = 2
+vim.opt_local.shiftwidth = 2
 
-vim.opt_local.formatoptions = vim.opt_local.formatoptions - {"c", "r", "o"}
+vim.opt_local.formatoptions = vim.opt_local.formatoptions - { "c", "r", "o" }
 
-vim.o.list = true
-vim.opt.listchars:append("space:·")
-vim.opt.listchars:append("eol:↴")
-
-
+vim.opt_local.list = true
+vim.opt_local.listchars:append("space:·")
+vim.opt_local.listchars:append("eol:↴")
