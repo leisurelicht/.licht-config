@@ -36,7 +36,7 @@ require("lazy").setup({
   },
   ui = {
     border = "rounded",
-    title = " Lazy Plugins Manager "
+    title = " Lazy Plugins Manager ",
   },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
   checker = { enabled = true }, -- automatically check for plugin updates
