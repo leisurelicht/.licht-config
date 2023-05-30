@@ -22,9 +22,8 @@ require("lazy").setup({
     { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
 
     { import = "lichtvim.plugins.extras.lang.go" },
-    { import = "lichtvim.plugins.extras.copilot.attach" },
+    { import = "lichtvim.plugins.extras.lang.lua" },
   },
-  dev = { path = "~/Code/neovim" },
   defaults = { lazy = false, version = false },
   ui = { border = "rounded", title = " Lazy Plugins Manager " },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
