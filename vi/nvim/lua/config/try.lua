@@ -22,7 +22,7 @@ require("lazy").setup({
     { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
 
     { import = "lichtvim.plugins.extras.lang.go" },
-    { import = "lichtvim.plugins.extras.lang.lua" },
+    { import = "lichtvim.plugins.extras.lang.bash" },
   },
   defaults = { lazy = false, version = false },
   ui = { border = "rounded", title = " Lazy Plugins Manager " },
