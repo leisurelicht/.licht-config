@@ -23,6 +23,8 @@ require("lazy").setup({
   spec = {
     -- add LichtVim and import its plugins and config
     { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
+    { "wakatime/vim-wakatime", enabled = true },
+    -- { "dstein64/vim-startuptime", enabled = true },
 
     { import = "lichtvim.plugins.extras.lang" }, -- load language
     { import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
