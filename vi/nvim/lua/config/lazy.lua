@@ -41,7 +41,7 @@ require("lazy").setup({
     title = " Lazy Plugins Manager ",
   },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins
