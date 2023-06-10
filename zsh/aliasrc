@@ -118,3 +118,10 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
     alias themes="kitty +kitten themes"
 fi
 
+
+if command -v kubectl >/dev/null; then
+    alias kgpa='kubectl get pods -A'
+    alias kdf='kubectl delete -f .'
+    alias kaf='kubectl apply -f .'
+fi
+
