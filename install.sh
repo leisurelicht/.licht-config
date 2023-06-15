@@ -94,8 +94,8 @@ install_on_linux() {
 			"zsh" "zsh"
 			"lua" "lua"
 			"rg" "ripgrep"
-			"bat" "bat"
-			"fd" "fd-find"
+			"batcat" "bat"
+			"fdfind" "fd-find"
 		)
 
 		for ((i = 0; i < "${#installed[@]}"; )); do

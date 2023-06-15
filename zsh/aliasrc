@@ -110,6 +110,7 @@ if [[ `uname` == "Darwin" ]]; then
     alias anvim="NVIM_APPNAME=AstroNvim nvim"
 elif [[ $(uname -s) == "Linux" ]]; then
     alias cat="batcat"
+    alias fd="fdfind"
 fi
 
 if [[ "$TERM" == "xterm-kitty" ]]; then
