@@ -96,6 +96,7 @@ install_on_linux() {
 			"rg" "ripgrep"
 			"batcat" "bat"
 			"fdfind" "fd-find"
+                        "zoxide" "zoxide"
 		)
 
 		for ((i = 0; i < "${#installed[@]}"; )); do
