@@ -94,7 +94,7 @@ install_on_linux() {
 			"zsh" "zsh"
 			"lua" "lua"
 			"rg" "ripgrep"
-			"batcat" "batcat"
+			"bat" "bat"
 			"fd" "fd-find"
 		)
 
