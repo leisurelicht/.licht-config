@@ -12,3 +12,5 @@ brew install lazygit
 brew install pyenv
 brew install trash
 brew install htop
+brew install bottom
+brew install nmap

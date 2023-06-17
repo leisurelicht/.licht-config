@@ -23,7 +23,7 @@ install_on_mac() {
 			brew install kitty
 		fi
 	elif [[ ${zsh} == 1 ]]; then
-		installed=("lua" "zsh" "git" "fzf" "zoxid" "ripgrep" "bat" "trash" "fd")
+		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "exa")
 
 		for soft in "${installed[@]}"; do
 			if [[ ${brew_list} == *"${soft}"* ]]; then
@@ -33,6 +33,10 @@ install_on_mac() {
 				brew install "${soft}"
 			fi
 		done
+
+                brew tap homebrew/cask-fonts
+                brew install --cask font-hack-nerd-font
+
 		if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
 			"$(brew --prefix)"/opt/fzf/install
 		fi
