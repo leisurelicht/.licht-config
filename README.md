@@ -96,6 +96,9 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
   ./install.sh zsh
   ```
   * 修改 terminal 字体为 Hack Nerd Font
+  * 如果使用的是 iterm2，可以参考下面的配置
+
+  ![image](https://user-images.githubusercontent.com/8042345/246595065-19313c00-7f70-4cf8-ba12-ba9b2a56ddb4.png)
 
 * 卸载
   ```
