@@ -34,8 +34,10 @@ install_on_mac() {
 			fi
 		done
 
-                brew tap homebrew/cask-fonts
-                brew install --cask font-hack-nerd-font
+		if ! brew tap | grep -q "homebrew/cask-fonts"; then
+			brew tap homebrew/cask-fonts
+		fi
+		brew install --cask font-hack-nerd-font
 
 		if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
 			"$(brew --prefix)"/opt/fzf/install
@@ -68,6 +70,7 @@ install_on_mac() {
 			"node" "node"
 			"sqlite" "sqlite"
 			"im-select" "im-select"
+			"lazygit" "lazygit"
 		)
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
@@ -100,7 +103,7 @@ install_on_linux() {
 			"rg" "ripgrep"
 			"batcat" "bat"
 			"fdfind" "fd-find"
-                        "zoxide" "zoxide"
+			"zoxide" "zoxide"
 		)
 
 		for ((i = 0; i < "${#installed[@]}"; )); do
@@ -274,10 +277,10 @@ if [[ ${vim} == 1 ]]; then
 		echo "====> Vim config file the vimrc has exist"
 		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.vimrc" "${config_path}/bak/vimrc.bak"
-	  rm "${HOME}/.vimrc" >/dev/null 2>&1
+		rm "${HOME}/.vimrc" >/dev/null 2>&1
 	fi
 
-  echo "====> Create symlink for vim config"
+	echo "====> Create symlink for vim config"
 	ln -sf "${config_path}/vi/vim/vimrc" "${HOME}/.vimrc"
 
 	# 安装vim插件
@@ -298,7 +301,7 @@ if [[ ${neovim} == 1 ]]; then
 		fi
 	fi
 
-  echo "====> Create symlink for neovim config"
+	echo "====> Create symlink for neovim config"
 	ln -sf "${config_path}/vi/nvim" "${HOME}/.config/nvim"
 
 	# 安装neovim插件
