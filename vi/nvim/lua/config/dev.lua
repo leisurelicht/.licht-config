@@ -30,8 +30,8 @@ require("lazy").setup({
 
     { "wakatime/vim-wakatime", enabled = true },
     { "yianwillis/vimcdoc", endabled = true },
-    { "folke/neodev.nvim", enabled = true, opts = {} },
     { "dstein64/vim-startuptime", enabled = true },
+    { "folke/neodev.nvim", enabled = true },
   },
   dev = {
     path = "~/Code/neovim",
