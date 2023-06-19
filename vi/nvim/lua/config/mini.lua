@@ -25,7 +25,7 @@ require("lazy").setup({
 		{
 			"neovim/nvim-lspconfig",
 			config = function()
-				lspconfig = require("lspconfig")
+				local lspconfig = require("lspconfig")
 				lspconfig.lua_ls.setup({
 					settings = {
 						Lua = {

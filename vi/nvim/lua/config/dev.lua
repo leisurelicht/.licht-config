@@ -22,12 +22,19 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LichtVim and import its plugins and config
-    { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
+    -- { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
+    { "leisurelicht/LichtVim", import = "lichtvim.plugins", dev = true, config = true },
 
     { import = "lichtvim.plugins.extras.lang" }, -- load language
     { import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
 
     { "wakatime/vim-wakatime", enabled = true },
+    { "yianwillis/vimcdoc", endabled = true },
+    { "folke/neodev.nvim", enabled = true, opts = {} },
+    { "dstein64/vim-startuptime", enabled = true },
+  },
+  dev = {
+    path = "~/Code/neovim",
   },
   defaults = {
     lazy = false,
@@ -35,7 +42,7 @@ require("lazy").setup({
   },
   ui = {
     border = "rounded",
-    title = " Lazy Plugins Manager ",
+    title = " Develop Lazy Plugins Manager ",
   },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
   checker = { enabled = false }, -- automatically check for plugin updates
