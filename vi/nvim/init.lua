@@ -10,3 +10,4 @@
 
 require("config.lazy")
 -- require("config.mini")
+-- require("config.dev")
