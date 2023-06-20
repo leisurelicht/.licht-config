@@ -71,6 +71,7 @@ install_on_mac() {
 			"sqlite" "sqlite"
 			"im-select" "im-select"
 			"lazygit" "lazygit"
+			"go" "go"
 		)
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
