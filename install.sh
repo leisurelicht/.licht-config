@@ -72,6 +72,7 @@ install_on_mac() {
 			"im-select" "im-select"
 			"lazygit" "lazygit"
 			"go" "go"
+			"wget" "wget"
 		)
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
