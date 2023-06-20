@@ -8,6 +8,10 @@
 -- vim.g.CONFIG = vim.g.HOME_PATH .. "/.config_file/vi/nvim"
 -- vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
-require("config.lazy")
 -- require("config.mini")
--- require("config.dev")
+local dev = os.getenv("LichtVim")
+if dev then
+  require("config.dev")
+else
+  require("config.lazy")
+end
