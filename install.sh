@@ -73,6 +73,7 @@ install_on_mac() {
 			"lazygit" "lazygit"
 			"go" "go"
 			"wget" "wget"
+			"gnu-sed" "gnu-sed"
 		)
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
