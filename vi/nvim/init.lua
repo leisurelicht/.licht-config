@@ -9,9 +9,11 @@
 -- vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
 -- require("config.mini")
-local dev = os.getenv("LichtVim")
-if dev then
+local status = os.getenv("LichtVim")
+if status == "dev" then
   require("config.dev")
+elseif status == "mini" then
+  require("config.mini")
 else
   require("config.lazy")
 end
