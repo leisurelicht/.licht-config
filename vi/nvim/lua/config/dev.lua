@@ -29,7 +29,7 @@ require("lazy").setup({
     { import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
 
     { "wakatime/vim-wakatime", enabled = true },
-    { "yianwillis/vimcdoc", endabled = true },
+    { "yianwillis/vimcdoc", enabled = true },
     { "dstein64/vim-startuptime", enabled = true },
     { "folke/neodev.nvim", enabled = true },
   },
