@@ -11,9 +11,11 @@
 -- require("config.mini")
 local status = os.getenv("LichtVim")
 if status == "dev" then
-  require("config.dev")
+  require("develop.dev")
 elseif status == "mini" then
-  require("config.mini")
+  require("develop.mini")
+elseif status == "lazy" then
+  require("develop.lazy")
 else
-  require("config.lazy")
+  require("config.plugs")
 end

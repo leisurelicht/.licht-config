@@ -22,7 +22,6 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LichtVim and import its plugins and config
-    -- { "leisurelicht/LichtVim", import = "lichtvim.plugins" },
     { "leisurelicht/LichtVim", import = "lichtvim.plugins", dev = true, config = true },
 
     { import = "lichtvim.plugins.extras.lang" }, -- load language
