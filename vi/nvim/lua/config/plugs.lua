@@ -42,7 +42,12 @@ require("lazy").setup({
   performance = {
     rtp = {
       -- disable some rtp plugins
-      disabled_plugins = {},
+      disabled_plugins = {
+        "matchparen",
+        "netrwPlugin",
+        "tohtml",
+        "tutor",
+      },
     },
   },
 })

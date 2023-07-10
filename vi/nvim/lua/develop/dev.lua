@@ -22,7 +22,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LichtVim and import its plugins and config
-    { "leisurelicht/LichtVim", import = "lichtvim.plugins", dev = true, config = true },
+    { "leisurelicht/LichtVim", dev = true, config = true },
+    { import = "lichtvim.plugins" },
 
     { import = "lichtvim.plugins.extras.lang" }, -- load language
     { import = "lichtvim.plugins.extras.copilot.attach" }, -- load copilot to give suggestion
@@ -48,7 +49,12 @@ require("lazy").setup({
   performance = {
     rtp = {
       -- disable some rtp plugins
-      disabled_plugins = {},
+      disabled_plugins = {
+        "matchparen",
+        "netrwPlugin",
+        "tohtml",
+        "tutor",
+      },
     },
   },
 })
