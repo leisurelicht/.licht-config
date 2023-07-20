@@ -22,7 +22,10 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LichtVim and import its plugins and config
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins", dev = true, config = true },
+  },
+  dev = {
+    path = "~/Code/neovim",
   },
   defaults = {
     lazy = false,
@@ -30,7 +33,7 @@ require("lazy").setup({
   },
   ui = {
     border = "rounded",
-    title = " Lazy Plugins Manager ",
+    title = "Develop Lazy Plugins Manager ",
   },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
   checker = { enabled = false }, -- automatically check for plugin updates
