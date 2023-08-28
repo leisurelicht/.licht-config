@@ -83,3 +83,60 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "go"
   end,
 })
+
+-- disable leader and localleader keys for some filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("unbindleaderkey", true),
+  pattern = {
+    "lazy",
+    "mason",
+    "lspinfo",
+    "toggleterm",
+    "null-ls-info",
+    "neo-tree-popup",
+    "TelescopePrompt",
+    "confirm-quit",
+  },
+  callback = function(event)
+    -- 取消leader键及localleader键的绑定
+    vim.keymap.set("n", "<leader>", "<nop>", { buffer = event.buf, desc = "" })
+    vim.keymap.set("n", "<localleader>", "<nop>", { buffer = event.buf, desc = "" })
+  end,
+})
+
+local close_float_win_filetype = {
+  "lazy",
+  "mason",
+  "lspinfo",
+  "toggleterm",
+  "null-ls-info",
+  "TelescopePrompt",
+}
+
+-- auto close lazy and notify buffers when leaving them
+vim.api.nvim_create_autocmd("BufLeave", {
+  group = augroup("close_float_win", true),
+  callback = function(event)
+    local buf = event.buf
+    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+
+    if vim.fn.index(close_float_win_filetype, ft) ~= -1 and true or false then
+      local winids = vim.fn.win_findbuf(buf)
+      for _, win in pairs(winids) do
+        vim.api.nvim_win_close(win, true)
+      end
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("close_with_esc", true),
+  pattern = {
+    "lazy",
+    "help",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "<esc>", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
