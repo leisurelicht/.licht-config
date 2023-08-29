@@ -2,6 +2,9 @@
 -- Add any additional autocmds here
 
 local function augroup(name, clear)
+  if clear == nil then
+    clear = true
+  end
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = clear })
 end
 
@@ -86,7 +89,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- disable leader and localleader keys for some filetypes
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("unbindleaderkey", true),
+  group = augroup("unbind_leader_key"),
   pattern = {
     "lazy",
     "mason",
@@ -95,33 +98,32 @@ vim.api.nvim_create_autocmd("FileType", {
     "null-ls-info",
     "neo-tree-popup",
     "TelescopePrompt",
-    "confirm-quit",
+    "notify",
   },
   callback = function(event)
-    -- 取消leader键及localleader键的绑定
     vim.keymap.set("n", "<leader>", "<nop>", { buffer = event.buf, desc = "" })
     vim.keymap.set("n", "<localleader>", "<nop>", { buffer = event.buf, desc = "" })
   end,
 })
 
-local close_float_win_filetype = {
+local auto_close_filetype = {
   "lazy",
   "mason",
   "lspinfo",
   "toggleterm",
   "null-ls-info",
   "TelescopePrompt",
+  "notify",
 }
 
--- auto close lazy and notify buffers when leaving them
+-- auto close window when leaving
 vim.api.nvim_create_autocmd("BufLeave", {
-  group = augroup("close_float_win", true),
+  group = augroup("auto_close_win"),
   callback = function(event)
-    local buf = event.buf
-    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+    local ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
 
-    if vim.fn.index(close_float_win_filetype, ft) ~= -1 and true or false then
-      local winids = vim.fn.win_findbuf(buf)
+    if vim.fn.index(auto_close_filetype, ft) ~= -1 then
+      local winids = vim.fn.win_findbuf(event.buf)
       for _, win in pairs(winids) do
         vim.api.nvim_win_close(win, true)
       end
@@ -129,8 +131,9 @@ vim.api.nvim_create_autocmd("BufLeave", {
   end,
 })
 
+-- close some filetypes with <esc>
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("close_with_esc", true),
+  group = augroup("close_with_esc"),
   pattern = {
     "lazy",
     "help",
