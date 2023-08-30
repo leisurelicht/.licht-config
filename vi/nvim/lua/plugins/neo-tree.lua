@@ -9,7 +9,7 @@ return {
       show_prompt = false,
       filter_rules = {
         bo = {
-          filetype = { "neo-tree", "neo-tree-popup", "notify", "alpha" },
+          filetype = { "neo-tree", "neo-tree-popup", "notify", "noice" },
           buftype = { "terminal", "quickfix" },
         },
       },
