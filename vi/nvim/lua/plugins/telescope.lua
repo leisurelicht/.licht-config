@@ -9,10 +9,14 @@ return {
       -- disable the keymap to grep files
       { "<leader><space>", false },
       { "<leader>/", false },
+      { "<leader>,", false },
+      { "<leader>:", false },
       { "<leader>fn", false },
       { "<leader>bs", false },
       { "<leader>fr", false },
       { "<leader>fR", false },
+      { "<leader>fR", false },
+
       {
         "<leader>fo",
         Util.telescope("oldfiles", { cwd = vim.loop.cwd() }),
