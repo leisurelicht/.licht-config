@@ -17,6 +17,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
+    optional = true,
     keys = {
       { "<leader>fe", false },
       { "<leader>fE", false },

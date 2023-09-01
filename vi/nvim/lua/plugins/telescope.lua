@@ -1,30 +1,36 @@
 local Util = require("lazyvim.util")
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
+local map = require("utils.map")
 
 return {
   {
     "nvim-telescope/telescope.nvim",
-    keys = {
-      -- disable the keymap to grep files
-      { "<leader><space>", false },
-      { "<leader>/", false },
-      { "<leader>,", false },
-      { "<leader>:", false },
-      { "<leader>fn", false },
-      { "<leader>bs", false },
-      { "<leader>fr", false },
-      { "<leader>fR", false },
-      { "<leader>fR", false },
+    optional = true,
+    keys = function(_, keys)
+      local _keys = {
+        -- disable the keymap to grep files
+        { "<leader><space>", false },
+        { "<leader>/", false },
+        { "<leader>,", false },
+        { "<leader>:", false },
+        { "<leader>fn", false },
+        { "<leader>bs", false },
+        { "<leader>fr", false },
+        { "<leader>fR", false },
+        { "<leader>fR", false },
 
-      {
-        "<leader>fo",
-        Util.telescope("oldfiles", { cwd = vim.loop.cwd() }),
-        desc = "Recent (cwd)",
-      },
-      { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>bs", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    },
+        {
+          "<leader>fo",
+          Util.telescope("oldfiles", { cwd = vim.loop.cwd() }),
+          desc = "Recent (cwd)",
+        },
+        { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      }
+      keys = vim.tbl_extend("force", keys, _keys)
+      map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", "Buffers")
+      return keys
+    end,
     opts = {
       defaults = {
         prompt_prefix = "   ",

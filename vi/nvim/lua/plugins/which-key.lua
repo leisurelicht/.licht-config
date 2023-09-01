@@ -1,6 +1,7 @@
 return {
   {
     "folke/which-key.nvim",
+    optional = true,
     opts = {
       icons = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo

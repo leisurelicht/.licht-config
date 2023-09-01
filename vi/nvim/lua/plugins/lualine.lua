@@ -1,0 +1,70 @@
+local function win_num()
+  local num = vim.api.nvim_eval("winnr()")
+  return "[" .. num .. "]"
+end
+
+local function title(t)
+  return string.format("[[%s]]", t)
+end
+
+return {
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local _opts = {
+        options = {
+          component_separators = { left = "|", right = "|" },
+          disabled_filetypes = { winbar = { "alpha", "neo-tree" } },
+        },
+        winbar = {
+          lualine_a = { { win_num } },
+          lualine_c = {
+            {
+              "filename",
+              path = 1,
+              newfile_status = false,
+              symbols = { modified = "[Modified]", readonly = "[Read Only]", unnamed = "[No Name]", newfile = "[New]" },
+            },
+          },
+          lualine_x = {
+          -- stylua: ignore
+          {
+            function() return "󰸞 " end,
+            cond = function() return #vim.diagnostic.get(0) == 0 end,
+            color = require("lazyvim.util").fg("DiagnosticInfo"),
+          },
+          },
+        },
+        inactive_winbar = {
+          lualine_a = { { win_num, separator = { right = "" }, color = { fg = "white", bg = "grey" } } },
+          lualine_c = { { "filename", path = 4, newfile_status = false } },
+          lualine_x = {
+          -- stylua: ignore
+          {
+            function() return "󰸞 " end,
+            cond = function() return #vim.diagnostic.get(0) == 0 end,
+            color = require("lazyvim.util").fg("DiagnosticInfo"),
+          },
+          },
+        },
+      }
+
+      opts = vim.tbl_deep_extend("force", opts, _opts)
+      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "encoding" })
+      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "filetype" })
+      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "fileformat" })
+
+      vim.list_extend(opts.extensions, {
+        {
+          filetypes = { "mason", "TelescopePrompt", "toggleterm", "Trouble", "qf" },
+          sections = {
+            lualine_a = { { title("     "), separator = { right = "" } } },
+            lualine_z = { { title("     "), separator = { left = "" } } },
+          },
+        },
+      })
+      return opts
+    end,
+  },
+}
