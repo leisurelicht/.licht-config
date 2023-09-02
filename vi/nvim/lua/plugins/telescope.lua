@@ -28,7 +28,9 @@ return {
         { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       }
       keys = vim.tbl_extend("force", keys, _keys)
+
       map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", "Buffers")
+
       return keys
     end,
     opts = {
@@ -56,5 +58,6 @@ return {
         },
       },
     },
+    -- config = function(_, opts) end,
   },
 }

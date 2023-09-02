@@ -37,6 +37,7 @@ return {
       },
     },
     opts = {
+      close_if_last_window = true,
       source_selector = {
         winbar = true,
         statusline = false,
@@ -47,7 +48,6 @@ return {
           { source = "buffers", display_name = "󰈙 Bufs" },
         },
       },
-
       window = {
         width = 35,
         mappings = {
