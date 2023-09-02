@@ -49,18 +49,38 @@ return {
           },
         },
       }
-
       opts = vim.tbl_deep_extend("force", opts, _opts)
-      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "encoding" })
-      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "filetype" })
-      table.insert(opts.sections.lualine_x, #opts.sections.lualine_x - 1, { "fileformat" })
 
+      vim.list_extend(opts.sections.lualine_x, { "filetype", "encoding", "fileformat" })
+
+      local mason_registry = require("mason-registry")
       vim.list_extend(opts.extensions, {
+        "man",
+        "trouble",
+        "toggleterm",
+        "quickfix",
         {
-          filetypes = { "mason", "TelescopePrompt", "toggleterm", "Trouble", "qf" },
+          filetypes = { "mason" },
           sections = {
-            lualine_a = { { title("     "), separator = { right = "" } } },
-            lualine_z = { { title("     "), separator = { left = "" } } },
+            lualine_a = { { title("Mason 󰏔"), separator = { right = "" } } },
+            lualine_b = {
+              {
+                function()
+                  return "Installed: "
+                    .. #mason_registry.get_installed_packages()
+                    .. "/"
+                    .. #mason_registry.get_all_packages()
+                end,
+              },
+            },
+            lualine_z = { { title("        "), separator = { left = "" } } },
+          },
+        },
+        {
+          filetypes = { "TelescopePrompt" },
+          sections = {
+            lualine_a = { { title("Telescope "), separator = { right = "" } } },
+            lualine_z = { { title("            "), separator = { left = "" } } },
           },
         },
       })
