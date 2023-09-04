@@ -27,7 +27,7 @@ return {
         },
         { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       }
-      keys = vim.tbl_extend("force", keys, _keys)
+      keys = vim.list_extend(keys, _keys)
 
       map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", "Buffers")
 
