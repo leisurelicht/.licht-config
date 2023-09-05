@@ -37,15 +37,14 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = {
-        colorscheme = "catppuccin-frappe",
-      },
+      opts = { colorscheme = "catppuccin-frappe" },
     },
-    { import = "plugins" },
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "plugins" },
 
     { "wakatime/vim-wakatime", enabled = true },
   },
