@@ -58,6 +58,14 @@ return {
         },
       },
     },
-    -- config = function(_, opts) end,
+    config = function(_, opts)
+      local telescope = require("telescope")
+      telescope.setup(opts)
+
+      if require("lazyvim.util").has("nvim-notify") then
+        telescope.load_extension("notify")
+        map.set("n", "<leader>sn", "<cmd>Telescope notify theme=dropdown<cr>", "Notify")
+      end
+    end,
   },
 }
