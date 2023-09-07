@@ -1,6 +1,7 @@
 return {
   {
     "folke/noice.nvim",
+    optional = true,
     keys = {
       { "<leader>snl", false },
       { "<leader>snh", false },
