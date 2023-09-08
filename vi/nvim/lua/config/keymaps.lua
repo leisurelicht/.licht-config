@@ -2,67 +2,59 @@
 -- Add any additional keymaps here
 --
 local Util = require("lazyvim.util")
+local map = require("utils.map")
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    if opts.remap and not vim.g.vscode then
-      opts.remap = nil
-    end
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+map.del("n", "<leader>`")
 
-map("n", "<leader>`", "<nop>")
-map("n", "<leader>l", "<nop>")
-map("n", "<leader>L", "<nop>")
-map("n", "<leader><tab>l", "<nop>")
-map("n", "<leader><tab>f", "<nop>")
-map("n", "<leader><tab><tab>", "<nop>")
-map("n", "<leader><tab>]", "<nop>")
-map("n", "<leader><tab>d", "<nop>")
-map("n", "<leader><tab>[", "<nop>")
+-- Lazy
+map.del("n", "<leader>l")
+map.del("n", "<leader>L")
+map.set("n", "<leader>pl", "<cmd>Lazy<cr>", "Lazy") -- lazy
+map.set("n", "<leader>pc", Util.changelog, "LazyVim Changelog") -- LazyVim Changelog
 
--- lazy
-map("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" })
--- LazyVim Changelog
-map("n", "<leader>pc", Util.changelog, { desc = "LazyVim Changelog" })
-
--- tabs
-map("n", "<leader>tl", "<cmd>tablast<cr>", { desc = "Last Tab" })
-map("n", "<leader>tf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-map("n", "<leader>ta", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader>tn", "<cmd>tabnext<cr>", { desc = "Next Tab" })
-map("n", "<leader>td", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-map("n", "<leader>tp", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-map("n", "<leader>te", "<cmd>tab sb<cr>", { desc = "Copy current tab" })
-map("n", "[t", "<cmd>tabp<cr>", { desc = "Previous tab" })
-map("n", "]t", "<cmd>tabn<cr>", { desc = "Next tab" })
-map("n", "<leader>tP", "<cmd>-tabmove<cr>", { desc = "Move forward" })
-map("n", "<leader>tN", "<cmd>+tabmove<cr>", { desc = "Move backward" })
-
+-- Tabs
+map.del("n", "<leader><tab>l")
+map.del("n", "<leader><tab>f")
+map.del("n", "<leader><tab><tab>")
+map.del("n", "<leader><tab>]")
+map.del("n", "<leader><tab>d")
+map.del("n", "<leader><tab>[")
+map.set("n", "<leader>tl", "<cmd>tablast<cr>", "Last Tab")
+map.set("n", "<leader>tf", "<cmd>tabfirst<cr>", "First Tab")
+map.set("n", "<leader>ta", "<cmd>tabnew<cr>", "New Tab")
+map.set("n", "<leader>tn", "<cmd>tabnext<cr>", "Next Tab")
+map.set("n", "<leader>td", "<cmd>tabclose<cr>", "Close Tab")
+map.set("n", "<leader>tp", "<cmd>tabprevious<cr>", "Previous Tab")
+map.set("n", "<leader>te", "<cmd>tab sb<cr>", "Copy current tab")
+map.set("n", "[t", "<cmd>tabp<cr>", "Previous tab")
+map.set("n", "]t", "<cmd>tabn<cr>", "Next tab")
+map.set("n", "<leader>tP", "<cmd>-tabmove<cr>", "Move forward")
+map.set("n", "<leader>tN", "<cmd>+tabmove<cr>", "Move backward")
 -- tab页快速切换
-map("n", "<leader>t1", "1gt", { desc = "Tab 1" })
-map("n", "<leader>t2", "2gt", { desc = "Tab 2" })
-map("n", "<leader>t3", "3gt", { desc = "Tab 3" })
-map("n", "<leader>t4", "4gt", { desc = "Tab 4" })
-map("n", "<leader>t5", "5gt", { desc = "Tab 5" })
-map("n", "<leader>t6", "6gt", { desc = "Tab 6" })
-map("n", "<leader>t7", "7gt", { desc = "Tab 7" })
-map("n", "<leader>t8", "8gt", { desc = "Tab 8" })
+map.set("n", "<leader>t1", "1gt", "Tab 1")
+map.set("n", "<leader>t2", "2gt", "Tab 2")
+map.set("n", "<leader>t3", "3gt", "Tab 3")
+map.set("n", "<leader>t4", "4gt", "Tab 4")
+map.set("n", "<leader>t5", "5gt", "Tab 5")
+map.set("n", "<leader>t6", "6gt", "Tab 6")
+map.set("n", "<leader>t7", "7gt", "Tab 7")
+map.set("n", "<leader>t8", "8gt", "Tab 8")
 
 -- window
-map("n", "<leader>wh", "<cmd>vertical leftabove sbuffer<cr>", { desc = "Left" })
-map("n", "<leader>wl", "<cmd>vertical rightbelow sbuffer<cr>", { desc = "Right" })
-map("n", "<leader>wk", "<cmd>horizontal aboveleft sbuffer<cr>", { desc = "Above" })
-map("n", "<leader>wj", "<cmd>horizontal belowright sbuffer<cr>", { desc = "Below" })
-map("n", "<leader>wy", "<cmd>vertical topleft sbuffer<cr>", { desc = "Far left" })
-map("n", "<leader>wo", "<cmd>vertical botright sbuffer<cr>", { desc = "Far right" })
-map("n", "<leader>wi", "<cmd>horizontal topleft sbuffer<cr>", { desc = "Top" })
-map("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", { desc = "Bottom" })
-map("n", "<leader>wd", "<C-w>c", { desc = "Close current window" }) -- 关闭当前分屏
-map("n", "<leader>wc", "<C-w>o", { desc = "Close other window" }) -- 关闭其他分屏
+map.del("n", "<leader>w|")
+map.del("n", "<leader>w-")
+map.del("n", "<leader>wd")
+map.del("n", "<leader>ww")
+map.lazy("n", "<leader>wh", "<cmd>vertical leftabove sbuffer<cr>", "Split to left")
+map.lazy("n", "<leader>wl", "<cmd>vertical rightbelow sbuffer<cr>", "Split to right")
+map.lazy("n", "<leader>wk", "<cmd>horizontal aboveleft sbuffer<cr>", "Split to above")
+map.lazy("n", "<leader>wj", "<cmd>horizontal belowright sbuffer<cr>", "Split to below")
+map.lazy("n", "<leader>wy", "<cmd>vertical topleft sbuffer<cr>", "Split to far left")
+map.lazy("n", "<leader>wo", "<cmd>vertical botright sbuffer<cr>", "Split to far right")
+map.lazy("n", "<leader>wi", "<cmd>horizontal topleft sbuffer<cr>", "Split to top")
+map.lazy("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", "Split to bottom")
+map.lazy("n", "<leader>wd", "<C-w>c", "Close current window") -- 关闭当前分屏
+map.lazy("n", "<leader>wc", "<C-w>o", "Close other window") -- 关闭其他分屏
+
+map.del("n", "<leader>bb")
+map.lazy("n", "<leader>bb", "<cmd>e #<cr>", "Switch to Other Buffer")

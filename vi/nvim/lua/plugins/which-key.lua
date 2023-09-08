@@ -1,3 +1,5 @@
+local map = require("utils.map")
+
 return {
   {
     "folke/which-key.nvim",
@@ -15,20 +17,42 @@ return {
       layout = {
         align = "center", -- align columns left, center or right
       },
-      defaults = {
+      default_key = {
+        ["g"] = { name = "Goto" },
+        ["gz"] = { name = "Surround" },
+        ["]"] = { name = "Next" },
+        ["["] = { name = "Prev" },
         ["<leader>t"] = { name = "󱏈 Tab" },
         ["<leader>to"] = { name = "Close Only" },
         ["<leader>u"] = { name = "󰨙 UI" },
         ["<leader>p"] = { name = "󰏖 Packages" },
         ["<leader>f"] = { name = " File/Find" },
-        ["<leader>b"] = { name = "󰓩 Buffers" },
-        ["<leader>c"] = { name = " Code" },
         ["<leader>s"] = { name = "󰺮 Search" },
-        ["<leader>w"] = { name = " Window Split" },
         ["<leader>q"] = { name = " Quit/Session" },
         ["<leader>g"] = { name = "󰊢 Git" },
         ["<leader>x"] = { name = "󰚢 Diagnostics/Quickfix" },
       },
     },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.default_key)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
+        pattern = { "*" },
+        callback = function(event)
+          if vim.fn.index(map.unset_keybind_filetypes, vim.bo[event.buf].filetype) ~= -1 then
+            return
+          end
+
+          wk.register({
+            c = { name = " Code" },
+            b = { name = "󰓩 Buffers" },
+            w = { name = " Window Split" },
+          }, { mode = "n", prefix = "<leader>", buffer = event.buf })
+        end,
+      })
+    end,
   },
 }
