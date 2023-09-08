@@ -6,7 +6,6 @@
 local M = {}
 
 M.opts = { noremap = true, silent = true }
-
 local function check_opts(opts)
   if opts == nil then
     opts = M.opts
