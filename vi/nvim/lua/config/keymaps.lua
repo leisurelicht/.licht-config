@@ -30,7 +30,7 @@ map.set("n", "[t", "<cmd>tabp<cr>", "Previous tab")
 map.set("n", "]t", "<cmd>tabn<cr>", "Next tab")
 map.set("n", "<leader>tP", "<cmd>-tabmove<cr>", "Move forward")
 map.set("n", "<leader>tN", "<cmd>+tabmove<cr>", "Move backward")
--- tab页快速切换
+-- Tab页快速切换
 map.set("n", "<leader>t1", "1gt", "Tab 1")
 map.set("n", "<leader>t2", "2gt", "Tab 2")
 map.set("n", "<leader>t3", "3gt", "Tab 3")
@@ -40,7 +40,7 @@ map.set("n", "<leader>t6", "6gt", "Tab 6")
 map.set("n", "<leader>t7", "7gt", "Tab 7")
 map.set("n", "<leader>t8", "8gt", "Tab 8")
 
--- window
+-- Windows
 map.del("n", "<leader>w|")
 map.del("n", "<leader>w-")
 map.del("n", "<leader>wd")
@@ -56,5 +56,6 @@ map.lazy("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", "Split to bo
 map.lazy("n", "<leader>wd", "<C-w>c", "Close current window") -- 关闭当前分屏
 map.lazy("n", "<leader>wc", "<C-w>o", "Close other window") -- 关闭其他分屏
 
+-- Buffer
 map.del("n", "<leader>bb")
 map.lazy("n", "<leader>bb", "<cmd>e #<cr>", "Switch to Other Buffer")
