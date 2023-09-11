@@ -56,24 +56,12 @@ function M.has(mode, lhs, opts)
   return false
 end
 
-M.unset_keybind_filetypes = {
-  "alpha",
-  "neo-tree",
-  "neo-tree-popup",
-  "lazy",
-  "mason",
-  "lspinfo",
-  "toggleterm",
-  "null-ls-info",
-  "TelescopePrompt",
-}
-
 function M.lazy(mode, lhs, rhs, desc)
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
     pattern = { "*" },
     callback = function(event)
-      if vim.fn.index(M.unset_keybind_filetypes, vim.bo[event.buf].filetype) ~= -1 then
+      if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
         return
       end
 

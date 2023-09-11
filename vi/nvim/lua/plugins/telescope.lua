@@ -10,7 +10,7 @@ return {
     optional = true,
     keys = function(_, keys)
       local _keys = {
-        -- disable the keymap to grep files
+        -- disable the keymap
         { "<leader><space>", false },
         { "<leader>/", false },
         { "<leader>,", false },
@@ -20,7 +20,10 @@ return {
         { "<leader>fr", false },
         { "<leader>fR", false },
         { "<leader>fR", false },
+        { "<leader>gc", false },
+        { "<leader>gs", false },
 
+        -- set new keymap
         { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
         { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
         { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },

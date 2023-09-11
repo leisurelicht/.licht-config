@@ -1,5 +1,3 @@
-local map = require("utils.map")
-
 return {
   {
     "folke/which-key.nvim",
@@ -42,7 +40,7 @@ return {
         group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
         pattern = { "*" },
         callback = function(event)
-          if vim.fn.index(map.unset_keybind_filetypes, vim.bo[event.buf].filetype) ~= -1 then
+          if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
             return
           end
 
