@@ -35,7 +35,7 @@ return {
         desc = "Goto T[y]pe Definition",
       }
       keys[#keys + 1] = { "<leader>lD", vim.lsp.buf.declaration, desc = "Goto declaration", has = "declaration" }
-      keys[#keys + 1] = { "<leader>le", "<cmd>Telescope lsp_references<cr>", desc = "References" }
+      keys[#keys + 1] = { "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "References" }
       keys[#keys + 1] =
         { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
       keys[#keys + 1] = {
@@ -59,11 +59,11 @@ return {
         end,
         desc = "Diagnostics (project)",
       }
-
       keys[#keys + 1] = { "<leader>lh", vim.lsp.buf.hover, desc = "Hover", has = "hover" }
       keys[#keys + 1] = { "<leader>lk", vim.lsp.buf.signature_help, desc = "Hover", has = "signatureHelp" }
       keys[#keys + 1] = { "<leader>lf", format, desc = "Format Document", has = "formatting" }
       keys[#keys + 1] = { "<leader>lf", format, desc = "Format Range", mode = "v", has = "rangeFormatting" }
+      keys[#keys + 1] = { "<leader>lR", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
 
       -- disable a keymap
       keys[#keys + 1] = { "<leader>ca", false, mode = { "n", "v" } }

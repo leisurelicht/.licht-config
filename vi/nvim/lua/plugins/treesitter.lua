@@ -6,7 +6,7 @@ return {
       "RRethy/nvim-treesitter-endwise",
     },
     keys = {
-      { "<leader>pT", "<cmd>TSModuleInfo<cr>", desc = "Treesitter info" },
+      { "<leader>pT", "<cmd>TSModuleInfo<cr>", desc = "Treesitter Info" },
     },
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {

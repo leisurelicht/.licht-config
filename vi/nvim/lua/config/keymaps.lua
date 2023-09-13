@@ -6,6 +6,12 @@ local map = require("utils.map")
 
 map.del("n", "<leader>`")
 
+map.lazy("n", "<leader>cu", "viwUe", "Upper Word")
+map.lazy("n", "<leader>cl", "viwue", "Lower Word")
+map.lazy("n", "<leader>co", "wb~ea<esc>", "Upper First Word")
+map.lazy("i", "<C-u>", "<esc>viwUea", "Upper Word") -- 一键大写
+map.lazy("i", "<C-l>", "<esc>viwuea", "Lower Word") -- 一键小写
+map.lazy("i", "<C-o>", "<esc>wb~ea", "Upper First Word") -- 首字母大写
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
@@ -25,11 +31,11 @@ map.set("n", "<leader>ta", "<cmd>tabnew<cr>", "New Tab")
 map.set("n", "<leader>tn", "<cmd>tabnext<cr>", "Next Tab")
 map.set("n", "<leader>td", "<cmd>tabclose<cr>", "Close Tab")
 map.set("n", "<leader>tp", "<cmd>tabprevious<cr>", "Previous Tab")
-map.set("n", "<leader>te", "<cmd>tab sb<cr>", "Copy current tab")
-map.set("n", "[t", "<cmd>tabp<cr>", "Previous tab")
-map.set("n", "]t", "<cmd>tabn<cr>", "Next tab")
-map.set("n", "<leader>tP", "<cmd>-tabmove<cr>", "Move forward")
-map.set("n", "<leader>tN", "<cmd>+tabmove<cr>", "Move backward")
+map.set("n", "<leader>te", "<cmd>tab sb<cr>", "Copy Current Tab")
+map.set("n", "[t", "<cmd>tabp<cr>", "Previous Tab")
+map.set("n", "]t", "<cmd>tabn<cr>", "Next Tab")
+map.set("n", "<leader>tP", "<cmd>-tabmove<cr>", "Move Forward")
+map.set("n", "<leader>tN", "<cmd>+tabmove<cr>", "Move Backward")
 -- Tab页快速切换
 map.set("n", "<leader>t1", "1gt", "Tab 1")
 map.set("n", "<leader>t2", "2gt", "Tab 2")
@@ -45,17 +51,19 @@ map.del("n", "<leader>w|")
 map.del("n", "<leader>w-")
 map.del("n", "<leader>wd")
 map.del("n", "<leader>ww")
-map.lazy("n", "<leader>wh", "<cmd>vertical leftabove sbuffer<cr>", "Split to left")
-map.lazy("n", "<leader>wl", "<cmd>vertical rightbelow sbuffer<cr>", "Split to right")
-map.lazy("n", "<leader>wk", "<cmd>horizontal aboveleft sbuffer<cr>", "Split to above")
-map.lazy("n", "<leader>wj", "<cmd>horizontal belowright sbuffer<cr>", "Split to below")
-map.lazy("n", "<leader>wy", "<cmd>vertical topleft sbuffer<cr>", "Split to far left")
-map.lazy("n", "<leader>wo", "<cmd>vertical botright sbuffer<cr>", "Split to far right")
-map.lazy("n", "<leader>wi", "<cmd>horizontal topleft sbuffer<cr>", "Split to top")
-map.lazy("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", "Split to bottom")
-map.lazy("n", "<leader>wd", "<C-w>c", "Close current window") -- 关闭当前分屏
-map.lazy("n", "<leader>wc", "<C-w>o", "Close other window") -- 关闭其他分屏
+map.del("n", "<leader>-")
+map.del("n", "<leader>|")
+map.lazy("n", "<leader>wh", "<cmd>vertical leftabove sbuffer<cr>", "Split To Left")
+map.lazy("n", "<leader>wl", "<cmd>vertical rightbelow sbuffer<cr>", "Split To Right")
+map.lazy("n", "<leader>wk", "<cmd>horizontal aboveleft sbuffer<cr>", "Split To Above")
+map.lazy("n", "<leader>wj", "<cmd>horizontal belowright sbuffer<cr>", "Split To Below")
+map.lazy("n", "<leader>wy", "<cmd>vertical topleft sbuffer<cr>", "Split To Far Left")
+map.lazy("n", "<leader>wo", "<cmd>vertical botright sbuffer<cr>", "Split To Far Right")
+map.lazy("n", "<leader>wi", "<cmd>horizontal topleft sbuffer<cr>", "Split To Top")
+map.lazy("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", "Split To Bottom")
+map.lazy("n", "<leader>wd", "<C-w>c", "Close Current Window") -- 关闭当前分屏
+map.lazy("n", "<leader>wc", "<C-w>o", "Close Other Window") -- 关闭其他分屏
 
 -- Buffer
 map.del("n", "<leader>bb")
-map.lazy("n", "<leader>bb", "<cmd>e #<cr>", "Switch to Other Buffer")
+map.lazy("n", "<leader>bb", "<cmd>e #<cr>", "Switch To Other Buffer")

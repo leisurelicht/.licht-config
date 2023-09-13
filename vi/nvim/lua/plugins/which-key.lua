@@ -45,7 +45,8 @@ return {
           end
 
           wk.register({
-            l = { name = " Code" },
+            c = { name = " Code" },
+            l = { name = "󰿘 Lsp" },
             b = { name = "󰓩 Buffers" },
             w = { name = " Window Split" },
           }, { mode = "n", prefix = "<leader>", buffer = event.buf })
