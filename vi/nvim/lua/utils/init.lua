@@ -10,6 +10,10 @@ M.unbind_key_filetypes = {
   "toggleterm",
   "null-ls-info",
   "TelescopePrompt",
+  "TelescopeResults",
+  "WhichKey",
+  "noice",
+  "notify",
 }
 
 function M.unbind_key_buf(ft)

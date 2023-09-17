@@ -25,9 +25,9 @@ return {
         ["<leader>u"] = { name = "󰨙 UI" },
         ["<leader>p"] = { name = "󰏖 Packages" },
         ["<leader>f"] = { name = " File/Find" },
-        ["<leader>s"] = { name = "󰺮 Search" },
+        ["<leader>s"] = { name = "󰺮 Search", mode = { "n", "v" } },
         ["<leader>q"] = { name = " Quit/Session" },
-        ["<leader>g"] = { name = "󰊢 Git" },
+        ["<leader>g"] = { name = "󰊢 Git", mode = { "n", "v" } },
         ["<leader>x"] = { name = "󰚢 Diagnostics/Quickfix" },
       },
     },
@@ -36,20 +36,26 @@ return {
       wk.setup(opts)
       wk.register(opts.default_key)
 
-      vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        group = vim.api.nvim_create_augroup("filetype_which_key", { clear = false }),
         pattern = { "*" },
         callback = function(event)
           if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
             return
           end
+          vim.print(vim.bo[event.buf].filetype)
 
           wk.register({
             c = { name = " Code" },
             l = { name = "󰿘 Lsp" },
+            g = { name = "󰊢 Git" },
             b = { name = "󰓩 Buffers" },
             w = { name = " Window Split" },
           }, { mode = "n", prefix = "<leader>", buffer = event.buf })
+
+          wk.register({
+            c = { name = " Code" },
+          }, { mode = "v", prefix = "<leader>", buffer = event.buf })
         end,
       })
     end,
