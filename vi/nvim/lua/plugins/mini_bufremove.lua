@@ -12,11 +12,11 @@ return {
     config = function()
       map.lazy("n", "<leader>bd", function()
         require("mini.bufremove").delete(0, false)
-      end, "Delete buffer")
+      end, { desc = "Delete buffer" })
 
       map.lazy("n", "<leader>bD", function()
         require("mini.bufremove").delete(0, true)
-      end, "Delete Buffer (Force)")
+      end, { desc = "Delete Buffer (Force)" })
     end,
   },
 }

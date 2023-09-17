@@ -31,7 +31,7 @@ return {
       }
       keys = vim.list_extend(keys, _keys)
 
-      map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", "Buffers")
+      map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 
       return keys
     end,
@@ -94,7 +94,7 @@ return {
 
       if require("lazyvim.util").has("nvim-notify") then
         telescope.load_extension("notify")
-        map.set("n", "<leader>sn", "<cmd>Telescope notify theme=dropdown<cr>", "Notify")
+        map.set("n", "<leader>sn", "<cmd>Telescope notify theme=dropdown<cr>", { desc = "Notify" })
       end
     end,
   },

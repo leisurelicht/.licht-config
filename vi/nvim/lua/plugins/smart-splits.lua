@@ -25,8 +25,8 @@ return {
       require("smart-splits").setup(opts)
       map.lazy("n", "<leader>us", function()
         require("smart-splits").start_resize_mode()
-      end, "Enable resize mode")
-      map.lazy("n", "<leader>uS", "<cmd>tabdo wincmd =<cr>", "Resume size")
+      end, { desc = "Enable resize mode" })
+      map.lazy("n", "<leader>uS", "<cmd>tabdo wincmd =<cr>", { desc = "Resume size" })
     end,
   },
 }

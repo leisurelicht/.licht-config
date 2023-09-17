@@ -6,24 +6,7 @@
 
 local M = {}
 
-M.opts = { noremap = true, silent = true }
-local function check_opts(opts)
-  if opts == nil then
-    opts = M.opts
-  elseif next(opts) == nil then
-    opts = {}
-  else
-    opts = vim.tbl_extend("force", M.opts, opts)
-  end
-  return opts
-end
-
-function M.set(mode, lhs, rhs, desc, opts)
-  opts = check_opts(opts)
-  if desc ~= nil then
-    opts.desc = desc
-  end
-
+function M.set(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
   ---@cast keys LazyKeysHandler
   -- do not create the keymap if a lazy keys handler exists
@@ -56,7 +39,7 @@ function M.has(mode, lhs, opts)
   return false
 end
 
-function M.lazy(mode, lhs, rhs, desc)
+function M.lazy(mode, lhs, rhs, opts)
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
     pattern = { "*" },
@@ -65,7 +48,8 @@ function M.lazy(mode, lhs, rhs, desc)
         return
       end
 
-      M.set(mode, lhs, rhs, desc, { buffer = event.buf, silent = true })
+      opts.buffer = event.buf
+      M.set(mode, lhs, rhs, opts)
     end,
   })
 end
