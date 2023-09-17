@@ -3,7 +3,6 @@ local map = require("utils.map")
 return {
   {
     "tiagovla/scope.nvim",
-    optional = true,
     event = { "BufRead", "BufNewFile" },
     opts = { restore_state = false },
     config = function(_, opts)
