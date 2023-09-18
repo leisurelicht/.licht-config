@@ -1,4 +1,5 @@
 local utils = require("utils")
+local Util = require("lazy.core.util")
 
 return {
   {
@@ -9,7 +10,7 @@ return {
         "<leader>ui",
         function()
           vim.cmd([[ImSelectEnable]])
-          log.info("Enabled im select", { title = "Option" })
+          Util.info("Enabled im select")
         end,
         desc = "Enable imselect",
       },
@@ -17,7 +18,7 @@ return {
         "<leader>uI",
         function()
           vim.cmd([[ImSelectDisable]])
-          log.warn("Disabled im select", { title = "Option" })
+          Util.warn("Disabled im select")
         end,
         desc = "Disable imselect",
       },
