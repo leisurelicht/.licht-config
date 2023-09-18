@@ -3,6 +3,7 @@ return {
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {
     "L3MON4D3/LuaSnip",
+    optional = true,
     keys = function()
       return {}
     end,
@@ -10,9 +11,7 @@ return {
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-emoji",
-    },
+    optional = true,
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()
