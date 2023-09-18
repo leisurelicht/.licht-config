@@ -43,7 +43,6 @@ return {
           if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
             return
           end
-          vim.print(vim.bo[event.buf].filetype)
 
           wk.register({
             c = { name = " Code" },
