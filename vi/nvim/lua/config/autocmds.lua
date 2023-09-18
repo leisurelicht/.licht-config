@@ -143,3 +143,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<esc>", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("filetype_which_key", { clear = false }),
+  pattern = { "*" },
+  callback = function(event)
+    if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
+      return
+    end
+
+    require("which-key").register({
+      c = { name = " Code", mode = { "n", "v" } },
+      l = { name = "󰿘 Lsp" },
+      g = { name = "󰊢 Git" },
+      b = { name = "󰓩 Buffers" },
+      w = { name = " Window Split" },
+    }, { mode = "n", prefix = "<leader>", buffer = event.buf })
+  end,
+})
