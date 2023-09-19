@@ -54,7 +54,7 @@ return {
   },
   {
     "mrjones2014/smart-splits.nvim",
-    event = "VeryLazy",
+    event = { "BufRead", "BufNewFile" },
     opts = {
       ignored_filetypes = { "nofile", "quickfix", "prompt", "alpha", "neo-tree", "toggleterm" },
       ignored_buftypes = { "nofile", "NvimTree", "terminal" },
@@ -81,7 +81,7 @@ return {
   },
   {
     "brglng/vim-im-select",
-    event = "VeryLazy",
+    event = { "BufRead", "BufNewFile" },
     keys = {
       {
         "<leader>ui",
