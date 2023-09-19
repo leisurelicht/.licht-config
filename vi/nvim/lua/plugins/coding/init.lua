@@ -119,6 +119,11 @@ return {
           end
         end, { "i", "s" }),
       })
+
+      opts.window = vim.tbl_extend("force", opts.window or {}, {
+        completion = cmp.config.window.bordered({ col_offset = -1 }),
+        documentation = cmp.config.window.bordered(),
+      })
     end,
   },
   { import = "plugins.coding.copilot" },

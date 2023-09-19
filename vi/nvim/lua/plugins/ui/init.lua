@@ -31,6 +31,11 @@ return {
       { "<leader>sna", false },
       { "<leader>snd", false },
     },
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
   },
   {
     "m4xshen/smartcolumn.nvim",
