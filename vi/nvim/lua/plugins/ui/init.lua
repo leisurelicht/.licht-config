@@ -2,6 +2,7 @@ return {
   { import = "plugins.ui.which-key" },
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
+  { import = "plugins.ui.fold" },
   {
     "goolord/alpha-nvim",
     optional = true,
