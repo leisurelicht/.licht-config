@@ -92,13 +92,15 @@ vim.api.nvim_create_autocmd("FileType", {
   group = augroup("unbind_leader_key"),
   pattern = {
     "lazy",
+    "noice",
     "mason",
+    "notify",
     "lspinfo",
     "toggleterm",
     "null-ls-info",
     "neo-tree-popup",
     "TelescopePrompt",
-    "notify",
+    "TelescopeResults",
   },
   callback = function(event)
     vim.keymap.set("n", "<leader>", "<nop>", { buffer = event.buf, desc = "" })

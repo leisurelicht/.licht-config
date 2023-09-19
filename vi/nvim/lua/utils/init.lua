@@ -1,23 +1,12 @@
 local M = {}
 
 M.unbind_key_filetypes = {
-  "alpha",
-  "neo-tree",
-  "neo-tree-popup",
-  "lazy",
-  "mason",
-  "lspinfo",
-  "toggleterm",
-  "null-ls-info",
-  "TelescopePrompt",
-  "TelescopeResults",
-  "WhichKey",
-  "noice",
-  "notify",
+  alpha = true,
+  ["neo-tree"] = true,
 }
 
 function M.unbind_key_buf(ft)
-  return vim.fn.index(M.unbind_key_filetypes, ft) ~= -1
+  return M.unbind_key_filetypes[ft]
 end
 
 M.sys = {}
