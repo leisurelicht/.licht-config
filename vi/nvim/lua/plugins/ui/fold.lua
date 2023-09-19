@@ -79,11 +79,11 @@ return {
     end,
     config = function(_, opts)
       require("ufo").setup(opts)
-      map.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-      map.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
-      map.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
-      map.set("n", "zm", require("ufo").closeFoldsWith, { desc = "Close folds with" })
-      map.set("n", "K", function()
+      map.lazy("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+      map.lazy("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+      map.lazy("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
+      map.lazy("n", "zm", require("ufo").closeFoldsWith, { desc = "Close folds with" })
+      map.lazy("n", "K", function()
         local winid = require("ufo").peekFoldedLinesUnderCursor()
         if not winid then
           vim.lsp.buf.hover()

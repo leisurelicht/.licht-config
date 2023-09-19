@@ -67,6 +67,7 @@ return {
       -- disable a keymap
       keys[#keys + 1] = { "<leader>cd", false }
       keys[#keys + 1] = { "<leader>cl", false }
+      keys[#keys + 1] = { "K", false }
 
       -- add a keymap
     end,
