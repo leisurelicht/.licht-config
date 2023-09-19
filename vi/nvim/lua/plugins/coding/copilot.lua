@@ -11,12 +11,12 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<A-CR>",
+          accept = "<M-CR>",
           accept_word = false,
           accept_line = false,
-          next = "<A-]>",
-          prev = "<A-[>",
-          dismiss = "<C-e>",
+          next = "<M-]>",
+          prev = "<M-[>",
+          dismiss = "<M-e>",
         },
       },
       filetypes = {
