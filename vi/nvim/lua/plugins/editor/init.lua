@@ -1,11 +1,10 @@
+local utils = require("utils")
 local map = require("utils.map")
 local Util = require("lazy.core.util")
 
 return {
   { import = "plugins.editor.treesitter" },
-  { import = "plugins.editor.im-select" },
   { import = "plugins.editor.neo-tree" },
-  { import = "plugins.editor.smart-splits" },
   { import = "plugins.editor.telescope" },
   { "nacro90/numb.nvim", event = { "BufRead", "BufNewFile" }, config = true },
   {
