@@ -56,8 +56,6 @@ alias tig="lazygit log"
 alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
 alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
 
-alias j="z"
-
 if type "$exa" >/dev/null; then
     # ls && ll
     alias ls="exa"
@@ -70,6 +68,7 @@ else
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
+alias j="z"
 
 if [[ `uname` == "Darwin" ]]; then
     # 可恢复删除
@@ -126,4 +125,3 @@ if command -v kubectl >/dev/null; then
     alias kdf='kubectl delete -f .'
     alias kaf='kubectl apply -f .'
 fi
-
