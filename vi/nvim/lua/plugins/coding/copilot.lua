@@ -32,8 +32,9 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
+    event = "VeryLazy",
     dependencies = {
-      "leisurelicht/lualine-copilot.nvim",
+      { "leisurelicht/lualine-copilot.nvim" },
     },
     opts = function(_, opts)
       vim.list_extend(opts.sections.lualine_x, { "copilot" })
