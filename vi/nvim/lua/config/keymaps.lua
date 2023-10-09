@@ -4,7 +4,7 @@
 local Util = require("lazyvim.util")
 local map = require("utils.map")
 
-map.del("n", "<leader>`")
+map.set("n", "<localleader>", "<cmd>WhichKey<cr>", { desc = "Which key" })
 
 map.lazy("n", "<leader>cu", "viwUe", { desc = "Upper Word" })
 map.lazy("n", "<leader>cl", "viwue", { desc = "Lower Word" })
@@ -12,6 +12,8 @@ map.lazy("n", "<leader>co", "wb~ea<esc>", { desc = "Upper First Word" })
 map.lazy("i", "<C-u>", "<esc>viwUea", { desc = "Upper Word" }) -- 一键大写
 map.lazy("i", "<C-l>", "<esc>viwuea", { desc = "Lower Word" }) -- 一键小写
 map.lazy("i", "<C-o>", "<esc>wb~ea", { desc = "Upper First Word" }) -- 首字母大写
+
+map.del("n", "<leader>`")
 
 map.del({ "n", "v" }, "<leader>cf")
 map.lazy({ "n", "v" }, "<leader>cf", function()
