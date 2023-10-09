@@ -1,5 +1,13 @@
 local map = require("utils.map")
 return {
+  {
+    "neovim/nvim-lspconfig",
+    optional = true,
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = { "K", false }
+    end,
+  },
   { -- better statusline
     "luukvbaal/statuscol.nvim",
     event = { "BufRead", "BufNewFile" },
