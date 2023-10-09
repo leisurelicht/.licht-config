@@ -13,6 +13,11 @@ map.lazy("i", "<C-u>", "<esc>viwUea", { desc = "Upper Word" }) -- 一键大写
 map.lazy("i", "<C-l>", "<esc>viwuea", { desc = "Lower Word" }) -- 一键小写
 map.lazy("i", "<C-o>", "<esc>wb~ea", { desc = "Upper First Word" }) -- 首字母大写
 
+map.del({ "n", "v" }, "<leader>cf")
+map.lazy({ "n", "v" }, "<leader>cf", function()
+  require("lazyvim.plugins.lsp.format").format({ force = true })
+end, { desc = "Format" })
+
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
