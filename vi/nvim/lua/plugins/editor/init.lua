@@ -17,13 +17,7 @@ return {
       { "<leader>j", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Jump To" },
       { "<leader>J", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Quick Select" },
     },
-    opts = {
-      modes = {
-        char = {
-          jump_labels = true,
-        },
-      },
-    },
+    opts = { modes = { char = { jump_labels = true } } },
   },
   {
     "echasnovski/mini.bufremove",

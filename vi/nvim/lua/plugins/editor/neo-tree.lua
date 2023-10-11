@@ -18,29 +18,11 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     optional = true,
-    keys = {
-      { "<leader>fe", false },
-      { "<leader>fE", false },
-      {
-        "<leader>e",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
-        end,
-        desc = "Explorer (root)",
-      },
-      {
-        "<leader>E",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
-        end,
-        desc = "Explorer (cwd)",
-      },
-    },
     opts = {
       close_if_last_window = true,
       source_selector = {
         winbar = true,
-        statusline = false,
+        statusline = true,
         content_layout = "center",
         sources = {
           { source = "filesystem", display_name = " File" },
@@ -49,7 +31,6 @@ return {
         },
       },
       window = {
-        width = 35,
         mappings = {
           ["<space>"] = "none",
           ["S"] = "none",

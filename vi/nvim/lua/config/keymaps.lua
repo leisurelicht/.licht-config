@@ -76,7 +76,6 @@ map.lazy("n", "<leader>wc", "<C-w>o", { desc = "Close Other Window" }) -- 关闭
 
 -- Buffer
 map.del("n", "<leader>bb")
-map.lazy("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch To Other Buffer" })
 map.lazy("n", "<leader>1", "<cmd>1wincmd w<cr>", { desc = "Win 1" })
 map.lazy("n", "<leader>2", "<cmd>2wincmd w<cr>", { desc = "Win 2" })
 map.lazy("n", "<leader>3", "<cmd>3wincmd w<cr>", { desc = "Win 3" })

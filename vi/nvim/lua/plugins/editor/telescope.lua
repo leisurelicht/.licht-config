@@ -22,6 +22,7 @@ return {
         { "<leader>fR", false },
         { "<leader>gc", false },
         { "<leader>gs", false },
+        { "<leader>fb", false },
 
         -- set new keymap
         { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
