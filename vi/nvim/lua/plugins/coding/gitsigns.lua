@@ -7,19 +7,8 @@ return {
     "lewis6991/gitsigns.nvim",
     optional = true,
     opts = {
-      signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "│" },
-        topdelete = { text = "│" },
-        changedelete = { text = "│" },
-        untracked = { text = "┆" },
-      },
-      signcolumn = true,
-      numhl = true,
       current_line_blame_opts = { virt_text_pos = "right_align", delay = 0 },
       preview_config = {
-        -- Options passed to nvim_open_win
         border = "rounded",
         style = "minimal",
         relative = "cursor",

@@ -1,6 +1,22 @@
 local map = require("utils.map")
 return {
   {
+    "lewis6991/gitsigns.nvim",
+    optional = true,
+    opts = {
+      signs = {
+        add = { text = "│" },
+        change = { text = "│" },
+        delete = { text = "│" },
+        topdelete = { text = "│" },
+        changedelete = { text = "│" },
+        untracked = { text = "┆" },
+      },
+      signcolumn = true,
+      numhl = true,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     optional = true,
     init = function()
