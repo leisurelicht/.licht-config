@@ -5,12 +5,12 @@ return {
     optional = true,
     opts = {
       signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "│" },
-        topdelete = { text = "│" },
-        changedelete = { text = "│" },
-        untracked = { text = "┆" },
+        add = { text = "┋" },
+        change = { text = "┃" },
+        delete = { text = "󱈸" },
+        topdelete = { text = "󱈸" },
+        changedelete = { text = "┃" },
+        untracked = { text = "┇" },
       },
       signcolumn = true,
       numhl = true,
@@ -24,7 +24,7 @@ return {
       keys[#keys + 1] = { "K", false }
     end,
   },
-  { -- better statusline
+  { -- better statuscolumn
     "luukvbaal/statuscol.nvim",
     event = { "BufRead", "BufNewFile" },
     opts = function()
@@ -34,13 +34,14 @@ return {
         segments = {
           { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
           {
-            sign = { name = { "Git", "Diagnostic" }, maxwidth = 1, colwidth = 1, auto = false, wrap = false },
+            sign = { name = { "Diagnostic*" }, text = { ".*" }, maxwidth = 1, colwidth = 1, auto = true },
             click = "v:lua.ScSa",
           },
           { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
         },
       }
     end,
+    init = function() end,
     config = function(_, opts)
       require("statuscol").setup(opts)
     end,
@@ -50,9 +51,8 @@ return {
     event = { "BufRead", "BufNewFile" },
     dependencies = { "kevinhwang91/promise-async" },
     init = function()
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-      vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
     end,
@@ -113,7 +113,7 @@ return {
         if not require("ufo").peekFoldedLinesUnderCursor() then
           vim.lsp.buf.hover()
         end
-      end, { desc = "Peek folded lines under cursor" })
+      end, { desc = "Peek folded lines under cursor or hover" })
     end,
   },
 }
