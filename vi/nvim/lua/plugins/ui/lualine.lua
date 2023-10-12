@@ -58,14 +58,18 @@ return {
         {
           filetypes = { "mason" },
           sections = {
-            lualine_a = { { title("Mason 󰏔"), separator = { right = "" } } },
+            lualine_a = {
+              function()
+                return "Mason"
+              end,
+            },
             lualine_b = {
               {
                 function()
                   return "Installed: "
                     .. #mason_registry.get_installed_packages()
                     .. "/"
-                    .. #mason_registry.get_all_packages()
+                    .. #mason_registry.get_all_package_specs()
                 end,
               },
             },
