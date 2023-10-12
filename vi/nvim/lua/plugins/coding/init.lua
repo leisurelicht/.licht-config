@@ -1,14 +1,6 @@
 return {
   { import = "plugins.coding.gitsigns" },
   {
-    "williamboman/mason.nvim",
-    optional = true,
-    keys = {
-      { "<leader>cm", false },
-      { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" },
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
     optional = true,
     init = function()
