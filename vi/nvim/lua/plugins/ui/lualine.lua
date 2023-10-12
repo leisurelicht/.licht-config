@@ -73,7 +73,6 @@ return {
                 end,
               },
             },
-            lualine_z = { { title("        "), separator = { left = "" } } },
           },
         },
         {
