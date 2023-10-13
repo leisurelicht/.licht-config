@@ -157,10 +157,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end
 
     require("which-key").register({
-      c = { name = " Code", mode = { "n", "v" } },
       l = { name = "󰿘 Lsp" },
-      g = { name = "󰊢 Git" },
-      b = { name = "󰓩 Buffers" },
       w = { name = " Window Split" },
     }, { mode = "n", prefix = "<leader>", buffer = event.buf })
   end,

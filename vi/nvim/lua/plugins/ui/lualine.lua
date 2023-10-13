@@ -14,7 +14,7 @@ local diagnostic_check = {
   cond = function()
     return #vim.diagnostic.get(0) == 0
   end,
-  color = require("lazyvim.util").fg("DiagnosticInfo"),
+  color = require("lazyvim.util").ui.fg("DiagnosticInfo"),
 }
 
 return {

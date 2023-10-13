@@ -28,6 +28,8 @@ return {
         ["<leader>q"] = { name = " Quit/Session" },
         ["<leader>g"] = { name = "󰊢 Git", mode = { "n", "v" } },
         ["<leader>x"] = { name = "󰚢 Diagnostics/Quickfix" },
+        ["<leader>b"] = { name = "󰓩 Buffers" },
+        ["<leader>c"] = { name = " Code", mode = { "n", "v" } },
       },
     },
     config = function(_, opts)

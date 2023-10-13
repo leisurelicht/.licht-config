@@ -2,6 +2,7 @@ local M = {}
 
 M.unbind_key_filetypes = {
   alpha = true,
+  dashboard = true,
   ["neo-tree"] = true,
 }
 

@@ -78,20 +78,12 @@ return {
     event = { "BufRead", "BufNewFile" },
     keys = {
       {
-        "<leader>ui",
+        "<leader>uI",
         function()
           vim.cmd([[ImSelectEnable]])
           Util.info("Enabled im select")
         end,
-        desc = "Enable imselect",
-      },
-      {
-        "<leader>uI",
-        function()
-          vim.cmd([[ImSelectDisable]])
-          Util.warn("Disabled im select")
-        end,
-        desc = "Disable imselect",
+        desc = "Toggle imselect",
       },
     },
     init = function()

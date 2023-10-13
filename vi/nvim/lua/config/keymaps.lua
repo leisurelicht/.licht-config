@@ -17,14 +17,14 @@ map.del("n", "<leader>`")
 
 map.del({ "n", "v" }, "<leader>cf")
 map.lazy({ "n", "v" }, "<leader>cf", function()
-  require("lazyvim.plugins.lsp.format").format({ force = true })
+  require("lazyvim.util").format({ force = true })
 end, { desc = "Format" })
 
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
 map.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- lazy
-map.set("n", "<leader>pc", Util.changelog, { desc = "LazyVim Changelog" }) -- LazyVim Changelog
+map.set("n", "<leader>pL", Util.news.changelog, { desc = "LazyVim Changelog" }) -- LazyVim Changelog
 
 -- Tabs
 map.del("n", "<leader><tab>l")

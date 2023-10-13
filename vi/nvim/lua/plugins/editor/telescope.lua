@@ -8,34 +8,28 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     optional = true,
-    keys = function(_, keys)
-      local _keys = {
-        -- disable the keymap
-        { "<leader><space>", false },
-        { "<leader>/", false },
-        { "<leader>,", false },
-        { "<leader>:", false },
-        { "<leader>fn", false },
-        { "<leader>bs", false },
-        { "<leader>fr", false },
-        { "<leader>fR", false },
-        { "<leader>fR", false },
-        { "<leader>gc", false },
-        { "<leader>gs", false },
-        { "<leader>fb", false },
+    keys = {
+      -- disable the keymap
+      { "<leader><space>", false },
+      { "<leader>/", false },
+      { "<leader>,", false },
+      { "<leader>:", false },
+      { "<leader>fn", false },
+      { "<leader>bs", false },
+      { "<leader>fr", false },
+      { "<leader>fR", false },
+      { "<leader>fR", false },
+      { "<leader>gc", false },
+      { "<leader>gs", false },
+      { "<leader>fb", false },
 
-        -- set new keymap
-        { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
-        { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-        { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-        { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      }
-      keys = vim.list_extend(keys, _keys)
-
-      map.lazy("n", "<leader>bs", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-
-      return keys
-    end,
+      -- set new keymap
+      { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
+      { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+      { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+      { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      { "<leader>bs", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+    },
     opts = {
       defaults = {
         prompt_prefix = "   ",
