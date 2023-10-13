@@ -25,7 +25,7 @@ return {
       local _opts = {
         options = {
           component_separators = { left = "|", right = "|" },
-          disabled_filetypes = { winbar = { "alpha", "neo-tree" } },
+          disabled_filetypes = { winbar = { "alpha", "dashboard", "neo-tree" } },
         },
         winbar = {
           lualine_a = { { win_num } },
@@ -78,8 +78,7 @@ return {
         {
           filetypes = { "TelescopePrompt" },
           sections = {
-            lualine_a = { { title("Telescope "), separator = { right = "" } } },
-            lualine_z = { { title("            "), separator = { left = "" } } },
+            lualine_a = { { title("Telescope"), separator = { right = "" } } },
           },
         },
       })

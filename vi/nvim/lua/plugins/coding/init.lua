@@ -2,7 +2,6 @@ return {
   { import = "plugins.coding.gitsigns" },
   {
     "neovim/nvim-lspconfig",
-    optional = true,
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
