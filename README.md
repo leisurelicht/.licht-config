@@ -27,7 +27,7 @@
     </a>
 </div>
 
-## 这个项目是干什么的 
+## 这个项目是干什么的
 
 - 管理，保存我的环境和软件的配置
 
@@ -43,7 +43,7 @@
 
 ## 文件结构
 
-```
+```text
 .
 ├── bak
 ├── install // brew 安装的软件列表
@@ -60,7 +60,7 @@
 
 ### 克隆本项目
 
-```
+```bash
 git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 ```
 
@@ -68,46 +68,51 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 
 #### Usage
 
-* 安装
-  ```
+- 安装
+
+  ```bash
   ./install.sh kitty
   ```
 
-* 卸载
-  ```
+- 卸载
+
+  ```bash
   ./uninstall.sh kitty
   ```
 
 #### 文件结构
 
-```
+```text
 .
 └── kitty.conf
 ```
 
 ----
 
-### Zsh 
+### Zsh
 
 #### Usage
 
-* 安装
-  ```
+- 安装
+
+  ```bash
   ./install.sh zsh
   ```
-  * 修改 terminal 字体为 Hack Nerd Font
-  * 如果使用的是 iterm2，可以参考下面的配置
+
+  - 修改 terminal 字体为 Hack Nerd Font
+  - 如果使用的是 iterm2，可以参考下面的配置
 
   ![image](https://user-images.githubusercontent.com/8042345/246595065-19313c00-7f70-4cf8-ba12-ba9b2a56ddb4.png)
 
-* 卸载
-  ```
+- 卸载
+
+  ```bash
   ./uninstall.sh zsh
   ```
 
 #### 文件结构
 
-```
+```text
 └── zsh
    ├── aliasrc // 命令别名
    ├── export_env // 环境变量
@@ -128,17 +133,23 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 
 #### Usage
 
-* 安装
+- 安装
+
   1. 运行安装脚本
+
   ```bash
   ./install.sh tmux
   ```
+
   2. 进入tmux，安装 tmux 插件
+
   ```bash
   tmux
   <C-b>I
   ```
-* 卸载
+
+- 卸载
+
   ```bash
   ./uninstall.sh tmux
   ```
@@ -155,8 +166,8 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 
 #### 快捷键
 
-* **C = Ctrl = Control**
-* **pk = Prefix Key = \<Ctrl-b\>**
+- **C = Ctrl = Control**
+- **pk = Prefix Key = \<Ctrl-b\>**
 
 |  *  |   快捷键    |                                                             功能 |
 | :-: |    :--:     |                                                              --: |
@@ -213,19 +224,21 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 
 #### Usage
 
-* 安装
-  ```
+- 安装
+
+  ```bash
   ./install.sh [vim/neovim]
   ```
 
-* 卸载
-  ```
+- 卸载
+
+  ```bash
   ./uninstall.sh [vim/neovim]
   ```
   
 #### 文件结构
 
-```
+```text
 .
 ├── nvim
 │  ├── ftplugin
