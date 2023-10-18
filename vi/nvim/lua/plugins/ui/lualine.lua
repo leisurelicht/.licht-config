@@ -49,32 +49,12 @@ return {
 
       vim.list_extend(opts.sections.lualine_x, { "filetype", "encoding", "fileformat" })
 
-      local mason_registry = require("mason-registry")
       vim.list_extend(opts.extensions, {
         "man",
         "trouble",
         "toggleterm",
         "quickfix",
-        {
-          filetypes = { "mason" },
-          sections = {
-            lualine_a = {
-              function()
-                return "Mason"
-              end,
-            },
-            lualine_b = {
-              {
-                function()
-                  return "Installed: "
-                    .. #mason_registry.get_installed_packages()
-                    .. "/"
-                    .. #mason_registry.get_all_package_specs()
-                end,
-              },
-            },
-          },
-        },
+        "mason",
         {
           filetypes = { "TelescopePrompt" },
           sections = {
