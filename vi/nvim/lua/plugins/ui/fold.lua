@@ -1,4 +1,5 @@
-local map = require("utils.map")
+local map = require("lazyvim.util").safe_keymap_set
+
 return {
   {
     "lewis6991/gitsigns.nvim",
@@ -105,11 +106,11 @@ return {
     end,
     config = function(_, opts)
       require("ufo").setup(opts)
-      map.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-      map.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
-      map.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
-      map.set("n", "zm", require("ufo").closeFoldsWith, { desc = "Close folds with" })
-      map.set("n", "K", function()
+      map("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
+      map("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
+      map("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
+      map("n", "zm", require("ufo").closeFoldsWith, { desc = "Close folds with" })
+      map("n", "K", function()
         if not require("ufo").peekFoldedLinesUnderCursor() then
           vim.lsp.buf.hover()
         end
