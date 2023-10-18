@@ -5,7 +5,7 @@ return {
     optional = true,
     opts = {
       signs = {
-        add = { text = "┋" },
+        add = { text = "┃" },
         change = { text = "┃" },
         delete = { text = "󱈸" },
         topdelete = { text = "󱈸" },
