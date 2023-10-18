@@ -1,6 +1,13 @@
 return {
   { import = "plugins.coding.gitsigns" },
   {
+    "andymass/vim-matchup",
+    event = { "BufNewFile", "BufRead" },
+    init = function()
+      vim.g.matchup_matchparen_offscreen = { method = "poopup" }
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     keys = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
