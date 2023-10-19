@@ -80,8 +80,14 @@ return {
       {
         "<leader>uI",
         function()
-          vim.cmd([[ImSelectEnable]])
-          Util.info("Enabled im select")
+          local autocommand = vim.api.nvim_get_autocmds({ group = "im_select" })
+          if #autocommand == 0 then
+            vim.cmd([[ImSelectEnable]])
+            Util.info("Enabled im select")
+          else
+            vim.cmd([[ImSelectDisable]])
+            Util.info("Disabled im select")
+          end
         end,
         desc = "Toggle imselect",
       },
