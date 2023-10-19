@@ -1,10 +1,5 @@
 local function win_num()
-  local num = vim.api.nvim_eval("winnr()")
-  return "[" .. num .. "]"
-end
-
-local function title(t)
-  return string.format("[[%s]]", t)
+  return "[" .. vim.api.nvim_eval("winnr()") .. "]"
 end
 
 local diagnostic_check = {
@@ -58,7 +53,11 @@ return {
         {
           filetypes = { "TelescopePrompt" },
           sections = {
-            lualine_a = { { title("Telescope"), separator = { right = "" } } },
+            lualine_a = {
+              function()
+                return "Telescope"
+              end,
+            },
           },
         },
       })

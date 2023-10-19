@@ -1,5 +1,5 @@
 return {
-  { import = "plugins.coding.gitsigns" },
+  { import = "plugins.coding.git" },
   {
     "andymass/vim-matchup",
     event = { "BufNewFile", "BufRead" },

@@ -3,9 +3,18 @@ local map = require("utils.map")
 local Util = require("lazy.core.util")
 
 return {
-  { import = "plugins.editor.treesitter" },
   { import = "plugins.editor.neo-tree" },
   { import = "plugins.editor.telescope" },
+  {
+    "RRethy/nvim-treesitter-endwise",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      optional = true,
+      opts = function(_, opts)
+        opts.endwise = { enable = true }
+      end,
+    },
+  },
   { "nacro90/numb.nvim", event = { "BufRead", "BufNewFile" }, config = true },
   {
     "folke/flash.nvim",
