@@ -20,10 +20,6 @@ return {
           return
         end
 
-        if not utils.git.is_repo() then
-          return
-        end
-
         local gs = package.loaded.gitsigns
         map.set("n", "<leader>ga", gs.stage_hunk, { desc = "Add hunk", buffer = bufnr })
         map.set("n", "<leader>gr", gs.reset_hunk, { desc = "Reset hunk", buffer = bufnr })

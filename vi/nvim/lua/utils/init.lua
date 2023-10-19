@@ -50,23 +50,4 @@ function M.sys.is_term()
   return vim.fn.exists("g:termguicolors") == 1
 end
 
-M.git = {}
-
---- returns is git repo
----@return boolean
-function M.git.is_repo()
-  local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
-  if handle == nil then
-    return false
-  end
-  local result = handle:read("*a")
-  handle:close()
-
-  if result:match("true") then
-    return true
-  else
-    return false
-  end
-end
-
 return M
