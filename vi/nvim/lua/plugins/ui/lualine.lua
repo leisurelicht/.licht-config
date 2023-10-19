@@ -17,21 +17,13 @@ return {
     "nvim-lualine/lualine.nvim",
     optional = true,
     opts = function(_, opts)
-      local _opts = {
-        options = {
-          component_separators = { left = "|", right = "|" },
-          disabled_filetypes = { winbar = { "alpha", "dashboard", "neo-tree" } },
-        },
+      opts.options.component_separators = { left = "|", right = "|" }
+      opts.options.disabled_filetypes.winbar = { "alpha", "dashboard", "neo-tree" }
+
+      local winbar = {
         winbar = {
           lualine_a = { { win_num } },
-          lualine_c = {
-            {
-              "filename",
-              path = 1,
-              newfile_status = true,
-              symbols = { modified = "[Modified]", readonly = "[Read Only]", unnamed = "[No Name]", newfile = "[New]" },
-            },
-          },
+          lualine_c = { { "filename", path = 1, newfile_status = true, symbols = { readonly = "[Read Only]" } } },
           lualine_x = { diagnostic_check },
         },
         inactive_winbar = {
@@ -40,14 +32,16 @@ return {
           lualine_x = { diagnostic_check },
         },
       }
-      opts = vim.tbl_deep_extend("force", opts, _opts)
+      opts = vim.tbl_deep_extend("force", opts, winbar)
+
+      table.remove(opts.sections.lualine_c)
+      vim.list_extend(opts.sections.lualine_c, { { "filename", path = 1 } })
 
       vim.list_extend(opts.sections.lualine_x, { "filetype", "encoding", "fileformat" })
 
       vim.list_extend(opts.extensions, {
         "man",
         "trouble",
-        "toggleterm",
         "quickfix",
         "mason",
         {
