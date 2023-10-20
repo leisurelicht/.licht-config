@@ -3,7 +3,6 @@ local map = require("utils.map")
 local Util = require("lazy.core.util")
 
 return {
-  { import = "plugins.editor.neo-tree" },
   { import = "plugins.editor.telescope" },
   {
     "RRethy/nvim-treesitter-endwise",
