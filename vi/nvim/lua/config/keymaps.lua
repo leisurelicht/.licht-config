@@ -26,6 +26,11 @@ map.del("n", "<leader>L")
 map.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- lazy
 map.set("n", "<leader>pL", Util.news.changelog, { desc = "LazyVim Changelog" }) -- LazyVim Changelog
 
+map.del("n", "<leader>ft")
+map.del("n", "<leader>fT")
+map.del("n", "<c-/>")
+map.del("n", "<c-_>")
+
 -- Tabs
 map.del("n", "<leader><tab>l")
 map.del("n", "<leader><tab>f")

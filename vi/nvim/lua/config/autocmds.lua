@@ -114,10 +114,8 @@ local auto_close_filetype = {
   notify = true,
   lspinfo = true,
   lazyterm = true,
-  toggleterm = true,
   TelescopePrompt = true,
   TelescopeResults = true,
-  ["null-ls-info"] = true,
 }
 
 -- auto close window when leaving
