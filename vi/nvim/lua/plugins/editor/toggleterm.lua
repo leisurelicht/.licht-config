@@ -22,10 +22,6 @@ local function smart_add_terminal()
     end
   end
 
-  Util.info("direction: " .. direction)
-
-  -- Util.info("direction: " .. vim.g._term_direction)
-
   if direction == "vertical" then
     vim.g._term_direction = 1
     vim.cmd("exe b:toggle_number+1.'ToggleTerm direction=vertical'")
