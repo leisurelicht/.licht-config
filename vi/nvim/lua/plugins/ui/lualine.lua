@@ -18,7 +18,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.options.component_separators = { left = "|", right = "|" }
-      opts.options.disabled_filetypes.winbar = { "alpha", "dashboard", "neo-tree" }
+      opts.options.disabled_filetypes.winbar = { "alpha", "dashboard", "neo-tree", "aerial" }
 
       local winbar = {
         winbar = {
@@ -50,6 +50,21 @@ return {
             lualine_a = {
               function()
                 return "Telescope"
+              end,
+            },
+          },
+        },
+        {
+          filetypes = { "aerial" },
+          sections = {
+            lualine_a = {
+              function()
+                return "Aerial"
+              end,
+            },
+            lualine_b = {
+              function()
+                return "Symbols Num: " .. require("aerial").num_symbols(0)
               end,
             },
           },

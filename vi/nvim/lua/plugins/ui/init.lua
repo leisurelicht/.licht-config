@@ -23,16 +23,9 @@ return {
     },
     config = true,
   },
-
   {
     "folke/noice.nvim",
     optional = true,
-    keys = {
-      { "<leader>snl", false },
-      { "<leader>snh", false },
-      { "<leader>sna", false },
-      { "<leader>snd", false },
-    },
     opts = { presets = { lsp_doc_border = true } },
   },
   {
@@ -57,6 +50,7 @@ return {
       opts.defaults["<leader>x"] = { name = "󰚢 Diagnostics/Quickfix" }
       opts.defaults["<leader>b"] = { name = "󰓩 Buffers" }
       opts.defaults["<leader>c"] = { name = " Code", mode = { "n", "v" } }
+      opts.defaults["<leader>sn"] = { name = " Noice" }
     end,
   },
 }

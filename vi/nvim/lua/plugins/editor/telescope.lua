@@ -92,7 +92,7 @@ return {
 
       if require("lazyvim.util").has("nvim-notify") then
         telescope.load_extension("notify")
-        map.set("n", "<leader>sn", "<cmd>Telescope notify theme=dropdown<cr>", { desc = "Notify" })
+        map.set("n", "<leader>sN", "<cmd>Telescope notify<cr>", { desc = "Notify" })
       end
     end,
   },

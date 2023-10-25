@@ -126,7 +126,7 @@ return {
           show_prompt = false,
           filter_rules = {
             bo = {
-              filetype = { "neo-tree", "neo-tree-popup", "notify", "noice" },
+              filetype = { "neo-tree", "neo-tree-popup", "notify", "noice", "aerial" },
               buftype = { "terminal", "quickfix" },
             },
           },
@@ -152,5 +152,14 @@ return {
         },
       },
     },
+  },
+  {
+    "stevearc/aerial.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.ignore = {
+        filetype = { "markdown" },
+      }
+    end,
   },
 }
