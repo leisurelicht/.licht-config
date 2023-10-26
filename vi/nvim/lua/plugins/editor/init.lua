@@ -153,13 +153,4 @@ return {
       },
     },
   },
-  {
-    "stevearc/aerial.nvim",
-    optional = true,
-    opts = function(_, opts)
-      opts.ignore = {
-        filetype = { "markdown" },
-      }
-    end,
-  },
 }

@@ -34,9 +34,6 @@ return {
       }
       opts = vim.tbl_deep_extend("force", opts, winbar)
 
-      table.remove(opts.sections.lualine_c)
-      vim.list_extend(opts.sections.lualine_c, { { "filename", path = 1 } })
-
       vim.list_extend(opts.sections.lualine_x, { "filetype", "encoding", "fileformat" })
 
       vim.list_extend(opts.extensions, {
