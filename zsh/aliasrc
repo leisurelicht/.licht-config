@@ -100,8 +100,8 @@ if [[ `uname` == "Darwin" ]]; then
     alias ensleep='sudo pmset -b sleep 5; sudo pmset -b disablesleep 0'
 
     # 代理
-    alias freedom="export all_proxy=socks5://127.0.0.1:9909;export http_proxy=http://127.0.0.1:9910;export https_proxy=http://127.0.0.1:9910"
-    alias unfreedom="unset all_proxy http_proxy https_proxy"
+    alias geph="export all_proxy=socks5://127.0.0.1:9909;export http_proxy=http://127.0.0.1:9910;export https_proxy=http://127.0.0.1:9910"
+    alias unproxy="unset all_proxy http_proxy https_proxy"
 
 
     alias neovide='$(brew --prefix)/bin/neovide'
