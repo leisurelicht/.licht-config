@@ -101,6 +101,7 @@ if [[ `uname` == "Darwin" ]]; then
 
     # 代理
     alias geph="export all_proxy=socks5://127.0.0.1:9909;export http_proxy=http://127.0.0.1:9910;export https_proxy=http://127.0.0.1:9910"
+    alias clashx="export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890"
     alias unproxy="unset all_proxy http_proxy https_proxy"
 
 
