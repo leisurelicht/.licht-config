@@ -1,3 +1,4 @@
+set encoding=utf-8
 scriptencoding utf-8
 " =================
 " vimrc --- vim entry file
@@ -9,7 +10,6 @@ scriptencoding utf-8
 let g:mapleader="\<Space>"
 let g:maplocalleader=','
 
-set encoding=utf-8
 filetype on
 filetype indent on " 为特定文件类型载入相关缩进文件
 filetype plugin on " 载入文件类型插件
@@ -285,9 +285,9 @@ let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeStatusline='NERDTree'
 noremap <leader>e :NERDTreeToggle<CR>
-" ---> show git
+" ----> Show git
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" ---> highlight
+" ----> Highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
@@ -325,8 +325,8 @@ augroup vim_enter
 augroup end
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-let g:which_key_map = {}
 " ---> Create menus based on existing mappings
+let g:which_key_map = {}
 let g:which_key_map.1 = 'window-1'
 let g:which_key_map.2 = 'window-2'
 let g:which_key_map.3 = 'window-3'
