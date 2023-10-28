@@ -6,8 +6,16 @@ M.unbind_key_filetypes = {
   ["neo-tree"] = true,
 }
 
-function M.unbind_key_buf(ft)
-  return M.unbind_key_filetypes[ft]
+M.unbind_key_filetypes2 = {
+  alpha = true,
+  dashboard = true,
+}
+
+function M.unbind_key_buf(ft, filetypes)
+  if filetypes == nil then
+    filetypes = M.unbind_key_filetypes
+  end
+  return filetypes[ft]
 end
 
 M.sys = {}
