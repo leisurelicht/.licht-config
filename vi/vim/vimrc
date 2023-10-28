@@ -1,8 +1,348 @@
+scriptencoding utf-8
 " =================
 " vimrc --- vim entry file
 " Author: MuCheng
 " License: GPLv3
 " =================
 "
-let g:_main = '/.licht-config/vi/vim/config/main.vim'
-execute 'source' fnamemodify(expand('<sfile>'), ':h').g:_main
+" 设置leader键
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
+
+set encoding=utf-8
+filetype on
+filetype indent on " 为特定文件类型载入相关缩进文件
+filetype plugin on " 载入文件类型插件
+syntax enable " 开启语法高
+syntax on " 允许使用制定高亮替换方案
+set backspace=2 " 修复delete键
+set laststatus=2 " 始终显示状态拦
+set mouse=a " 让鼠标能使用
+set incsearch " 输入搜索内容时就显示搜索结果
+set hlsearch " 搜索时高亮显示被找到的文本
+set smartcase " 有一个或以上大写字母时仍大小写敏感
+set autoindent " 自动套用上一行的缩进方式
+set smartindent " 智能缩进
+set autoread " 文件自动检测外部更改
+set scrolloff=5 " 光标和顶部/底部保持5行的距离
+set timeoutlen=500 " mapping delays
+set ttimeoutlen=0 " key code delays
+set number " 显示行号
+set cursorline "高亮当前行
+set noswapfile " 关闭自动备份
+set showcmd " 右下角显示正在输入的命令
+set smarttab " 使用backspace直接删除tab
+set linebreak " 不在单词中间折行
+set splitbelow " 分隔窗口在当前窗口下边
+set splitright " 分隔窗口在当前窗口下边
+set clipboard=unnamed " 系统剪贴板
+set novisualbell " 警告时不要闪烁
+set ignorecase " 搜索时忽略大小写
+set smartcase " 有一个或以上大写字母时仍大小写敏感
+set expandtab " 编辑的时候将所有的tab设置为空格
+set tabstop=2 " 将tab换为4个空格
+set softtabstop=2
+set shiftwidth=2
+set foldmethod=indent " 折叠方式
+set foldlevelstart=99
+set colorcolumn=0 " 长度表示线
+
+" 强制保存
+cmap w!! w !sudo tee > /dev/null %
+" 一键大写
+inoremap <C-U> <ESC>viwUea
+inoremap <C-L> <ESC>viwuea
+" 窗口切换组合快捷键
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" 创建新的标签页
+nnoremap <leader>tp gT
+nnoremap <leader>tn gt
+nnoremap <leader>tt :tab
+nnoremap <leader>ta :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tl :tabs<CR>
+nnoremap <leader>td :tabdo
+nnoremap <leader>tF :tabfirst<CR>
+nnoremap <leader>tL :tablast<CR>
+nnoremap <leader>ts :tab split<CR>
+noremap <silent> <leader>1 :1wincmd w<CR>
+noremap <silent> <leader>2 :2wincmd w<CR>
+noremap <silent> <leader>3 :3wincmd w<CR>
+noremap <silent> <leader>4 :4wincmd w<CR>
+noremap <silent> <leader>5 :5wincmd w<CR>
+noremap <silent> <leader>6 :6wincmd w<CR>
+noremap <silent> <leader>7 :7wincmd w<CR>
+noremap <silent> <leader>8 :8wincmd w<CR>
+noremap <silent> <leader>a za<CR>
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
+
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+augroup auto_position
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup end
+" 标识不必要的空白字符
+augroup white_space
+  hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
+  autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
+augroup end
+" 在commit message中开启拼写检查和设置文本宽度为 72
+augroup set_gitcommit
+  autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
+augroup end
+
+function! PythonHeader() abort
+  call setline(1, '#!/usr/bin/env python')
+  call setline(2, '# -*-coding: utf-8-*-')
+  normal! G
+  normal! o
+  normal! o
+endfunction
+
+function! BashHeader() abort
+  call setline(1, '#!/bin/bash')
+  normal! G
+  normal! o
+  normal! o
+endfunction
+
+augroup auto_set_file_head
+  autocmd BufNewFile *.py call PythonHeader()
+  autocmd BufNewFile *.sh call BashHeader()
+augroup end
+
+augroup file_set
+  autocmd FileType dockerfile
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType json
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType go
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal colorcolumn=80 |
+  autocmd FileType lua
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType python
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal colorcolumn=79 |
+  autocmd FileType htmldjango
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType markdown
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+  autocmd FileType sh
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType sql
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType vim
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType yaml
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+augroup end
+
+
+if !filereadable(expand('~/.vim/autoload/plug.vim'))
+  if executable('curl')
+    execute '!curl -fLo'
+    \ . ' ~/.vim/autoload/plug.vim'
+    \ . ' --create-dirs'
+    \ . ' https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  else
+    echohl WarningMsg
+    echom 'You need install curl'
+    echohl None
+    exit(0)
+  endif
+endif
+
+call plug#begin()
+
+" ----> Theme
+Plug 'liuchengxu/space-vim-dark'
+let g:space_vim_dark_background = 233
+hi Normal     ctermbg=NONE guibg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
+hi Comment    ctermfg=99 guifg=#5C6370
+" ----> Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#hunks#enabled=0
+function! WindowNumber(...)
+  let builder = a:1
+  let context = a:2
+  call builder.add_section('airline_b', '[%{tabpagewinnr(tabpagenr())}]➤')
+  return 0
+endfunction
+augroup vim_enter
+  autocmd VimEnter * call airline#add_statusline_func('WindowNumber')
+  autocmd VimEnter * call airline#add_inactive_statusline_func('WindowNumber')
+augroup end
+" ---> enable vim devicons
+let g:airline_powerline_fonts = 1
+" ----> 缩进指示线
+Plug 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
+let g:indentLine_char = '|'
+" ----> 括号、引号自动补全
+Plug 'jiangmiao/auto-pairs'
+" ----> 注释
+Plug 'tpope/vim-commentary'
+" surround
+Plug 'tpope/vim-surround'
+" ----> wakatime
+Plug 'wakatime/vim-wakatime'
+" ----> Python 代码缩进
+Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+" ----> Python 语法高亮
+Plug 'vim-python/python-syntax' , {'for': 'python'}
+" ----> Git
+" ----> 文件变动
+Plug 'mhinz/vim-signify' " ---> Git Message
+Plug 'rhysd/git-messenger.vim'
+" ----> Git命令
+Plug 'tpope/vim-fugitive'
+nnoremap <leader>gb :Git blame<CR>
+nnoremap <leader>ge :Gbedit<CR>
+nnoremap <leader>gf :Git diff<CR>
+nnoremap <leader>gg :Git<CR>
+nnoremap <leader>gh :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
+nnoremap <leader>gr :Gread<CR>
+" ----> Fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_command_prefix = 'Fzf'
+nnoremap <leader>f<Tab> :FzfCommands<CR>
+nnoremap <leader>fs :FzfAg<CR>
+nnoremap <leader>fb :FzfBuffers<CR>
+nnoremap <leader>ff :FzfFiles<CR>
+nnoremap <leader>fg :FzfGFiles<CR>
+nnoremap <leader>fhh :FzfHistory<CR>
+nnoremap <leader>fhc :FzfHistory:<CR>
+nnoremap <leader>fhs :FzfHistory/<CR>
+nnoremap <leader>ft :FzfTags<CR>
+nnoremap <leader>fl :FzfLines<CR>
+nnoremap <leader>fO :FzfColors<CR>
+command! -bang -nargs=? -complete=dir FzfGFiles
+      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir FzfAg
+      \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+augroup fzf
+autocmd! FileType fzf set laststatus=0 noshowmode noruler cmdheight=1
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup end
+" ----> NerdTree
+Plug 'scrooloose/nerdtree'
+let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
+let g:NERDTreeShowLineNumbers = 1
+let g:NERDTreeStatusline='NERDTree'
+noremap <leader>e :NERDTreeToggle<CR>
+" ---> show git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" ---> highlight
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+" ----> Ale
+Plug 'dense-analysis/ale'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'nerver'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '☠'
+let g:ale_sign_warning = '★'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
+highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+nnoremap <silent> <C-n> <Plug>(ale_previous_wrap)
+nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
+nnoremap <leader>le :ALEEnable<CR>
+nnoremap <leader>ld :ALEDisable<CR>
+nnoremap <leader>lf :ALEFix<CR>
+nnoremap <leader>lF :ALEFixSuggest<CR>
+nnoremap <leader>ln :ALENext<CR>
+nnoremap <leader>lp :ALEPrevious<CR>
+" ----> Which-key
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+augroup vim_enter
+  autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+  autocmd User vim-which-key call which_key#register(',', 'g:which_key_localmap')
+augroup end
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+let g:which_key_map = {}
+" ---> Create menus based on existing mappings
+let g:which_key_map.1 = 'window-1'
+let g:which_key_map.2 = 'window-2'
+let g:which_key_map.3 = 'window-3'
+let g:which_key_map.4 = 'window-4'
+let g:which_key_map.5 = 'window-5'
+let g:which_key_map.6 = 'window-6'
+let g:which_key_map.7 = 'window-7'
+let g:which_key_map.8 = 'window-8'
+let g:which_key_map.9 = 'window-9'
+let g:which_key_map.a = 'Fold'
+let g:which_key_map.e = 'Explorer'
+let g:which_key_map.g = { 'name': '+Git', 'b': 'Blame', 'g': 'Status', 'm': 'Message' }
+let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
+let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
+let g:which_key_map.f = { 'name': '+Fzf', '<Tab>': 'Commands', 's': 'String', 'b': 'Buffers', 'f': 'File', 'O': 'Colors', 'g': 'Gitfiles', 't': 'Tags', 'l': 'Lines', 'h': { 'name': 'History', 'h': 'Files', 'c': 'Commands', 's': 'Search'} }
+
+call plug#end()
+
+colorscheme space-vim-dark
