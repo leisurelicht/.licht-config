@@ -1,6 +1,15 @@
 return {
   { import = "plugins.coding.git" },
   {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        ["_"] = { "trim_whitespace" },
+      },
+    },
+  },
+  {
     "andymass/vim-matchup",
     event = { "BufNewFile", "BufRead" },
     init = function()
@@ -60,7 +69,7 @@ return {
       }
       keys[#keys + 1] = { "<leader>lh", vim.lsp.buf.hover, desc = "Show Hover", has = "hover" }
       keys[#keys + 1] =
-        { "<leader>lk", vim.lsp.buf.signature_help, desc = "Show Singature Help", has = "signatureHelp" }
+        { "<leader>lk", vim.lsp.buf.signature_help, desc = "Show Signature Help", has = "signatureHelp" }
 
       -- disable a keymap
       keys[#keys + 1] = { "<leader>cd", false }
