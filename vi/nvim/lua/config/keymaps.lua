@@ -23,8 +23,13 @@ end, { desc = "Format" })
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
-map.set("n", "<leader>pl", "<cmd>Lazy<cr>", { desc = "Lazy" }) -- lazy
-map.set("n", "<leader>pL", Util.news.changelog, { desc = "LazyVim Changelog" }) -- LazyVim Changelog
+map.set("n", "<leader>pm", "<cmd>Mason<CR>", { desc = "Package Manager - [Mason]" })
+map.set("n", "<leader>pl", "<cmd>Lazy<CR>", { desc = "Plugin Manager - [LazyVim]" })
+map.set("n", "<leader>pL", Util.news.changelog, { desc = "Changelog [LazyVim]" })
+map.set("n", "<leader>pe", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
+map.set("n", "<leader>pi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
+map.set("n", "<leader>pr", Util.root.info, { desc = "Root Info [LazyVim]" })
+map.set("n", "<leader>pe", vim.cmd.messages, { desc = "Display messages" })
 
 -- Term
 map.del("n", "<leader>ft")
