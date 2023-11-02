@@ -14,8 +14,6 @@ if status == "dev" then
   require("develop.dev")
 elseif status == "mini" then
   require("develop.mini")
-elseif status == "lazy" then
-  require("develop.lazy")
 else
   require("config.plugs")
 end
