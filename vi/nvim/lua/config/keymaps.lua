@@ -95,3 +95,19 @@ map.lazy2("n", "<leader>5", "<cmd>5wincmd w<cr>", { desc = "Win 5" })
 map.lazy2("n", "<leader>6", "<cmd>6wincmd w<cr>", { desc = "Win 6" })
 map.lazy2("n", "<leader>7", "<cmd>7wincmd w<cr>", { desc = "Win 7" })
 map.lazy2("n", "<leader>8", "<cmd>8wincmd w<cr>", { desc = "Win 8" })
+
+-- diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity, float = { border = "rounded" } })
+  end
+end
+
+map.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+map.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+map.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+map.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+map.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+map.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
