@@ -53,7 +53,6 @@ return {
     keys = {
       { "<leader>uo", "<cmd>ColorizerToggle<cr>", desc = "Toggle Colorizer" },
     },
-    config = true,
   },
   {
     "mrjones2014/smart-splits.nvim",
@@ -135,15 +134,11 @@ return {
     },
     opts = {
       close_if_last_window = true,
-      source_selector = {
-        winbar = true,
-        content_layout = "center",
-      },
+      source_selector = { winbar = true, content_layout = "center" },
       window = {
         mappings = {
           ["<space>"] = "none",
           ["S"] = "none",
-          -- ["m"] = "none",
           ["o"] = "split_with_window_picker",
           ["s"] = "vsplit_with_window_picker",
           ["<cr>"] = "open_with_window_picker",
