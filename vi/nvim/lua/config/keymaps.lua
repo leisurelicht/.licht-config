@@ -34,8 +34,8 @@ map.set("n", "<leader>pe", vim.cmd.messages, { desc = "Display messages" })
 -- Term
 map.del("n", "<leader>ft")
 map.del("n", "<leader>fT")
-map.del("n", "<c-/>")
-map.del("n", "<c-_>")
+map.del("n", "<C-/>")
+-- map.del("n", "<c-_>")
 
 -- Tabs
 map.del("n", "<leader><tab>l")

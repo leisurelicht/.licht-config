@@ -20,6 +20,10 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  dev = { path = "~/Code/neovim" },
+  defaults = { lazy = false, version = false },
+  ui = { border = "rounded", title = "Develop Lazy Plugins Manager " },
+  checker = { enabled = false }, -- automatically check for plugin updates
   spec = {
     -- add LichtVim and import its plugins and config
     {
@@ -28,25 +32,6 @@ require("lazy").setup({
       opts = { colorscheme = "catppuccin-frappe" },
       dev = true,
       config = true,
-    },
-  },
-  dev = {
-    path = "~/Code/neovim",
-  },
-  defaults = {
-    lazy = false,
-    version = false, -- always use the latest git commit
-  },
-  ui = {
-    border = "rounded",
-    title = "Develop Lazy Plugins Manager ",
-  },
-  install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
-  checker = { enabled = false }, -- automatically check for plugin updates
-  performance = {
-    rtp = {
-      -- disable some rtp plugins
-      disabled_plugins = {},
     },
   },
 })
