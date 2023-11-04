@@ -12,14 +12,13 @@ map.lazy("n", "<leader>co", "wb~ea<esc>", { desc = "Upper First Word" })
 map.lazy("i", "<C-u>", "<esc>viwUea", { desc = "Upper Word" }) -- 一键大写
 map.lazy("i", "<C-l>", "<esc>viwuea", { desc = "Lower Word" }) -- 一键小写
 map.lazy("i", "<C-o>", "<esc>wb~ea", { desc = "Upper First Word" }) -- 首字母大写
-
+--
 map.del("n", "<leader>`")
-
+-- Format
 map.del({ "n", "v" }, "<leader>cf")
 map.lazy({ "n", "v" }, "<leader>cf", function()
   require("lazyvim.util").format({ force = true })
 end, { desc = "Format" })
-
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
@@ -30,13 +29,11 @@ map.set("n", "<leader>pe", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [La
 map.set("n", "<leader>pi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map.set("n", "<leader>pr", Util.root.info, { desc = "Root Info [LazyVim]" })
 map.set("n", "<leader>pe", vim.cmd.messages, { desc = "Display messages" })
-
 -- Term
 map.del("n", "<leader>ft")
 map.del("n", "<leader>fT")
 map.del("n", "<C-/>")
--- map.del("n", "<c-_>")
-
+map.del("n", "<c-_>")
 -- Tabs
 map.del("n", "<leader><tab>l")
 map.del("n", "<leader><tab>f")
@@ -64,7 +61,6 @@ map.set("n", "<leader>t5", "5gt", { desc = "Tab 5" })
 map.set("n", "<leader>t6", "6gt", { desc = "Tab 6" })
 map.set("n", "<leader>t7", "7gt", { desc = "Tab 7" })
 map.set("n", "<leader>t8", "8gt", { desc = "Tab 8" })
-
 -- Windows
 map.del("n", "<leader>w|")
 map.del("n", "<leader>w-")
@@ -84,7 +80,6 @@ map.lazy("n", "<leader>wi", "<cmd>horizontal topleft sbuffer<cr>", { desc = "Spl
 map.lazy("n", "<leader>wu", "<cmd>horizontal botright sbuffer<cr>", { desc = "Split To Bottom" })
 map.lazy("n", "<leader>wd", "<C-w>c", { desc = "Close Current Window" }) -- 关闭当前分屏
 map.lazy("n", "<leader>wc", "<C-w>o", { desc = "Close Other Window" }) -- 关闭其他分屏
-
 -- Buffer
 map.del("n", "<leader>bb")
 map.lazy2("n", "<leader>1", "<cmd>1wincmd w<cr>", { desc = "Win 1" })
@@ -95,19 +90,3 @@ map.lazy2("n", "<leader>5", "<cmd>5wincmd w<cr>", { desc = "Win 5" })
 map.lazy2("n", "<leader>6", "<cmd>6wincmd w<cr>", { desc = "Win 6" })
 map.lazy2("n", "<leader>7", "<cmd>7wincmd w<cr>", { desc = "Win 7" })
 map.lazy2("n", "<leader>8", "<cmd>8wincmd w<cr>", { desc = "Win 8" })
-
--- diagnostic
-local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity, float = { border = "rounded" } })
-  end
-end
-
-map.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
-map.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
-map.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
-map.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
-map.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
-map.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })

@@ -18,6 +18,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    opts = { diagnostics = { float = { border = "rounded" } } },
     keys = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
@@ -49,14 +50,14 @@ return {
       keys[#keys + 1] = {
         "<leader>ll",
         function()
-          vim.diagnostic.open_float({ scope = "line", border = "rounded" })
+          vim.diagnostic.open_float({ scope = "line" })
         end,
         desc = "Diagnostics (line)",
       }
       keys[#keys + 1] = {
         "<leader>lc",
         function()
-          vim.diagnostic.open_float({ scope = "cursor", border = "rounded" })
+          vim.diagnostic.open_float({ scope = "cursor" })
         end,
         desc = "Diagnostics (cursor)",
       }
