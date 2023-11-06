@@ -20,24 +20,21 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-  defaults = {
-    lazy = false,
-    version = false, -- always use the latest git commit
-  },
+  defaults = { lazy = false, version = false },
   ui = { border = "rounded", title = " Lazy Plugins Manager " },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
-    rtp = {
-      -- disable some rtp plugins
-      disabled_plugins = { "matchparen", "netrwPlugin", "tohtml", "tutor" },
-    },
+    rtp = { disabled_plugins = { "matchparen", "netrwPlugin", "tohtml", "tutor" } },
   },
   spec = {
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = { colorscheme = "catppuccin-frappe" },
+      opts = {
+        colorscheme = "catppuccin-frappe",
+        border = "rounded",
+      },
     },
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.editor.aerial" },

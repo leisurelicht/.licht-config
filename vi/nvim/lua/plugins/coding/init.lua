@@ -1,15 +1,6 @@
 return {
   { import = "plugins.coding.git" },
   {
-    "stevearc/conform.nvim",
-    optional = true,
-    opts = {
-      formatters_by_ft = {
-        ["_"] = { "trim_whitespace" },
-      },
-    },
-  },
-  {
     "andymass/vim-matchup",
     event = { "BufNewFile", "BufRead" },
     init = function()
