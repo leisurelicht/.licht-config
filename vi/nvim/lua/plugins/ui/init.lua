@@ -11,8 +11,9 @@ return {
         "lazy",
         "mason",
         "notify",
-        "checkhealth",
+        "markdown",
         "dashboard",
+        "checkhealth",
       },
       custom_colorcolumn = {
         go = "120",
