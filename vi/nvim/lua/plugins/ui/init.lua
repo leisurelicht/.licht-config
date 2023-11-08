@@ -40,7 +40,7 @@ return {
       opts.defaults["gz"] = { name = "Surround" }
       opts.defaults["]"] = { name = "Next" }
       opts.defaults["["] = { name = "Prev" }
-      opts.defaults["<leader>t"] = { name = "󱏈 Tab" }
+      opts.defaults["<leader><tab>"] = { name = "󱏈 Tab" }
       opts.defaults["<leader>to"] = { name = "Close Only" }
       opts.defaults["<leader>u"] = { name = "󰨙 UI" }
       opts.defaults["<leader>p"] = { name = "󰏖 Packages" }
@@ -52,6 +52,7 @@ return {
       opts.defaults["<leader>b"] = { name = "󰓩 Buffers" }
       opts.defaults["<leader>c"] = { name = " Code", mode = { "n", "v" } }
       opts.defaults["<leader>sn"] = { name = " Noice" }
+      opts.defaults["<leader>t"] = { name = "󰡾 Test" }
     end,
   },
 }
