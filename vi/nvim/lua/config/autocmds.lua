@@ -114,18 +114,19 @@ local auto_close_filetype = {
   notify = true,
   lspinfo = true,
   lazyterm = true,
-  TelescopePrompt = true,
-  TelescopeResults = true,
+  -- TelescopePrompt = true,
+  -- TelescopeResults = true,
 }
 
 -- auto close window when leaving
 vim.api.nvim_create_autocmd("BufLeave", {
   group = augroup("auto_close_win"),
   callback = function(event)
-    local ft = vim.api.nvim_buf_get_option(event.buf, "filetype")
+    local buf = event.buf
+    local ft = vim.api.nvim_buf_get_option(buf, "filetype")
 
     if auto_close_filetype[ft] then
-      local winids = vim.fn.win_findbuf(event.buf)
+      local winids = vim.fn.win_findbuf(buf)
       for _, win in pairs(winids) do
         vim.api.nvim_win_close(win, true)
       end
