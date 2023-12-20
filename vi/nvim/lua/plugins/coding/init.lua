@@ -9,7 +9,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = { autoformat = false, diagnostics = { float = { border = "rounded" } } },
+    opts = {  diagnostics = { float = { border = "rounded" } } },
     keys = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
