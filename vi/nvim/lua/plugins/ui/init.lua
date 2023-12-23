@@ -2,6 +2,12 @@ return {
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
   { import = "plugins.ui.fold" },
+  -- { import = "plugins.ui.icons" },
+  {
+    "folke/noice.nvim",
+    optional = true,
+    opts = { presets = { lsp_doc_border = true } },
+  },
   {
     "m4xshen/smartcolumn.nvim",
     event = { "BufNewFile", "BufRead" },
@@ -23,11 +29,6 @@ return {
       scope = "file",
     },
     config = true,
-  },
-  {
-    "folke/noice.nvim",
-    optional = true,
-    opts = { presets = { lsp_doc_border = true } },
   },
   {
     "folke/which-key.nvim",
