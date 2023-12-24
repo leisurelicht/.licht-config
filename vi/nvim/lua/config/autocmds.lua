@@ -8,31 +8,7 @@ local function augroup(name, clear)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = clear })
 end
 
--- -- new file auto header
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = augroup("set_header", false),
-  pattern = { "*.go" },
-  callback = function()
-    vim.cmd([[
-            call setline(1, 'package ')
-            normal! G
-        ]])
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = augroup("set_header", false),
-  pattern = { "*.md" },
-  callback = function()
-    vim.cmd([[
-            call setline(1, '# ')
-            normal! gg
-            normal! $
-
-        ]])
-  end,
-})
-
+-- new file auto header
 vim.api.nvim_create_autocmd("BufNewFile", {
   group = augroup("set_header", false),
   pattern = { "*.py" },
@@ -46,25 +22,6 @@ vim.api.nvim_create_autocmd("BufNewFile", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufNewFile", {
-  group = augroup("set_header", false),
-  pattern = { "*.raml" },
-  callback = function()
-    vim.cmd([[
-            call setline(1, '#%RAML 1.0')
-            call setline(2, '---')
-            call setline(3, 'title: ')
-            call setline(4, 'baseUri: ')
-            call setline(5, 'version: ')
-            normal! gg
-            normal! j
-            normal! j
-            normal! $
-        ]])
-  end,
-})
-
--- wood
 vim.api.nvim_create_autocmd("BufNewFile", {
   group = augroup("set_header", false),
   pattern = { "*.sh" },
@@ -110,12 +67,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 local auto_close_filetype = {
   lazy = true,
-  mason = true,
-  notify = true,
   lspinfo = true,
   lazyterm = true,
-  -- TelescopePrompt = true,
-  -- TelescopeResults = true,
+  -- notify = true,
 }
 
 -- auto close window when leaving
