@@ -8,9 +8,17 @@ return {
     end,
   },
   {
+    "williamboman/mason.nvim",
+    optional = true,
+    opts = { ui = { border = "rounded" } },
+  },
+  {
     "neovim/nvim-lspconfig",
-    opts = {  diagnostics = { float = { border = "rounded" } } },
+    optional = true,
+    opts = { diagnostics = { float = { border = "rounded" } } },
     keys = function()
+      require("lspconfig.ui.windows").default_options.border = "rounded"
+
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
       keys[#keys + 1] = { "<leader>lI", "<cmd>LspInfo<cr>", desc = "Show LSP Info" }
