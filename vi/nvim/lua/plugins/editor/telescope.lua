@@ -2,12 +2,15 @@ local Util = require("lazyvim.util")
 local actions = require("telescope.actions")
 local themes = require("telescope.themes")
 local trouble = require("trouble.providers.telescope")
-local map = require("utils.map")
 
 return {
   {
     "nvim-telescope/telescope.nvim",
     optional = true,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-file-browser.nvim",
+    },
     keys = {
       -- disable the keymap
       { "<leader><space>", false },
@@ -21,7 +24,6 @@ return {
       { "<leader>fR", false },
       { "<leader>gc", false },
       { "<leader>gs", false },
-      { "<leader>fb", false },
 
       -- set new keymap
       { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
@@ -29,9 +31,16 @@ return {
       { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
       { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>bs", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+      {
+        "<leader>fw",
+        function()
+          require("telescope").extensions.file_browser.file_browser({ path = vim.fn.expand("~") })
+        end,
+        desc = "File Browser",
+      },
     },
-    opts = {
-      defaults = {
+    opts = function(_, opts)
+      opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
         prompt_prefix = "   ",
         selection_caret = " ",
         sorting_strategy = "ascending",
@@ -48,7 +57,6 @@ return {
             ["<C-n>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-
             ["<C-t>"] = trouble.open_with_trouble,
           },
           n = {
@@ -56,8 +64,9 @@ return {
             ["<C-t>"] = trouble.open_with_trouble,
           },
         },
-      },
-      pickers = {
+      })
+
+      opts.pickers = vim.tbl_deep_extend("force", opts.pickers or {}, {
         find_files = { theme = "dropdown" },
         git_files = { theme = "dropdown" },
         oldfiles = themes.get_dropdown({ previewer = false }),
@@ -84,16 +93,41 @@ return {
         git_branches = { theme = "ivy" },
         git_status = { theme = "ivy" },
         git_stash = { theme = "ivy" },
-      },
-    },
+      })
+
+      local fb_actions = require ("telescope").extensions.file_browser.actions
+      opts.extensions = vim.tbl_deep_extend("force", opts.extensions or {}, {
+        file_browser = themes.get_dropdown({
+          previewer = false,
+          hijack_netrw = true,
+          sorting_strategy = "ascending",
+          layout_config = { prompt_position = "top", width = 0.4, height = 0.5 },
+          mappings = {
+            ["i"] = {
+              ["<A-y>"] = false,
+              ["<A-m>"] = false,
+              ["<A-c>"] = false,
+              ["<A-r>"] = false,
+              ["<A-d>"] = false,
+              ["<A-q>"] = false,
+              ["<C-Q>"] = false,
+              ["<C-G>"] = false,
+              ["<C-f>"] = fb_actions.goto_parent_dir,
+              ["<C-r>"] = fb_actions.rename,
+              ["<C-a>"] = fb_actions.create,
+              ["<C-y>"] = fb_actions.copy,
+              ["<C-d>"] = fb_actions.remove,
+            },
+            ["n"] = {},
+          },
+        }),
+      })
+    end,
     config = function(_, opts)
       local telescope = require("telescope")
       telescope.setup(opts)
 
-      if require("lazyvim.util").has("nvim-notify") then
-        telescope.load_extension("notify")
-        map.set("n", "<leader>sN", "<cmd>Telescope notify<cr>", { desc = "Notify" })
-      end
+      telescope.load_extension("file_browser")
     end,
   },
 }

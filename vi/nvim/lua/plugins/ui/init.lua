@@ -1,8 +1,22 @@
+local Util = require("lazyvim.util")
+local map = require("utils.map")
+
 return {
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
   { import = "plugins.ui.fold" },
-  -- { import = "plugins.ui.icons" },
+  {
+    "rcarriga/nvim-notify",
+    optional = true,
+    keys = {
+      {"<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notify", }
+    },
+    config = function()
+      Util.on_load("telescope.nvim", function()
+        require("telescope").load_extension("notify")
+      end)
+    end,
+  },
   {
     "folke/noice.nvim",
     optional = true,
