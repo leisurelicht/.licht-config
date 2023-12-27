@@ -45,7 +45,7 @@ return {
         selection_caret = " ",
         sorting_strategy = "ascending",
         layout_config = { horizontal = { prompt_position = "top" } },
-        history = { path = vim.fn.stdpath("data") .. "/telescope/history" },
+        history = { path = vim.fn.stdpath("data") .. "/telescope-history.txt" },
         mappings = {
           i = {
             ["<ESC>"] = actions.close,
