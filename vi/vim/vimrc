@@ -74,8 +74,6 @@ noremap <silent> <leader>3 :3wincmd w<CR>
 noremap <silent> <leader>4 :4wincmd w<CR>
 noremap <silent> <leader>5 :5wincmd w<CR>
 noremap <silent> <leader>6 :6wincmd w<CR>
-noremap <silent> <leader>7 :7wincmd w<CR>
-noremap <silent> <leader>8 :8wincmd w<CR>
 noremap <silent> <leader>a za<CR>
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
@@ -227,8 +225,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 " surround
 Plug 'tpope/vim-surround'
-" ----> wakatime
-Plug 'wakatime/vim-wakatime'
 " ----> Python 代码缩进
 Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 " ----> Python 语法高亮
@@ -333,15 +329,14 @@ let g:which_key_map.3 = 'window-3'
 let g:which_key_map.4 = 'window-4'
 let g:which_key_map.5 = 'window-5'
 let g:which_key_map.6 = 'window-6'
-let g:which_key_map.7 = 'window-7'
-let g:which_key_map.8 = 'window-8'
-let g:which_key_map.9 = 'window-9'
 let g:which_key_map.a = 'Fold'
 let g:which_key_map.e = 'Explorer'
 let g:which_key_map.g = { 'name': '+Git', 'b': 'Blame', 'g': 'Status', 'm': 'Message' }
 let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
 let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
 let g:which_key_map.f = { 'name': '+Fzf', '<Tab>': 'Commands', 's': 'String', 'b': 'Buffers', 'f': 'File', 'O': 'Colors', 'g': 'Gitfiles', 't': 'Tags', 'l': 'Lines', 'h': { 'name': 'History', 'h': 'Files', 'c': 'Commands', 's': 'Search'} }
+" ----> wakatime
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
