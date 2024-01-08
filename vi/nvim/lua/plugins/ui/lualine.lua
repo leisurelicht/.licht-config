@@ -41,6 +41,9 @@ return {
         "trouble",
         "quickfix",
         "mason",
+        "neo-tree",
+        "nvim-dap-ui",
+        "toggleterm",
         {
           filetypes = { "TelescopePrompt" },
           sections = {
@@ -52,16 +55,11 @@ return {
           },
         },
         {
-          filetypes = { "aerial" },
+          filetypes = { "Outline" },
           sections = {
             lualine_a = {
               function()
-                return "Aerial"
-              end,
-            },
-            lualine_b = {
-              function()
-                return "Symbols Num: " .. require("aerial").num_symbols(0)
+                return "Outline"
               end,
             },
           },
