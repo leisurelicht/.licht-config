@@ -3,7 +3,6 @@
 -- Note:
 -- =================
 --
-
 local M = {}
 
 function M.set(mode, lhs, rhs, opts)
