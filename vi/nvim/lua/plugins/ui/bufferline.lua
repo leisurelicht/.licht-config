@@ -38,12 +38,8 @@ return {
           return count > 0 and " " or nil
         end,
         offsets = {
-          {
-            filetype = "neo-tree",
-            text = "  File Explorer",
-            text_align = "center",
-            separator = true,
-          },
+          { filetype = "neo-tree", text = "  File Explorer", text_align = "center", separator = true },
+          { filetype = "Outline", text = "󱦜  Outline", text_align = "center", separator = true },
         },
       },
     },

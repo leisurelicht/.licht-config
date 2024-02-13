@@ -21,13 +21,7 @@ return {
     optional = true,
     opts = {
       current_line_blame_opts = { virt_text_pos = "right_align", delay = 0 },
-      preview_config = {
-        border = "rounded",
-        style = "minimal",
-        relative = "cursor",
-        row = 0,
-        col = 1,
-      },
+      preview_config = { border = "rounded", style = "minimal", relative = "cursor", row = 0, col = 1 },
       on_attach = function(bufnr)
         if utils.unbind_key_buf(vim.bo[bufnr].filetype) then
           return

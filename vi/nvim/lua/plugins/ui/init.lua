@@ -1,5 +1,4 @@
 local Util = require("lazyvim.util")
-local map = require("utils.map")
 
 return {
   { import = "plugins.ui.bufferline" },
@@ -8,9 +7,7 @@ return {
   {
     "rcarriga/nvim-notify",
     optional = true,
-    keys = {
-      {"<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notify", }
-    },
+    keys = { { "<leader>sN", "<cmd>Telescope notify<cr>", desc = "Notify" } },
     config = function()
       Util.on_load("telescope.nvim", function()
         require("telescope").load_extension("notify")
@@ -21,28 +18,6 @@ return {
     "folke/noice.nvim",
     optional = true,
     opts = { presets = { lsp_doc_border = true } },
-  },
-  {
-    "m4xshen/smartcolumn.nvim",
-    event = { "BufNewFile", "BufRead" },
-    opts = {
-      colorcolumn = "0",
-      disabled_filetypes = {
-        "lazy",
-        "mason",
-        "notify",
-        "markdown",
-        "dashboard",
-        "checkhealth",
-      },
-      custom_colorcolumn = {
-        go = "120",
-        lua = "120",
-        python = "80",
-      },
-      scope = "file",
-    },
-    config = true,
   },
   {
     "folke/which-key.nvim",
