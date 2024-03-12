@@ -9,3 +9,5 @@ dev.vim
 .luarc.json
 
 lazy-lock.json
+
+lazyvim.json
