@@ -15,10 +15,7 @@ map.lazy("i", "<C-o>", "<esc>wb~ea", { desc = "Upper First Word" }) -- 首字母
 --
 map.del("n", "<leader>`")
 -- Format
-map.del({ "n", "v" }, "<leader>cf")
-map.lazy({ "n", "v" }, "<leader>cf", function()
-  require("lazyvim.util").format({ force = true })
-end, { desc = "Format" })
+
 -- Lazy
 map.del("n", "<leader>l")
 map.del("n", "<leader>L")
@@ -63,6 +60,7 @@ map.lazy("n", "<leader>wd", "<C-w>c", { desc = "Close Current Window" }) -- 关�
 map.lazy("n", "<leader>wc", "<C-w>o", { desc = "Close Other Window" }) -- 关闭其他分屏
 -- Buffer
 map.del("n", "<leader>bb")
+-- windows
 map.lazy2("n", "<leader>1", "<cmd>1wincmd w<cr>", { desc = "Win 1" })
 map.lazy2("n", "<leader>2", "<cmd>2wincmd w<cr>", { desc = "Win 2" })
 map.lazy2("n", "<leader>3", "<cmd>3wincmd w<cr>", { desc = "Win 3" })
