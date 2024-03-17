@@ -2,11 +2,25 @@ local function win_num()
   return "[" .. vim.api.nvim_eval("winnr()") .. "]"
 end
 
+local undiagnostic_list = {
+  Outline = true,
+  Trouble = true,
+  toggleterm = true,
+}
+
 local diagnostic_check = {
   function()
     return "󰸞 "
   end,
   cond = function()
+    local filetype = vim.api.nvim_buf_get_option(
+      vim.api.nvim_get_current_buf(),
+      "filetype"
+    )
+    if undiagnostic_list[filetype] then
+      return false
+    end
+
     return #vim.diagnostic.get(0) == 0
   end,
   color = require("lazyvim.util").ui.fg("DiagnosticInfo"),

@@ -17,6 +17,14 @@ return {
   },
   { "nacro90/numb.nvim", event = { "BufRead", "BufNewFile" }, config = true },
   {
+    "NvChad/nvim-colorizer.lua",
+    lazy = true,
+    cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers" },
+    keys = {
+      { "<leader>uo", "<cmd>ColorizerToggle<cr>", desc = "Toggle Colorizer" },
+    },
+  },
+  {
     "folke/flash.nvim",
     optional = true,
     -- stylua: ignore
@@ -37,22 +45,14 @@ return {
       { "<leader>bD", false },
     },
     config = function()
-      map.lazy("n", "<leader>bd", function()
+      map.set("n", "<leader>bd", function()
         require("mini.bufremove").delete(0, false)
       end, { desc = "Delete buffer" })
 
-      map.lazy("n", "<leader>bD", function()
+      map.set("n", "<leader>bD", function()
         require("mini.bufremove").delete(0, true)
       end, { desc = "Delete Buffer (Force)" })
     end,
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    lazy = true,
-    cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers" },
-    keys = {
-      { "<leader>uo", "<cmd>ColorizerToggle<cr>", desc = "Toggle Colorizer" },
-    },
   },
   {
     "mrjones2014/smart-splits.nvim",

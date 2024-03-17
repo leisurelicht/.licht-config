@@ -36,10 +36,6 @@ require("lazy").setup({
         border = "rounded",
       },
     },
-    { import = "lazyvim.plugins.extras.util.project" },
-    { import = "lazyvim.plugins.extras.editor.navic" },
     { import = "plugins" },
-
-    { "wakatime/vim-wakatime", enabled = true },
   },
 })
