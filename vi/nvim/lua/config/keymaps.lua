@@ -14,7 +14,6 @@ map.lazy("i", "<C-l>", "<esc>viwuea", { desc = "Lower Word" }) -- 一键小写
 map.lazy("i", "<C-o>", "<esc>wb~ea", { desc = "Upper First Word" }) -- 首字母大写
 --
 map.del("n", "<leader>`")
--- Format
 
 -- Lazy
 map.del("n", "<leader>l")

@@ -18,18 +18,14 @@ return {
       { "<leader>,", false },
       { "<leader>:", false },
       { "<leader>fn", false },
-      { "<leader>bs", false },
-      { "<leader>fr", false },
-      { "<leader>fR", false },
-      { "<leader>fR", false },
-      { "<leader>gc", false },
-      { "<leader>gs", false },
 
       -- set new keymap
+      { "<leader>fr", false },
+      { "<leader>fR", false },
       { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
       { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
-      { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Command History" },
+      -- { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },
+      -- { "<leader>sC", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>bs", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
       {
         "<leader>fw",

@@ -45,10 +45,6 @@ return {
 
         -- Text object
         map.set({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<cr>", { desc = "Select git hunk", buffer = bufnr })
-
-        map.set("n", "<leader>gc", Utils.telescope("git_bcommits"), { desc = "Buffer's Commits", buffer = bufnr })
-        map.set("n", "<leader>gs", Utils.telescope("git_stash"), { desc = "Stash", buffer = bufnr })
-        map.set("n", "<leader>gn", Utils.telescope("git_branches"), { desc = "Branches", buffer = bufnr })
       end,
     },
   },
