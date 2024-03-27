@@ -4,7 +4,7 @@ local Util = require("lazy.core.util")
 
 return {
   { import = "plugins.editor.telescope" },
-  { import = "plugins.editor.toggleterm" },
+  -- { import = "plugins.editor.toggleterm" },
   {
     "RRethy/nvim-treesitter-endwise",
     dependencies = {

@@ -26,11 +26,6 @@ map.set("n", "<leader>pe", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [La
 map.set("n", "<leader>pi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map.set("n", "<leader>pr", Util.root.info, { desc = "Root Info [LazyVim]" })
 map.set("n", "<leader>pe", vim.cmd.messages, { desc = "Display messages" })
--- Term
-map.del("n", "<leader>ft")
-map.del("n", "<leader>fT")
-map.del("n", "<C-/>")
-map.del("n", "<c-_>")
 -- Tabs
 map.set("n", "<leader><tab>p", "<leader><tab>[", { desc = "Previous Tab ", remap = true })
 map.set("n", "<leader><tab>n", "<leader><tab>]", { desc = "Next Tab", remap = true })
@@ -61,11 +56,11 @@ map.lazy("n", "<leader>wc", "<C-w>o", { desc = "Close Other Window" }) -- 关闭
 -- Buffer
 map.del("n", "<leader>bb")
 -- windows
-map.lazy2("n", "<leader>1", "<cmd>1wincmd w<cr>", { desc = "Win 1" })
-map.lazy2("n", "<leader>2", "<cmd>2wincmd w<cr>", { desc = "Win 2" })
-map.lazy2("n", "<leader>3", "<cmd>3wincmd w<cr>", { desc = "Win 3" })
-map.lazy2("n", "<leader>4", "<cmd>4wincmd w<cr>", { desc = "Win 4" })
-map.lazy2("n", "<leader>5", "<cmd>5wincmd w<cr>", { desc = "Win 5" })
-map.lazy2("n", "<leader>6", "<cmd>6wincmd w<cr>", { desc = "Win 6" })
-map.lazy2("n", "<leader>7", "<cmd>7wincmd w<cr>", { desc = "Win 7" })
-map.lazy2("n", "<leader>8", "<cmd>8wincmd w<cr>", { desc = "Win 8" })
+map.set("n", "<leader>1", "<cmd>1wincmd w<cr>", { desc = "Win 1" })
+map.set("n", "<leader>2", "<cmd>2wincmd w<cr>", { desc = "Win 2" })
+map.set("n", "<leader>3", "<cmd>3wincmd w<cr>", { desc = "Win 3" })
+map.set("n", "<leader>4", "<cmd>4wincmd w<cr>", { desc = "Win 4" })
+map.set("n", "<leader>5", "<cmd>5wincmd w<cr>", { desc = "Win 5" })
+map.set("n", "<leader>6", "<cmd>6wincmd w<cr>", { desc = "Win 6" })
+map.set("n", "<leader>7", "<cmd>7wincmd w<cr>", { desc = "Win 7" })
+map.set("n", "<leader>8", "<cmd>8wincmd w<cr>", { desc = "Win 8" })

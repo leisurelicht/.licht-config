@@ -94,7 +94,7 @@ return {
         git_stash = { theme = "ivy" },
       })
 
-      local fb_actions = require ("telescope").extensions.file_browser.actions
+      local fb_actions = require("telescope").extensions.file_browser.actions
       opts.extensions = vim.tbl_deep_extend("force", opts.extensions or {}, {
         file_browser = themes.get_dropdown({
           previewer = false,

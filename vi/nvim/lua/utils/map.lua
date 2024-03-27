@@ -45,19 +45,4 @@ function M.lazy(mode, lhs, rhs, opts)
   })
 end
 
-function M.lazy2(mode, lhs, rhs, opts)
-  vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("filetype_keymap", { clear = false }),
-    pattern = { "*" },
-    callback = function(event)
-      if require("utils").unbind_key_buf(vim.bo[event.buf].filetype, require("utils").unbind_key_filetypes2) then
-        return
-      end
-
-      opts.buffer = event.buf
-      M.set(mode, lhs, rhs, opts)
-    end,
-  })
-end
-
 return M
