@@ -1,3 +1,5 @@
+local map = require("utils.map")
+
 return {
   { import = "plugins.coding.git" },
   {
@@ -18,6 +20,7 @@ return {
     opts = { diagnostics = { float = { border = "rounded" } } },
     keys = function()
       require("lspconfig.ui.windows").default_options.border = "rounded"
+      map.show({ l = { name = "󰿘 Lsp" } })
 
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
@@ -76,6 +79,7 @@ return {
       keys[#keys + 1] = { "<leader>cl", false }
 
       -- add a keymap
+      --
     end,
   },
   -- Use <tab> for completion and snippets (supertab)

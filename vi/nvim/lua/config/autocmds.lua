@@ -8,6 +8,19 @@ local function augroup(name, clear)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = clear })
 end
 
+vim.api.nvim_create_autocmd("BufNewFile", {
+  group = augroup("set_header", false),
+  pattern = { "*.sh" },
+  callback = function()
+    vim.cmd([[
+            call setline(1, '#!/bin/bash')
+            normal! G
+            normal! o
+            normal! o
+        ]])
+  end,
+})
+
 -- new file auto header
 vim.api.nvim_create_autocmd("BufNewFile", {
   group = augroup("set_header", false),
@@ -24,14 +37,12 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 
 vim.api.nvim_create_autocmd("BufNewFile", {
   group = augroup("set_header", false),
-  pattern = { "*.sh" },
-  once = true,
+  pattern = { "*.go" },
   callback = function()
     vim.cmd([[
-            call setline(1, '#!/bin/bash')
-            normal! G
-            normal! o
-            normal! o
+            call setline(1, 'package  ')
+            normal! $
+            normal! a
         ]])
   end,
 })
@@ -66,10 +77,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 local auto_close_filetype = {
-  lazy = true,
   lspinfo = true,
-  lazyterm = true,
-  -- notify = true,
 }
 
 -- auto close window when leaving
@@ -98,20 +106,5 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "<esc>", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = vim.api.nvim_create_augroup("filetype_which_key", { clear = false }),
-  pattern = { "*" },
-  callback = function(event)
-    if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
-      return
-    end
-
-    require("which-key").register({
-      l = { name = "󰿘 Lsp" },
-      w = { name = " Window Split" },
-    }, { mode = "n", prefix = "<leader>", buffer = event.buf })
   end,
 })

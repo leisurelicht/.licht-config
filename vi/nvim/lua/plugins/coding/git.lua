@@ -1,5 +1,4 @@
 local utils = require("utils")
-local Utils = require("lazyvim.util")
 local map = require("utils.map")
 
 return {

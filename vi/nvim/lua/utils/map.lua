@@ -45,4 +45,18 @@ function M.lazy(mode, lhs, rhs, opts)
   })
 end
 
+function M.show(mapping)
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    group = vim.api.nvim_create_augroup("whichkey_show", { clear = false }),
+    pattern = { "*" },
+    callback = function(event)
+      if require("utils").unbind_key_buf(vim.bo[event.buf].filetype) then
+        return
+      end
+
+      require("which-key").register(mapping, { mode = "n", prefix = "<leader>", buffer = event.buf })
+    end,
+  })
+end
+
 return M
