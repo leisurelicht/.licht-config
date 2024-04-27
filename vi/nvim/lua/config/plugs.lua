@@ -23,7 +23,7 @@ require("lazy").setup({
   defaults = { lazy = false, version = false },
   ui = { border = "rounded", title = " Lazy Plugins Manager " },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = true, frequency = 604800 }, -- automatically check for plugin updates
   performance = {
     rtp = { disabled_plugins = { "matchparen", "netrwPlugin", "tohtml", "tutor" } },
   },
