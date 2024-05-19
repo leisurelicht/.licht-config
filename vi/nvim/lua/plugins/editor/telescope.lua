@@ -52,11 +52,11 @@ return {
             ["<C-n>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = trouble.open,
           },
           n = {
             ["<ESC>"] = actions.close,
-            ["<C-t>"] = trouble.open_with_trouble,
+            ["<C-t>"] = trouble.open,
           },
         },
       })
