@@ -8,9 +8,4 @@
 -- vim.g.CONFIG = vim.g.HOME_PATH .. "/.config_file/vi/nvim"
 -- vim.o.runtimepath = vim.o.runtimepath .. "," .. vim.g.CONFIG
 
-local status = os.getenv("LichtVim")
-if status == "dev" then
-  require("config.dev")
-else
-  require("config.plugs")
-end
+require("config.plugs")

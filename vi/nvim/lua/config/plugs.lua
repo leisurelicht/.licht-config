@@ -20,6 +20,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
+  -- dev = { path = "~/Code/neovim" },
   defaults = { lazy = false, version = false },
   ui = { border = "rounded", title = " Lazy Plugins Manager " },
   install = { missing = true, colorscheme = { "tokyonight", "vscode" } },
