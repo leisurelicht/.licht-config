@@ -34,7 +34,7 @@ map.set("n", "<leader><tab>2", "2gt", { desc = "Tab 2" })
 map.set("n", "<leader><tab>3", "3gt", { desc = "Tab 3" })
 map.set("n", "<leader><tab>4", "4gt", { desc = "Tab 4" })
 -- Windows
-map.show({ w = { name = " Window Split" } })
+map.show({ w = { name = "  Window Split" } })
 map.del("n", "<leader>w|")
 map.del("n", "<leader>w-")
 map.del("n", "<leader>wd")
