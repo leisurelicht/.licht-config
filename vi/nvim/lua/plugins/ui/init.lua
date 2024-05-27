@@ -43,7 +43,7 @@ return {
       opts.defaults["<leader>c"] = { name = "  Code", mode = { "n", "v" } }
       opts.defaults["<leader>sn"] = { name = "  Noice" }
       opts.defaults["<leader>t"] = { name = "󰡾  Test" }
-      opts.defaults["<leader>l"] = { name = "󰿘   Lsp" }
+      opts.defaults["<leader>d"] = { name = "  Debug" }
     end,
   },
 }
