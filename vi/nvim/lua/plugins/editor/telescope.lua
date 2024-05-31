@@ -1,7 +1,7 @@
 local Util = require("lazyvim.util")
 local actions = require("telescope.actions")
 local themes = require("telescope.themes")
-local trouble = require("trouble.providers.telescope")
+local trouble = require("trouble.sources.telescope")
 
 return {
   {
