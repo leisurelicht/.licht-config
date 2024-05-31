@@ -33,6 +33,11 @@ map.set("n", "<leader><tab>1", "1gt", { desc = "Tab 1" })
 map.set("n", "<leader><tab>2", "2gt", { desc = "Tab 2" })
 map.set("n", "<leader><tab>3", "3gt", { desc = "Tab 3" })
 map.set("n", "<leader><tab>4", "4gt", { desc = "Tab 4" })
+map.set("n", "<leader><tab>5", "5gt", { desc = "Tab 5" })
+map.set("n", "<leader><tab>6", "6gt", { desc = "Tab 6" })
+map.set("n", "<leader><tab>7", "7gt", { desc = "Tab 7" })
+map.set("n", "<leader><tab>8", "8gt", { desc = "Tab 8" })
+
 -- Windows
 map.show({ w = { name = "  Window Split" } })
 map.del("n", "<leader>w|")

@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
@@ -35,5 +33,27 @@ return {
       opts.defaults["<leader>t"] = { name = "󰡾  Test" }
       opts.defaults["<leader>d"] = { name = "  Debug" }
     end,
+  },
+  {
+    "m4xshen/smartcolumn.nvim",
+    event = { "BufNewFile", "BufRead" },
+    opts = {
+      colorcolumn = "0",
+      disabled_filetypes = {
+        "lazy",
+        "mason",
+        "notify",
+        "markdown",
+        "dashboard",
+        "checkhealth",
+      },
+      custom_colorcolumn = {
+        go = "120",
+        lua = "120",
+        python = "80",
+      },
+      scope = "file",
+    },
+    config = true,
   },
 }
