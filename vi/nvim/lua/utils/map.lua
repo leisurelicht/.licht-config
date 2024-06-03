@@ -54,7 +54,7 @@ function M.show(mapping)
         return
       end
 
-      require("which-key").register(mapping, { mode = "n", prefix = "<leader>", buffer = event.buf })
+      require("which-key").register(mapping, { mode = { "n", "v" }, prefix = "<leader>", buffer = event.buf })
     end,
   })
 end

@@ -21,7 +21,7 @@ return {
 
       -- set new keymap
       { "<leader>fr", false },
-      { "<leader>fR", false },
+     { "<leader>fR", false },
       { "<leader>fo", Util.telescope("oldfiles", { cwd = vim.loop.cwd() }), desc = "Recent (cwd)" },
       { "<leader>fO", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
       -- { "<leader>sc", "<cmd>Telescope commands<cr>", desc = "Commands" },

@@ -20,7 +20,7 @@ return {
     opts = { diagnostics = { float = { border = "rounded" } } },
     keys = function()
       require("lspconfig.ui.windows").default_options.border = "rounded"
-      map.show({ l = { name = "  Lsp" } })
+      map.show({ l = { name = "  LSP"} })
 
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       -- change a keymap
