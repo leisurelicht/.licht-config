@@ -19,19 +19,20 @@ return {
       opts.defaults["]"] = { name = "Next" }
       opts.defaults["["] = { name = "Prev" }
       opts.defaults["<leader><tab>"] = { name = "󱏈  Tab" }
-      opts.defaults["<leader>to"] = { name = "Close Only" }
       opts.defaults["<leader>u"] = { name = "󰨙  UI" }
       opts.defaults["<leader>p"] = { name = "󰏖  Packages" }
       opts.defaults["<leader>f"] = { name = "  File/Find" }
-      opts.defaults["<leader>s"] = { name = "󰺮  Search", mode = { "n", "v" } }
+      opts.defaults["<leader>s"] = { name = "󰺮  Search" }
       opts.defaults["<leader>q"] = { name = "  Quit/Session" }
-      opts.defaults["<leader>g"] = { name = "󰊢  Git", mode = { "n", "v" } }
+      opts.defaults["<leader>g"] = { name = "󰊢  Git" }
       opts.defaults["<leader>x"] = { name = "󰚢  Diagnostics/Quickfix" }
       opts.defaults["<leader>b"] = { name = "󰓩  Buffers" }
-      opts.defaults["<leader>c"] = { name = "  Code", mode = { "n", "v" } }
+      opts.defaults["<leader>c"] = { name = "  Code" }
       opts.defaults["<leader>sn"] = { name = "  Noice" }
       opts.defaults["<leader>t"] = { name = "󰡾  Test" }
       opts.defaults["<leader>d"] = { name = "  Debug" }
+      opts.defaults["<leader>a"] = { name = "󱜹  AIChat" }
+      opts.defaults["<leader>w"] = { name = "  Windows" }
     end,
   },
   {

@@ -24,7 +24,7 @@ map.set("n", "<leader>pL", Util.news.changelog, { desc = "Changelog [LazyVim]" }
 map.set("n", "<leader>pe", "<cmd>LazyExtras<CR>", { desc = "Extras Manager - [LazyVim]" })
 map.set("n", "<leader>pi", "<cmd>LspInfo<CR>", { desc = "Lsp Info" })
 map.set("n", "<leader>pr", Util.root.info, { desc = "Root Info [LazyVim]" })
-map.set("n", "<leader>pe", vim.cmd.messages, { desc = "Display messages" })
+map.set("n", "<leader>pd", vim.cmd.messages, { desc = "Display messages" })
 -- Tabs
 map.set("n", "<leader><tab>p", "<leader><tab>[", { desc = "Previous Tab ", remap = true })
 map.set("n", "<leader><tab>n", "<leader><tab>]", { desc = "Next Tab", remap = true })
@@ -39,7 +39,7 @@ map.set("n", "<leader><tab>7", "7gt", { desc = "Tab 7" })
 map.set("n", "<leader><tab>8", "8gt", { desc = "Tab 8" })
 
 -- Windows
-map.show({ w = { name = "  Window Split" } })
+-- map.show({ w = { name = "windows" } })
 map.del("n", "<leader>w|")
 map.del("n", "<leader>w-")
 map.del("n", "<leader>wd")
