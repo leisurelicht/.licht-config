@@ -33,7 +33,7 @@ return {
       opts.defaults["<leader>a"] = { name = "󱜹  AIChat" }
       opts.defaults["<leader>l"] = { name = "  LSP" }
       opts.defaults["<leader>w"] = { name = "  Windows" }
-      opts.defaults["<leader>P"] = { name = "󰏖  Packages" }
+      opts.defaults["<leader>m"] = { name = "󰏖  Manage" }
     end,
   },
   {
