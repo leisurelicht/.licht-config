@@ -8,12 +8,11 @@ return {
   { import = "lazyvim.plugins.extras.coding.luasnip" },
   { import = "lazyvim.plugins.extras.coding.mini-comment" },
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
+  { import = "lazyvim.plugins.extras.coding.yanky" },
 
   { import = "lazyvim.plugins.extras.util.project" },
 
-  { import = "lazyvim.plugins.extras.lsp.none-ls"},
-
-
+  { import = "lazyvim.plugins.extras.lsp.none-ls" },
 
   { "wakatime/vim-wakatime", enabled = true },
-  }
+}
