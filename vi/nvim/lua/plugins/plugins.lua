@@ -4,6 +4,7 @@ return {
 
   { import = "lazyvim.plugins.extras.editor.navic" },
   { import = "lazyvim.plugins.extras.editor.dial" },
+  { import = "lazyvim.plugins.extras.editor.outline" },
 
   { import = "lazyvim.plugins.extras.coding.luasnip" },
   { import = "lazyvim.plugins.extras.coding.mini-comment" },
