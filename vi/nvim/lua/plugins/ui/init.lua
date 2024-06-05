@@ -3,6 +3,7 @@ return {
   { import = "plugins.ui.lualine" },
   { import = "plugins.ui.fold" },
   {
+
     "folke/noice.nvim",
     optional = true,
     opts = { presets = { lsp_doc_border = true } },

@@ -15,34 +15,28 @@ return {
       numhl = true,
     },
   },
+  { -- better statuscolumn
+    "luukvbaal/statuscol.nvim",
+    event = { "BufRead", "BufNewFile" },
+    opts = function(_, opts)
+      local builtin = require("statuscol.builtin")
+      opts.ft_ignore = { "neo-tree", "neo-tree-popup", "alpha", "lazy", "mason" }
+      opts.segments = {
+        { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+        {
+          sign = { name = { "Diagnostic*" }, text = { ".*" }, maxwidth = 1, colwidth = 1, auto = true },
+          click = "v:lua.ScSa",
+        },
+        { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
+      }
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     optional = true,
     init = function()
       local keys = require("lazyvim.plugins.lsp.keymaps").get()
       keys[#keys + 1] = { "K", false }
-    end,
-  },
-  { -- better statuscolumn
-    "luukvbaal/statuscol.nvim",
-    event = { "BufRead", "BufNewFile" },
-    opts = function()
-      local builtin = require("statuscol.builtin")
-      return {
-        ft_ignore = { "neo-tree", "neo-tree-popup", "alpha", "lazy", "mason" },
-        segments = {
-          { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
-          {
-            sign = { name = { "Diagnostic*" }, text = { ".*" }, maxwidth = 1, colwidth = 1, auto = true },
-            click = "v:lua.ScSa",
-          },
-          { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
-        },
-      }
-    end,
-    init = function() end,
-    config = function(_, opts)
-      require("statuscol").setup(opts)
     end,
   },
   { -- better fold
@@ -84,6 +78,13 @@ return {
         return newVirtText
       end
 
+      vim.keymap.set(
+        "n",
+        "K",
+        "<cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>",
+        { noremap = true, silent = true }
+      )
+
       return {
         fold_virt_text_handler = handler,
         provider_selector = function()
@@ -101,16 +102,6 @@ return {
           },
         },
       }
-    end,
-    config = function(_, opts)
-      require("ufo").setup(opts)
-
-      local map = require("lazyvim.util").safe_keymap_set
-      map("n", "K", function()
-        if not require("ufo").peekFoldedLinesUnderCursor() then
-          vim.lsp.buf.hover()
-        end
-      end, { desc = "Peek folded lines under cursor or hover" })
     end,
   },
 }
