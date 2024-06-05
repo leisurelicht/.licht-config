@@ -112,20 +112,15 @@ return {
         },
       },
     },
-    opts = {
-      close_if_last_window = true,
-      source_selector = { winbar = true, content_layout = "center" },
-      window = {
-        mappings = {
-          ["<space>"] = "none",
-          ["S"] = "none",
-          ["o"] = "split_with_window_picker",
-          ["s"] = "vsplit_with_window_picker",
-          ["<cr>"] = "open_with_window_picker",
-          ["<tab>"] = { "toggle_preview", config = { use_float = true } },
-          ["<esc>"] = "close_window",
-        },
-      },
-    },
+    opts = function(_, opts)
+      opts.close_if_last_window = true
+      opts.source_selector = { winbar = true, content_layout = "center" }
+      opts.window.mappings.S = "none"
+      opts.window.mappings.o = "split_with_window_picker"
+      opts.window.mappings.s = "vsplit_with_window_picker"
+      opts.window.mappings["<cr>"] = "open_with_window_picker"
+      opts.window.mappings["<tab>"] = { "toggle_preview", config = { use_float = true } }
+      -- opts.window.mappings["<esc>"] = "close_window"
+    end,
   },
 }
