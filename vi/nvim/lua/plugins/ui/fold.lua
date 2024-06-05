@@ -43,6 +43,17 @@ return {
     "kevinhwang91/nvim-ufo",
     event = { "BufRead", "BufNewFile" },
     dependencies = { "kevinhwang91/promise-async" },
+    keys = {
+      {
+        "K",
+        function()
+          if not require("ufo").peekFoldedLinesUnderCursor() then
+            vim.lsp.buf.hover()
+          end
+        end,
+        desc = "Peek fold or hover",
+      },
+    },
     init = function()
       vim.o.foldcolumn = "1"
       vim.o.foldlevel = 99
@@ -77,13 +88,6 @@ return {
         table.insert(newVirtText, { suffix, "MoreMsg" })
         return newVirtText
       end
-
-      vim.keymap.set(
-        "n",
-        "K",
-        "<cmd>lua require('ufo').peekFoldedLinesUnderCursor()<CR>",
-        { noremap = true, silent = true }
-      )
 
       return {
         fold_virt_text_handler = handler,
