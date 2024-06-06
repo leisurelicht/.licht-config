@@ -9,6 +9,22 @@ return {
     opts = { presets = { lsp_doc_border = true } },
   },
   {
+    "lewis6991/gitsigns.nvim",
+    optional = true,
+    opts = {
+      signs = {
+        add = { text = "┃" },
+        change = { text = "┃" },
+        delete = { text = "󱈸" },
+        topdelete = { text = "󱈸" },
+        changedelete = { text = "┃" },
+        untracked = { text = "┇" },
+      },
+      signcolumn = true,
+      numhl = true,
+    },
+  },
+  {
     "folke/which-key.nvim",
     optional = true,
     opts = function(_, opts)
