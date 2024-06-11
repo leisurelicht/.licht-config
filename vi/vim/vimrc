@@ -15,6 +15,7 @@ filetype indent on " 为特定文件类型载入相关缩进文件
 filetype plugin on " 载入文件类型插件
 syntax enable " 开启语法高
 syntax on " 允许使用制定高亮替换方案
+set shell=sh
 set backspace=2 " 修复delete键
 set laststatus=2 " 始终显示状态拦
 set mouse=a " 让鼠标能使用
@@ -74,7 +75,6 @@ noremap <silent> <leader>3 :3wincmd w<CR>
 noremap <silent> <leader>4 :4wincmd w<CR>
 noremap <silent> <leader>5 :5wincmd w<CR>
 noremap <silent> <leader>6 :6wincmd w<CR>
-noremap <silent> <leader>a za<CR>
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
@@ -216,7 +216,7 @@ augroup end
 " ---> enable vim devicons
 let g:airline_powerline_fonts = 1
 " ----> 缩进指示线
-Plug 'Yggdroot/indentLine'
+Plug 'leisurelicht/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
 " ----> 括号、引号自动补全
@@ -233,48 +233,6 @@ Plug 'vim-python/python-syntax' , {'for': 'python'}
 " ----> 文件变动
 Plug 'mhinz/vim-signify' " ---> Git Message
 Plug 'rhysd/git-messenger.vim'
-" ----> Git命令
-Plug 'tpope/vim-fugitive'
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>ge :Gbedit<CR>
-nnoremap <leader>gf :Git diff<CR>
-nnoremap <leader>gg :Git<CR>
-nnoremap <leader>gh :Gpush<CR>
-nnoremap <leader>gl :Gpull<CR>
-nnoremap <leader>gr :Gread<CR>
-" ----> Fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-let g:fzf_command_prefix = 'Fzf'
-nnoremap <leader>f<Tab> :FzfCommands<CR>
-nnoremap <leader>fs :FzfAg<CR>
-nnoremap <leader>fb :FzfBuffers<CR>
-nnoremap <leader>ff :FzfFiles<CR>
-nnoremap <leader>fg :FzfGFiles<CR>
-nnoremap <leader>fhh :FzfHistory<CR>
-nnoremap <leader>fhc :FzfHistory:<CR>
-nnoremap <leader>fhs :FzfHistory/<CR>
-nnoremap <leader>ft :FzfTags<CR>
-nnoremap <leader>fl :FzfLines<CR>
-nnoremap <leader>fO :FzfColors<CR>
-command! -bang -nargs=? -complete=dir FzfGFiles
-      \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
-command! -bang -nargs=? -complete=dir FzfAg
-      \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:60%'
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-" [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
-" [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-augroup fzf
-autocmd! FileType fzf set laststatus=0 noshowmode noruler cmdheight=1
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-augroup end
 " ----> NerdTree
 Plug 'scrooloose/nerdtree'
 let g:NERDTreeIgnore=['\.pyc$', '\~$', '^tags$']
@@ -283,36 +241,6 @@ let g:NERDTreeStatusline='NERDTree'
 noremap <leader>e :NERDTreeToggle<CR>
 " ----> Show git
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" ----> Highlight
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
-" ----> Ale
-Plug 'dense-analysis/ale'
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_text_changed = 'nerver'
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '☠'
-let g:ale_sign_warning = '★'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
-let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 0
-let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
-highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
-highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
-nnoremap <silent> <C-n> <Plug>(ale_previous_wrap)
-nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
-nnoremap <leader>le :ALEEnable<CR>
-nnoremap <leader>ld :ALEDisable<CR>
-nnoremap <leader>lf :ALEFix<CR>
-nnoremap <leader>lF :ALEFixSuggest<CR>
-nnoremap <leader>ln :ALENext<CR>
-nnoremap <leader>lp :ALEPrevious<CR>
 " ----> Which-key
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 augroup vim_enter
@@ -329,14 +257,71 @@ let g:which_key_map.3 = 'window-3'
 let g:which_key_map.4 = 'window-4'
 let g:which_key_map.5 = 'window-5'
 let g:which_key_map.6 = 'window-6'
-let g:which_key_map.a = 'Fold'
 let g:which_key_map.e = 'Explorer'
-let g:which_key_map.g = { 'name': '+Git', 'b': 'Blame', 'g': 'Status', 'm': 'Message' }
-let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
+let g:which_key_map.g = { 'name': '+Git', 'm': 'Message' }
 let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
-let g:which_key_map.f = { 'name': '+Fzf', '<Tab>': 'Commands', 's': 'String', 'b': 'Buffers', 'f': 'File', 'O': 'Colors', 'g': 'Gitfiles', 't': 'Tags', 'l': 'Lines', 'h': { 'name': 'History', 'h': 'Files', 'c': 'Commands', 's': 'Search'} }
 " ----> wakatime
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
+" " ----> Ale
+" Plug 'dense-analysis/ale'
+" let g:ale_lint_on_enter = 1
+" let g:ale_lint_on_text_changed = 'nerver'
+" let g:ale_sign_column_always = 1
+" let g:ale_sign_error = '☠'
+" let g:ale_sign_warning = '★'
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
+" let g:ale_completion_enabled = 1
+" let g:ale_fix_on_save = 0
+" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+" highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
+" highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+" highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+" nnoremap <silent> <C-n> <Plug>ale_previous_wrap)
+" nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
+" nnoremap <leader>le :ALEEnable<CR>
+" nnoremap <leader>ld :ALEDisable<CR>
+" nnoremap <leader>lf :ALEFix<CR>
+" nnoremap <leader>lF :ALEFixSuggest<CR>
+" nnoremap <leader>ln :ALENext<CR>
+" nnoremap <leader>lp :ALEPrevious<CR>
+" let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
+" ----> Fzf
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+" let g:fzf_command_prefix = 'Fzf'
+" nnoremap <leader>f<Tab> :FzfCommands<CR>
+" nnoremap <leader>fs :FzfAg<CR>
+" nnoremap <leader>fb :FzfBuffers<CR>
+" nnoremap <leader>ff :FzfFiles<CR>
+" nnoremap <leader>fg :FzfGFiles<CR>
+" nnoremap <leader>fhh :FzfHistory<CR>
+" nnoremap <leader>fhc :FzfHistory:<CR>
+" nnoremap <leader>fhs :FzfHistory/<CR>
+" nnoremap <leader>ft :FzfTags<CR>
+" nnoremap <leader>fl :FzfLines<CR>
+" nnoremap <leader>fO :FzfColors<CR>
+" command! -bang -nargs=? -complete=dir FzfGFiles
+"       \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+" command! -bang -nargs=? -complete=dir FzfAg
+"       \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%'), <bang>0)
+" " Always enable preview window on the right with 60% width
+" let g:fzf_preview_window = 'right:60%'
+" " [Buffers] Jump to the existing window if possible
+" let g:fzf_buffers_jump = 1
+" " [[B]Commits] Customize the options used by 'git log':
+" let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" " [Tags] Command to generate tags file
+" let g:fzf_tags_command = 'ctags -R'
+" " [Commands] --expect expression for directly executing the command
+" let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+" augroup fzf
+" autocmd! FileType fzf set laststatus=0 noshowmode noruler cmdheight=1
+"   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" augroup end"
+" let g:which_key_map.f = { 'name': '+Fzf', '<Tab>': 'Commands', 's': 'String', 'b': 'Buffers', 'f': 'File', 'O': 'Colors', 'g': 'Gitfiles', 't': 'Tags', 'l': 'Lines', 'h': { 'name': 'History', 'h': 'Files', 'c': 'Commands', 's': 'Search'} }
 
 call plug#end()
 
