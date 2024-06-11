@@ -1,0 +1,173 @@
+set encoding=utf-8
+scriptencoding utf-8
+" =================
+" vimrc --- vim entry file
+" Author: MuCheng
+" License: GPLv3
+" =================
+"
+" 设置leader键
+let g:mapleader="\<Space>"
+let g:maplocalleader=','
+
+filetype on
+filetype indent on " 为特定文件类型载入相关缩进文件
+filetype plugin on " 载入文件类型插件
+syntax enable " 开启语法高
+syntax on " 允许使用制定高亮替换方案
+set shell=sh
+set backspace=2 " 修复delete键
+set laststatus=2 " 始终显示状态拦
+set mouse=a " 让鼠标能使用
+set incsearch " 输入搜索内容时就显示搜索结果
+set hlsearch " 搜索时高亮显示被找到的文本
+set smartcase " 有一个或以上大写字母时仍大小写敏感
+set autoindent " 自动套用上一行的缩进方式
+set smartindent " 智能缩进
+set autoread " 文件自动检测外部更改
+set scrolloff=5 " 光标和顶部/底部保持5行的距离
+set timeoutlen=500 " mapping delays
+set ttimeoutlen=0 " key code delays
+set number " 显示行号
+set cursorline "高亮当前行
+set noswapfile " 关闭自动备份
+set showcmd " 右下角显示正在输入的命令
+set smarttab " 使用backspace直接删除tab
+set linebreak " 不在单词中间折行
+set splitbelow " 分隔窗口在当前窗口下边
+set splitright " 分隔窗口在当前窗口下边
+set clipboard=unnamed " 系统剪贴板
+set novisualbell " 警告时不要闪烁
+set ignorecase " 搜索时忽略大小写
+set smartcase " 有一个或以上大写字母时仍大小写敏感
+set expandtab " 编辑的时候将所有的tab设置为空格
+set tabstop=2 " 将tab换为4个空格
+set softtabstop=2
+set shiftwidth=2
+set foldmethod=indent " 折叠方式
+set foldlevelstart=99
+set colorcolumn=0 " 长度表示线
+
+" 强制保存
+cmap w!! w !sudo tee > /dev/null %
+" 一键大写
+inoremap <C-U> <ESC>viwUea
+inoremap <C-L> <ESC>viwuea
+" 窗口切换组合快捷键
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" 创建新的标签页
+nnoremap <leader>tp gT
+nnoremap <leader>tn gt
+nnoremap <leader>tt :tab
+nnoremap <leader>ta :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tl :tabs<CR>
+nnoremap <leader>td :tabdo
+nnoremap <leader>tF :tabfirst<CR>
+nnoremap <leader>tL :tablast<CR>
+nnoremap <leader>ts :tab split<CR>
+noremap <silent> <leader>1 :1wincmd w<CR>
+noremap <silent> <leader>2 :2wincmd w<CR>
+noremap <silent> <leader>3 :3wincmd w<CR>
+noremap <silent> <leader>4 :4wincmd w<CR>
+noremap <silent> <leader>5 :5wincmd w<CR>
+noremap <silent> <leader>6 :6wincmd w<CR>
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
+
+" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
+augroup auto_position
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup end
+" 标识不必要的空白字符
+augroup white_space
+  hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
+  autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
+augroup end
+" 在commit message中开启拼写检查和设置文本宽度为 72
+augroup set_gitcommit
+  autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
+augroup end
+
+function! PythonHeader() abort
+  call setline(1, '#!/usr/bin/env python')
+  call setline(2, '# -*-coding: utf-8-*-')
+  normal! G
+  normal! o
+  normal! o
+endfunction
+
+function! BashHeader() abort
+  call setline(1, '#!/bin/bash')
+  normal! G
+  normal! o
+  normal! o
+endfunction
+
+augroup auto_set_file_head
+  autocmd BufNewFile *.py call PythonHeader()
+  autocmd BufNewFile *.sh call BashHeader()
+augroup end
+
+augroup file_set
+  autocmd FileType dockerfile
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType json
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType go
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal colorcolumn=80 |
+  autocmd FileType lua
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType python
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+        \ setlocal colorcolumn=79 |
+  autocmd FileType htmldjango
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType markdown
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=4 |
+        \ setlocal softtabstop=4 |
+        \ setlocal shiftwidth=4 |
+  autocmd FileType sh
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType sql
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType vim
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+  autocmd FileType yaml
+        \ setlocal fileformat=unix |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
+augroup end

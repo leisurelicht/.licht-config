@@ -260,34 +260,34 @@ let g:which_key_map.6 = 'window-6'
 let g:which_key_map.e = 'Explorer'
 let g:which_key_map.g = { 'name': '+Git', 'm': 'Message' }
 let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
-" ----> wakatime
-" Plug 'wakatime/vim-wakatime'
-" " ----> Ale
-" Plug 'dense-analysis/ale'
-" let g:ale_lint_on_enter = 1
-" let g:ale_lint_on_text_changed = 'nerver'
-" let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '☠'
-" let g:ale_sign_warning = '★'
-" let g:ale_echo_msg_error_str = 'E'
-" let g:ale_echo_msg_warning_str = 'W'
-" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
-" let g:ale_completion_enabled = 1
-" let g:ale_fix_on_save = 0
-" let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
-" highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
-" highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
-" highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
-" nnoremap <silent> <C-n> <Plug>ale_previous_wrap)
-" nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
-" nnoremap <leader>le :ALEEnable<CR>
-" nnoremap <leader>ld :ALEDisable<CR>
-" nnoremap <leader>lf :ALEFix<CR>
-" nnoremap <leader>lF :ALEFixSuggest<CR>
-" nnoremap <leader>ln :ALENext<CR>
-" nnoremap <leader>lp :ALEPrevious<CR>
-" let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
+----> wakatime
+Plug 'wakatime/vim-wakatime'
+" ----> Ale
+Plug 'dense-analysis/ale'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'nerver'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '☠'
+let g:ale_sign_warning = '★'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ OK']
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
+highlight ALEWarning ctermfg=236 ctermbg=182 guifg=#303030 guibg=#d7afd7
+highlight ALEError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+highlight ALEStyleError ctermfg=238 ctermbg=110 guifg=#444444 guibg=#87afd7
+nnoremap <silent> <C-n> <Plug>ale_previous_wrap)
+nnoremap <silent> <C-p> <Plug>(ale_next_wrap)
+nnoremap <leader>le :ALEEnable<CR>
+nnoremap <leader>ld :ALEDisable<CR>
+nnoremap <leader>lf :ALEFix<CR>
+nnoremap <leader>lF :ALEFixSuggest<CR>
+nnoremap <leader>ln :ALENext<CR>
+nnoremap <leader>lp :ALEPrevious<CR>
+let g:which_key_map.l = { 'name': '+ALE', 'e': 'Enable', 'd': 'Disable', 'f': 'Fix', 'F': 'FixSuggest', 'n': 'Next', 'p': 'Previous' }
 " ----> Fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Plug 'junegunn/fzf.vim'
