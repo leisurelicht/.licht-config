@@ -69,12 +69,12 @@ nnoremap <leader>td :tabdo
 nnoremap <leader>tF :tabfirst<CR>
 nnoremap <leader>tL :tablast<CR>
 nnoremap <leader>ts :tab split<CR>
-noremap <silent> <leader>1 :1wincmd w<CR>
-noremap <silent> <leader>2 :2wincmd w<CR>
-noremap <silent> <leader>3 :3wincmd w<CR>
-noremap <silent> <leader>4 :4wincmd w<CR>
-noremap <silent> <leader>5 :5wincmd w<CR>
-noremap <silent> <leader>6 :6wincmd w<CR>
+noremap <silent> <leader>1 :silent! 1wincmd w<CR>
+noremap <silent> <leader>2 :silent! 2wincmd w<CR>
+noremap <silent> <leader>3 :silent! 3wincmd w<CR>
+noremap <silent> <leader>4 :silent! 4wincmd w<CR>
+noremap <silent> <leader>5 :silent! 5wincmd w<CR>
+noremap <silent> <leader>6 :silent! 6wincmd w<CR>
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
@@ -171,3 +171,28 @@ augroup file_set
         \ setlocal softtabstop=2 |
         \ setlocal shiftwidth=2 |
 augroup end
+
+
+function! Git_branch()
+    let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
+    return v:shell_error ? '' : ' [ '.trim(l:branch).'] '
+endfunction
+
+set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %*  " 缓冲区编号
+set statusline+=%2*%{Git_branch()}%*			  " Git 分支信息
+set statusline+=%4*\ [%F]\ %*				  " 文件路径
+set statusline+=%=					  " 左右对齐分隔符
+set statusline+=%7*\ %m%r%y%w				  " 修改标志、只读标志、文件类型
+set statusline+=\ \|\ [%{&ff}]				  " 文件格式
+set statusline+=\ \|\ [%{&fenc!=''?&fenc:&enc}]\   	  " 文件编码
+set statusline+=%8*\ <%P>\ %l:%c%V			  " 百分比位置,行号、列号、虚拟列号
+hi User1 cterm=bold ctermfg=232 ctermbg=179
+hi User2 cterm=None ctermfg=214 ctermbg=242
+hi User4 cterm=bold ctermfg=169 ctermbg=239
+hi User7 cterm=bold ctermfg=250 ctermbg=237
+hi User8 cterm=None ctermfg=249 ctermbg=240
+
+hi StatusLine cterm=NONE ctermfg=NONE ctermbg=238
+hi StatusLineNC cterm=NONE ctermfg=NONE ctermbg=238
+
+" vim:tw=78:ts=8:noet:ft=vim:norl:
