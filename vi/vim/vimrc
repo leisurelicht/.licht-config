@@ -260,7 +260,7 @@ let g:which_key_map.6 = 'window-6'
 let g:which_key_map.e = 'Explorer'
 let g:which_key_map.g = { 'name': '+Git', 'm': 'Message' }
 let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
-----> wakatime
+" ----> wakatime
 Plug 'wakatime/vim-wakatime'
 " ----> Ale
 Plug 'dense-analysis/ale'
