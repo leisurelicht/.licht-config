@@ -1,63 +1,58 @@
-set encoding=utf-8
-scriptencoding utf-8
 " =================
 " vimrc --- vim entry file
 " Author: MuCheng
 " License: GPLv3
 " =================
 "
-" 设置leader键
+set encoding=utf-8
+scriptencoding utf-8
+
 let g:mapleader="\<Space>"
 let g:maplocalleader=','
-
 filetype on
-filetype indent on " 为特定文件类型载入相关缩进文件
-filetype plugin on " 载入文件类型插件
-syntax enable " 开启语法高
-syntax on " 允许使用制定高亮替换方案
-set backspace=2 " 修复delete键
-set laststatus=2 " 始终显示状态拦
-set mouse=a " 让鼠标能使用
-set incsearch " 输入搜索内容时就显示搜索结果
-set hlsearch " 搜索时高亮显示被找到的文本
-set smartcase " 有一个或以上大写字母时仍大小写敏感
-set autoindent " 自动套用上一行的缩进方式
-set smartindent " 智能缩进
-set autoread " 文件自动检测外部更改
-set scrolloff=5 " 光标和顶部/底部保持5行的距离
-set timeoutlen=500 " mapping delays
-set ttimeoutlen=0 " key code delays
-set number " 显示行号
-set cursorline "高亮当前行
-set noswapfile " 关闭自动备份
-set showcmd " 右下角显示正在输入的命令
-set smarttab " 使用backspace直接删除tab
-set linebreak " 不在单词中间折行
-set splitbelow " 分隔窗口在当前窗口下边
-set splitright " 分隔窗口在当前窗口下边
-set clipboard=unnamed " 系统剪贴板
-set novisualbell " 警告时不要闪烁
-set ignorecase " 搜索时忽略大小写
-set smartcase " 有一个或以上大写字母时仍大小写敏感
-set expandtab " 编辑的时候将所有的tab设置为空格
-set tabstop=2 " 将tab换为4个空格
+filetype indent on
+filetype plugin on
+syntax enable
+syntax on
+set backspace=2
+set laststatus=2
+set mouse=a
+set incsearch
+set hlsearch
+set smartcase
+set autoindent
+set smartindent
+set autoread
+set scrolloff=5
+set timeoutlen=500
+set ttimeoutlen=0
+set number
+set cursorline
+set noswapfile
+set showcmd
+set smarttab
+set linebreak
+set splitbelow
+set splitright
+set clipboard=unnamed
+set novisualbell
+set ignorecase
+set smartcase
+set expandtab
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set foldmethod=indent " 折叠方式
+set foldmethod=indent
 set foldlevelstart=99
-set colorcolumn=0 " 长度表示线
+set colorcolumn=0
 
-" 强制保存
 cmap w!! w !sudo tee > /dev/null %
-" 一键大写
 inoremap <C-U> <ESC>viwUea
 inoremap <C-L> <ESC>viwuea
-" 窗口切换组合快捷键
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" 创建新的标签页
 nnoremap <leader>tp gT
 nnoremap <leader>tn gt
 nnoremap <leader>tt :tab
@@ -77,16 +72,13 @@ noremap <silent> <leader>6 :silent! 6wincmd w<CR>
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
-" 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
 augroup auto_position
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup end
-" 标识不必要的空白字符
 augroup white_space
   hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
   autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 augroup end
-" 在commit message中开启拼写检查和设置文本宽度为 72
 augroup set_gitcommit
   autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
 augroup end
@@ -96,12 +88,10 @@ function! PythonHeader() abort
   call setline(2, '# -*-coding: utf-8-*-')
   normal! Goo
 endfunction
-
 function! BashHeader() abort
   call setline(1, '#!/bin/bash')
   normal! Goo
 endfunction
-
 augroup auto_set_file_head
   autocmd BufNewFile *.py call PythonHeader()
   autocmd BufNewFile *.sh call BashHeader()
@@ -125,8 +115,6 @@ hi User2 cterm=bold ctermfg=214 ctermbg=242
 hi User3 cterm=bold ctermfg=169 ctermbg=238
 hi User4 cterm=bold ctermfg=250 ctermbg=238
 hi User5 cterm=bold ctermfg=240 ctermbg=155
-
-" 设置活动/非活动窗口状态栏
 hi StatusLine cterm=bold ctermfg=231 ctermbg=238
 hi StatusLineNC cterm=None ctermfg=NONE ctermbg=232
 
@@ -134,17 +122,13 @@ function! Git_branch()
   let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
   return v:shell_error ? ' [ NoGit ] ' : ' [ '.trim(l:branch).'] '
 endfunction
-
 func File_type()
   let l:filt_type = &filetype
   return l:filt_type == '' ? '' : l:filt_type.' |'
 endfunc
 
-" 缓冲区编号; Git 分支信息; 文件路径
-set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w:%F\ %*
-" 左右对齐分隔符
+set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w%F\ %*
 set statusline+=%=					  
-" 修改标志、只读标志、文件类型; 文件格式; 文件编码; 百分比位置; 行号、列号、虚拟列号
 set statusline+=%4*\ %{File_type()}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*  	   
 
 " vim:tw=78:ts=8:noet:ft=vim:norl:
