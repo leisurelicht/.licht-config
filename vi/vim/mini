@@ -15,7 +15,6 @@ filetype indent on " 为特定文件类型载入相关缩进文件
 filetype plugin on " 载入文件类型插件
 syntax enable " 开启语法高
 syntax on " 允许使用制定高亮替换方案
-set shell=sh
 set backspace=2 " 修复delete键
 set laststatus=2 " 始终显示状态拦
 set mouse=a " 让鼠标能使用
@@ -95,16 +94,12 @@ augroup end
 function! PythonHeader() abort
   call setline(1, '#!/usr/bin/env python')
   call setline(2, '# -*-coding: utf-8-*-')
-  normal! G
-  normal! o
-  normal! o
+  normal! Goo
 endfunction
 
 function! BashHeader() abort
   call setline(1, '#!/bin/bash')
-  normal! G
-  normal! o
-  normal! o
+  normal! Goo
 endfunction
 
 augroup auto_set_file_head
@@ -113,86 +108,43 @@ augroup auto_set_file_head
 augroup end
 
 augroup file_set
-  autocmd FileType dockerfile
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType json
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
+  autocmd FileType vim, yaml, json, sh, sql, dockerfile, lua
+        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 
   autocmd FileType go
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
-        \ setlocal colorcolumn=80 |
-  autocmd FileType lua
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=80 
   autocmd FileType python
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
-        \ setlocal colorcolumn=79 |
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=79 
   autocmd FileType htmldjango
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
+        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 | setlocal colorcolumn=120 
   autocmd FileType markdown
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
-  autocmd FileType sh
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType sql
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType vim
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
-  autocmd FileType yaml
-        \ setlocal fileformat=unix |
-        \ setlocal tabstop=2 |
-        \ setlocal softtabstop=2 |
-        \ setlocal shiftwidth=2 |
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 
 augroup end
 
+hi User1 cterm=bold ctermfg=232 ctermbg=6
+hi User2 cterm=bold ctermfg=214 ctermbg=242
+hi User3 cterm=bold ctermfg=169 ctermbg=238
+hi User4 cterm=bold ctermfg=250 ctermbg=238
+hi User5 cterm=bold ctermfg=240 ctermbg=155
+
+" 设置活动/非活动窗口状态栏
+hi StatusLine cterm=bold ctermfg=231 ctermbg=238
+hi StatusLineNC cterm=None ctermfg=NONE ctermbg=232
 
 function! Git_branch()
-    let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
-    return v:shell_error ? '' : ' [ '.trim(l:branch).'] '
+  let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
+  return v:shell_error ? ' [ NoGit ] ' : ' [ '.trim(l:branch).'] '
 endfunction
 
-set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %*  " 缓冲区编号
-set statusline+=%2*%{Git_branch()}%*			  " Git 分支信息
-set statusline+=%4*\ [%F]\ %*				  " 文件路径
-set statusline+=%=					  " 左右对齐分隔符
-set statusline+=%7*\ %m%r%y%w				  " 修改标志、只读标志、文件类型
-set statusline+=\ \|\ [%{&ff}]				  " 文件格式
-set statusline+=\ \|\ [%{&fenc!=''?&fenc:&enc}]\   	  " 文件编码
-set statusline+=%8*\ <%P>\ %l:%c%V			  " 百分比位置,行号、列号、虚拟列号
-hi User1 cterm=bold ctermfg=232 ctermbg=179
-hi User2 cterm=None ctermfg=214 ctermbg=242
-hi User4 cterm=bold ctermfg=169 ctermbg=239
-hi User7 cterm=bold ctermfg=250 ctermbg=237
-hi User8 cterm=None ctermfg=249 ctermbg=240
+func File_type()
+  let l:filt_type = &filetype
+  return l:filt_type == '' ? '' : l:filt_type.' |'
+endfunc
 
-hi StatusLine cterm=NONE ctermfg=NONE ctermbg=238
-hi StatusLineNC cterm=NONE ctermfg=NONE ctermbg=238
+" 缓冲区编号; Git 分支信息; 文件路径
+set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w:%F\ %*
+" 左右对齐分隔符
+set statusline+=%=					  
+" 修改标志、只读标志、文件类型; 文件格式; 文件编码; 百分比位置; 行号、列号、虚拟列号
+set statusline+=%4*\ %{File_type()}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*  	   
 
 " vim:tw=78:ts=8:noet:ft=vim:norl:
