@@ -45,6 +45,7 @@ set shiftwidth=2
 set foldmethod=indent
 set foldlevelstart=99
 set colorcolumn=0
+set paste
 
 cmap w!! w !sudo tee > /dev/null %
 inoremap <C-U> <ESC>viwUea
