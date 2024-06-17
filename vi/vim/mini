@@ -72,16 +72,34 @@ noremap <silent> <leader>6 :silent! 6wincmd w<CR>
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
+augroup file_set
+  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua
+        \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2
+	autocmd FileType gitcommit
+				\ setlocal spell textwidth=72 colorcolumn=79
+  autocmd FileType go
+        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=80
+  autocmd FileType python
+        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=79
+  autocmd FileType htmldjango
+        \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=120
+  autocmd FileType markdown
+        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4
+augroup end
+
 augroup auto_position
+  autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup end
 augroup white_space
+  autocmd!
   hi BadWhitespace guifg=gray guibg=red ctermfg=gray ctermbg=red
   autocmd BufRead,BufNewFile * match BadWhitespace /\s\+$/
 augroup end
-augroup set_gitcommit
-  autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
-augroup end
+augroup trim_trailing_whitespace
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
+augroup END
 
 function! PythonHeader() abort
   call setline(1, '#!/usr/bin/env python')
@@ -95,19 +113,6 @@ endfunction
 augroup auto_set_file_head
   autocmd BufNewFile *.py call PythonHeader()
   autocmd BufNewFile *.sh call BashHeader()
-augroup end
-
-augroup file_set
-  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua
-        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2
-  autocmd FileType go
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=80
-  autocmd FileType python
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=79
-  autocmd FileType htmldjango
-        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 | setlocal colorcolumn=120
-  autocmd FileType markdown
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4
 augroup end
 
 hi User1 cterm=bold ctermfg=232 ctermbg=6
@@ -128,7 +133,7 @@ func File_type()
 endfunc
 
 set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w%F\ %*
-set statusline+=%=					  
-set statusline+=%4*\ %{File_type()}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*  	   
+set statusline+=%=
+set statusline+=%4*\ %{File_type()}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*
 
 " vim:tw=78:ts=8:noet:ft=vim:norl:
