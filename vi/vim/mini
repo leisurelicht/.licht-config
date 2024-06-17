@@ -437,11 +437,7 @@ function! s:ResetWidth(...)
 endfunction
 
 function! s:AutoResetWidth()
-  let l:enable = get(
-                  \ b:,
-                  \ 'indentLine_enabled',
-                  \ g:indentLine_enabled ? s:Filter() : 0
-                  \)
+  let l:enable = get(b:, 'indentLine_enabled', g:indentLine_enabled ? s:Filter() : 0)
 
   let g:indentLine_autoResetWidth = get(g:, 'indentLine_autoResetWidth', 1)
 
