@@ -125,7 +125,7 @@ hi StatusLineNC cterm=None ctermfg=NONE ctermbg=232
 
 function! Git_branch()
   let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
-  return v:shell_error ? ' [ NoGit ] ' : ' [ '.trim(l:branch).'] '
+  return v:shell_error ? '' : ' [ '.trim(l:branch).'] '
 endfunction
 func File_type()
   let l:filt_type = &filetype
