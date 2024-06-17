@@ -655,7 +655,6 @@ augroup indentLine
     endif
 augroup END
 
-"{{{2 commands
 command! -nargs=? IndentLinesReset call s:ResetWidth(<f-args>)
 command! -bar IndentLinesToggle call s:IndentLinesToggle()
 if g:indentLine_newVersion
