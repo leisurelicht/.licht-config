@@ -129,7 +129,7 @@ function! Git_branch()
 endfunction
 func File_type()
   let l:filt_type = &filetype
-  return l:filt_type == '' ? '' : l:filt_type.' |'
+  return l:filt_type == '' ? '' : ' ['.l:filt_type.'] |'
 endfunc
 
 set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w%F\ %*
