@@ -1,0 +1,11 @@
+[window]
+title="Licht"
+decorations="Transparent"
+[font]
+normal.family="Hack Nerd Font"
+size=13
+offset={x=1,y=0}
+[colors]
+transparent_background_colors=true
+[selection]
+save_to_clipboard=true
