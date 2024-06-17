@@ -98,16 +98,16 @@ augroup auto_set_file_head
 augroup end
 
 augroup file_set
-  autocmd FileType vim, yaml, json, sh, sql, dockerfile, lua
-        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 
+  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua
+        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2
   autocmd FileType go
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=80 
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=80
   autocmd FileType python
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=79 
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 | setlocal colorcolumn=79
   autocmd FileType htmldjango
-        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 | setlocal colorcolumn=120 
+        \ setlocal fileformat=unix | setlocal tabstop=2 | setlocal softtabstop=2 | setlocal shiftwidth=2 | setlocal colorcolumn=120
   autocmd FileType markdown
-        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4 
+        \ setlocal fileformat=unix | setlocal tabstop=4 | setlocal softtabstop=4 | setlocal shiftwidth=4
 augroup end
 
 hi User1 cterm=bold ctermfg=232 ctermbg=6
