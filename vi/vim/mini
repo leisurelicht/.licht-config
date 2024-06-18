@@ -268,6 +268,8 @@ let g:indentLine_faster = 0
 let g:indentLine_leadingSpaceChar = (&encoding ==# "utf-8" && &term isnot# "linux" ? '˰' : '.')
 let g:indentLine_leadingSpaceEnabled = 0
 let g:indentLine_mysyntaxfile = fnamemodify(expand("<sfile>"), ":p:h:h")."/syntax/indentLine.vim"
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
 
 function! s:InitColor()
   if &term ==# "linux"
