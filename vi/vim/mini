@@ -1,19 +1,19 @@
+scriptencoding utf-8
 " =================
-" vimrc --- vim entry file
 " Author: MuCheng
 " License: GPLv3
 " =================
 "
-set encoding=utf-8
-scriptencoding utf-8
 
 let g:mapleader="\<Space>"
 let g:maplocalleader=','
+
 filetype on
 filetype indent on
 filetype plugin on
 syntax enable
-syntax on
+set encoding=utf-8
+set fileencoding=utf-8
 set backspace=2
 set laststatus=2
 set mouse=a
@@ -125,18 +125,12 @@ hi User5 cterm=bold ctermfg=240 ctermbg=155
 hi StatusLine cterm=bold ctermfg=231 ctermbg=238
 hi StatusLineNC cterm=None ctermfg=NONE ctermbg=232
 
-function! Git_branch()
+function! Gbranch()
   let l:branch = system('git rev-parse --abbrev-ref HEAD 2>/dev/null')
   return v:shell_error ? '' : ' [ '.trim(l:branch).'] '
 endfunction
-func File_type()
-  let l:filt_type = &filetype
-  return l:filt_type == '' ? '' : ' ['.l:filt_type.'] |'
-endfunc
-
-set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Git_branch()}%3*\ %m%r%w%F\ %*
-set statusline+=%=
-set statusline+=%4*\ %{File_type()}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*
+set statusline=%<%1*\ [%{tabpagewinnr(tabpagenr())}]\ %2*%{Gbranch()}%3*\ %m%r%w%F\ %*
+set statusline+=%=%4*\ %{&filetype==''?'':'['.&filetype.']\ \|'}\ [%{&ff}]\ \|\ [%{&fenc!=''?&fenc:&enc}]\ %5*\ %P\ \|\ %l:%c%V\ %*
 "}}}
 
 "{{{ commentary
