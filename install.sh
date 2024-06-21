@@ -186,15 +186,15 @@ fi
 
 echo "====> Config file root path is: ${config_path}"
 
-commands=("all" "kitty" "zsh" "tmux" "vim" "neovim")
+commands=("all" "kitty" "zsh" "tmux" "vim" "neovim" "alacritty")
 # 判断第一个命令行参数是否是 commands 中的一个
 if [[ ! "${commands[*]}" =~ ${1} ]]; then
 	echo "====> Error: Unknown parameter: ${1}"
-	echo "====> Usage: ./install.sh [all|kitty|zsh|tmux|vim|neovim]"
+	echo "====> Usage: ./install.sh [all|kitty|zsh|tmux|vim|neovim|alacritty]"
 	exit 1
 fi
 
-kitty=0 zsh=0 tmux=0 vim=0 neovim=0
+kitty=0 zsh=0 tmux=0 vim=0 neovim=0 alacritty=0
 
 case ${1} in
 all)
@@ -215,6 +215,9 @@ vim)
 neovim)
 	neovim=1
 	;;
+alacritty)
+  alacritty=1
+  ;;
 esac
 
 if [[ $(uname -s) == 'Darwin' ]]; then
@@ -248,6 +251,19 @@ if [[ ${kitty} == 1 ]]; then
 	fi
 	echo "====> Create symlink for kitty config"
 	ln -sf "${config_path}/kitty/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
+fi
+
+if [[ ${alacritty} == 1 ]]; then
+	if [ ! -d "${HOME}/.config/alacritty" ]; then
+		mkdir "${HOME}/.config/alacritty"
+	else
+		echo "====> Alacritty config dir has exist"
+		echo "====> Backup to [ ${config_path}/bak ] and delete it."
+		mv "${HOME}/.config/alacritty" "${config_path}/bak/alacritty_bak"
+		mkdir "${HOME}/.config/alacritty"
+	fi
+	echo "====> Create symlink for alacritty config"
+	ln -sf "${config_path}/alacritty/alacritty.toml" "${HOME}/.config/alacritty/alacritty.toml"
 fi
 
 if [[ ${tmux} == 1 ]]; then
