@@ -8,6 +8,14 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# set encoding
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# homebrew 禁止自动全局更新和全局清理
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
+
 # zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
@@ -16,33 +24,30 @@ source "${ZINIT_HOME}/zinit.zsh"
 #
 # Load powerlevel10k theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 # 语法高亮
 zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
 zinit light zdharma-continuum/fast-syntax-highlighting
-
 # 自动建议
 zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-
 # 补全
 zinit light zsh-users/zsh-completions
-
 # git open
 zinit ice lucide wait='1'
 zinit light paulirish/git-open
-
 # OMZ 插件
 zinit snippet OMZ::lib/history.zsh
 zinit snippet OMZ::plugins/extract
 zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
-# zinit snippet OMZ::plugins/kubectl/kubectl.plugin.zsh
-
-# homebrew
-# 禁止自动全局更新和全局清理
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_INSTALL_CLEANUP=1
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+### End of Zinit's installer chunk
 
 # 快速跳转
 unalias zi 2> /dev/null
@@ -50,7 +55,6 @@ eval "$(zoxide init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export PATH="$HOME/.local/bin/:$PATH"
 
 # ===== set g environment variables =====
@@ -66,6 +70,13 @@ export G_MIRROR=https://golang.google.cn/dl/
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn,direct
 
+# k8s
+command -v kubectl >/dev/null && source <(kubectl completion zsh)
+# g shell setup
+if [ -f "${HOME}/.g/env" ]; then
+    . "${HOME}/.g/env"
+fi
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v $PYENV_ROOT/bin/pyenv >/dev/null && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -77,30 +88,14 @@ if type pyenv >/dev/null 2>&1; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # export env
 [ -f ~/.licht-file/zsh/export_env ] && source ~/.licht-config/zsh/export_env
 
 # alias
 [ -f ~/.licht-config/zsh/aliasrc ] && source ~/.licht-config/zsh/aliasrc
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# k8s
-command -v kubectl >/dev/null && source <(kubectl completion zsh)
-# g shell setup
-if [ -f "${HOME}/.g/env" ]; then
-    . "${HOME}/.g/env"
-fi
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk
