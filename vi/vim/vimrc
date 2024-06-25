@@ -147,9 +147,9 @@ augroup file_set
         \ setlocal shiftwidth=2 |
   autocmd FileType markdown
         \ setlocal fileformat=unix |
-        \ setlocal tabstop=4 |
-        \ setlocal softtabstop=4 |
-        \ setlocal shiftwidth=4 |
+        \ setlocal tabstop=2 |
+        \ setlocal softtabstop=2 |
+        \ setlocal shiftwidth=2 |
   autocmd FileType sh
         \ setlocal fileformat=unix |
         \ setlocal tabstop=2 |

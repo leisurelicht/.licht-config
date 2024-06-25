@@ -74,7 +74,7 @@ vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
 augroup file_set
-  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua
+  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua,markdown
         \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2
 	autocmd FileType gitcommit
 				\ setlocal spell textwidth=72 colorcolumn=79
@@ -84,8 +84,6 @@ augroup file_set
         \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=79
   autocmd FileType htmldjango
         \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=120
-  autocmd FileType markdown
-        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4
 augroup end
 
 augroup auto_position
