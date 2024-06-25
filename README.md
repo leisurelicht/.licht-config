@@ -115,9 +115,9 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 ```text
 └── zsh
    ├── aliasrc // command aliasrc
-   ├── export_env // environment 
+   ├── export_env // environment
    ├── fzf.zsh // fzf configuration file
-   ├── install.sh 
+   ├── install.sh
    ├── p10k.zsh // p10k configuration file
    ├── README.md
    └── zshrc // zsh configuration file
@@ -147,6 +147,13 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
   tmux
   <C-b>I
   ```
+
+  3. only install mini tmux config
+
+  ```
+  curl -o ~/.tmux.conf https://raw.githubusercontent.com/leisurelicht/.licht-config/master/tmux/mini.conf
+  ```
+
 
 - uninstall
 
@@ -226,16 +233,24 @@ git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 
 - install
 
+  1. install full version
+
   ```bash
   ./install.sh [vim/neovim]
   ```
 
-- 卸载
+  2. only install mini vim
+
+  ```bash
+  curl -o ~/.vimrc https://raw.githubusercontent.com/leisurelicht/.licht-config/master/vi/vim/mini
+  ```
+
+- uninstall
 
   ```bash
   ./uninstall.sh [vim/neovim]
   ```
-  
+
 #### File structure
 
 ```text
