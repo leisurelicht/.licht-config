@@ -56,30 +56,15 @@ alias tig="lazygit log"
 alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
 alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
 
-if type "$exa" >/dev/null; then
-    # ls && ll
-    alias ls="exa"
-    alias ll="exa --all --long --header --inode --git --color-scale --icons"
-
-    # tree
-    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
-else
-    # tree
-    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-fi
-
 alias j="z"
 
 if [[ `uname` == "Darwin" ]]; then
     # 可恢复删除
     alias rm="trash"
 
-    # ls && ll
-    alias ls="exa"
-    alias ll="exa --all --long --header --inode --git --color-scale --icons"
-
-    # tree
-    alias tree="exa --long --header --git --color-scale --icons --tree --level=3"
+    alias ls="eza"
+    alias ll="eza --all --long --header --inode --git --color-scale --icons"
+    alias tree="eza --long --header --git --color-scale --icons --tree --level=3"
 
     # cat
     alias cat="bat"
@@ -112,6 +97,7 @@ if [[ `uname` == "Darwin" ]]; then
 elif [[ $(uname -s) == "Linux" ]]; then
     alias cat="batcat"
     alias fd="fdfind"
+    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
 if [[ "$TERM" == "xterm-kitty" ]]; then

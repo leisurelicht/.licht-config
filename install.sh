@@ -23,7 +23,7 @@ install_on_mac() {
 			brew install kitty
 		fi
 	elif [[ ${zsh} == 1 ]]; then
-		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "exa")
+		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "eza")
 
 		for soft in "${installed[@]}"; do
 			if [[ ${brew_list} == *"${soft}"* ]]; then
