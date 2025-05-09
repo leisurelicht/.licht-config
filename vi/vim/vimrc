@@ -226,9 +226,9 @@ Plug 'tpope/vim-commentary'
 " surround
 Plug 'tpope/vim-surround'
 " ----> Python 代码缩进
-Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
+" Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 " ----> Python 语法高亮
-Plug 'vim-python/python-syntax' , {'for': 'python'}
+" Plug 'vim-python/python-syntax' , {'for': 'python'}
 " ----> Git
 " ----> 文件变动
 Plug 'mhinz/vim-signify' " ---> Git Message
