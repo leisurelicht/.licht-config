@@ -74,16 +74,11 @@ vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 
 augroup file_set
-  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua,markdown
-        \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2
-	autocmd FileType gitcommit
-				\ setlocal spell textwidth=72 colorcolumn=79
-  autocmd FileType go
-        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=80
-  autocmd FileType python
-        \ setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=79
-  autocmd FileType htmldjango
-        \ setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=120
+  autocmd FileType vim,yaml,json,sh,sql,dockerfile,lua,markdown setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2
+  autocmd FileType gitcommit setlocal spell textwidth=72 colorcolumn=79
+  autocmd FileType go setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=80
+  autocmd FileType python setlocal fileformat=unix tabstop=4 softtabstop=4 shiftwidth=4 colorcolumn=79
+  autocmd FileType htmldjango setlocal fileformat=unix tabstop=2 softtabstop=2 shiftwidth=2 colorcolumn=120
 augroup end
 
 augroup auto_position
@@ -576,15 +571,14 @@ augroup indentLine
     autocmd VimEnter * call s:VimEnter()
   else
     autocmd BufWinEnter * call s:Setup()
-    autocmd User * if exists("b:indentLine_enabled") || exists("b:indentLine_leadingSpaceEnabled") |
-                    \ call s:Setup() | endif
+    autocmd User * if exists("b:indentLine_enabled") || exists("b:indentLine_leadingSpaceEnabled") | call s:Setup() | endif
     autocmd BufRead,BufNewFile,ColorScheme,Syntax * call s:InitColor()
     autocmd BufUnload * let b:indentLine_enabled = 0 | let b:indentLine_leadingSpaceEnabled = 0
     autocmd SourcePre $VIMRUNTIME/syntax/nosyntax.vim doautocmd indentLine BufUnload
     autocmd FileChangedShellPost * doautocmd indentLine BufUnload | call s:Setup()
     if exists("##OptionSet")
-        autocmd OptionSet diff call s:ToggleOnDiff()
-        autocmd OptionSet shiftwidth,tabstop noautocmd call s:AutoResetWidth()
+      autocmd OptionSet diff call s:ToggleOnDiff()
+      autocmd OptionSet shiftwidth,tabstop noautocmd call s:AutoResetWidth()
     endif
     autocmd VimEnter * call s:VimEnter()
   endif
@@ -593,15 +587,15 @@ augroup END
 command! -nargs=? IndentLinesReset call s:ResetWidth(<f-args>)
 command! -bar IndentLinesToggle call s:IndentLinesToggle()
 if g:indentLine_newVersion
-  command! -bar Indentlinesenable let b:indentline_enabled = 1 | call s:Indentlinesenable()
-  command! -bar Indentlinesdisable let b:indentline_enabled = 0 | call s:Indentlinesdisable()
-  command! -bar Leadingspaceenable let b:indentline_leadingspaceenabled = 1 | call s:Leadingspaceenable()
-  command! -bar Leadingspacedisable let b:indentline_leadingspaceenabled = 0 | call s:Leadingspacedisable()
+  command! -bar IndentLinesEnable let b:indentLine_enabled = 1 | call s:IndentLinesEnable()
+  command! -bar IndentLinesDisable let b:indentLine_enabled = 0 | call s:IndentLinesDisable()
+  command! -bar LeadingSpaceEnable let b:indentLine_leadingSpaceEnabled = 1 | call s:LeadingSpaceEnable()
+  command! -bar LeadingSpaceDisable let b:indentLine_leadingSpaceEnabled = 0 | call s:LeadingSpaceDisable()
 else
-  command! -bar Indentlinesenable call s:indentlinesenable()
-  command! -bar Indentlinesdisable call s:indentlinesdisable()
-  command! -bar Leadingspaceenable call s:leadingspaceenable()
-  command! -bar Leadingspacedisable call s:leadingspacedisable()
+  command! -bar IndentLinesEnable call s:IndentLinesEnable()
+  command! -bar IndentLinesDisable call s:IndentLinesDisable()
+  command! -bar LeadingSpaceEnable call s:LeadingSpaceEnable()
+  command! -bar LeadingSpaceDisable call s:LeadingSpaceDisable()
 endif
 command! LeadingSpaceToggle call s:LeadingSpaceToggle()
 "}}}
