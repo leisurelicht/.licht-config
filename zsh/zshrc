@@ -89,3 +89,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # shell-integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# Added by LM Studio CLI (lms)
+[ -d "$HOME/.lmstudio/bin" ] && export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
