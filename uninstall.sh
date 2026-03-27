@@ -22,18 +22,25 @@ if [[ ${command_found} -ne 1 ]]; then
 fi
 
 if [[ "${1}" == "all" || "${1}" == "tmux" ]]; then
-	echo "====> Remove tmux config file"
-	rm ~/.tmux.conf >/dev/null 2>&1
+	if [ -h ~/.tmux.conf ]; then
+		echo "====> Remove tmux config file"
+		rm ~/.tmux.conf >/dev/null 2>&1
 
-	if [[ -f "${config_path}/bak/tmux.conf.bak" ]]; then
-		echo "====> Move backup tmux config file"
-		mv "${config_path}/bak/tmux.conf.bak" ~/.tmux.conf
+		if [[ -f "${config_path}/bak/tmux.conf.bak" ]]; then
+			echo "====> Move backup tmux config file"
+			mv "${config_path}/bak/tmux.conf.bak" ~/.tmux.conf
+		fi
+
+		echo "====> Delete tmux plugin"
+		rm -rf ~/.tmux >/dev/null 2>&1
+
+		echo "====> Uninstall tmux config success"
+	else
+		echo "====> No tmux"
+		if [[ "${1}" == "tmux" ]]; then
+			exit 0
+		fi
 	fi
-
-	echo "====> Delete tmux plugin"
-	rm -rf ~/.tmux >/dev/null 2>&1
-
-	echo "====> Uninstall tmux config success"
 fi
 
 if [[ "${1}" == "all" || "${1}" == "vim" ]]; then
