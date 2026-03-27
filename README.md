@@ -7,7 +7,7 @@
   ·
   <a href="https://github.com/leisurelicht/.licht-config#tmux">Tmux</a>
   ·
-  <a href="https://github.com/leisurelicht/.licht-config#vim--neovima">Vim&Neovim</a>
+  <a href="https://github.com/leisurelicht/.licht-config#vim--neovim">Vim&Neovim</a>
 </h4>
 
 <div align="center"><p>

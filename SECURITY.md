@@ -2,20 +2,20 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This repository is maintained on a best-effort basis.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Security fixes, when available, are applied to the latest state of the default branch.
+Older snapshots, forks, and copied dotfiles are not supported.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you find a security issue in this repository, do not open a public issue.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Report it by contacting the repository owner through one of these private channels:
+
+- GitHub Security Advisories, if enabled for the repository
+- A private email or direct contact method listed on the repository profile
+
+Include the affected file or script, the impact, reproduction steps, and any suggested fix if you have one.
+
+I will review the report and respond on a best-effort basis.
