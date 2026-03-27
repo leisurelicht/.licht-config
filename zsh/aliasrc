@@ -75,6 +75,9 @@ dockerrm() {
 
 alias j="z"
 
+# 移除可能被其他插件定义的 tig 别名（tig 是独立工具）
+unalias tig 2>/dev/null
+
 if [[ $(uname) == "Darwin" ]]; then
     # 可恢复删除
     alias rm="trash"
