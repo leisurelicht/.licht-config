@@ -54,19 +54,18 @@ install_on_mac() {
 	fi
 
 	if [[ ${vim} == 1 ]]; then
-		installed+=("vim" "vim" "im-select" "im-select" "curl" "curl")
+		installed=("vim" "im-select" "curl")
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
 		fi
 
-		for ((i = 0; i < "${#installed[@]}"; )); do
-			if [[ ${brew_list} == *"${installed[$i + 1]}"* ]]; then
-				echo "====> [ ${installed[$i + 1]} ] have been installed."
+		for soft in "${installed[@]}"; do
+			if [[ ${brew_list} == *"${soft}"* ]]; then
+				echo "====> [ ${soft} ] have been installed."
 			else
-				echo "----> Install [ ${installed[$i + 1]} ]."
-				brew install "${installed[$i + 1]}"
+				echo "----> Install [ ${soft} ]."
+				brew install "${soft}"
 			fi
-			i=$((i + 2))
 		done
 	fi
 
@@ -96,8 +95,8 @@ install_on_mac() {
 			fi
 			i=$((i + 2))
 		done
-		fi
-	}
+	fi
+}
 
 install_on_linux() {
 	need_exit=0
@@ -179,8 +178,8 @@ install_on_linux() {
 	fi
 	if [[ ${need_exit} == 1 ]]; then
 		exit 1
-		fi
-	}
+	fi
+}
 
 # ------------------------------
 
