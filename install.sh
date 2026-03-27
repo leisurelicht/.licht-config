@@ -233,7 +233,7 @@ fi
 
 #
 if [[ ${tmux} == 1 ]]; then
-	echo "====> Install tumx plugins manage plugin tpm"
+	echo "====> Install tmux plugins manage plugin tpm"
 	if [ ! -d ~/.tmux/plugins/tpm ]; then
 		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -308,18 +308,25 @@ if [[ ${zsh} == 1 ]]; then
 		echo "====> NVM already installed, skipping."
 	else
 		echo "====> Installing NVM..."
-		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+		if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash; then
+			echo "====> Error: Install NVM failed"
+			exit 1
+		fi
 	fi
 
 	# zinit
-	if ! bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
-		echo "====> Error: Install zinit failed, install stop"
-		exit 1
-	fi
+	if [[ -f "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh" ]]; then
+		echo "====> Zinit already installed, skipping."
+	else
+		if ! bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
+			echo "====> Error: Install zinit failed, install stop"
+			exit 1
+		fi
 
-	if [[ ! -f "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh" ]]; then
-		echo "====> Error: Zinit was not installed correctly, install stop"
-		exit 1
+		if [[ ! -f "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh" ]]; then
+			echo "====> Error: Zinit was not installed correctly, install stop"
+			exit 1
+		fi
 	fi
 
 	# 更新的 fzf 配置文件

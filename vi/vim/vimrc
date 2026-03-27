@@ -21,7 +21,6 @@ set laststatus=2 " 始终显示状态拦
 set mouse=a " 让鼠标能使用
 set incsearch " 输入搜索内容时就显示搜索结果
 set hlsearch " 搜索时高亮显示被找到的文本
-set smartcase " 有一个或以上大写字母时仍大小写敏感
 set autoindent " 自动套用上一行的缩进方式
 set smartindent " 智能缩进
 set autoread " 文件自动检测外部更改
@@ -221,7 +220,7 @@ augroup vim_enter
 augroup end
 " ---> enable vim devicons
 let g:airline_powerline_fonts = 1
-" ----> 缩进指示线
+" ----> 缩进指示线 (fork of Yggdroot/indentLine with custom modifications)
 Plug 'leisurelicht/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
@@ -266,7 +265,7 @@ let g:which_key_map.6 = 'window-6'
 let g:which_key_map.e = 'Explorer'
 let g:which_key_map.g = { 'name': '+Git', 'm': 'Message' }
 let g:which_key_map.t = { 'name': '+Tabs', 't': 'Tab', 'a': 'New Tab', 'c': 'Close Tab', 'l': 'List Tabs', 'n': 'Next Tab', 'p': 'Previous Tab', 'd': 'Do In Tabs', 's': 'To New Tab', 'F': 'First Tab', 'L': 'Last Tab' }
-" ----> wakatime
+" ----> wakatime (requires API key from https://wakatime.com)
 Plug 'wakatime/vim-wakatime'
 " ----> Ale
 Plug 'dense-analysis/ale'
