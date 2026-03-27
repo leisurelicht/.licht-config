@@ -53,8 +53,22 @@ alias gdc="git diff --cached"
 alias tig="lazygit log"
 
 # docker 快捷删除
-alias dockerrmi='docker rmi -f $(docker images | grep "<none>" | awk "{print \$3}")'
-alias dockerrm='docker rm -f $(docker ps -a | grep "Exited" | awk "{print \$1}")'
+dockerrmi() {
+    local images=$(docker images --filter "dangling=true" -q 2>/dev/null)
+    if [[ -n "$images" ]]; then
+        docker rmi -f $images
+    else
+        echo "No dangling images to remove"
+    fi
+}
+dockerrm() {
+    local containers=$(docker ps -a --filter "status=exited" -q 2>/dev/null)
+    if [[ -n "$containers" ]]; then
+        docker rm -f $containers
+    else
+        echo "No exited containers to remove"
+    fi
+}
 
 alias j="z"
 
