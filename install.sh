@@ -179,11 +179,6 @@ config_path=$(
 	pwd
 )
 
-current_path=$(
-	cd "$(dirname "${0}")" || exit
-	pwd
-)
-
 echo "====> Config file root path is: ${config_path}"
 
 commands=("all" "zsh" "tmux" "vim" "neovim")
@@ -266,7 +261,6 @@ if [[ ${vim} == 1 ]]; then
 		echo "====> Vim config file the vimrc has exist"
 		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.vimrc" "${config_path}/bak/vimrc.bak"
-		rm "${HOME}/.vimrc" >/dev/null 2>&1
 	fi
 
 	echo "====> Create symlink for vim config"
@@ -355,7 +349,6 @@ if [[ ${zsh} == 1 ]]; then
 		echo "====> Zsh config file the [ zshrc ] has exist."
 		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.zshrc" "${config_path}/bak/zshrc.bak"
-		rm "${HOME}/.zshrc" >/dev/null 2>&1
 	fi
 
 	echo "====> Create symlink for zsh config"

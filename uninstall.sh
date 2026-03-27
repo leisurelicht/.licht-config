@@ -138,26 +138,26 @@ if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
     echo '====> Remove zshrc'
     rm ~/.zshrc >/dev/null 2>&1
 
-	    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
-	      echo '====> Move zshrc file back'
-	      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
-	    fi
+    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
+      echo '====> Move zshrc file back'
+      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+    fi
 
-	    echo "====> Remove P10k config"
-	    rm ~/.p10k.zsh >/dev/null 2>&1
-	    if [[ -f "${config_path}/bak/p10k.zsh.bak" ]]; then
-	      echo '====> Move P10k config file back'
-	      mv "${config_path}"/bak/p10k.zsh.bak ~/.p10k.zsh
-	    fi
+    echo "====> Remove P10k config"
+    rm ~/.p10k.zsh >/dev/null 2>&1
+    if [[ -f "${config_path}/bak/p10k.zsh.bak" ]]; then
+      echo '====> Move P10k config file back'
+      mv "${config_path}"/bak/p10k.zsh.bak ~/.p10k.zsh
+    fi
 
-	    echo "====> Remove fzf plugin"
-	    if [[ -f "${config_path}/bak/fzf.zsh.bak" ]]; then
-	      mv "${config_path}"/bak/fzf.zsh.bak ~/.fzf.zsh
-	    else
-	      remove_fzf_custom_config ~/.fzf.zsh
-	    fi
+    echo "====> Remove fzf plugin"
+    if [[ -f "${config_path}/bak/fzf.zsh.bak" ]]; then
+      mv "${config_path}"/bak/fzf.zsh.bak ~/.fzf.zsh
+    else
+      remove_fzf_custom_config ~/.fzf.zsh
+    fi
 
-	    echo '====> Uninstall zsh config success'
-	  fi
+    echo '====> Uninstall zsh config success'
+  fi
 
 fi

@@ -72,7 +72,7 @@ dockerrm() {
 
 alias j="z"
 
-if [[ `uname` == "Darwin" ]]; then
+if [[ $(uname) == "Darwin" ]]; then
     # 可恢复删除
     alias rm="trash"
 

@@ -183,7 +183,7 @@ if !filereadable(expand('~/.vim/autoload/plug.vim'))
     echohl WarningMsg
     echom 'You need install curl'
     echohl None
-    exit(0)
+    finish
   endif
 endif
 
