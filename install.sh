@@ -40,7 +40,7 @@ install_on_mac() {
 		brew install --cask font-hack-nerd-font
 
 		if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
-			"$(brew --prefix)"/opt/fzf/install
+			"$(brew --prefix fzf)"/install
 		fi
 	fi
 
@@ -59,7 +59,7 @@ install_on_mac() {
 
 		for soft in "${installed[@]}"; do
 			if brew_has "${soft}"; then
-				echo "====> [ ${soft} ] have been installed."
+				echo "====> [ ${soft} ] has been installed."
 			else
 				echo "----> Install [ ${soft} ]."
 				brew install "${soft}"
@@ -86,7 +86,7 @@ install_on_mac() {
 
 		for ((i = 0; i < "${#installed[@]}"; )); do
 			if brew_has "${installed[$i + 1]}"; then
-				echo "====> [ ${installed[$i + 1]} ] have been installed."
+				echo "====> [ ${installed[$i + 1]} ] has been installed."
 			else
 				echo "----> Install [ ${installed[$i + 1]} ]."
 				brew install "${installed[$i + 1]}"
@@ -297,7 +297,10 @@ if [[ ${zsh} == 1 ]]; then
 	# golang version manager
 	if ! has "g"; then
 		echo "----> Install [ g ]."
-		curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash
+		if ! curl -sSL https://raw.githubusercontent.com/voidint/g/master/install.sh | bash; then
+			echo "====> Error: Install g failed"
+			exit 1
+		fi
 	fi
 
 	# nvm
@@ -354,7 +357,9 @@ if [[ ${zsh} == 1 ]]; then
 	ln -sf "${config_path}"/zsh/zshrc ~/.zshrc
 
 	echo "====> Change to zsh"
-	chsh -s /bin/zsh
+	if ! chsh -s /bin/zsh; then
+		echo "====> Warning: Failed to change shell to zsh. You may need to do it manually."
+	fi
 	zsh -lc 'source ~/.zshrc'
 fi
 

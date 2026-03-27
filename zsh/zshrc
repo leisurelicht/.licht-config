@@ -97,7 +97,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -f "$LICHT_CONFIG_ROOT/zsh/aliasrc" ] && source "$LICHT_CONFIG_ROOT/zsh/aliasrc"
 
 # shell-integration
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+if [[ "$TERM_PROGRAM" == "vscode" ]] && command -v code >/dev/null 2>&1; then
+  . "$(code --locate-shell-integration-path zsh)"
+fi
 
 # Added by LM Studio CLI (lms)
 [ -d "$HOME/.lmstudio/bin" ] && export PATH="$PATH:$HOME/.lmstudio/bin"

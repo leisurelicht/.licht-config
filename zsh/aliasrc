@@ -50,7 +50,6 @@ alias gz="git cz"
 alias ga="git add"
 alias gd="git diff"
 alias gdc="git diff --cached"
-alias tig="lazygit log"
 
 # docker 快捷删除
 dockerrmi() {

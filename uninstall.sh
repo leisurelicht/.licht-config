@@ -91,10 +91,10 @@ if [[ "${1}" == "all" || "${1}" == "vim" ]]; then
 			mv "${config_path}"/bak/vimrc.bak ~/.vimrc
 		fi
 
-	  echo "====> Delete vim plugin"
-	  rm -rf ~/.vim >/dev/null 2>&1
+		echo "====> Delete vim plugin"
+		rm -rf ~/.vim >/dev/null 2>&1
 
-	  echo '====> Uninstall vim config success'
+		echo '====> Uninstall vim config success'
 	fi
 fi
 
@@ -117,47 +117,46 @@ if [[ "${1}" == "all" || "${1}" == "neovim" ]]; then
 			mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
 		fi
 
-	  echo "====> Delete neovim plugin"
-	  rm -rf ~/.local/share/nvim >/dev/null 2>&1
+		echo "====> Delete neovim plugin"
+		rm -rf ~/.local/share/nvim >/dev/null 2>&1
 
-	  echo '====> Uninstall neovim config success'
+		echo '====> Uninstall neovim config success'
 	fi
 fi
 
 if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
-  if [ -h ~/.zshrc ]; then
-    echo '====> Uninstall zsh'
-  else
-    echo '====> No zsh'
-    if [[ "${1}" == "zsh" ]]; then
-      exit 0
-    fi
-  fi
+	if [ -h ~/.zshrc ]; then
+		echo '====> Uninstall zsh'
+	else
+		echo '====> No zsh'
+		if [[ "${1}" == "zsh" ]]; then
+			exit 0
+		fi
+	fi
 
-  if [ -h ~/.zshrc ]; then
-    echo '====> Remove zshrc'
-    rm ~/.zshrc >/dev/null 2>&1
+	if [ -h ~/.zshrc ]; then
+		echo '====> Remove zshrc'
+		rm ~/.zshrc >/dev/null 2>&1
 
-    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
-      echo '====> Move zshrc file back'
-      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
-    fi
+		if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
+			echo '====> Move zshrc file back'
+			mv "${config_path}/bak/zshrc.bak" ~/.zshrc
+		fi
 
-    echo "====> Remove P10k config"
-    rm ~/.p10k.zsh >/dev/null 2>&1
-    if [[ -f "${config_path}/bak/p10k.zsh.bak" ]]; then
-      echo '====> Move P10k config file back'
-      mv "${config_path}"/bak/p10k.zsh.bak ~/.p10k.zsh
-    fi
+		echo "====> Remove P10k config"
+		rm ~/.p10k.zsh >/dev/null 2>&1
+		if [[ -f "${config_path}/bak/p10k.zsh.bak" ]]; then
+			echo '====> Move P10k config file back'
+			mv "${config_path}/bak/p10k.zsh.bak" ~/.p10k.zsh
+		fi
 
-    echo "====> Remove fzf plugin"
-    if [[ -f "${config_path}/bak/fzf.zsh.bak" ]]; then
-      mv "${config_path}"/bak/fzf.zsh.bak ~/.fzf.zsh
-    else
-      remove_fzf_custom_config ~/.fzf.zsh
-    fi
+		echo "====> Remove fzf plugin"
+		if [[ -f "${config_path}/bak/fzf.zsh.bak" ]]; then
+			mv "${config_path}/bak/fzf.zsh.bak" ~/.fzf.zsh
+		else
+			remove_fzf_custom_config ~/.fzf.zsh
+		fi
 
-    echo '====> Uninstall zsh config success'
-  fi
-
+		echo '====> Uninstall zsh config success'
+	fi
 fi
