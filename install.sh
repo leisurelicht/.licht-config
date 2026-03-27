@@ -4,6 +4,9 @@ has() {
 	command -v "$1" >/dev/null 2>&1
 }
 
+fzf_config_start="# Fzf Custom Config"
+fzf_config_end="# End Fzf Custom Config"
+
 brew_has() {
 	brew list --formula -1 "$1" >/dev/null 2>&1
 }
@@ -328,9 +331,12 @@ if [[ ${zsh} == 1 ]]; then
 	if [[ -f "${HOME}/.fzf.zsh" ]]; then
 		echo "====> Fzf config file [ ${HOME}/.fzf.zsh ] exist, update it."
 		fzf_config=$(cat "${config_path}/zsh/fzf.zsh")
-		if grep -qxF "# Fzf Custom Config" "${HOME}/.fzf.zsh"; then
+		if grep -qxF "${fzf_config_start}" "${HOME}/.fzf.zsh"; then
 			echo "====> Custom Fzf config is already insert to [ ${HOME}/.fzf.zsh ]"
 		else
+			if [[ ! -f "${config_path}/bak/fzf.zsh.bak" ]]; then
+				cp "${HOME}/.fzf.zsh" "${config_path}/bak/fzf.zsh.bak"
+			fi
 			echo "====> Append Custom Fzf config to [ ${HOME}/.fzf.zsh ]"
 			echo "${fzf_config}" >>"${HOME}"/.fzf.zsh
 		fi
@@ -339,7 +345,7 @@ if [[ ${zsh} == 1 ]]; then
 	# 备份已有的p10k.zsh文件
 	if [[ -f "${HOME}/.p10k.zsh" ]]; then
 		echo "====> P10k config file .p10k.zsh is exist."
-		echo "====> Backup to [ ${config_path/bak/} ] and delete it."
+		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.p10k.zsh" "${config_path}"/bak/p10k.zsh.bak
 		rm "${HOME}/.p10k.zsh" >/dev/null 2>&1
 	fi

@@ -1,9 +1,38 @@
 #!/usr/bin/env bash
 
+fzf_config_start="# Fzf Custom Config"
+fzf_config_end="# End Fzf Custom Config"
+
 config_path=$(
 	cd "$(dirname "${0}")" || exit
 	pwd
 )
+
+remove_fzf_custom_config() {
+	local target_file=$1
+	local tmp_file
+	local start_line
+	local end_line
+
+	if [[ ! -f "${target_file}" ]]; then
+		return
+	fi
+
+	start_line=$(grep -nFx "${fzf_config_start}" "${target_file}" | head -n 1 | cut -d: -f1)
+	if [[ -z "${start_line}" ]]; then
+		return
+	fi
+
+	end_line=$(grep -nFx "${fzf_config_end}" "${target_file}" | tail -n 1 | cut -d: -f1)
+	if [[ -n "${end_line}" && ${end_line} -ge ${start_line} ]]; then
+		tmp_file=$(mktemp)
+		sed "${start_line},${end_line}d" "${target_file}" >"${tmp_file}"
+		mv "${tmp_file}" "${target_file}"
+	else
+		sed -i.bak "${start_line},\$d" "${target_file}"
+		rm -f "${target_file}.bak"
+	fi
+}
 
 commands=("all" "zsh" "tmux" "vim" "neovim")
 command_found=0
@@ -109,18 +138,26 @@ if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
     echo '====> Remove zshrc'
     rm ~/.zshrc >/dev/null 2>&1
 
-    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
-      echo '====> Move zshrc file back'
-      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
-    fi
+	    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
+	      echo '====> Move zshrc file back'
+	      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+	    fi
 
-    echo "====> Remove P10k config"
-    rm ~/.p10k.zsh >/dev/null 2>&1
+	    echo "====> Remove P10k config"
+	    rm ~/.p10k.zsh >/dev/null 2>&1
+	    if [[ -f "${config_path}/bak/p10k.zsh.bak" ]]; then
+	      echo '====> Move P10k config file back'
+	      mv "${config_path}"/bak/p10k.zsh.bak ~/.p10k.zsh
+	    fi
 
-    echo "====> Remove fzf plugin"
-    rm -rf ~/.fzf.zsh >/dev/null 2>&1
+	    echo "====> Remove fzf plugin"
+	    if [[ -f "${config_path}/bak/fzf.zsh.bak" ]]; then
+	      mv "${config_path}"/bak/fzf.zsh.bak ~/.fzf.zsh
+	    else
+	      remove_fzf_custom_config ~/.fzf.zsh
+	    fi
 
-    echo '====> Uninstall zsh config success'
-  fi
+	    echo '====> Uninstall zsh config success'
+	  fi
 
 fi

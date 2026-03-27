@@ -28,3 +28,5 @@ export FZF_CTRL_T_OPTS='--height 60% --reverse --preview '"'"'[[ $(file --mime {
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export FZF_ALT_C_COMMAND="fd --type d --color=never"
+
+# End Fzf Custom Config
