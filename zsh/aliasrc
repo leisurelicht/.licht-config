@@ -111,8 +111,6 @@ if [[ $(uname) == "Darwin" ]]; then
     alias unproxy="unset all_proxy http_proxy https_proxy"
 
 
-    alias neovide='$(brew --prefix)/bin/neovide'
-
     alias cnvim="NVIM_APPNAME=NvChad nvim"
     alias anvim="NVIM_APPNAME=AstroNvim nvim"
 elif [[ $(uname -s) == "Linux" ]]; then
