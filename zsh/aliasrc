@@ -52,6 +52,7 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 
 # docker 快捷删除
+unalias dockerrmi 2>/dev/null
 dockerrmi() {
     local images
     images=$(docker images --filter "dangling=true" -q 2>/dev/null)
@@ -61,6 +62,7 @@ dockerrmi() {
         echo "No dangling images to remove"
     fi
 }
+unalias dockerrm 2>/dev/null
 dockerrm() {
     local containers
     containers=$(docker ps -a --filter "status=exited" -q 2>/dev/null)
