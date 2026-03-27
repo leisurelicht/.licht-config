@@ -81,7 +81,7 @@ shfmt -d install.sh uninstall.sh
 
 - Plugins managed via zinit
 - Aliases in separate file (aliasrc)
-- Private env vars in export_env (comment out sensitive values before committing)
+- Private env vars in export_env (not committed)
 
 ## Commit Convention
 
