@@ -82,7 +82,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export env
-[ -f ~/.licht-file/zsh/export_env ] && source ~/.licht-config/zsh/export_env
+[ -f ~/.licht-config/zsh/export_env ] && source ~/.licht-config/zsh/export_env
 
 # alias
 [ -f ~/.licht-config/zsh/aliasrc ] && source ~/.licht-config/zsh/aliasrc
