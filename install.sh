@@ -360,7 +360,12 @@ if [[ ${zsh} == 1 ]]; then
 	fi
 
 	# nvm
-	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+	if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
+		echo "====> NVM already installed, skipping."
+	else
+		echo "====> Installing NVM..."
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+	fi
 
 	# zinit
 	bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
