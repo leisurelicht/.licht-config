@@ -82,10 +82,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # export env
-[ -f ~/.licht-config/zsh/export_env ] && source ~/.licht-config/zsh/export_env
+[ -f "$HOME/.licht-config/zsh/export_env" ] && source "$HOME/.licht-config/zsh/export_env"
 
 # alias
-[ -f ~/.licht-config/zsh/aliasrc ] && source ~/.licht-config/zsh/aliasrc
+[ -f "$HOME/.licht-config/zsh/aliasrc" ] && source "$HOME/.licht-config/zsh/aliasrc"
 
 # shell-integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"

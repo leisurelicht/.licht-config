@@ -3,8 +3,6 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://github.com/leisurelicht/.licht-config#kitty">Kitty</a>
-  ·
   <a href="https://github.com/leisurelicht/.licht-config#zsh">Zsh</a>
   ·
   <a href="https://github.com/leisurelicht/.licht-config#tmux">Tmux</a>
@@ -34,7 +32,6 @@
 - Primarily for macOS, and sometimes use on ubuntu.
 
 - Include
-  - kitty configurations
   - tmux configurations
   - a simple vim configurations in one file
   - a custom neovim configurations base on [LazyVim](https://github.com/LazyVim/LazyVim).
@@ -47,7 +44,6 @@
 .
 ├── bak
 ├── installed // brew install soft list
-├── kitty // kitty configuration
 ├── LICENSE
 ├── README.md
 ├── tmux // tmux configuration
@@ -63,31 +59,6 @@
 ```bash
 git clone --depth=1 https://github.com/leisurelicht/.licht-config.git
 ```
-
-### Kitty
-
-#### Usage
-
-- install
-
-  ```bash
-  ./install.sh kitty
-  ```
-
-- uninstall
-
-  ```bash
-  ./uninstall.sh kitty
-  ```
-
-#### File structure
-
-```text
-.
-└── kitty.conf
-```
-
-----
 
 ### Zsh
 

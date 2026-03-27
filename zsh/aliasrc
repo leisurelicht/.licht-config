@@ -101,13 +101,6 @@ elif [[ $(uname -s) == "Linux" ]]; then
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi
 
-if [[ "$TERM" == "xterm-kitty" ]]; then
-    alias icat="kitty +kitten icat"
-    alias gdf="kitty +kitten diff"
-    alias themes="kitty +kitten themes"
-fi
-
-
 if command -v kubectl >/dev/null; then
     alias kgpa='kubectl get pods -A'
     alias kdf='kubectl delete -f .'

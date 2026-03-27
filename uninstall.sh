@@ -5,7 +5,7 @@ config_path=$(
 	pwd
 )
 
-commands=("all" "kitty" "zsh" "tmux" "vim" "neovim")
+commands=("all" "zsh" "tmux" "vim" "neovim")
 command_found=0
 for command in "${commands[@]}"; do
 	if [[ "${command}" == "${1}" ]]; then
@@ -17,26 +17,18 @@ done
 # 判断第一个命令行参数是否是 commands 中的一个
 if [[ ${command_found} -ne 1 ]]; then
 	echo "====> Error: Unknown parameter: ${1}"
-	echo "====> Usage: ./uninstall.sh [all|kitty|zsh|tmux|vim|neovim]"
+	echo "====> Usage: ./uninstall.sh [all|zsh|tmux|vim|neovim]"
 	exit 1
-fi
-
-if [[ "${1}" == "all" || "${1}" == "kitty" ]]; then
-	echo "====> Remove kitty config file"
-	rm -r ~/.config/kitty >/dev/null 2>&1
-
-	echo "====> Move kitty config folder back"
-	mv "${config_path}"/bak/kitty_bak ~/.config/kitty >/dev/null 2>&1
-
-	echo "====> Uninstall kitty config success"
 fi
 
 if [[ "${1}" == "all" || "${1}" == "tmux" ]]; then
 	echo "====> Remove tmux config file"
 	rm ~/.tmux.conf >/dev/null 2>&1
 
-	echo "====> Move backup tmux config file"
-	mv "${config_path}/bak/tmux.conf.bak" ~/.tmux.conf
+	if [[ -f "${config_path}/bak/tmux.conf.bak" ]]; then
+		echo "====> Move backup tmux config file"
+		mv "${config_path}/bak/tmux.conf.bak" ~/.tmux.conf
+	fi
 
 	echo "====> Delete tmux plugin"
 	rm -rf ~/.tmux >/dev/null 2>&1
@@ -55,8 +47,10 @@ if [[ "${1}" == "all" || "${1}" == "vim" ]]; then
 	echo '====> Remove vimrc'
 	rm ~/.vimrc >/dev/null 2>&1
 
-	echo '====> Move vimrc file back'
-	mv "${config_path}"/bak/vimrc.bak ~/.vimrc
+	if [[ -f "${config_path}/bak/vimrc.bak" ]]; then
+		echo '====> Move vimrc file back'
+		mv "${config_path}"/bak/vimrc.bak ~/.vimrc
+	fi
 
   echo "====> Delete vim plugin"
   rm -rf ~/.vim >/dev/null 2>&1
@@ -75,8 +69,10 @@ if [[ "${1}" == "all" || "${1}" == "neovim" ]]; then
 	echo '====> Remove nvim config'
 	rm -r ~/.config/nvim >/dev/null 2>&1
 
-	echo '====> Move nvim folder back'
-	mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+	if [[ -d "${config_path}/bak/nvim_bak" ]]; then
+		echo '====> Move nvim folder back'
+		mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+	fi
 
   echo "====> Delete neovim plugin"
   rm -rf ~/.local/share/nvim >/dev/null 2>&1
@@ -95,8 +91,10 @@ if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
   echo '====> Remove zshrc'
   rm ~/.zshrc >/dev/null 2>&1
 
-  echo '====> Move zshrc file back'
-  mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+  if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
+    echo '====> Move zshrc file back'
+    mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+  fi
 
   echo "====> Remove P10k config"
   rm ~/.p10k.zsh >/dev/null 2>&1

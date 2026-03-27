@@ -17,13 +17,6 @@ install_on_mac() {
 		brew install git
 	fi
 
-	if [[ ${kitty} == 1 ]]; then
-		if ! [[ ${brew_list} == *"kitty"* ]]; then
-			echo "----> Install [ kitty ]."
-			brew install kitty
-		fi
-	fi
-
 	if [[ ${zsh} == 1 ]]; then
 		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "eza")
 
@@ -100,13 +93,6 @@ install_on_mac() {
 
 install_on_linux() {
 	need_exit=0
-	if [[ ${kitty} == 1 ]]; then
-		if ! has "kitty"; then
-			echo "----> Please Install [ kitty ]."
-			need_exit=1
-		fi
-	fi
-
 	if [[ ${zsh} == 1 ]]; then
 		installed=(
 			"git" "git"
@@ -201,7 +187,7 @@ fi
 
 echo "====> Config file root path is: ${config_path}"
 
-commands=("all" "kitty" "zsh" "tmux" "vim" "neovim" "alacritty")
+commands=("all" "zsh" "tmux" "vim" "neovim")
 command_found=0
 for command in "${commands[@]}"; do
 	if [[ "${command}" == "${1}" ]]; then
@@ -213,18 +199,15 @@ done
 # 判断第一个命令行参数是否是 commands 中的一个
 if [[ ${command_found} -ne 1 ]]; then
 	echo "====> Error: Unknown parameter: ${1}"
-	echo "====> Usage: ./install.sh [all|kitty|zsh|tmux|vim|neovim|alacritty]"
+	echo "====> Usage: ./install.sh [all|zsh|tmux|vim|neovim]"
 	exit 1
 fi
 
-kitty=0 zsh=0 tmux=0 vim=0 neovim=0 alacritty=0
+zsh=0 tmux=0 vim=0 neovim=0
 
 case ${1} in
 all)
-	kitty=1 zsh=1 tmux=1 vim=1 neovim=1
-	;;
-kitty)
-	kitty=1
+	zsh=1 tmux=1 vim=1 neovim=1
 	;;
 zsh)
 	zsh=1
@@ -238,9 +221,6 @@ vim)
 neovim)
 	neovim=1
 	;;
-alacritty)
-  alacritty=1
-  ;;
 esac
 
 if [[ $(uname -s) == 'Darwin' ]]; then
@@ -263,32 +243,6 @@ if [ ! -d "${config_path}/bak" ]; then
 fi
 
 #
-if [[ ${kitty} == 1 ]]; then
-	if [ ! -d "${HOME}/.config/kitty" ]; then
-		mkdir "${HOME}/.config/kitty"
-	else
-		echo "====> Kitty config dir has exist"
-		echo "====> Backup to [ ${config_path}/bak ] and delete it."
-		mv "${HOME}/.config/kitty" "${config_path}/bak/kitty_bak"
-		mkdir "${HOME}/.config/kitty"
-	fi
-	echo "====> Create symlink for kitty config"
-	ln -sf "${config_path}/kitty/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
-fi
-
-if [[ ${alacritty} == 1 ]]; then
-	if [ ! -d "${HOME}/.config/alacritty" ]; then
-		mkdir "${HOME}/.config/alacritty"
-	else
-		echo "====> Alacritty config dir has exist"
-		echo "====> Backup to [ ${config_path}/bak ] and delete it."
-		mv "${HOME}/.config/alacritty" "${config_path}/bak/alacritty_bak"
-		mkdir "${HOME}/.config/alacritty"
-	fi
-	echo "====> Create symlink for alacritty config"
-	ln -sf "${config_path}/alacritty/alacritty.toml" "${HOME}/.config/alacritty/alacritty.toml"
-fi
-
 if [[ ${tmux} == 1 ]]; then
 	echo "====> Install tumx plugins manage plugin tpm"
 	if [ ! -d ~/.tmux/plugins/tpm ]; then
