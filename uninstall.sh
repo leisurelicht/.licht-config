@@ -5,11 +5,19 @@ config_path=$(
 	pwd
 )
 
-commands=("all" "kitty" "zsh" "tmux" "vi" "neovim")
+commands=("all" "kitty" "zsh" "tmux" "vim" "neovim")
+command_found=0
+for command in "${commands[@]}"; do
+	if [[ "${command}" == "${1}" ]]; then
+		command_found=1
+		break
+	fi
+done
+
 # 判断第一个命令行参数是否是 commands 中的一个
-if [[ ! "${commands[*]}" =~ ${1} ]]; then
+if [[ ${command_found} -ne 1 ]]; then
 	echo "====> Error: Unknown parameter: ${1}"
-	echo "====> Usage: ./uninstall.sh [all|kitty|zsh|tmux|vi|neovim]"
+	echo "====> Usage: ./uninstall.sh [all|kitty|zsh|tmux|vim|neovim]"
 	exit 1
 fi
 
@@ -99,4 +107,3 @@ if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
   echo '====> Uninstall zsh config success'
 
 fi
-

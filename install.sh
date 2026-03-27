@@ -7,7 +7,7 @@ has() {
 install_on_mac() {
 	if ! has brew; then
 		echo "====> [ brew ] is not installed, Start To install."
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
 
 	brew_list=$(brew list)
@@ -22,7 +22,9 @@ install_on_mac() {
 			echo "----> Install [ kitty ]."
 			brew install kitty
 		fi
-	elif [[ ${zsh} == 1 ]]; then
+	fi
+
+	if [[ ${zsh} == 1 ]]; then
 		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "eza")
 
 		for soft in "${installed[@]}"; do
@@ -42,12 +44,16 @@ install_on_mac() {
 		if [[ ! -e "${HOME}/.fzf.zsh" ]]; then
 			"$(brew --prefix)"/opt/fzf/install
 		fi
-	elif [[ ${tmux} == 1 ]]; then
+	fi
+
+	if [[ ${tmux} == 1 ]]; then
 		if ! [[ ${brew_list} == *"tmux"* ]]; then
 			echo "----> Install [ tmux ]."
 			brew install tmux
 		fi
-	elif [[ ${vim} == 1 ]]; then
+	fi
+
+	if [[ ${vim} == 1 ]]; then
 		installed+=("vim" "vim" "im-select" "im-select" "curl" "curl")
 		if ! brew tap | grep -q "daipeihust/tap"; then
 			brew tap daipeihust/tap
@@ -62,7 +68,9 @@ install_on_mac() {
 			fi
 			i=$((i + 2))
 		done
-	elif [[ ${neovim} == 1 ]]; then
+	fi
+
+	if [[ ${neovim} == 1 ]]; then
 		installed+=(
 			"nvim" "neovim"
 			"lua" "lua"
@@ -88,8 +96,8 @@ install_on_mac() {
 			fi
 			i=$((i + 2))
 		done
-	fi
-}
+		fi
+	}
 
 install_on_linux() {
 	need_exit=0
@@ -98,7 +106,9 @@ install_on_linux() {
 			echo "----> Please Install [ kitty ]."
 			need_exit=1
 		fi
-	elif [[ ${zsh} == 1 ]]; then
+	fi
+
+	if [[ ${zsh} == 1 ]]; then
 		installed=(
 			"git" "git"
 			"zsh" "zsh"
@@ -116,7 +126,9 @@ install_on_linux() {
 			fi
 			((i += 2))
 		done
-	elif [[ ${tmux} == 1 ]]; then
+	fi
+
+	if [[ ${tmux} == 1 ]]; then
 		installed=(
 			"git" "git"
 			"tmux" "tmux"
@@ -129,7 +141,9 @@ install_on_linux() {
 			fi
 			((i += 2))
 		done
-	elif [[ ${vim} == 1 ]]; then
+	fi
+
+	if [[ ${vim} == 1 ]]; then
 		installed=(
 			"git" "git"
 			"vim" "vim"
@@ -142,7 +156,9 @@ install_on_linux() {
 			fi
 			((i += 2))
 		done
-	elif [[ ${neovim} == 1 ]]; then
+	fi
+
+	if [[ ${neovim} == 1 ]]; then
 		installed=(
 			"git" "git"
 			"nvim" "neovim"
@@ -163,8 +179,8 @@ install_on_linux() {
 	fi
 	if [[ ${need_exit} == 1 ]]; then
 		exit 1
-	fi
-}
+		fi
+	}
 
 # ------------------------------
 
@@ -187,8 +203,16 @@ fi
 echo "====> Config file root path is: ${config_path}"
 
 commands=("all" "kitty" "zsh" "tmux" "vim" "neovim" "alacritty")
+command_found=0
+for command in "${commands[@]}"; do
+	if [[ "${command}" == "${1}" ]]; then
+		command_found=1
+		break
+	fi
+done
+
 # 判断第一个命令行参数是否是 commands 中的一个
-if [[ ! "${commands[*]}" =~ ${1} ]]; then
+if [[ ${command_found} -ne 1 ]]; then
 	echo "====> Error: Unknown parameter: ${1}"
 	echo "====> Usage: ./install.sh [all|kitty|zsh|tmux|vim|neovim|alacritty]"
 	exit 1
