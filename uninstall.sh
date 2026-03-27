@@ -41,21 +41,25 @@ if [[ "${1}" == "all" || "${1}" == "vim" ]]; then
 		echo '====> Uninstall vim'
 	else
 		echo '====> No vim'
-		exit 0
+		if [[ "${1}" == "vim" ]]; then
+			exit 0
+		fi
 	fi
 
-	echo '====> Remove vimrc'
-	rm ~/.vimrc >/dev/null 2>&1
+	if [ -h ~/.vimrc ]; then
+		echo '====> Remove vimrc'
+		rm ~/.vimrc >/dev/null 2>&1
 
-	if [[ -f "${config_path}/bak/vimrc.bak" ]]; then
-		echo '====> Move vimrc file back'
-		mv "${config_path}"/bak/vimrc.bak ~/.vimrc
+		if [[ -f "${config_path}/bak/vimrc.bak" ]]; then
+			echo '====> Move vimrc file back'
+			mv "${config_path}"/bak/vimrc.bak ~/.vimrc
+		fi
+
+	  echo "====> Delete vim plugin"
+	  rm -rf ~/.vim >/dev/null 2>&1
+
+	  echo '====> Uninstall vim config success'
 	fi
-
-  echo "====> Delete vim plugin"
-  rm -rf ~/.vim >/dev/null 2>&1
-
-  echo '====> Uninstall vim config success'
 fi
 
 if [[ "${1}" == "all" || "${1}" == "neovim" ]]; then
@@ -63,21 +67,25 @@ if [[ "${1}" == "all" || "${1}" == "neovim" ]]; then
 		echo '====> Uninstall neovim'
 	else
 		echo '====> No neovim'
-		exit 0
+		if [[ "${1}" == "neovim" ]]; then
+			exit 0
+		fi
 	fi
 
-	echo '====> Remove nvim config'
-	rm -r ~/.config/nvim >/dev/null 2>&1
+	if [ -h ~/.config/nvim ]; then
+		echo '====> Remove nvim config'
+		rm -r ~/.config/nvim >/dev/null 2>&1
 
-	if [[ -d "${config_path}/bak/nvim_bak" ]]; then
-		echo '====> Move nvim folder back'
-		mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+		if [[ -d "${config_path}/bak/nvim_bak" ]]; then
+			echo '====> Move nvim folder back'
+			mv "${config_path}"/bak/nvim_bak ~/.config/nvim >/dev/null 2>&1
+		fi
+
+	  echo "====> Delete neovim plugin"
+	  rm -rf ~/.local/share/nvim >/dev/null 2>&1
+
+	  echo '====> Uninstall neovim config success'
 	fi
-
-  echo "====> Delete neovim plugin"
-  rm -rf ~/.local/share/nvim >/dev/null 2>&1
-
-  echo '====> Uninstall neovim config success'
 fi
 
 if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
@@ -85,23 +93,27 @@ if [[ "${1}" == "all" || "${1}" == "zsh" ]]; then
     echo '====> Uninstall zsh'
   else
     echo '====> No zsh'
-    exit 0
+    if [[ "${1}" == "zsh" ]]; then
+      exit 0
+    fi
   fi
 
-  echo '====> Remove zshrc'
-  rm ~/.zshrc >/dev/null 2>&1
+  if [ -h ~/.zshrc ]; then
+    echo '====> Remove zshrc'
+    rm ~/.zshrc >/dev/null 2>&1
 
-  if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
-    echo '====> Move zshrc file back'
-    mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+    if [[ -f "${config_path}/bak/zshrc.bak" ]]; then
+      echo '====> Move zshrc file back'
+      mv "${config_path}"/bak/zshrc.bak ~/.zshrc
+    fi
+
+    echo "====> Remove P10k config"
+    rm ~/.p10k.zsh >/dev/null 2>&1
+
+    echo "====> Remove fzf plugin"
+    rm -rf ~/.fzf.zsh >/dev/null 2>&1
+
+    echo '====> Uninstall zsh config success'
   fi
-
-  echo "====> Remove P10k config"
-  rm ~/.p10k.zsh >/dev/null 2>&1
-
-  echo "====> Remove fzf plugin"
-  rm -rf ~/.fzf.zsh >/dev/null 2>&1
-
-  echo '====> Uninstall zsh config success'
 
 fi

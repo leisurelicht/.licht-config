@@ -63,7 +63,7 @@ install_on_mac() {
 	fi
 
 	if [[ ${neovim} == 1 ]]; then
-		installed+=(
+		installed=(
 			"nvim" "neovim"
 			"lua" "lua"
 			"luarocks" "luarocks"
@@ -226,7 +226,12 @@ esac
 if [[ $(uname -s) == 'Darwin' ]]; then
 	install_on_mac
 elif [[ $(uname -s) == 'Linux' ]]; then
-	os=$(awk '/DISTRIB_ID=/' /etc/*-release | sed 's/DISTRIB_ID=//' | tr '[:upper:]' '[:lower:]')
+	os=$(
+		awk -F= '
+			/^ID=/{gsub(/"/, "", $2); print tolower($2); exit}
+			/^DISTRIB_ID=/{gsub(/"/, "", $2); print tolower($2); exit}
+		' /etc/*-release
+	)
 	if [[ ${os} == "ubuntu" ]]; then
 		install_on_linux
 	elif [[ ${os} == "centos" ]]; then
@@ -260,7 +265,6 @@ if [[ ${tmux} == 1 ]]; then
 	if [ -f ~/.tmux.conf ]; then
 		echo "====> Tmux config file [tmux.conf] is exist, backup and delete it."
 		mv ~/.tmux.conf "${config_path}/bak/tmux.conf.bak"
-		rm ~/.tmux.conf >/dev/null 2>&1
 	fi
 
 	echo "====> Create symlink for tmux config"
@@ -318,7 +322,7 @@ if [[ ${zsh} == 1 ]]; then
 		echo "====> NVM already installed, skipping."
 	else
 		echo "====> Installing NVM..."
-		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 	fi
 
 	# zinit
@@ -359,10 +363,7 @@ if [[ ${zsh} == 1 ]]; then
 
 	echo "====> Change to zsh"
 	chsh -s /bin/zsh
-	zsh
-
-	# shellcheck disable=SC1090
-	source ~/.zshrc
+	zsh -lc 'source ~/.zshrc'
 fi
 
 echo "**** Please change Non-ASCII Font to Hack Nerd Font ****"
