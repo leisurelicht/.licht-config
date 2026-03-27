@@ -4,15 +4,17 @@ has() {
 	command -v "$1" >/dev/null 2>&1
 }
 
+brew_has() {
+	brew list --formula -1 "$1" >/dev/null 2>&1
+}
+
 install_on_mac() {
 	if ! has brew; then
 		echo "====> [ brew ] is not installed, Start To install."
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	fi
 
-	brew_list=$(brew list)
-
-	if ! [[ ${brew_list} == *"git"* ]]; then
+	if ! brew_has git; then
 		echo "----> Install [ git ]."
 		brew install git
 	fi
@@ -21,7 +23,7 @@ install_on_mac() {
 		installed=("lua" "zsh" "git" "fzf" "zoxide" "ripgrep" "bat" "trash" "fd" "eza")
 
 		for soft in "${installed[@]}"; do
-			if [[ ${brew_list} == *"${soft}"* ]]; then
+			if brew_has "${soft}"; then
 				echo "====> [ ${soft} ] has been installed."
 			else
 				echo "----> Install [${soft}]."
@@ -40,7 +42,7 @@ install_on_mac() {
 	fi
 
 	if [[ ${tmux} == 1 ]]; then
-		if ! [[ ${brew_list} == *"tmux"* ]]; then
+		if ! brew_has tmux; then
 			echo "----> Install [ tmux ]."
 			brew install tmux
 		fi
@@ -53,7 +55,7 @@ install_on_mac() {
 		fi
 
 		for soft in "${installed[@]}"; do
-			if [[ ${brew_list} == *"${soft}"* ]]; then
+			if brew_has "${soft}"; then
 				echo "====> [ ${soft} ] have been installed."
 			else
 				echo "----> Install [ ${soft} ]."
@@ -80,7 +82,7 @@ install_on_mac() {
 		fi
 
 		for ((i = 0; i < "${#installed[@]}"; )); do
-			if [[ ${brew_list} == *"${installed[$i + 1]}"* ]]; then
+			if brew_has "${installed[$i + 1]}"; then
 				echo "====> [ ${installed[$i + 1]} ] have been installed."
 			else
 				echo "----> Install [ ${installed[$i + 1]} ]."
@@ -169,21 +171,15 @@ install_on_linux() {
 
 # ------------------------------
 
-config_path="${HOME}/.licht-config"
+config_path=$(
+	cd "$(dirname "${0}")" || exit
+	pwd
+)
 
 current_path=$(
 	cd "$(dirname "${0}")" || exit
 	pwd
 )
-
-# 判断 config_path 与 current_path 是否不相同
-if [[ ! "${config_path}" == "${current_path}" ]]; then
-	if [ ! -d "${config_path}" ]; then
-		mkdir -p "${config_path}"
-	fi
-	# 将工作目录切换到 config_path
-	cd "${config_path}" || exit
-fi
 
 echo "====> Config file root path is: ${config_path}"
 
