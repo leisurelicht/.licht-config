@@ -339,7 +339,6 @@ if [[ ${zsh} == 1 ]]; then
 		echo "====> P10k config file .p10k.zsh is exist."
 		echo "====> Backup to [ ${config_path}/bak ] and delete it."
 		mv "${HOME}/.p10k.zsh" "${config_path}"/bak/p10k.zsh.bak
-		rm "${HOME}/.p10k.zsh" >/dev/null 2>&1
 	fi
 
 	echo "====> Create symlink for p10k config"

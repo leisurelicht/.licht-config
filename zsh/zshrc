@@ -44,7 +44,7 @@ if (( $+functions[zinit] )); then
   # 补全
   zinit light zsh-users/zsh-completions
   # git open
-  zinit ice lucide wait='1'
+  zinit ice lucid wait='1'
   zinit light paulirish/git-open
   # OMZ 插件
   zinit snippet OMZ::lib/history.zsh
