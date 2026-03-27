@@ -225,17 +225,7 @@ esac
 if [[ $(uname -s) == 'Darwin' ]]; then
 	install_on_mac
 elif [[ $(uname -s) == 'Linux' ]]; then
-	os=$(
-		awk -F= '
-			/^ID=/{gsub(/"/, "", $2); print tolower($2); exit}
-			/^DISTRIB_ID=/{gsub(/"/, "", $2); print tolower($2); exit}
-		' /etc/*-release
-	)
-	if [[ ${os} == "ubuntu" ]]; then
-		install_on_linux
-	elif [[ ${os} == "centos" ]]; then
-		install_on_linux
-	fi
+	install_on_linux
 fi
 
 if [ ! -d "${HOME}/.config/" ]; then
@@ -254,7 +244,7 @@ if [[ ${tmux} == 1 ]]; then
 
 		if [ $? -ne 0 ]; then
 			rm -r ~/.tmux/plugins/tpm >/dev/null 2>&1
-			echo "xxxx> Download tpm failed, install stop"
+			echo "====> Error: Download tpm failed, install stop"
 			exit 1
 		else
 			echo "====> Download tpm Succeed"
@@ -325,7 +315,15 @@ if [[ ${zsh} == 1 ]]; then
 	fi
 
 	# zinit
-	bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+	if ! bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"; then
+		echo "====> Error: Install zinit failed, install stop"
+		exit 1
+	fi
+
+	if [[ ! -f "${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git/zinit.zsh" ]]; then
+		echo "====> Error: Zinit was not installed correctly, install stop"
+		exit 1
+	fi
 
 	# 更新的 fzf 配置文件
 	if [[ -f "${HOME}/.fzf.zsh" ]]; then

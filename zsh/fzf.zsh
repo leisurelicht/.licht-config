@@ -5,11 +5,17 @@
 # Reinforce 'cd' command
 # ----------------------
 if [[ $(uname -s) == "Darwin" ]]; then
-    if [ ! -d /opt/homebrew/opt/fzf/shell/zsh-interactive-cd ]; then
-        git clone --depth 1 https://github.com/changyuheng/zsh-interactive-cd \
-            /opt/homebrew/opt/fzf/shell/zsh-interactive-cd
+    if command -v brew >/dev/null 2>&1; then
+        FZF_BREW_PREFIX="$(brew --prefix 2>/dev/null)"
+        FZF_INTERACTIVE_CD_DIR="${FZF_BREW_PREFIX}/opt/fzf/shell/zsh-interactive-cd"
+        if [ ! -d "${FZF_INTERACTIVE_CD_DIR}" ]; then
+            git clone --depth 1 https://github.com/changyuheng/zsh-interactive-cd \
+                "${FZF_INTERACTIVE_CD_DIR}"
+        fi
+        if [ -f "${FZF_INTERACTIVE_CD_DIR}/zsh-interactive-cd.plugin.zsh" ]; then
+            source "${FZF_INTERACTIVE_CD_DIR}/zsh-interactive-cd.plugin.zsh"
+        fi
     fi
-    source "/opt/homebrew/opt/fzf/shell/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh"
 fi
 
 # Alias

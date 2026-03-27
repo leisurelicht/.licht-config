@@ -24,35 +24,41 @@ export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 # zinit install
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
-source "${ZINIT_HOME}/zinit.zsh"
+if [[ -f "${ZINIT_HOME}/zinit.zsh" ]]; then
+  source "${ZINIT_HOME}/zinit.zsh"
+else
+  print -u2 "warning: zinit is not installed at ${ZINIT_HOME}"
+fi
 
 # zinit plugins
 #
-# Load powerlevel10k theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-# 语法高亮
-zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
-zinit light zdharma-continuum/fast-syntax-highlighting
-# 自动建议
-zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-# 补全
-zinit light zsh-users/zsh-completions
-# git open
-zinit ice lucide wait='1'
-zinit light paulirish/git-open
-# OMZ 插件
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::plugins/extract
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
-zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+if (( $+functions[zinit] )); then
+  # Load powerlevel10k theme
+  zinit ice depth=1; zinit light romkatv/powerlevel10k
+  # 语法高亮
+  zinit ice lucid wait='0' atinit='ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay'
+  zinit light zdharma-continuum/fast-syntax-highlighting
+  # 自动建议
+  zinit ice lucid wait='0' atload='_zsh_autosuggest_start'
+  zinit light zsh-users/zsh-autosuggestions
+  # 补全
+  zinit light zsh-users/zsh-completions
+  # git open
+  zinit ice lucide wait='1'
+  zinit light paulirish/git-open
+  # OMZ 插件
+  zinit snippet OMZ::lib/history.zsh
+  zinit snippet OMZ::plugins/extract
+  zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+  zinit snippet OMZ::plugins/vscode/vscode.plugin.zsh
+  # Load a few important annexes, without Turbo
+  # (this is currently required for annexes)
+  zinit light-mode for \
+      zdharma-continuum/zinit-annex-as-monitor \
+      zdharma-continuum/zinit-annex-bin-gem-node \
+      zdharma-continuum/zinit-annex-patch-dl \
+      zdharma-continuum/zinit-annex-rust
+fi
 ### End of Zinit's installer chunk
 
 # 快速跳转
